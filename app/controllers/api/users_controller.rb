@@ -22,15 +22,15 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
 
-    @user.update(user_params)
+    # @user.update(user_params)
 
-    # if current_user.id == @user.id
-    #   if @user.update(user_params)
-    #     render 'api/users/show'
-    #   else
-    #     puts "fail"
-    #   end
-    # end
+    if current_user.id == @user.id
+      if @user.update(user_params)
+        render 'api/users/show'
+      else
+        puts "fail"
+      end
+    end
   end
 
   private
