@@ -2,9 +2,10 @@ import { Route, Switch } from "react-router-dom";
 
 const App = () => (
   <div>
-    <Switch>
+    <h1>Hello still working!</h1>
+    {/* <Switch>
       <Route path="/feed" component={} />
-    </Switch>
+    </Switch> */}
   </div>
 );
 
