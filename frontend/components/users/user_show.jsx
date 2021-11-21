@@ -11,8 +11,9 @@ export default class UserShow extends React.Component {
 
     return(
       <div>
-        {user.email}
-        {user.password}
+        {user.firstName}
+        {user.lastName}
+        {user.currentLocation}
         <Link to={"/"}>Sign Up Page</Link>
       </div>
     )
