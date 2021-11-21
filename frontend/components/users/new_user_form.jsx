@@ -13,7 +13,7 @@ export default class NewUserForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.createUser(this.state);
+    this.props.createUser(this.state); // instead of create user, save to store, then render create profile form
     this.setState({
       email: "",
       password: "",
