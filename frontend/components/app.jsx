@@ -1,14 +1,13 @@
 import React from "react";
-import { Route } from "react-router";
-import { Routes } from "react-router-dom"
+import { Route, Switch } from "react-router";
 import NewUserFormContainer from "../components/users/new_user_form_container";
 
 const App = () => (
   <div>
     <h1>Hello still working!</h1>
-    <Routes>
+    <Switch>
       <Route path="/" component={NewUserFormContainer} />
-    </Routes>
+    </Switch>
   </div>
 );
 

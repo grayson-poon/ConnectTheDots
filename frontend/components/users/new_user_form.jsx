@@ -4,15 +4,26 @@ export default class NewUserForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = this.props.user;
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
     return (event) => this.setState({ [field]: event.target.value });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.createUser(this.state);
+    this.setState({
+      email: "",
+      password: "",
+    });
+  }
+
   render() {
     return (
-      <form>Sign Up for ConnectTheDots!
+      <form onSubmit={this.handleSubmit}>
+        Sign Up for ConnectTheDots!
         <label>Email
           <input
             type="text"
