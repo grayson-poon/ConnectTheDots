@@ -2,10 +2,11 @@ import * as UsersApiUtil from "../util/users_api_util";
 
 export const RECEIVE_USER = "RECEIVE_USER";
 
-const recieveUser = (user) => ({
+const recieveUser = ({ user }) => ({
   type: RECEIVE_USER,
   user
 });
+
 
 export const createUser = (user) => (dispatch) => (
   UsersApiUtil.createUser(user)
