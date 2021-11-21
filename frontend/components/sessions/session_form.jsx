@@ -20,7 +20,7 @@ export default class SessionForm extends React.Component {
     let { formtype } = this.props;
 
     return (
-      <form onSubmit={() => this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Email
           <input type="text" onChange={this.update("email")} value={this.state.email} />
