@@ -8,6 +8,8 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       newState[action.user.id] = action.user;
       return newState;
+    default:
+      return state;
   }
 };
 
