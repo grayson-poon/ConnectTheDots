@@ -10,30 +10,31 @@ const receiveUser = ({ user }) => {
   };
 };
 
-const receiveErrors = (errors) => {
+const receiveUserErrors = (errors) => {
   return {
     type: RECEIVE_USER_ERRORS,
     errors,
-  }
+  };
 };
 
 export const createUser = (user) => (dispatch) => {
+  // debugger
   return UsersApiUtil.createUser(user).then(
     (user) => dispatch(receiveUser(user)),
-    (errors) => dispatch(receiveErrors(errors.responseJSON))
-  )
+    (errors) => dispatch(receiveUserErrors(errors.responseJSON))
+  );
 };
 
 export const fetchUser = (userId) => (dispatch) => {
   return UsersApiUtil.fetchUser(userId).then(
     (user) => dispatch(receiveUser(user)),
-    (errors) => dispatch(receiveErrors(errors))
-  )
+    (errors) => dispatch(receiveUserErrors(errors))
+  );
 };
 
 export const updateUser = (user) => (dispatch) => {
   return UsersApiUtil.updateUser(user).then(
     (user) => dispatch(receiveUser(user)),
-    (errors) => dispatch(receiveErrors(errors))
-  )
+    (errors) => dispatch(receiveUserErrors(errors))
+  );
 };

@@ -4,10 +4,8 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   validates :email, :session_token, presence: true, uniqueness: true
-  validates :password_digest, presence: true
+  validates :password_digest, :first_name, :last_name, :current_location, :headline, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
-
-  has_one :profile, dependent: :destroy
 
   def self.find_by_credentials(email, password)
     @user = User.find_by(email: email)

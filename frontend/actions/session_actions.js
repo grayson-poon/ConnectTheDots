@@ -15,7 +15,7 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
-const receiveErrors = (errors) => ({
+const receiveSessionErrors = (errors) => ({
   type: RECEIVE_SESSION_ERRORS,
   errors,
 });
@@ -23,13 +23,13 @@ const receiveErrors = (errors) => ({
 export const login = (user) => (dispatch) => (
   SessionsApiUtil.login(user).then(
     (currentUser) => dispatch(receiveCurrentUser(currentUser)),
-    (errors) => dispatch(receiveErrors(errors.responseJSON))
+    (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
   )
 );
 
 export const logout = () => (dispatch) => (
   SessionsApiUtil.logout().then(
     () => dispatch(logoutCurrentUser()),
-    (errors) => dispatch(receiveErrors(errors))
+    (errors) => dispatch(receiveSessionErrors(errors))
   )
 );
