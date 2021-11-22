@@ -5,10 +5,9 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      render 'api/users/show'
+      render json: ["success"]
     else
       flash.now[:errors] = @user.errors.full_messages
-      # render :new
     end
   end
 
@@ -19,8 +18,6 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-
-    # @user.update(user_params)
 
     if current_user.id == @user.id
       if @user.update(user_params)

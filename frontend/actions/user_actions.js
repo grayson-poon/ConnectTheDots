@@ -8,10 +8,14 @@ const recieveUser = ({ user }) => ({
 });
 
 
-export const createUser = (user) => (dispatch) => (
-  UsersApiUtil.createUser(user)
-    .then((user) => dispatch(recieveUser(user))) // add another .then for logging user in?
-);
+export const createUser = (user) => (dispatch) => {
+  // debugger
+  return (
+    UsersApiUtil.createUser(user)
+      // .then((user) => dispatch(recieveUser(user))) // add another .then for logging user in?
+      .then((user) => console.log(user))
+  );
+};
 
 export const fetchUser = (userId) => (dispatch) => (
   UsersApiUtil.fetchUser(userId)
