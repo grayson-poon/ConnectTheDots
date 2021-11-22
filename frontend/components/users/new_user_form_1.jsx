@@ -49,6 +49,10 @@ export default class NewUserForm extends React.Component {
   }
 
   render() {
-    
+    return (
+      <div>
+        
+      </div>
+    )
   }
 };
