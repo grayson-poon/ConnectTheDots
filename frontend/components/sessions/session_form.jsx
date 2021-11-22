@@ -13,8 +13,9 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.login(this.state);
-    this.props.history.push("/feed");
+    this.props
+      .login(this.state)
+      .then(() => this.props.history.push(this.props.feedUrl));
   }
 
   render() {

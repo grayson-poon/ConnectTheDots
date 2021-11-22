@@ -12,6 +12,7 @@ export default class Feed extends React.Component {
   render() {
     return (
       <div>
+        Posts go here on the feed
         {/* {this.props.posts.map((post) => (
           <Post post={post} />
         ))} */}

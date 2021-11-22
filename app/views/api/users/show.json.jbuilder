@@ -1,4 +1,4 @@
-json.user do # json.banana, where banana the name of the key in the state
+json.user do
   json.extract! @user,
     :id,
     :first_name,

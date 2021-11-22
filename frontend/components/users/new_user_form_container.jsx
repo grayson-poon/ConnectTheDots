@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { createUser } from "../../actions/user_actions";
-import NewUserForm from "./new_user_form";
+import NewUserForm from "./new_user_form_1";
 
 const mSTP = (state) => ({
   user: {

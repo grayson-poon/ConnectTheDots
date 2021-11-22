@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
     if @user
       @user.reset_session_token!
       login(@user)
-      render '/api/users/show'
+      render "/api/users/show"
     else
       render json: ["Invalid username or password. Please try again"]
     end

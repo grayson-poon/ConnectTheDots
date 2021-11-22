@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.icons = this.icons.bind(this);
+    this.displayIcons = this.displayIcons.bind(this);
   }
 
-  icons() {
+  displayIcons() {
     let { currentUserId, logout } = this.props;
 
     return currentUserId ? (
       <div>
-        <Link to="/">Home</Link>
+        <Link to="/feed">Home</Link>
         <Link to={`/`}>My Network</Link>
         <Link to={`/users/${currentUserId}`}>Profile</Link>
         <button onClick={logout}>Logout</button>
@@ -30,7 +30,7 @@ export default class Navbar extends React.Component {
       <div>
         <h1>ConnectTheDots</h1>
         <div>
-          {this.icons()}
+          {this.displayIcons()}
         </div>
       </div>
     )
