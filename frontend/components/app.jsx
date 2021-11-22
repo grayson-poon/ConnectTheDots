@@ -6,10 +6,11 @@ import NewUserFormContainer from "../components/users/new_user_form_container";
 import UserShowContainer from "../components/users/user_show_container";
 import LoginFormContainer from "../components/sessions/login_form_container";
 import SplashContainer from "../components/splash/splash_container";
+import NavbarContainer from "../components/navbar/navbar_container";
 
 const App = () => (
   <div>
-    <h1>Hello still working!</h1>
+    <Route to="/" component={NavbarContainer} />
     <Switch>
       <AuthRoute exact path="/signup" component={NewUserFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
