@@ -11,8 +11,8 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       newState[action.user.id] = action.user;
       return newState;
-    case RECEIVE_CURRENT_USER:
-      newState[action.currentUser.id] = action.currentUser;
+    // case RECEIVE_CURRENT_USER:
+    //   newState[action.currentUser.id] = action.currentUser;
       return newState;
     case LOGOUT_CURRENT_USER:
       return _nullUsers;

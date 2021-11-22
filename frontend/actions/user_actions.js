@@ -1,26 +1,39 @@
 import * as UsersApiUtil from "../util/users_api_util";
 
 export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
 const receiveUser = ({ user }) => {
   return {
     type: RECEIVE_USER,
-    user
+    user,
   };
 };
 
-
-export const createUser = (user) => (dispatch) => {
-  return UsersApiUtil.createUser(user)
-    .then((user) => dispatch(receiveUser(user)));
+const receiveErrors = (errors) => {
+  return {
+    type: RECEIVE_USER_ERRORS,
+    errors,
+  }
 };
 
-export const fetchUser = (userId) => (dispatch) => (
-  UsersApiUtil.fetchUser(userId)
-    .then((user) => dispatch(receiveUser(user)))
-);
+export const createUser = (user) => (dispatch) => {
+  return UsersApiUtil.createUser(user).then(
+    (user) => dispatch(receiveUser(user)),
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
+  )
+};
 
-export const updateUser = (user) => (dispatch) => (
-  UsersApiUtil.updateUser(user)
-    .then((user) => dispatch(receiveUser(user)))
-);
+export const fetchUser = (userId) => (dispatch) => {
+  return UsersApiUtil.fetchUser(userId).then(
+    (user) => dispatch(receiveUser(user)),
+    (errors) => dispatch(receiveErrors(errors))
+  )
+};
+
+export const updateUser = (user) => (dispatch) => {
+  return UsersApiUtil.updateUser(user).then(
+    (user) => dispatch(receiveUser(user)),
+    (errors) => dispatch(receiveErrors(errors))
+  )
+};

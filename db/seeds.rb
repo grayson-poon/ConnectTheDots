@@ -61,3 +61,15 @@ User.create({
   headline: "Chef",
   about: "about",
 })
+
+# Demo User
+User.create({
+  email: "demo@user.com",
+  password: "password",
+  first_name: "Demo",
+  last_name: "User",
+  current_location: "San Francisco, California",
+  headline: "Demo User for ConnectTheDots",
+  about: "Demo User for ConnectTheDots",
+  profile_picture: "www.test.com",
+})

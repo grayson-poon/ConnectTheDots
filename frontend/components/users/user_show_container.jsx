@@ -5,6 +5,7 @@ import { fetchUser } from "../../actions/user_actions";
 const mSTP = (state, ownProps) => {
   return {
     user: state.entities.users[ownProps.match.params.userId],
+    errors: state.errors.userErrors,
   }
 };
 

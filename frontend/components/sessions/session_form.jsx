@@ -13,9 +13,24 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({
+      email: "",
+      password: "",
+    });
+
     this.props
       .login(this.state)
       .then(() => this.props.history.push(this.props.feedUrl));
+  }
+
+  displayErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
@@ -25,16 +40,28 @@ export default class SessionForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Email
-          <input type="text" onChange={this.update("email")} value={this.state.email} />
+          <input
+            type="text"
+            onChange={this.update("email")}
+            value={this.state.email}
+          />
         </label>
 
         <label>
           Password
-          <input type="password" onChange={this.update("password")} value={this.state.password} />
+          <input
+            type="password"
+            onChange={this.update("password")}
+            value={this.state.password}
+          />
         </label>
 
         <input type="submit" value={formtype} />
+
+        <div className="session-errors">
+          {this.displayErrors()}
+        </div>
       </form>
-    )
+    );
   }
 }

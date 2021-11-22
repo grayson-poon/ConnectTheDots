@@ -2,19 +2,43 @@ import React from "react";
 
 export default class UserShow extends React.Component {
   componentDidMount() {
-    if (!this.props.user) {
-      this.props.fetchUser(this.props.match.params.userId);
-    }
+    this.props.fetchUser(this.props.match.params.userId);
+  }
+
+  displayErrors() {
+    debugger
+
+    return (
+      <div>
+        <ul>
+          {this.props.errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+      </div>
+    )
   }
 
   render() {
     let { user } = this.props;
 
-    return(
+    return (user && this.props.errors) ? (
       <div>
-        {user.firstName}
-        {user.lastName}
-        {user.currentLocation}
+        {user ? (
+          <>
+            {user.firstName}
+            {user.lastName}
+            {user.currentLocation}
+          </>
+        ) : (
+          <>
+            {this.displayErrors()}
+          </>
+        )}
+      </div>
+    ) : (
+      <div>
+        loading...
       </div>
     )
   }

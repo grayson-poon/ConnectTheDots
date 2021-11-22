@@ -6,13 +6,18 @@ class Api::UsersController < ApplicationController
       login(@user)
       render "api/users/show"
     else
-      flash.now[:errors] = @user.errors.full_messages
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
   def show
     @user = User.find_by(id: params[:id])
-    render "api/users/show"
+
+    if @user
+      render "api/users/show"
+    else
+      render json: ["User not found"], status: 404
+    end
   end
 
   def update
@@ -22,7 +27,7 @@ class Api::UsersController < ApplicationController
       if @user.update(user_params)
         render 'api/users/show'
       else
-        puts "fail"
+        render json: @user.errors.full_messages, status: 302
       end
     end
   end

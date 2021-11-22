@@ -10,12 +10,18 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render "/api/users/show"
     else
-      render json: ["Invalid username or password. Please try again"]
+      render json: ["Invalid email or password. Please try again"], status: 401
     end
   end
 
   def destroy
-    logout
-    # render json: {}
+    @user = current_user
+
+    if @user
+      logout
+      # render "api/splash"
+    else
+      render json: ["Not signed in"], status: 404
+    end
   end
 end
