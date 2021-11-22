@@ -11,6 +11,10 @@ export default class NewUserForm extends React.Component {
     return (event) => this.setState({ [field]: event.target.value });
   }
 
+  nextForm() {
+
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     this.props.createUser(this.state); // instead of create user, save to store, then render create profile form
@@ -30,11 +34,9 @@ export default class NewUserForm extends React.Component {
     );
   }
 
-  emailAndPassword() {
+  
 
-  }
-
-  firstAndLastName() {
+  firstLastNameAndPronouns() {
 
   }
 
@@ -47,33 +49,6 @@ export default class NewUserForm extends React.Component {
   }
 
   render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        Sign Up for ConnectTheDots!
-        <label>
-          Email
-          <input
-            type="text"
-            onChange={this.update("email")}
-            value={this.state.email}
-          />
-        </label>
-
-        <label>
-          Password
-          <input
-            type="password"
-            onChange={this.update("password")}
-            value={this.state.password}
-          />
-        </label>
-
-        <input type="submit" value={this.props.formType} />
-        
-        <div>
-          {this.displayErrors()}
-        </div>
-      </form>
-    );
+    
   }
 };
