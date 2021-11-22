@@ -10,26 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_075304) do
+ActiveRecord::Schema.define(version: 2021_11_22_064207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "profiles", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "pronouns"
-    t.string "current_location", null: false
-    t.string "headline", null: false
-    t.text "about"
-    t.string "profile_picture"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["first_name"], name: "index_profiles_on_first_name"
-    t.index ["last_name"], name: "index_profiles_on_last_name"
-    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -37,7 +21,16 @@ ActiveRecord::Schema.define(version: 2021_11_21_075304) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "pronouns"
+    t.string "current_location", null: false
+    t.string "headline", null: false
+    t.text "about"
+    t.string "profile_picture"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name"
+    t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 

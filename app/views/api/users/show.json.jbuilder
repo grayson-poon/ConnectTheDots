@@ -1,9 +1,5 @@
-# json.user do
-#   json.extract! @user, :id, :email, :password
-# end
-
 json.user do # json.banana, where banana the name of the key in the state
-  json.extract! @user.profile,
+  json.extract! @user,
     :id,
     :first_name,
     :last_name,
@@ -11,8 +7,7 @@ json.user do # json.banana, where banana the name of the key in the state
     :current_location, 
     :headline, 
     :about,
-    :profile_picture,
-    :user_id
+    :profile_picture
 end
 
 # {

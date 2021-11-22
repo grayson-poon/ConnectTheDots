@@ -8,10 +8,11 @@ const mSTP = (state) => ({
     password: "",
   },
   formType: "login",
+  feedUrl: "/feed",
 });
 
 const mDTP = (dispatch) => ({
-  login: (user) => dispatch(login(user))
+  login: (user) => dispatch(login(user)),
 });
 
 export default connect(mSTP, mDTP)(SessionForm);

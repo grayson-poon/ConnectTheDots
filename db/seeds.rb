@@ -7,14 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Users
-User.create({ email: "first@gmail.com", password: "password"})
-User.create({ email: "second@gmail.com", password: "password"})
-User.create({ email: "third@gmail.com", password: "password"})
-User.create({ email: "fourth@gmail.com", password: "password"})
-User.create({ email: "fifth@gmail.com", password: "password"})
-
-# Profiles
-Profile.create({
+User.create({
+  email: "first@gmail.com",
+  password: "password",
   first_name: "First",
   last_name: "First",
   pronouns: "he/his",
@@ -22,10 +17,11 @@ Profile.create({
   headline: "Chef",
   about: "about",
   profile_picture: "www.test.com",
-  user_id: 1
 })
 
-Profile.create({
+User.create({
+  email: "second@gmail.com",
+  password: "password",
   first_name: "Second",
   last_name: "Second",
   pronouns: "she/her",
@@ -33,33 +29,35 @@ Profile.create({
   headline: "Chef",
   about: "about",
   profile_picture: "www.test.com",
-  user_id: 2
 })
 
-Profile.create({
+User.create({
+  email: "third@gmail.com",
+  password: "password",
   first_name: "Third",
   last_name: "Third",
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
   profile_picture: "www.test.com",
-  user_id: 3
 })
 
-Profile.create({
+User.create({
+  email: "fourth@gmail.com",
+  password: "password",
   first_name: "Fourth",
   last_name: "Fourth",
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
-  user_id: 4
 })
 
-Profile.create({
+User.create({
+  email: "fifth@gmail.com",
+  password: "password",
   first_name: "Fifth",
   last_name: "Fifth",
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
-  user_id: 5
 })
