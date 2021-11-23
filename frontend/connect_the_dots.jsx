@@ -20,8 +20,16 @@ import configureStore from "./store/store";
 // };
 
 document.addEventListener("DOMContentLoaded", () => {
+  let preloadedState;
+  if (window.currentUserId) {
+    preloadedState = {
+      session: {
+        currentUserId: window.currentUserId,
+      }
+    }
+  }
+
+  const store = configureStore(preloadedState);
   const root = document.getElementById("root");
-  const store = configureStore();
-  
   ReactDOM.render(<Root store={store} />, root);
 });

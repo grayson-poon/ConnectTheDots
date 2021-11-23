@@ -1,39 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const PREVIOUS = "PREVIOUS";
+const NEXT = "NEXT";
+
 export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.user;
+    this.state = {
+      user: this.props.user,
+      formNum: 1,
+    };
+
+    this.updateFormNum = this.updateFormNum.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  update(field) {
-    return (event) => this.setState({ [field]: event.target.value });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props
-      .createUser(this.state)
-      .then(() => this.props.history.push(this.props.feedUrl));
-  }
-
-  displayErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
-    let url = this.props.match.path;
-    let urlNum = parseInt(url[url.length - 1]);
-
-    switch (urlNum) {
+    switch (this.state.formNum) {
       case 1:
         return this.emailPasswordForm();
       case 2:
@@ -49,6 +33,39 @@ export default class SignupForm extends React.Component {
     }
   }
 
+  updateField(field) {
+    let user = Object.assign({}, this.state.user);
+    return (event) => {
+      user[field] = event.target.value;
+      this.setState({ user });
+    };
+  }
+
+  updateFormNum(event) {
+    event.preventDefault();
+
+    event.target.value === NEXT
+      ? this.setState({ formNum: this.state.formNum + 1 })
+      : this.setState({ formNum: this.state.formNum - 1 });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props
+      .createUser(this.state.user)
+      .then(() => this.props.history.push(this.props.feedUrl));
+  }
+
+  displayErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
   emailPasswordForm() {
     return (
       <form>
@@ -56,8 +73,8 @@ export default class SignupForm extends React.Component {
           Email*
           <input
             type="text"
-            onChange={this.update("email")}
-            value={this.state.email}
+            onChange={this.updateField("email")}
+            value={this.state.user.email}
             required
           />
         </label>
@@ -66,13 +83,16 @@ export default class SignupForm extends React.Component {
           Password*
           <input
             type="password"
-            onChange={this.update("password")}
-            value={this.state.password}
+            onChange={this.updateField("password")}
+            value={this.state.user.password}
             required
           />
         </label>
 
-        <Link to="/signup2">Next</Link>
+        <button onClick={this.updateFormNum} value={NEXT}>
+          Next
+        </button>
+        {/* <Link to="/signup2">Next</Link> */}
       </form>
     );
   }
@@ -84,8 +104,8 @@ export default class SignupForm extends React.Component {
           First Name*
           <input
             type="text"
-            onChange={this.update("firstName")}
-            value={this.state.firstName}
+            onChange={this.updateField("firstName")}
+            value={this.state.user.firstName}
             required
           />
         </label>
@@ -94,8 +114,8 @@ export default class SignupForm extends React.Component {
           Last Name*
           <input
             type="text"
-            onChange={this.update("lastName")}
-            value={this.state.lastName}
+            onChange={this.updateField("lastName")}
+            value={this.state.user.lastName}
             required
           />
         </label>
@@ -104,13 +124,19 @@ export default class SignupForm extends React.Component {
           Preferred Pronouns
           <input
             type="text"
-            onChange={this.update("pronouns")}
-            value={this.state.pronouns}
+            onChange={this.updateField("pronouns")}
+            value={this.state.user.pronouns}
           />
         </label>
 
-        <Link to="/signup1">Back</Link>
-        <Link to="/signup3">Next</Link>
+        {/* <Link to="/signup1">Back</Link>
+        <Link to="/signup3">Next</Link> */}
+        <button onClick={this.updateFormNum} value={PREVIOUS}>
+          Previous
+        </button>
+        <button onClick={this.updateFormNum} value={NEXT}>
+          Next
+        </button>
       </form>
     );
   }
@@ -123,14 +149,18 @@ export default class SignupForm extends React.Component {
           City/State*
           <input
             type="text"
-            onChange={this.update("currentLocation")}
-            value={this.state.currentLocation}
+            onChange={this.updateField("currentLocation")}
+            value={this.state.user.currentLocation}
             required
           />
         </label>
 
-        <Link to="/signup2">Back</Link>
-        <Link to="/signup4">Next</Link>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>
+          Previous
+        </button>
+        <button onClick={this.updateFormNum} value={NEXT}>
+          Next
+        </button>
       </form>
     );
   }
@@ -143,14 +173,18 @@ export default class SignupForm extends React.Component {
           Most recent job title*
           <input
             type="text"
-            onChange={this.update("headline")}
-            value={this.state.headline}
+            onChange={this.updateField("headline")}
+            value={this.state.user.headline}
             required
           />
         </label>
 
-        <Link to="/signup3">Back</Link>
-        <Link to="/signup5">Next</Link>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>
+          Previous
+        </button>
+        <button onClick={this.updateFormNum} value={NEXT}>
+          Next
+        </button>
       </form>
     );
   }
@@ -161,11 +195,13 @@ export default class SignupForm extends React.Component {
         <h1>Tell us a little bit about yourself</h1>
         <input
           type="text"
-          onChange={this.update("about")}
-          value={this.state.about}
+          onChange={this.updateField("about")}
+          value={this.state.user.about}
         />
 
-        <Link to="/signup4">Back</Link>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>
+          Previous
+        </button>
         <input type="submit" value={this.props.formType} />
       </form>
     );
