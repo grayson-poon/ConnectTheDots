@@ -84,8 +84,8 @@ export default class SignupForm extends React.Component {
           First Name*
           <input
             type="text"
-            onChange={this.update("first_name")}
-            value={this.state.first_name}
+            onChange={this.update("firstName")}
+            value={this.state.firstName}
             required
           />
         </label>
@@ -94,8 +94,8 @@ export default class SignupForm extends React.Component {
           Last Name*
           <input
             type="text"
-            onChange={this.update("last_name")}
-            value={this.state.last_name}
+            onChange={this.update("lastName")}
+            value={this.state.lastName}
             required
           />
         </label>
@@ -123,8 +123,8 @@ export default class SignupForm extends React.Component {
           City/State*
           <input
             type="text"
-            onChange={this.update("current_location")}
-            value={this.state.current_location}
+            onChange={this.update("currentLocation")}
+            value={this.state.currentLocation}
             required
           />
         </label>
