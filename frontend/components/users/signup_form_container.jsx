@@ -14,16 +14,17 @@ const mSTP = ({ errors }) => ({
   user: {
     email: "",
     password: "",
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     pronouns: "",
-    currentLocation: "",
+    current_location: "",
     headline: "",
     about: "",
-    profilePicture: "",
+    profile_picture: "",
   },
   formType: "Create User",
   errors: errors.userErrors,
+  feedUrl: "/feed",
 });
 
 const mDTP = (dispatch) => ({

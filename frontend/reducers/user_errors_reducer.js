@@ -4,6 +4,7 @@ import {
 } from "../actions/user_actions";
 
 const userErrorsReducer = (state = [], action) => {
+
   Object.freeze(state);
 
   switch (action.type) {

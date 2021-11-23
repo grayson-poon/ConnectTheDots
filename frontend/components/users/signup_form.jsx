@@ -13,9 +13,10 @@ export default class SignupForm extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     event.preventDefault();
-    this.props.createUser(this.state);
+    this.props
+      .createUser(this.state)
+      .then(() => this.props.history.push(this.props.feedUrl));
   }
 
   displayErrors() {
@@ -83,8 +84,8 @@ export default class SignupForm extends React.Component {
           First Name*
           <input
             type="text"
-            onChange={this.update("firstName")}
-            value={this.state.firstName}
+            onChange={this.update("first_name")}
+            value={this.state.first_name}
             required
           />
         </label>
@@ -93,8 +94,8 @@ export default class SignupForm extends React.Component {
           Last Name*
           <input
             type="text"
-            onChange={this.update("lastName")}
-            value={this.state.lastName}
+            onChange={this.update("last_name")}
+            value={this.state.last_name}
             required
           />
         </label>
@@ -122,8 +123,8 @@ export default class SignupForm extends React.Component {
           City/State*
           <input
             type="text"
-            onChange={this.update("currentLocation")}
-            value={this.state.currentLocation}
+            onChange={this.update("current_location")}
+            value={this.state.current_location}
             required
           />
         </label>
