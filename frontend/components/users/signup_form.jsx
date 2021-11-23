@@ -89,10 +89,7 @@ export default class SignupForm extends React.Component {
           />
         </label>
 
-        <button onClick={this.updateFormNum} value={NEXT}>
-          Next
-        </button>
-        {/* <Link to="/signup2">Next</Link> */}
+        <button onClick={this.updateFormNum} value={NEXT}>Next</button>
       </form>
     );
   }
@@ -129,14 +126,8 @@ export default class SignupForm extends React.Component {
           />
         </label>
 
-        {/* <Link to="/signup1">Back</Link>
-        <Link to="/signup3">Next</Link> */}
-        <button onClick={this.updateFormNum} value={PREVIOUS}>
-          Previous
-        </button>
-        <button onClick={this.updateFormNum} value={NEXT}>
-          Next
-        </button>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>Previous</button>
+        <button onClick={this.updateFormNum} value={NEXT}>Next</button>
       </form>
     );
   }
@@ -155,12 +146,8 @@ export default class SignupForm extends React.Component {
           />
         </label>
 
-        <button onClick={this.updateFormNum} value={PREVIOUS}>
-          Previous
-        </button>
-        <button onClick={this.updateFormNum} value={NEXT}>
-          Next
-        </button>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>Previous</button>
+        <button onClick={this.updateFormNum} value={NEXT}>Next</button>
       </form>
     );
   }
@@ -179,12 +166,8 @@ export default class SignupForm extends React.Component {
           />
         </label>
 
-        <button onClick={this.updateFormNum} value={PREVIOUS}>
-          Previous
-        </button>
-        <button onClick={this.updateFormNum} value={NEXT}>
-          Next
-        </button>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>Previous</button>
+        <button onClick={this.updateFormNum} value={NEXT}>Next</button>
       </form>
     );
   }
@@ -199,10 +182,12 @@ export default class SignupForm extends React.Component {
           value={this.state.user.about}
         />
 
-        <button onClick={this.updateFormNum} value={PREVIOUS}>
-          Previous
-        </button>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>Previous</button>
         <input type="submit" value={this.props.formType} />
+
+        <div className="form-errors">
+          {this.displayErrors()}
+        </div>
       </form>
     );
   }

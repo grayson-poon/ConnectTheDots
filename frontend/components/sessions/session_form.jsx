@@ -58,12 +58,10 @@ export default class SessionForm extends React.Component {
           />
         </label>
 
-        {/* <input type="submit" value="Login" /> */}
         <button onClick={this.handleSubmit} value="Login">Login</button>
         <button onClick={this.handleSubmit} value="Demo User">Demo User</button>
-        {/* <input type="submit" value="Demo User" /> */}
 
-        <div className="session-errors">
+        <div className="form-errors">
           {this.displayErrors()}
         </div>
       </form>
