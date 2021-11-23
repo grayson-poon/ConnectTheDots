@@ -16,6 +16,13 @@ const mSTP = ({ errors }) => ({
   },
   formType: "Create User",
   errors: errors.userErrors,
+  // formStatus: {
+  //   emailAndPassword: false,
+  //   firstLastNameAndPronouns: false,
+  //   currentLocation: false,
+  //   headline: false,
+  //   about: false,
+  // },
 });
 
 const mDTP = (dispatch) => ({

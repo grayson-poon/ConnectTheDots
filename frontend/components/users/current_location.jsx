@@ -1,13 +1,16 @@
+import React from "react";
+
 export const currentLocation = () => {
   return (
-    <form onSubmit={this.nextForm}>
+    <form onSubmit={this.nextForm()}>
       <h1>Where are you currently located?</h1>
       <label>
-        City/State 
+        City/State*
         <input
           type="text"
           onChange={this.update("currentLocation")}
           value={this.state.currentLocation}
+          required
         />
       </label>
 

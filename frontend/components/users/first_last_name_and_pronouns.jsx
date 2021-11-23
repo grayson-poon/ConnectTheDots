@@ -1,3 +1,5 @@
+import React from "react";
+
 export const firstLastNameAndPronouns = () => {
   return (
     <form onSubmit={this.nextForm}>
@@ -7,6 +9,7 @@ export const firstLastNameAndPronouns = () => {
           type="text"
           onChange={this.update("firstName")}
           value={this.state.firstName}
+          required
         />
       </label>
 
@@ -16,6 +19,7 @@ export const firstLastNameAndPronouns = () => {
           type="text"
           onChange={this.update("lastName")}
           value={this.state.lastName}
+          required
         />
       </label>
 

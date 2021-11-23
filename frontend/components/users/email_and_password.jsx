@@ -1,25 +1,29 @@
-export const emailAndPassword = () => {
-  return (
-    <form onSubmit={this.nextForm}>
-      <label>
-        Email
-        <input
-          type="text"
-          onChange={this.update("email")}
-          value={this.state.email}
-        />
-      </label>
+// import React from "react";
 
-      <label>
-        Password
-        <input
-          type="password"
-          onChange={this.update("password")}
-          value={this.state.password}
-        />
-      </label>
+// export const emailAndPassword = (nextForm) => {
+//   return (
+//     <form onSubmit={nextForm}>
+//       <label>
+//         Email*
+//         <input
+//           type="text"
+//           onChange={this.update("email")}
+//           value={this.state.email}
+//           required
+//         />
+//       </label>
 
-      <input type="submit" value="Next" />
-    </form>
-  );
-};
+//       <label>
+//         Password*
+//         <input
+//           type="password"
+//           onChange={this.update("password")}
+//           value={this.state.password}
+//           required
+//         />
+//       </label>
+
+//       <input type="submit" value="Next" />
+//     </form>
+//   );
+// };
