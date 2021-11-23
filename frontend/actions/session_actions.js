@@ -20,12 +20,14 @@ const receiveSessionErrors = (errors) => ({
   errors,
 });
 
-export const login = (user) => (dispatch) => (
-  SessionsApiUtil.login(user).then(
+export const login = (user) => (dispatch) => {
+  // debugger
+  return SessionsApiUtil.login(user).then(
+    // (res) => console.log(res, "response"),
     (currentUser) => dispatch(receiveCurrentUser(currentUser)),
     (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
   )
-);
+};
 
 export const logout = () => (dispatch) => (
   SessionsApiUtil.logout().then(

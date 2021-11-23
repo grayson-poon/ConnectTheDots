@@ -5,6 +5,7 @@ export default class SessionForm extends React.Component {
     super(props);
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -13,14 +14,15 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      email: "",
-      password: "",
-    });
-
-    this.props
-      .login(this.state)
-      .then(() => this.props.history.push(this.props.feedUrl));
+  
+   let promise = (event.target.value === "Demo User") ? (
+      this.props.login(this.props.demoUser)
+    ) : (
+      this.props.login(this.state)
+    );
+    
+    this.setState({ email: "", password: "" });
+    promise.then(() => this.props.history.push(this.props.feedUrl));
   }
 
   displayErrors() {
@@ -56,7 +58,10 @@ export default class SessionForm extends React.Component {
           />
         </label>
 
-        <input type="submit" value={formtype} />
+        {/* <input type="submit" value="Login" /> */}
+        <button onClick={this.handleSubmit} value="Login">Login</button>
+        <button onClick={this.handleSubmit} value="Demo User">Demo User</button>
+        {/* <input type="submit" value="Demo User" /> */}
 
         <div className="session-errors">
           {this.displayErrors()}

@@ -8,7 +8,11 @@ class Api::SessionsController < ApplicationController
     if @user
       @user.reset_session_token!
       login(@user)
-      render "/api/users/show"
+
+      # @connected_users
+      # @posts
+
+      render "/api/feed/feed"
     else
       render json: ["Invalid email or password. Please try again"], status: 401
     end

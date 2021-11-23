@@ -7,7 +7,10 @@ const mSTP = ({ errors }) => ({
     email: "",
     password: "",
   },
-  formType: "login",
+  demoUser: {
+    email: "demo@user.com",
+    password: "password",
+  },
   feedUrl: "/feed",
   errors: errors.sessionErrors,
 });

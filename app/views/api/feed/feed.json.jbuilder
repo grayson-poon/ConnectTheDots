@@ -1,3 +1,9 @@
+# @user.connections.each do |connection|
+#   json.set! connection.id do
+#     connection.posts
+#   end
+# end
+
 json.user do
   json.extract! @user,
     :id,
