@@ -37,3 +37,4 @@
 
 **/.byebug_history
 **/Gemfile.lock
+/app/assets/javascripts/bundle.js*
