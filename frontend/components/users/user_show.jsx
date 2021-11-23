@@ -6,8 +6,6 @@ export default class UserShow extends React.Component {
   }
 
   displayErrors() {
-    debugger
-
     return (
       <div>
         <ul>
