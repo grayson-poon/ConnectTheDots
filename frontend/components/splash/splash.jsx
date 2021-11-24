@@ -20,7 +20,7 @@ export default class Splash extends React.Component {
           />
         </div>
 
-        <div className="splash-container-2">
+        <div className="splash-component-2">
           <h1>
             Join your colleagues, classmates, and friends on ConnectTheDots{" "}
           </h1>
