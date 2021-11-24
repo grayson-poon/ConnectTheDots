@@ -23,13 +23,16 @@ export default class Navbar extends React.Component {
   splashNavbar() {
     return (
       <div className="splash-navbar">
-        <Link to={UrlPath.FEED}>
-          <img src="" alt="logo" />
-        </Link>
+        <div className="splash-navbar-logo">
+          <Link to={UrlPath.FEED}>
+            ConnectTheDots
+            <img src="" alt="" />
+          </Link>
+        </div>
 
         <div className="splash-navbar-buttons">
-          <Link to={UrlPath.SIGNUP_FORM}>Join now</Link>
-          <Link to={UrlPath.LOGIN_FORM}>Sign in</Link>
+          <Link id="signup" to={UrlPath.SIGNUP_FORM}>Join now</Link>
+          <Link id="login" to={UrlPath.LOGIN_FORM}>Sign in</Link>
         </div>
       </div>
     );

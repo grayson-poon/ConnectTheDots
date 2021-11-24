@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'page_container.scss';
+@import './splash_page/splash_navbar.scss';
+@import './splash_page/splash_container_1.scss';
