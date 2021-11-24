@@ -1,19 +1,20 @@
 div.splash-component-2 {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   position: relative;
   // background-image: url("splash-collage.jpg");
-  // width: 100%;
+  width: 100%;
 }
 
-// div.splash-component-2 img {
-//   position: absolute;
-//   top: 0%;
-//   left: 0%;
-//   max-width: 100%;
-// }
+div.splash-component-2 img {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  // max-width: 100%;
+}
 
-div.splash-component-2 div {
+div.splash-component-2 div.signup-link {
   z-index: 2;
 }
 
@@ -45,3 +46,9 @@ div.splash-component-2 h1 {
   color: black;
   line-height: 1.2;
 }
+
+// div.splash-footer {
+//   position: absolute;
+//   top: 100%;
+//   left: 0%;
+// }
