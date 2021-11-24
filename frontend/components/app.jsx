@@ -1,25 +1,28 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import * as UrlPath from "../util/url_paths_util";
 
-import UserShowContainer from "../components/users/user_show_container";
-import LoginFormContainer from "../components/sessions/login_form_container";
-import SplashContainer from "../components/splash/splash_container";
 import NavbarContainer from "../components/navbar/navbar_container";
-import FeedContainer from "../components/feed/feed_container";
 import SignupFormContainer from "./users/signup_form_container";
+import LoginFormContainer from "../components/sessions/login_form_container";
+import FeedContainer from "../components/feed/feed_container";
+import UserShowContainer from "../components/users/user_show_container";
+import SplashContainer from "../components/splash/splash_container";
+import FooterContainer from "../components/footer/footer_container";
 
 
 const App = () => (
-  <div>
-    <Route to="/" component={NavbarContainer} />
+  <div className="page-container">
+    <Route path={UrlPath.SPLASH} component={NavbarContainer} />
     <Switch>
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <ProtectedRoute path="/feed" component={FeedContainer} />
-      <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
-      <Route to="/" component={SplashContainer} />
+      <AuthRoute exact path={UrlPath.SIGNUP_FORM} component={SignupFormContainer} />
+      <AuthRoute exact path={UrlPath.LOGIN_FORM} component={LoginFormContainer} />
+      <ProtectedRoute path={UrlPath.FEED} component={FeedContainer} />
+      <ProtectedRoute path={UrlPath.USER_SHOW} component={UserShowContainer} />
+      <Route exact path={UrlPath.SPLASH} component={SplashContainer} />
     </Switch>
+    <Route exact path={UrlPath.SPLASH} component={FooterContainer} />
   </div>
 );
 

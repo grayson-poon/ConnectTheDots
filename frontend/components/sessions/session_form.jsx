@@ -1,11 +1,11 @@
 import React from "react";
+import { FEED } from "../../util/url_paths_util";
 
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -22,7 +22,7 @@ export default class SessionForm extends React.Component {
     );
     
     this.setState({ email: "", password: "" });
-    promise.then(() => this.props.history.push(this.props.feedUrl));
+    promise.then(() => this.props.history.push(FEED));
   }
 
   displayErrors() {
@@ -36,8 +36,6 @@ export default class SessionForm extends React.Component {
   }
 
   render() {
-    let { formtype } = this.props;
-
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
