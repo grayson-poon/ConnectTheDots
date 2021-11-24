@@ -24,7 +24,9 @@ export default class Splash extends React.Component {
           <h1>
             Join your colleagues, classmates, and friends on ConnectTheDots{" "}
           </h1>
-          <Link to={SIGNUP_FORM}>Get Started</Link>
+          <div>
+            <Link to={SIGNUP_FORM}>Get Started</Link>
+          </div>
         </div>
 
         {/* technologies footer goes here */}
