@@ -1,0 +1,79 @@
+* {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+div.login-navbar {
+  margin: 32px 0 0 56px;
+}
+
+div.login-navbar a {
+  color: rgb(10, 102, 194);
+  font-size: 25px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+div.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 352px;
+}
+
+div.login-form-join-now {
+  margin: 32px 0 0 0;
+}
+
+div.login-form-join-now div {
+  float: left;
+  margin-right: 8px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+div.login-form-join-now a {
+  text-decoration: none;
+  color: rgb(10, 102, 194);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+div.login-form div.email input {
+  width: 304px;
+  height: 25px;
+  padding: 12px;
+}
+
+div.login-form div.password input {
+  width: 304px;
+  height: 25px;
+  padding: 12px;
+}
+
+div.login-form-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.login-form-buttons button {
+  cursor: pointer;
+}
+
+div.login-form-header {
+  display: flex;
+  flex-direction: column;
+}
+
+div.login-form-header div:first-child {
+  font-size: 32px;
+}
+
+div.login-form-header div:last-child {
+  font-size: 14px; 
+}

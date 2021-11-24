@@ -1,5 +1,6 @@
 import React from "react";
-import { FEED } from "../../util/url_paths_util";
+import { Link } from "react-router-dom";
+import { FEED, SIGNUP_FORM } from "../../util/url_paths_util";
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -37,32 +38,50 @@ export default class SessionForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Email
-          <input
-            type="text"
-            onChange={this.update("email")}
-            value={this.state.email}
-          />
-        </label>
+      <div className="login-form">
 
-        <label>
-          Password
-          <input
-            type="password"
-            onChange={this.update("password")}
-            value={this.state.password}
-          />
-        </label>
-
-        <button onClick={this.handleSubmit} value="Login">Login</button>
-        <button onClick={this.handleSubmit} value="Demo User">Demo User</button>
-
-        <div className="form-errors">
-          {this.displayErrors()}
+        <div className="login-form-header">
+          <div>Sign in</div>
+          <div>Stay updated on your professional world</div>
         </div>
-      </form>
+
+        <form onSubmit={this.handleSubmit}>
+          <div className="email">
+            <input
+              type="text"
+              onChange={this.update("email")}
+              value={this.state.email}
+              placeholder="Email"
+            />
+          </div>
+
+          <div className="password">
+            <input
+              type="password"
+              onChange={this.update("password")}
+              value={this.state.password}
+              placeholder="Password"
+            />
+          </div>
+
+          <div className="login-form-buttons">
+            <button id="login" onClick={this.handleSubmit} value="Login">
+              Login
+            </button>
+
+            <button id="demo-user" onClick={this.handleSubmit} value="Demo User">
+              Demo User
+            </button>
+          </div>
+
+          <div className="form-errors">{this.displayErrors()}</div>
+        </form>
+
+        <div className="login-form-join-now">
+          <div>New to ConnectTheDots?</div>
+          <Link to={SIGNUP_FORM}>Join now</Link>
+        </div>
+      </div>
     );
   }
 }
