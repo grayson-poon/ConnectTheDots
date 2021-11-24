@@ -1,21 +1,26 @@
+* {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 div.splash-component-2 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   position: relative;
-  // background-image: url("splash-collage.jpg");
+  background-image: url("splash-collage.jpg");
+  background-size: auto 775px;
   width: 100%;
+  background-position: bottom;
+  height: 700px;
+  background-repeat: no-repeat;
+  margin: 25px 0 25px 0;
 }
 
-div.splash-component-2 img {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  // max-width: 100%;
-}
-
-div.splash-component-2 div.signup-link {
+div.signup-link {
   z-index: 2;
+  position: absolute;
+  top: 25%;
+  left: 15%;
 }
 
 div.splash-component-2 div a {
@@ -37,6 +42,10 @@ div.splash-component-2 div a:hover {
 }
 
 div.splash-component-2 h1 {
+  position: absolute;
+  top: 0%;
+  left: 15%;
+  right: 15%;
   z-index: 2;
   margin-top: 15px;
   margin-bottom: 30px;
@@ -47,8 +56,38 @@ div.splash-component-2 h1 {
   line-height: 1.2;
 }
 
-// div.splash-footer {
-//   position: absolute;
-//   top: 100%;
-//   left: 0%;
-// }
+div.splash-footer {
+  background-color: rgb(236, 234, 234);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 250px;
+}
+
+div.splash-footer img {
+
+}
+
+div.technologies-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 50%;
+  transform: translate(50%);
+  margin-top: 25px;
+}
+
+div.technologies-column-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+div.technologies-column-2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+}
+
+.technologies-column-1 li:first-child {
+  font-weight: 400;
+}
