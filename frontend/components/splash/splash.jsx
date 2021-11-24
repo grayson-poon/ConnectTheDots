@@ -12,11 +12,10 @@ export default class Splash extends React.Component {
       <div className="splash-container">
         <div className="splash-component-1">
           <h1>
-            Welcome to your professional community. This is the splash page n
-            stuff
+            Welcome to your professional community
           </h1>
           <img
-            src="https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/woman-2.png?raw=true"
+            src="https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/office-stock-5.png?raw=true"
             alt="woman"
           />
         </div>

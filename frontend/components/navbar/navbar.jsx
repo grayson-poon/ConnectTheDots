@@ -24,7 +24,7 @@ export default class Navbar extends React.Component {
     return (
       <div className="splash-navbar">
         <div className="splash-navbar-logo">
-          <Link to={UrlPath.FEED}>
+          <Link to={UrlPath.SPLASH}>
             ConnectTheDots
             <img src="" alt="" />
           </Link>
