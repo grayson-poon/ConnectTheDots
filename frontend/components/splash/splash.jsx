@@ -19,12 +19,11 @@ export default class Splash extends React.Component {
         </div>
 
         <div className="splash-component-2">
-          
-          <img
+          {/* <img
             src="https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/splash-collage.jpg?raw=true"
             alt="splash-collage"
-          />
-          
+          /> */}
+
           <h1>
             Join your colleagues, classmates, and friends on ConnectTheDots{" "}
           </h1>
