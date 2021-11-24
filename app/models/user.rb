@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :password_digest, :first_name, :last_name, :current_location, :headline, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  has_one_attached :profile_picture # may give future errors because this is the same name as the table column
+  has_one_attached :photo
 
   def self.find_by_credentials(email, password)
     @user = User.find_by(email: email)
