@@ -1,8 +1,19 @@
+div.splash-component-1 {
+  display: flex;
+  flex-direction: row;
+  width: inherit;
+  height: min-content;
+}
+
+div.splash-component-1 img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
 div.splash-container div.splash-component-1 h1 {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 56px;
   font-weight: 200;
   color: rgba(143, 88, 73, 1);
   line-height: 1.2;
-  // background-image: ;
 }
