@@ -20,7 +20,7 @@ const App = () => (
       <AuthRoute exact path={UrlPath.LOGIN_FORM} component={LoginFormContainer} />
       <ProtectedRoute path={UrlPath.FEED} component={FeedContainer} />
       <ProtectedRoute path={UrlPath.USER_SHOW} component={UserShowContainer} />
-      <Route exact path={UrlPath.SPLASH} component={SplashContainer} />
+      <AuthRoute exact path={UrlPath.SPLASH} component={SplashContainer} />
     </Switch>
     <Route exact path={UrlPath.SPLASH} component={FooterContainer} />
   </div>
