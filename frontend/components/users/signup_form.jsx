@@ -194,7 +194,7 @@ export default class SignupForm extends React.Component {
   profilePictureForm() {
     return (
       <form>
-        <input type="file" onChange={this.handleFile} />
+        <input type="file" onChange={this.handleFile} accept="image/*" />
 
         <button onClick={this.updateFormNum} value={PREVIOUS}>Previous</button>
         <button onClick={this.updateFormNum} value={NEXT}>Next</button>
