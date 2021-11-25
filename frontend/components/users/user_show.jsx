@@ -20,24 +20,21 @@ export default class UserShow extends React.Component {
   render() {
     let { user } = this.props;
 
-    return (user && this.props.errors) ? (
+    return user && this.props.errors ? (
       <div>
         {user ? (
           <>
             {user.firstName}
             {user.lastName}
             {user.currentLocation}
+            <img src={user.profilePicture} alt="profile picture" />
           </>
         ) : (
-          <>
-            {this.displayErrors()}
-          </>
+          <>{this.displayErrors()}</>
         )}
       </div>
     ) : (
-      <div>
-        loading...
-      </div>
-    )
+      <div>loading...</div>
+    );
   }
 };
