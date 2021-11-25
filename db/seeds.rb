@@ -16,7 +16,6 @@ User.create({
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
-  profile_picture: "www.test.com",
 })
 
 User.create({
@@ -28,7 +27,6 @@ User.create({
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
-  profile_picture: "www.test.com",
 })
 
 User.create({
@@ -39,7 +37,6 @@ User.create({
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
-  profile_picture: "www.test.com",
 })
 
 User.create({
@@ -71,5 +68,4 @@ User.create({
   current_location: "San Francisco, California",
   headline: "Demo User for ConnectTheDots",
   about: "Demo User for ConnectTheDots",
-  profile_picture: "www.test.com",
 })
