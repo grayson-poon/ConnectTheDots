@@ -19,7 +19,7 @@ export default class UserShow extends React.Component {
 
   render() {
     let { user } = this.props;
-
+    debugger
     return user && this.props.errors ? (
       <div>
         {user ? (

@@ -1,10 +1,11 @@
-export const createUser = (user) => (
+export const createUser = (user) =>
   $.ajax({
     method: "POST",
     url: "/api/users",
-    data: { user },
-  })
-);
+    data: user,
+    contentType: false,
+    processData: false,
+  });
 
 export const fetchUser = (userId) => (
   $.ajax({

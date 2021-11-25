@@ -6,7 +6,9 @@ json.user do
   json.current_location @user.current_location
   json.headline @user.headline
   json.about @user.about
-  json.profile_picture url_for(@user.photo)
+  if json.profile_picture
+    json.profile_picture url_for(@user.photo)
+  end
 end
 
 # json.extract! @user,

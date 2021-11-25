@@ -13,6 +13,7 @@ export default class SignupForm extends React.Component {
     };
 
     this.updateFormNum = this.updateFormNum.bind(this);
+    this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -27,10 +28,38 @@ export default class SignupForm extends React.Component {
       case 4:
         return this.headlineForm();
       case 5:
+        return this.profilePictureForm();
+      case 6:
         return this.aboutForm();
       default:
         return <div>Form does not exist</div>;
     }
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    // formData.append('user[profilePicture]', this.state.user.profilePicture);
+
+    Object.entries(this.state.user).forEach(([key, value]) => {
+      formData.append(`user[${key}]`, value);
+    })
+
+    debugger
+    this.props
+      .createUser(formData)
+      .then(() => this.props.history.push(FEED));
+  }
+
+  handleFile(event) {
+    let user = Object.assign({}, this.state.user);
+    let picture = event.currentTarget.files[0];
+
+    user["profilePicture"] = picture ? picture : "";
+
+    debugger
+    this.setState({ user });
   }
 
   updateField(field) {
@@ -49,12 +78,7 @@ export default class SignupForm extends React.Component {
       : this.setState({ formNum: this.state.formNum - 1 });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props
-      .createUser(this.state.user)
-      .then(() => this.props.history.push(FEED));
-  }
+  
 
   displayErrors() {
     return (
@@ -170,6 +194,17 @@ export default class SignupForm extends React.Component {
         <button onClick={this.updateFormNum} value={NEXT}>Next</button>
       </form>
     );
+  }
+
+  profilePictureForm() {
+    return (
+      <form>
+        <input type="file" onChange={this.handleFile} />
+
+        <button onClick={this.updateFormNum} value={PREVIOUS}>Previous</button>
+        <button onClick={this.updateFormNum} value={NEXT}>Next</button>
+      </form>
+    )
   }
 
   aboutForm() {
