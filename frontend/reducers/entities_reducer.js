@@ -5,7 +5,6 @@ const entitiesReducer = combineReducers({
   users: usersReducer,
   
   /*
-  profiles: profilesReducer,
   post: postsReducer,
   comments: commentsReducer,
   */

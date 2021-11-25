@@ -1,4 +1,5 @@
 import React from "react";
+import { FEED } from "../../util/url_paths_util";
 
 const PREVIOUS = "PREVIOUS";
 const NEXT = "NEXT";
@@ -52,7 +53,7 @@ export default class SignupForm extends React.Component {
     event.preventDefault();
     this.props
       .createUser(this.state.user)
-      .then(() => this.props.history.push(this.props.feedUrl));
+      .then(() => this.props.history.push(FEED));
   }
 
   displayErrors() {

@@ -16,14 +16,11 @@ export default class SessionForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
   
-   let promise = (event.target.value === "Demo User") ? (
-      this.props.login(this.props.demoUser)
-    ) : (
-      this.props.login(this.state)
-    );
+    event.target.value === "Demo User"
+      ? this.props.login(this.props.demoUser)
+      : this.props.login(this.state)
     
     this.setState({ email: "", password: "" });
-    promise.then(() => this.props.history.push(FEED));
   }
 
   displayErrors() {
