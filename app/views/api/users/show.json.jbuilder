@@ -6,7 +6,8 @@ json.user do
   json.current_location @user.current_location
   json.headline @user.headline
   json.about @user.about
-  if json.profile_picture
+  debugger
+  if @user.photo.attached?
     json.profile_picture url_for(@user.photo)
   end
 end

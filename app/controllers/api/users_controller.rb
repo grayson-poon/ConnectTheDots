@@ -44,7 +44,8 @@ class Api::UsersController < ApplicationController
       :current_location, 
       :headline, 
       :about,
-      :profile_picture,
+      # :profile_picture,
+      :photo,
     )
   end
 end
