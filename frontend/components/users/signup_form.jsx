@@ -38,15 +38,12 @@ export default class SignupForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
     const formData = new FormData();
-    // formData.append('user[profilePicture]', this.state.user.profilePicture);
 
     Object.entries(this.state.user).forEach(([key, value]) => {
-      formData.append(`user[${key}]`, value);
-    })
+      if (value) formData.append(`user[${key}]`, value);
+    });
 
-    debugger
     this.props
       .createUser(formData)
       .then(() => this.props.history.push(FEED));
@@ -54,9 +51,9 @@ export default class SignupForm extends React.Component {
 
   handleFile(event) {
     let user = Object.assign({}, this.state.user);
-    let picture = event.currentTarget.files[0];
+    let file = event.currentTarget.files[0];
 
-    user["profilePicture"] = picture ? picture : "";
+    user["profilePicture"] = file ? file : "";
 
     debugger
     this.setState({ user });
@@ -77,8 +74,6 @@ export default class SignupForm extends React.Component {
       ? this.setState({ formNum: this.state.formNum + 1 })
       : this.setState({ formNum: this.state.formNum - 1 });
   }
-
-  
 
   displayErrors() {
     return (
