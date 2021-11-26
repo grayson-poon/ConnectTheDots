@@ -6,13 +6,18 @@ div.session-navbar {
 }
 
 div.logo {
-  margin-left: ;
+  position: relative;
+  left: 10%;
 }
 
 div.logo img {
-  // max-height: 57px;
   position: absolute;
-  // top: -75px;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  max-height: 38px;
+  width: auto;
+  border-radius: 3px;
 }
 
 div.icons {
