@@ -1,4 +1,5 @@
 div.session-navbar {
+  border-bottom: 1px solid lightgray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -24,7 +25,6 @@ div.icons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  border-bottom: 1px solid lightgray;
 }
 
 div#feed {
