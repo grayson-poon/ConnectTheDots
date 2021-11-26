@@ -35,34 +35,46 @@ export default class UserShow extends React.Component {
 
     return (
       <div className="profile-page">
-        <div className="profile-background-image"></div>
+        <div className="profile-middle">
+          <div className="profile-background-image"></div>
 
-        <div>
-          <button className="edit-profile-picture">
+          <div className="profile-picture">
             {user.profilePicture ? (
-              <img src={user.profilePicture} alt="profile picture" />
-            ) : null}
-          </button>
-        </div>
-
-        <div className="profile-info">
-          <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
-          <div className="profile-headline">{`${user.headline}`}</div>
-          <div className="profile-current-location">{`${user.currentLocation}`}</div>
-          <div className="edit-profile"><button>Edit profile info</button></div>
-        </div>
-
-        <div className="activity">
-          <div className="title-and-button">
-            <h2>Activity</h2>
-            <button>Start a post</button>
+              <img
+                className="edit-profile-picture"
+                src={user.profilePicture}
+                alt="profile picture"
+              />
+            ) : (
+              <img
+                className="edit-profile-picture"
+                src="https://www.grow-force.com/wp-content/uploads/2020/03/LinkedIn-bad-profile-pictures-3.jpg"
+                alt="default-photo"
+              />
+            )}
           </div>
-          <h3>Number of followers</h3>
-          <div className="activity-about">
-            <p>Posts you created or commented on are displayed here</p>
+
+          <div className="profile-info">
+            <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
+            <div className="profile-headline">{`${user.headline}`}</div>
+            <div className="profile-current-location">{`${user.currentLocation}`}</div>
+            <div className="edit-profile">
+              <button>Edit profile info</button>
+            </div>
           </div>
-          <div className="activity-button">
-            <button>See all activity</button>
+
+          <div className="profile-activity">
+            <div className="title-and-button">
+              <h2>Activity</h2>
+              <button>Start a post</button>
+            </div>
+            <h3>Number of followers</h3>
+            <div className="activity-about">
+              <p>Posts you created or commented on are displayed here</p>
+            </div>
+            <div className="activity-button">
+              <button>See all activity</button>
+            </div>
           </div>
         </div>
 
