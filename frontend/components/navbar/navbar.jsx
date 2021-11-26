@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as UrlPath from "../../util/url_paths_util";
+import { LOGO_URL } from "../../util/logo_util";
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -79,7 +80,7 @@ export default class Navbar extends React.Component {
     return (
       <div className="session-navbar">
         <div className="logo">
-          
+
         </div>
 
         <div className="icons">
