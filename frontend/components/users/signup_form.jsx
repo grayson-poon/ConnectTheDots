@@ -1,5 +1,4 @@
 import React from "react";
-import { FEED } from "../../util/url_paths_util";
 
 const PREVIOUS = "PREVIOUS";
 const NEXT = "NEXT";
@@ -47,27 +46,20 @@ export default class SignupForm extends React.Component {
       formData.append(`user[${key}]`, value);
     });
 
-    this.props
-      .createUser(formData)
-      // .then(() => this.props.history.push(FEED));
+    this.props.createUser(formData);
   }
 
   handleFile(event) {
+    const fileReader = new FileReader();
     let user = Object.assign({}, this.state.user);
     let file = event.currentTarget.files[0];
-    const fileReader = new FileReader();
 
     fileReader.onloadend = () => {
       user["profilePicture"] = file ? file : "";
       this.setState({ user, photoUrl: fileReader.result });
     };
 
-    if (file) {
-      debugger
-      fileReader.readAsDataURL(file);
-    }
-    
-    // this.setState({ user });
+    if (file) fileReader.readAsDataURL(file);
   }
 
   updateField(field) {
