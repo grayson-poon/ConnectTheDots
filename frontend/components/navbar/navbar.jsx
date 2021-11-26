@@ -26,7 +26,6 @@ export default class Navbar extends React.Component {
         <div className="splash-navbar-logo">
           <Link to={UrlPath.SPLASH}>
             ConnectTheDots
-            <img src="" alt="" />
           </Link>
         </div>
 
