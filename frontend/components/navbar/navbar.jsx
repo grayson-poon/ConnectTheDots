@@ -80,7 +80,7 @@ export default class Navbar extends React.Component {
     return (
       <div className="session-navbar">
         <div className="logo">
-
+          <img src={LOGO_URL}/>
         </div>
 
         <div className="icons">
