@@ -3,13 +3,18 @@ import React from "react";
 export default class UserShow extends React.Component {
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
-    // debugger
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.match.params.userId !== prevProps.match.params.userId) {
       this.props.fetchUser(this.props.match.params.userId);
     }
+  }
+
+  render() {
+    let { user, errors } = this.props;
+
+    return user && errors ? this.profile() : this.loading();
   }
 
   displayErrors() {
@@ -22,12 +27,6 @@ export default class UserShow extends React.Component {
         </ul>
       </div>
     )
-  }
-
-  render() {
-    let { user, errors } = this.props;
-
-    return user && errors ? this.profile() : this.loading();
   }
 
   profile() {
@@ -57,6 +56,7 @@ export default class UserShow extends React.Component {
                   className="edit-profile-picture"
                   src={user.profilePicture}
                   alt="profile picture"
+                  // onClick={}
                 />
               ) : (
                 <img
@@ -106,7 +106,6 @@ export default class UserShow extends React.Component {
   }
 
   // render() {
-  //   debugger
   //   return user && this.props.errors ? (
   //     <div>
   //       {user ? (

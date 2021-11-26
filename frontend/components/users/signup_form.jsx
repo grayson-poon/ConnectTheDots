@@ -10,6 +10,7 @@ export default class SignupForm extends React.Component {
     this.state = {
       user: this.props.user,
       formNum: 1,
+      photoUrl: null,
     };
 
     this.updateFormNum = this.updateFormNum.bind(this);
@@ -54,10 +55,19 @@ export default class SignupForm extends React.Component {
   handleFile(event) {
     let user = Object.assign({}, this.state.user);
     let file = event.currentTarget.files[0];
+    const fileReader = new FileReader();
 
-    user["profilePicture"] = file ? file : "";
+    fileReader.onloadend = () => {
+      user["profilePicture"] = file ? file : "";
+      this.setState({ user, photoUrl: fileReader.result });
+    };
 
-    this.setState({ user });
+    if (file) {
+      debugger
+      fileReader.readAsDataURL(file);
+    }
+    
+    // this.setState({ user });
   }
 
   updateField(field) {
@@ -193,14 +203,28 @@ export default class SignupForm extends React.Component {
   }
 
   profilePictureForm() {
+    let preview = this.state.photoUrl ? (
+      <img src={this.state.photoUrl} />
+    ) : null;
+
     return (
       <form>
+        <div className="header">
+          {preview ? <h2>Profile picture preview</h2> : null}
+        </div>
+
+        <div className="image-preview">{preview}</div>
+
         <input type="file" onChange={this.handleFile} accept="image/*" />
 
-        <button onClick={this.updateFormNum} value={PREVIOUS}>Previous</button>
-        <button onClick={this.updateFormNum} value={NEXT}>Next</button>
+        <button onClick={this.updateFormNum} value={PREVIOUS}>
+          Previous
+        </button>
+        <button onClick={this.updateFormNum} value={NEXT}>
+          Next
+        </button>
       </form>
-    )
+    );
   }
 
   aboutForm() {
