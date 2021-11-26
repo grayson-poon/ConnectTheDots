@@ -1,4 +1,5 @@
 import React from "react";
+import { LOGO_URL } from "../../util/logo_util";
 import * as UrlPath from "../../util/url_paths_util";
 
 export default class Footer extends React.Component {
@@ -28,9 +29,20 @@ export default class Footer extends React.Component {
   splashFooter() {
     return (
       <div className="splash-footer">
-        <img alt="logo" />
+        <div id="footer-logo">
+          <img src={LOGO_URL} />
+        </div>
 
-        <div className="technologies-container">
+        <div className="lists-container">
+          <div className="links-column">
+            <ul>
+              <li>Personal Links</li>
+              <li><a href="">GitHub</a></li>
+              <li><a href="">LinkedIn</a></li>
+              <li><a href=""></a></li>
+            </ul>
+          </div>
+          
           <div className="technologies-column-1">
             <ul>
               <li>Technologies</li>

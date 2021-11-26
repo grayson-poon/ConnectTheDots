@@ -5,7 +5,6 @@
 div.splash-component-2 {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   position: relative;
   background-image: url("splash-collage.jpg");
   background-size: auto 775px;
@@ -14,31 +13,6 @@ div.splash-component-2 {
   height: 700px;
   background-repeat: no-repeat;
   margin: 25px 0 25px 0;
-}
-
-div.signup-link {
-  z-index: 2;
-  position: absolute;
-  top: 25%;
-  left: 15%;
-}
-
-div.splash-component-2 div a {
-  padding: 16px 20px;
-  margin-bottom: 25px;
-  color: white;
-  background-color: rgb(10, 102, 194);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 20px;
-  font-weight: 400;
-  text-decoration: none;
-  border-radius: 28px;
-  float: left;
-}
-
-div.splash-component-2 div a:hover {
-  text-decoration: underline;
-  background-color: rgb(3, 83, 163);
 }
 
 div.splash-component-2 h1 {
@@ -56,38 +30,27 @@ div.splash-component-2 h1 {
   line-height: 1.2;
 }
 
-div.splash-footer {
-  background-color: rgb(236, 234, 234);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  min-height: 250px;
+div.signup-link {
+  z-index: 2;
+  position: absolute;
+  top: 28%;
+  left: 15%;
 }
 
-// div.splash-footer img {
-
-// }
-
-div.technologies-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-right: 50%;
-  transform: translate(50%);
-  margin-top: 25px;
-}
-
-div.technologies-column-1 {
-  display: flex;
-  flex-direction: column;
-}
-
-div.technologies-column-2 {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20%;
-}
-
-.technologies-column-1 li:first-child {
+div.splash-component-2 div.signup-link a {
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  color: white;
+  background-color: rgb(10, 102, 194);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 20px;
   font-weight: 400;
+  text-decoration: none;
+  border-radius: 28px;
+  float: left;
+}
+
+div.splash-component-2 div.signup-link a:hover {
+  text-decoration: underline;
+  background-color: rgb(3, 83, 163);
 }
