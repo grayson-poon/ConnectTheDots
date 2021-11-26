@@ -36,34 +36,48 @@ export default class UserShow extends React.Component {
     return (
       <div className="profile-page">
         <div className="profile-middle">
-          <div className="profile-background-image"></div>
-
-          <div className="profile-picture">
-            {user.profilePicture ? (
+          <div className="profile-middle-1">
+            <div className="edit-background-image">
               <img
-                className="edit-profile-picture"
-                src={user.profilePicture}
-                alt="profile picture"
+                src="https://cdn1.iconfinder.com/data/icons/color-bold-style/21/20-512.png"
+                alt="default photo"
               />
-            ) : (
-              <img
-                className="edit-profile-picture"
-                src="https://www.grow-force.com/wp-content/uploads/2020/03/LinkedIn-bad-profile-pictures-3.jpg"
-                alt="default-photo"
-              />
-            )}
-          </div>
+            </div>
 
-          <div className="profile-info">
-            <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
-            <div className="profile-headline">{`${user.headline}`}</div>
-            <div className="profile-current-location">{`${user.currentLocation}`}</div>
-            <div className="edit-profile">
-              <button>Edit profile info</button>
+            <div className="profile-background-image">
+              <img
+                src="https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/profile-background-image.jpg?raw=true"
+                alt="default image"
+              />
+            </div>
+
+            <div className="profile-picture">
+              {user.profilePicture ? (
+                <img
+                  className="edit-profile-picture"
+                  src={user.profilePicture}
+                  alt="profile picture"
+                />
+              ) : (
+                <img
+                  className="edit-profile-picture"
+                  src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+                  alt="default-photo"
+                />
+              )}
+            </div>
+
+            <div className="profile-info">
+              <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
+              <div className="profile-headline">{`${user.headline}`}</div>
+              <div className="profile-current-location">{`${user.currentLocation}`}</div>
+              <div className="edit-profile">
+                <button>Edit profile info</button>
+              </div>
             </div>
           </div>
 
-          <div className="profile-activity">
+          <div className="profile-middle-2">
             <div className="title-and-button">
               <h2>Activity</h2>
               <button>Start a post</button>
