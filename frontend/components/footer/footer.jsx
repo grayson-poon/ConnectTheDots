@@ -37,12 +37,26 @@ export default class Footer extends React.Component {
           <div className="links-column">
             <ul>
               <li>Personal Links</li>
-              <li><a href="">GitHub</a></li>
-              <li><a href="">LinkedIn</a></li>
-              <li><a href=""></a></li>
+              <li>
+                <a
+                  href="https://github.com/grayson-poon/ConnectTheDots"
+                  target="_blank"
+                >
+                  GitHub
+                </a>
+              </li>
+              
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/grayson-poon/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </li>
             </ul>
           </div>
-          
+
           <div className="technologies-column-1">
             <ul>
               <li>Technologies</li>
