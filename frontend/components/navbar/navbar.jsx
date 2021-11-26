@@ -7,6 +7,10 @@ export default class Navbar extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchUser(this.props.currentUserId);
+  }
+
   render() {
     let url = this.props.location.pathname;
 
@@ -74,10 +78,36 @@ export default class Navbar extends React.Component {
 
     return (
       <div className="session-navbar">
-        <Link to={UrlPath.FEED}>Home</Link>
-        <Link to={UrlPath.MY_NETWORK}>My Network</Link>
-        <Link to={`/users/${currentUserId}`}>Profile</Link>
-        <button onClick={logout}>Logout</button>
+        <div className="logo">
+          
+        </div>
+
+        <div className="icons">
+          <div id="feed">
+            <Link to={UrlPath.FEED}>
+              <img src="https://static.thenounproject.com/png/3574480-200.png" />
+              <div>Home</div>
+            </Link>
+          </div>
+
+          <div id="my-network">
+            <Link to={UrlPath.MY_NETWORK}>
+              <img src="https://icons-for-free.com/iconfiles/png/512/linkedin+network+users+icon-1320184664350339756.png" />
+              <div>My Network</div>
+            </Link>
+          </div>
+
+          <div id="profile">
+            <Link to={`/users/${currentUserId}`}>
+              <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" />
+              <div id="dropdown">
+                <div>Me</div>
+                <img src="https://cdn-icons-png.flaticon.com/512/60/60995.png" />
+              </div>
+            </Link>
+          </div>
+          <button onClick={logout}>Logout</button>
+        </div>
       </div>
     );
   }

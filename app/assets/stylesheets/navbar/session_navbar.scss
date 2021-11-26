@@ -1,0 +1,97 @@
+
+
+div.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-bottom: 1px solid lightgray;
+}
+
+div#feed {
+  padding: 0 10px 10px;
+}
+
+div#feed a {
+  text-decoration: none;
+}
+
+div#feed img {
+  display: block;
+  margin: auto;
+  max-height: 35px;
+  width: auto;
+}
+
+div#feed div {
+  text-align: center;
+  color: black;
+  font-size: 12px;
+}
+
+div#feed:hover div {
+  text-decoration: underline;
+}
+
+
+div#my-network {
+  padding: 0 10px 10px;
+}
+
+div#my-network a {
+  text-decoration: none;
+}
+
+div#my-network img {
+  display: block;
+  margin: auto;
+  max-height: 35px;
+  width: auto;
+}
+
+div#my-network div {
+  text-align: center;
+  color: black;
+  font-size: 12px;
+}
+
+div#my-network:hover div {
+  text-decoration: underline;
+}
+
+
+div#profile {
+  padding: 0 10px 10px;
+  border-right: 1px solid lightgray;
+  margin-right: 160px;
+}
+
+div#profile a {
+  text-decoration: none;
+  color: black;
+}
+
+div#profile img {
+  display: block;
+  margin: auto;
+  max-height: 35px;
+  width: auto;
+}
+
+div#profile div#dropdown {
+  display: flex;
+  flex-direction: row;
+}
+
+div#profile div#dropdown div {
+  font-size: 12px;
+  color: black;
+}
+
+div#profile:hover div#dropdown div {
+  text-decoration: underline;
+}
+
+div#profile div#dropdown img {
+  width: 12px;
+  height: auto;
+}
