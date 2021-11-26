@@ -9,7 +9,11 @@ export default class Navbar extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.currentUserId);
+    this.props.location.pathname === UrlPath.SPLASH ||
+    this.props.location.pathname === UrlPath.LOGIN_FORM ||
+    this.props.location.pathname === UrlPath.SIGNUP_FORM
+      ? null
+      : this.props.fetchUser(this.props.currentUserId);
   }
 
   render() {
