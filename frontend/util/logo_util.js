@@ -1,1 +1,2 @@
 export const LOGO_URL = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/logo.png?raw=true";
+export const NAVICON_URL = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/favicon.png?raw=true";

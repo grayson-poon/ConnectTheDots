@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as UrlPath from "../../util/url_paths_util";
-import { LOGO_URL } from "../../util/logo_util";
+import { LOGO_URL, NAVICON_URL } from "../../util/logo_util";
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -50,8 +50,7 @@ export default class Navbar extends React.Component {
     return (
       <div className="login-navbar">
         <Link to={UrlPath.SPLASH}>
-          <img src="" alt="" />
-          ConnectTheDots
+          <img src={LOGO_URL} />
         </Link>
       </div>
     );
@@ -60,16 +59,9 @@ export default class Navbar extends React.Component {
   signupNavbar() {
     return (
       <div className="signup-navbar">
-        <div className="signup-navbar-logo">
           <Link to={UrlPath.SPLASH}>
-            <img src="" alt="" />
-            ConnectTheDots
+            <img src={LOGO_URL}/>
           </Link>
-        </div>
-
-        <div className="signup-navbar-message">
-          <h1>Make the most out of your professional life</h1>
-        </div>
       </div>
     );
   }
@@ -80,7 +72,7 @@ export default class Navbar extends React.Component {
     return (
       <div className="session-navbar">
         <div className="logo">
-          <img src="https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/favicon.png?raw=true" />
+          <img src={NAVICON_URL} />
         </div>
 
         <div className="icons">

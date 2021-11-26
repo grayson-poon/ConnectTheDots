@@ -91,6 +91,10 @@ export default class SignupForm extends React.Component {
   emailPasswordForm() {
     return (
       <form>
+        <div className="signup-message">
+          <h1>Make the most out of your professional life</h1>
+        </div>
+
         <label>
           Email*
           <input
@@ -111,7 +115,9 @@ export default class SignupForm extends React.Component {
           />
         </label>
 
-        <button onClick={this.updateFormNum} value={NEXT}>Next</button>
+        <button onClick={this.updateFormNum} value={NEXT}>
+          Next
+        </button>
       </form>
     );
   }
