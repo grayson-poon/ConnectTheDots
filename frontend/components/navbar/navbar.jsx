@@ -7,31 +7,35 @@ export default class Navbar extends React.Component {
     super(props);
   }
 
-  sessionNavbar() {
-    let { currentUserId, logout } = this.props;
+  render() {
+    let url = this.props.location.pathname;
 
-    return (
-      <div className="session-navbar">
-        <Link to={UrlPath.FEED}>Home</Link>
-        <Link to={UrlPath.MY_NETWORK}>My Network</Link>
-        <Link to={`/users/${currentUserId}`}>Profile</Link>
-        <button onClick={logout}>Logout</button>
-      </div>
-    );
+    switch (url) {
+      case UrlPath.SPLASH:
+        return this.splashNavbar();
+      case UrlPath.LOGIN_FORM:
+        return this.loginNavbar();
+      case UrlPath.SIGNUP_FORM:
+        return this.signupNavbar();
+      default:
+        return this.sessionNavbar();
+    }
   }
 
   splashNavbar() {
     return (
       <div className="splash-navbar">
         <div className="splash-navbar-logo">
-          <Link to={UrlPath.SPLASH}>
-            ConnectTheDots
-          </Link>
+          <Link to={UrlPath.SPLASH}>ConnectTheDots</Link>
         </div>
 
         <div className="splash-navbar-buttons">
-          <Link id="signup" to={UrlPath.SIGNUP_FORM}>Join now</Link>
-          <Link id="login" to={UrlPath.LOGIN_FORM}>Sign in</Link>
+          <Link id="signup" to={UrlPath.SIGNUP_FORM}>
+            Join now
+          </Link>
+          <Link id="login" to={UrlPath.LOGIN_FORM}>
+            Sign in
+          </Link>
         </div>
       </div>
     );
@@ -40,9 +44,12 @@ export default class Navbar extends React.Component {
   loginNavbar() {
     return (
       <div className="login-navbar">
-        <Link to={UrlPath.SPLASH}><img src="" alt="" />ConnectTheDots</Link>
+        <Link to={UrlPath.SPLASH}>
+          <img src="" alt="" />
+          ConnectTheDots
+        </Link>
       </div>
-    )
+    );
   }
 
   signupNavbar() {
@@ -62,18 +69,16 @@ export default class Navbar extends React.Component {
     );
   }
 
-  render() {
-    let url = this.props.location.pathname;
+  sessionNavbar() {
+    let { currentUserId, logout } = this.props;
 
-    switch (url) {
-      case UrlPath.SPLASH:
-        return this.splashNavbar();
-      case UrlPath.LOGIN_FORM:
-        return this.loginNavbar();
-      case UrlPath.SIGNUP_FORM:
-        return this.signupNavbar();
-      default:
-        return this.sessionNavbar();
-    }
+    return (
+      <div className="session-navbar">
+        <Link to={UrlPath.FEED}>Home</Link>
+        <Link to={UrlPath.MY_NETWORK}>My Network</Link>
+        <Link to={`/users/${currentUserId}`}>Profile</Link>
+        <button onClick={logout}>Logout</button>
+      </div>
+    );
   }
 };
