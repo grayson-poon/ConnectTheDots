@@ -9,6 +9,7 @@ export const NEW_IMAGE_ICON = "https://cdn1.iconfinder.com/data/icons/color-bold
 export const HOME_ICON = "https://static.thenounproject.com/png/3574480-200.png";
 export const MY_NETWORK_ICON = "https://icons-for-free.com/iconfiles/png/512/linkedin+network+users+icon-1320184664350339756.png";
 export const DROPDOWN_ICON = "https://cdn-icons-png.flaticon.com/512/60/60995.png";
+export const CAMERA_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/camera_icon.png?raw=true";
 
 // Images
 export const DEFAULT_PROFILE_PICTURE = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg";

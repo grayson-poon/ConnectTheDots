@@ -101,6 +101,14 @@ div#upload-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: rgb(29, 34, 38);
+}
+
+div#upload-button img {
+  max-width: 35px;
+  filter: invert(1);
 }
 
 div#upload-button label {
