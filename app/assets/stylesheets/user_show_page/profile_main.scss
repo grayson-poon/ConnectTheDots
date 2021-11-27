@@ -15,21 +15,27 @@ div.profile-main {
 div.profile-picture {
   border: 2px solid white;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   position: absolute;
   top: 70px;
   left: 25px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
-div.profile-picture img {
-  margin: auto;
-  display: block;
-  background-repeat: no-repeat;
-  width: 150px;
-  height: 150px;
+div.profile-picture button {
+  border: none;
   cursor: pointer;
 }
 
+div.profile-picture img {
+  background-repeat: no-repeat;
+  width: 175px;
+  height: 175px;
+}
 
 div.edit-background-image {
   background-color: white;
