@@ -54,19 +54,13 @@ export default class Footer extends React.Component {
               <ul>
                 <li>Personal Links</li>
                 <li>
-                  <a
-                    href={GITHUB}
-                    target="_blank"
-                  >
+                  <a href={GITHUB} target="_blank">
                     GitHub
                   </a>
                 </li>
 
                 <li>
-                  <a
-                    href={LINKED_IN}
-                    target="_blank"
-                  >
+                  <a href={LINKED_IN} target="_blank">
                     LinkedIn
                   </a>
                 </li>
@@ -106,9 +100,12 @@ export default class Footer extends React.Component {
               ConnectTheDots is a clone of LinkedIn, the professional networking
               application. ConnectTheDots is not affiliated with LinkedIn in any
               form, and is also not a real platform for any professional
-              development/networking. If you create a profile with your own
-              personal information, nothing will be done with it, however it
-              will likely be saved with this application for a long, long time.
+              development/networking. The personal informaton given to
+              this application will not be sold or used with malicious intent, 
+              however it is still recommended that personal information not be used 
+              to experiment with the features of this application. All images 
+              and icons used in this project are for personal use and
+              not for profit. Enjoy! :)
             </p>
           </div>
 
