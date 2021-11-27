@@ -26,18 +26,17 @@ export default class EditProfilePictureModal extends React.Component {
     event.preventDefault();
     const formData = new FormData();
 
-    debugger
-
     Object.entries(this.state.user).forEach(([key, value]) => {
       key = (key === "profilePicture" ? "photo" : key);
       formData.append(`user[${key}]`, value);
     });
 
-    // debugger
-    this.props.updateUser(formData);
+    this.props.updateUser(formData)
+      .then(() => this.props.hideModal("profilePicture"));
   }
 
   handleFile(event) {
+    event.preventDefault();
     const fileReader = new FileReader();
     let user = Object.assign({}, this.state.user);
     let file = event.currentTarget.files[0];
@@ -45,7 +44,7 @@ export default class EditProfilePictureModal extends React.Component {
     fileReader.onloadend = () => {
       user["profilePicture"] = file ? file : "";
       this.setState({ user, photoUrl: fileReader.result });
-    }
+    };
 
     if (file) fileReader.readAsDataURL(file);
   }
@@ -67,11 +66,11 @@ export default class EditProfilePictureModal extends React.Component {
         <div className="current-image">
           <img
             src={
-              user.profilePicture
-                ? user.profilePicture
-                : (this.state.photoUrl
-                  ?  this.state.photoUrl
-                  : DEFAULT_PROFILE_PICTURE)
+              this.state.photoUrl 
+                ? this.state.photoUrl
+                : user.profilePicture
+                  ? user.profilePicture
+                  : DEFAULT_PROFILE_PICTURE
             }
           />
         </div>

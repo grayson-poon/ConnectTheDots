@@ -4,10 +4,9 @@ import { updateUser } from "../../actions/user_actions";
 import { withRouter } from "react-router";
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
-  user: state.entities.users[ownProps.match.params.userId],
-  errors: state.errors.userErrors,
+    user: state.entities.users[ownProps.match.params.userId],
+    errors: state.errors.userErrors,
   }
 }
 

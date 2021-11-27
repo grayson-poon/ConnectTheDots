@@ -12,7 +12,7 @@ export const DROPDOWN_ICON = "https://cdn-icons-png.flaticon.com/512/60/60995.pn
 export const CAMERA_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/camera_icon.png?raw=true";
 export const CHECK_MARK_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/new_check_mark_icon.png?raw=true";
 
-// Images
+// Pictures
 export const DEFAULT_PROFILE_PICTURE = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg";
 export const DEFAULT_BACKGROUND_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/profile-background-image.jpg?raw=true";
 export const SPLASH_COMPONENT_1 = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/office-stock-5.png?raw=true";
