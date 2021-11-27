@@ -59,7 +59,6 @@ export default class UserShow extends React.Component {
         </div>
 
         <EditProfilePictureModal show={this.state.profilePicture} />
-        {/* {this.displayErrors()} */}
       </div>
     );
   }
