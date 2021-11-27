@@ -21,7 +21,8 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    debugger
+    @user = User.find_by(id: params[:user][:id])
 
     if current_user.id == @user.id
       if @user.update(user_params)

@@ -8,17 +8,43 @@ import {
 } from "../../util/images_and_icons_util";
 
 export default class EditProfilePictureModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: this.props.user,
+      photoUrl: null,
+    }
+    this.handleFile = this.handleFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   render() {
     return this.props.show ? this.show() : null;
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData();
+
+    debugger
+
+    Object.entries(this.state.user).forEach(([key, value]) => {
+      key = (key === "profilePicture" ? "photo" : key);
+      formData.append(`user[${key}]`, value);
+    });
+
+    // debugger
+    this.props.updateUser(formData);
+  }
+
   handleFile(event) {
     const fileReader = new FileReader();
-    let user = Object.assign({}, this.props.user);
+    let user = Object.assign({}, this.state.user);
     let file = event.currentTarget.files[0];
 
     fileReader.onloadend = () => {
       user["profilePicture"] = file ? file : "";
+      this.setState({ user, photoUrl: fileReader.result });
     }
 
     if (file) fileReader.readAsDataURL(file);
@@ -26,7 +52,6 @@ export default class EditProfilePictureModal extends React.Component {
 
   show() {
     let { user, hideModal } = this.props;
-    debugger
 
     return (
       <div className="profile-picture-modal">
@@ -44,7 +69,9 @@ export default class EditProfilePictureModal extends React.Component {
             src={
               user.profilePicture
                 ? user.profilePicture
-                : DEFAULT_PROFILE_PICTURE
+                : (this.state.photoUrl
+                  ?  this.state.photoUrl
+                  : DEFAULT_PROFILE_PICTURE)
             }
           />
         </div>
@@ -53,17 +80,13 @@ export default class EditProfilePictureModal extends React.Component {
           <div id="upload-button">
             <label>
               <img src={CAMERA_ICON} />
-              <input
-                type="file"
-                onChange={this.handleFile}
-                accept="image/*"
-              />
+              <input type="file" onChange={this.handleFile} accept="image/*" />
               Upload photo
             </label>
           </div>
 
           <div id="submit-button">
-            <button>
+            <button onClick={this.handleSubmit}>
               <img src={CHECK_MARK_ICON} />
               <div>Update photo</div>
             </button>

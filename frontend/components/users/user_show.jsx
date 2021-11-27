@@ -1,5 +1,6 @@
 import React from "react";
-import EditProfilePictureModal from "../modals/edit_profile_picture";
+// import EditProfilePictureModal from "../modals/edit_profile_picture";
+import EditProfilePictureModalContainer from "../modals/edit_profile_picture_container";
 import ProfileMain from "./profile_page_components/profile_main";
 import Activity from "./profile_page_components/activity";
 
@@ -62,7 +63,7 @@ export default class UserShow extends React.Component {
           <Activity user={user} showModal={this.showModal}/>
         </div>
 
-        <EditProfilePictureModal
+        <EditProfilePictureModalContainer
           user={user}
           show={this.state.profilePicture}
           hideModal={this.hideModal}
