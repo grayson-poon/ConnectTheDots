@@ -14,7 +14,7 @@ export const CHECK_MARK_ICON = "https://github.com/grayson-poon/ConnectTheDots/b
 
 // Pictures
 export const DEFAULT_PROFILE_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/default_profile_picture.png?raw=true";
-export const DEFAULT_BACKGROUND_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/profile-background-image.jpg?raw=true";
+export const DEFAULT_BACKGROUND_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/default_background_image.jpg?raw=true";
 export const SPLASH_COMPONENT_1 = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/office-stock-5.png?raw=true";
 
 // Personal links
