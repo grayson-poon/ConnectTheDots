@@ -131,3 +131,12 @@ div#upload-button label {
 div#upload-button input[type=file] {
   display: none;
 }
+
+div#submit-button {
+  display: flex;
+  flex-direction: column;
+}
+
+div#submit-button button img {
+  background-color: rgb(29, 34, 38);
+}

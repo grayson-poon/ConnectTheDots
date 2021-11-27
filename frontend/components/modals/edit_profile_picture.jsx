@@ -1,5 +1,11 @@
 import React from "react";
-import { CAMERA_ICON, CLOSE_BUTTON, DEFAULT_PROFILE_PICTURE, DELETE_BUTTON } from "../../util/images_and_icons_util";
+import {
+  CAMERA_ICON,
+  CLOSE_BUTTON, 
+  DEFAULT_PROFILE_PICTURE,
+  DELETE_BUTTON,
+  CHECK_MARK_ICON
+} from "../../util/images_and_icons_util";
 
 export default class EditProfilePictureModal extends React.Component {
   render() {
@@ -57,7 +63,10 @@ export default class EditProfilePictureModal extends React.Component {
           </div>
 
           <div id="submit-button">
-            <button>Update photo</button>
+            <button>
+              <img src={CHECK_MARK_ICON} />
+              <div>Update photo</div>
+            </button>
           </div>
 
           <div id="delete">
