@@ -16,6 +16,9 @@
 
 @import 'reset.scss';
 
+// Modals
+@import './modal_background.scss';
+
 // Navbars
 @import './navbar/splash_navbar.scss';
 @import './navbar/login_navbar.scss';
@@ -33,6 +36,7 @@
 @import './user_show_page/profile_page_layout.scss';
 @import './user_show_page/profile_main.scss';
 @import './user_show_page/profile_activity.scss';
+@import './user_show_page/edit_profile_picture_modal.scss';
 
 // Footers
 @import './footer/splash_footer.scss';

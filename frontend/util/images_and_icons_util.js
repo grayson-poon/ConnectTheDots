@@ -3,7 +3,8 @@ export const LOGO_URL = "https://github.com/grayson-poon/ConnectTheDots/blob/mai
 export const NAVICON_URL = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/favicon.png?raw=true";
 
 // Icons
-export const CLOSE_BUTTON = "https://www.pngfind.com/pngs/m/90-905672_x-cross-close-symbol-icon-button-gui-close.png";
+export const CLOSE_BUTTON =
+  "https://www.pngitem.com/pimgs/m/164-1646917_close-button-icon-png-x-icon-transparent-png.png";
 export const DELETE_BUTTON = "https://toppng.com/uploads/preview/big-trash-can-vector-trash-can-icon-1156305906701r6eta2fm.png";
 export const NEW_IMAGE_ICON = "https://cdn1.iconfinder.com/data/icons/color-bold-style/21/20-512.png";
 export const HOME_ICON = "https://static.thenounproject.com/png/3574480-200.png";
