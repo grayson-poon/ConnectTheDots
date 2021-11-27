@@ -110,9 +110,9 @@ export default class Footer extends React.Component {
           <div className="statement">
             <p>A FEW THINGS YOU SHOULD KNOW</p>
             <p>
-              ConnectTheDots is a clone of LinkedIn. ConnectTheDots is not
+              ConnectTheDots is a clone of LinkedIn, the professional networking application. ConnectTheDots is not
               affiliated with LinkedIn in any form, and is also not a real
-              platform for any professional networking. If you create a profile
+              platform for any professional development/networking. If you create a profile
               with your own personal information, nothing will be done with it,
               however it will likely be saved with this application for a long,
               long time.
