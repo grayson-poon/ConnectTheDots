@@ -5,15 +5,15 @@ export const NAVICON_URL = "https://github.com/grayson-poon/ConnectTheDots/blob/
 // Icons
 export const CLOSE_BUTTON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/close_button.png?raw=true";
 export const DELETE_BUTTON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/delete_button.png?raw=true";
-export const NEW_IMAGE_ICON = "https://cdn1.iconfinder.com/data/icons/color-bold-style/21/20-512.png";
-export const HOME_ICON = "https://static.thenounproject.com/png/3574480-200.png";
-export const MY_NETWORK_ICON = "https://icons-for-free.com/iconfiles/png/512/linkedin+network+users+icon-1320184664350339756.png";
-export const DROPDOWN_ICON = "https://cdn-icons-png.flaticon.com/512/60/60995.png";
+export const NEW_IMAGE_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/new_image_icon.png?raw=true";
+export const HOME_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/home_icon.png?raw=true";
+export const MY_NETWORK_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/my_network_icon.png?raw=true";
+export const DROPDOWN_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/dropwdown_icon.png?raw=true";
 export const CAMERA_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/camera_icon.png?raw=true";
 export const CHECK_MARK_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/new_check_mark_icon.png?raw=true";
 
 // Pictures
-export const DEFAULT_PROFILE_PICTURE = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg";
+export const DEFAULT_PROFILE_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/default_profile_picture.png?raw=true";
 export const DEFAULT_BACKGROUND_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/profile-background-image.jpg?raw=true";
 export const SPLASH_COMPONENT_1 = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/office-stock-5.png?raw=true";
 
