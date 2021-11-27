@@ -2,19 +2,16 @@
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-div.profile-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: rgb(236, 236, 236);
-}
-
-div.profile-middle {
-  margin: 35px 45px 35px 45px;
+div.profile-middle-2 {
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-color: rgb(255, 255, 255);
 }
 
-div.profile-middle > div:not(:first-child) {
-  margin-top: 16px;
+div.title-and-button {
+  
 }
