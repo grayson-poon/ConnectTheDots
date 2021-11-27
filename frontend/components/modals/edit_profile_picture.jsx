@@ -53,49 +53,55 @@ export default class EditProfilePictureModal extends React.Component {
     let { user, hideModal } = this.props;
 
     return (
-      <div className="profile-picture-modal">
-        <div className="header">
-          <div>Profile Photo</div>
-          <div className="close-button">
-            <button onClick={() => hideModal("profilePicture")}>
-              <img src={CLOSE_BUTTON} />
-            </button>
+      <div className="profile-picture-modal-background">
+        <div className="profile-picture-modal">
+          <div className="header">
+            <div>Profile Photo</div>
+            <div className="close-button">
+              <button onClick={() => hideModal("profilePicture")}>
+                <img src={CLOSE_BUTTON} />
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className="current-image">
-          <img
-            src={
-              this.state.photoUrl 
-                ? this.state.photoUrl
-                : user.profilePicture
+          <div className="current-image">
+            <img
+              src={
+                this.state.photoUrl
+                  ? this.state.photoUrl
+                  : user.profilePicture
                   ? user.profilePicture
                   : DEFAULT_PROFILE_PICTURE
-            }
-          />
-        </div>
-
-        <div className="edit-delete">
-          <div id="upload-button">
-            <label>
-              <img src={CAMERA_ICON} />
-              <input type="file" onChange={this.handleFile} accept="image/*" />
-              Upload photo
-            </label>
+              }
+            />
           </div>
 
-          <div id="submit-button">
-            <button onClick={this.handleSubmit}>
-              <img src={CHECK_MARK_ICON} />
-              <div>Update photo</div>
-            </button>
-          </div>
+          <div className="edit-delete">
+            <div id="upload-button">
+              <label>
+                <img src={CAMERA_ICON} />
+                <input
+                  type="file"
+                  onChange={this.handleFile}
+                  accept="image/*"
+                />
+                Upload photo
+              </label>
+            </div>
 
-          <div id="delete">
-            <button>
-              <img src={DELETE_BUTTON} />
-              <div>Remove photo</div>
-            </button>
+            <div id="submit-button">
+              <button onClick={this.handleSubmit}>
+                <img src={CHECK_MARK_ICON} />
+                <div>Update photo</div>
+              </button>
+            </div>
+
+            <div id="delete">
+              <button>
+                <img src={DELETE_BUTTON} />
+                <div>Remove photo</div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
