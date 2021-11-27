@@ -75,8 +75,8 @@ div#delete button {
   border: none;
   align-items: center;
   cursor: pointer;
-  padding: 5px 5px 3px 5px;
-  border-radius: 50%;
+  padding: 16px 8px 16px 8px;
+  border-radius: 8px;
   background-color: rgb(29, 34, 38);
 }
 
@@ -90,7 +90,7 @@ div#delete img {
   filter: invert(1);
 }
 
-div#delete > div {
+div#delete button > div {
   color: rgba(255, 255, 255, 0.9);
   font-size: 16px;
   font-weight: 400;
@@ -100,14 +100,27 @@ div#delete > div {
 div#upload-button {
   display: flex;
   flex-direction: column;
+  background-color: rgb(29, 34, 38);
+  padding: 8px 8px 16px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+div#upload-button:hover {
+  background-color: rgb(71, 70, 70);
+}
+
+div#upload-button label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
-  background-color: rgb(29, 34, 38);
 }
 
-div#upload-button img {
-  max-width: 35px;
+div#upload-button label img {
+  max-width: 40px;
   filter: invert(1);
 }
 
