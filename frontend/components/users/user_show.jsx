@@ -68,7 +68,11 @@ export default class UserShow extends React.Component {
             </div>
 
             <div className="profile-info">
-              <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
+              <div className="name-pronouns">
+                <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
+                <div className="profile-pronouns">{user.pronouns}</div>
+              </div>
+              
               <div className="profile-headline">{`${user.headline}`}</div>
               <div className="profile-current-location">{`${user.currentLocation}`}</div>
               <div className="edit-profile">

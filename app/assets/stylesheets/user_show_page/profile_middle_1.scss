@@ -4,17 +4,17 @@
 
 div.profile-middle-1 {
   border: 1px solid lightgray;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 8px;
+  // border-top-right-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: white;
 }
 
 div.profile-picture {
-  background-color: lightgray;
-  border: 1px solid gray;
+  border: 2px solid white;
   overflow: hidden;
   border-radius: 50%;
   position: absolute;
@@ -56,10 +56,77 @@ div.profile-background-image {
 }
 
 div.profile-background-image img {
-  // background-image: url("profile-background-image.jpg");
   max-width: 782px;
   max-height: 190px;
   background-repeat: no-repeat;
-  // border-top-left-radius: 8px;
-  // border-top-right-radius: 8px;
+}
+
+div.profile-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+div.profile-info div:not(:first-child) {
+  padding: 2px 0 2px 0;
+}
+
+div.name-pronouns {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+div.profile-name {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+div.profile-pronouns {
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+div.profile-headline {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+div.profile-current-location {
+  display: inline;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+div.edit-profile {
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+div.edit-profile button {
+  background-color: rgb(10, 102, 194);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: 100%;
+  line-height: 20px;
+  min-height: 32px;
+  padding: 6px 16px 6px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+div.edit-profile button:hover {
+  background-color: rgb(7, 72, 138);
 }
