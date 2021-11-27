@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as UrlPath from "../../util/url_paths_util";
-import { LOGO_URL, NAVICON_URL } from "../../util/images_and_icons_util";
+import {
+  DEFAULT_PROFILE_PICTURE,
+  DROPDOWN_ICON, HOME_ICON, 
+  LOGO_URL, 
+  MY_NETWORK_ICON, 
+  NAVICON_URL 
+} from "../../util/images_and_icons_util";
 
 export default class Navbar extends React.Component {
   componentDidMount() {
@@ -82,24 +88,24 @@ export default class Navbar extends React.Component {
         <div className="icons">
           <div id="feed">
             <Link to={UrlPath.FEED}>
-              <img src="https://static.thenounproject.com/png/3574480-200.png" />
+              <img src={HOME_ICON} />
               <div>Home</div>
             </Link>
           </div>
 
           <div id="my-network">
             <Link to={UrlPath.MY_NETWORK}>
-              <img src="https://icons-for-free.com/iconfiles/png/512/linkedin+network+users+icon-1320184664350339756.png" />
+              <img src={MY_NETWORK_ICON} />
               <div>My Network</div>
             </Link>
           </div>
 
           <div id="profile">
             <Link to={`/users/${currentUserId}`}>
-              <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" />
+              <img src={DEFAULT_PROFILE_PICTURE} />
               <div id="dropdown">
                 <div>Me</div>
-                <img src="https://cdn-icons-png.flaticon.com/512/60/60995.png" />
+                <img src={DROPDOWN_ICON} />
               </div>
             </Link>
           </div>

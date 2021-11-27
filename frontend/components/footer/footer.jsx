@@ -1,5 +1,5 @@
 import React from "react";
-import { LOGO_URL } from "../../util/images_and_icons_util";
+import { GITHUB, LINKED_IN, LOGO_URL } from "../../util/images_and_icons_util";
 import * as UrlPath from "../../util/url_paths_util";
 
 export default class Footer extends React.Component {
@@ -55,7 +55,7 @@ export default class Footer extends React.Component {
                 <li>Personal Links</li>
                 <li>
                   <a
-                    href="https://github.com/grayson-poon/ConnectTheDots"
+                    href={GITHUB}
                     target="_blank"
                   >
                     GitHub
@@ -64,7 +64,7 @@ export default class Footer extends React.Component {
 
                 <li>
                   <a
-                    href="https://www.linkedin.com/in/grayson-poon/"
+                    href={LINKED_IN}
                     target="_blank"
                   >
                     LinkedIn

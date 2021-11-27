@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { SPLASH_COMPONENT_1 } from "../../util/images_and_icons_util";
 import { SIGNUP_FORM } from "../../util/url_paths_util";
 
 export default class Splash extends React.Component {
@@ -14,8 +15,7 @@ export default class Splash extends React.Component {
         <div className="splash-component-1">
           <h1>Welcome to your professional community</h1>
           <img
-            src="https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/office-stock-5.png?raw=true"
-            alt="woman"
+            src={SPLASH_COMPONENT_1}
           />
         </div>
 
