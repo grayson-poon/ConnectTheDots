@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { MY_NETWORK } from "../../util/url_paths_util";
 
 export default class UserShow extends React.Component {
   componentDidMount() {
@@ -72,7 +74,7 @@ export default class UserShow extends React.Component {
                 <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
                 <div className="profile-pronouns">{user.pronouns}</div>
               </div>
-              
+
               <div className="profile-headline">{`${user.headline}`}</div>
               <div className="profile-current-location">{`${user.currentLocation}`}</div>
               <div className="edit-profile">
@@ -86,7 +88,9 @@ export default class UserShow extends React.Component {
               <h2>Activity</h2>
               <button>Start a post</button>
             </div>
-            <h3>Number of followers</h3>
+
+            <Link to={MY_NETWORK}>Number of followers</Link>
+            
             <div className="activity-about">
               <p>Posts you created or commented on are displayed here</p>
             </div>

@@ -10,13 +10,15 @@ div.profile-middle-2 {
   flex-direction: column;
   position: relative;
   background-color: rgb(255, 255, 255);
-  padding: 24px;
+  padding: 24px 0 24px 0;
+  // padding: 24px;
 }
 
 div.title-and-button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 24px 0 24px;
 }
 
 div.title-and-button h2 {
@@ -43,3 +45,29 @@ div.title-and-button button {
 div.title-and-button button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+div.profile-middle-2 a {
+  text-decoration: none;
+  color: rgb(10, 102, 194);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 0 24px 0 24px;
+}
+
+div.profile-middle-2 a:hover {
+  text-decoration: underline;
+}
+
+div.activity-about {
+  padding: 24px;
+  border-bottom: 1px solid lightgray;
+}
+
+div.activity-about p {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+  line-height: 20px;
+}
+
