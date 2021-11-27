@@ -4,7 +4,7 @@ export const NAVICON_URL = "https://github.com/grayson-poon/ConnectTheDots/blob/
 
 // Icons
 export const CLOSE_BUTTON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/close_button.png?raw=true";
-export const DELETE_BUTTON = "https://toppng.com/uploads/preview/big-trash-can-vector-trash-can-icon-1156305906701r6eta2fm.png";
+export const DELETE_BUTTON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/delete_button.png?raw=true";
 export const NEW_IMAGE_ICON = "https://cdn1.iconfinder.com/data/icons/color-bold-style/21/20-512.png";
 export const HOME_ICON = "https://static.thenounproject.com/png/3574480-200.png";
 export const MY_NETWORK_ICON = "https://icons-for-free.com/iconfiles/png/512/linkedin+network+users+icon-1320184664350339756.png";

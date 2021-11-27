@@ -29,15 +29,17 @@ export default class EditProfilePictureModal extends React.Component {
         </div>
 
         <div className="edit-delete">
-          <div id="edit">
+          <div id="upload-button">
+            <img src="" alt="" />
             <label>Upload new photo
               <input type="file" accept="image/*" />
             </label>
-            
           </div>
 
           <div id="delete">
-            <img src={DELETE_BUTTON} />
+            <button>
+              <img src={DELETE_BUTTON} />
+            </button>
             <div>Delete</div>
           </div>
         </div>

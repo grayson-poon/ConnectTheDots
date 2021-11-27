@@ -1,5 +1,7 @@
 div.profile-picture-modal {
   // visibility: hidden;
+  width: 750px;
+  height: 475px;
   position: absolute;
   top: 50px;
   left: 50%;
@@ -27,18 +29,19 @@ div.profile-picture-modal div.header button {
   border: none;
   align-items: center;
   cursor: pointer;
-  padding: 5px 5px 3px 5px;
+  padding: 7px 7px 5px 7px;
   border-radius: 50%;
+  background-color: rgb(29, 34, 38);
 }
 
 div.profile-picture-modal div.header button img {
   max-width: 16px;
   height: auto;
-  background-color: inherit;
+  filter: invert(1);
 }
 
 div.profile-picture-modal div.header button:hover {
-  background-color: rgb(10, 102, 194);
+  background-color: rgb(71, 70, 70);
 }
 
 div.current-image {
@@ -54,17 +57,56 @@ div.current-image img {
 }
 
 div.edit-delete {
+  padding-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-div.edit-delete div#delete img {
-  max-width: 20px;
-  height: auto;
-  background: inherit;
+div#delete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-div.edit-delete div#delete img:hover {
-  background: rgb(10, 102, 194);
+div#delete button {
+  text-decoration: none;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 5px 3px 5px;
+  border-radius: 50%;
+  background-color: rgb(29, 34, 38);
+}
+
+div#delete button:hover {
+  background: rgb(71, 70, 70);
+}
+
+div#delete img {
+  max-width: 25px;
+  height: auto;
+  filter: invert(1);
+}
+
+div#delete > div {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+div#upload-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div#upload-button label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+div#upload-button input[type=file] {
+  display: none;
 }
