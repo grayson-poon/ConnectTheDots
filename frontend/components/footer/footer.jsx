@@ -1,5 +1,5 @@
 import React from "react";
-import { LOGO_URL } from "../../util/logo_util";
+import { LOGO_URL } from "../../util/images_and_icons_util";
 import * as UrlPath from "../../util/url_paths_util";
 
 export default class Footer extends React.Component {

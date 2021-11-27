@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as UrlPath from "../../util/url_paths_util";
-import { LOGO_URL, NAVICON_URL } from "../../util/logo_util";
+import { LOGO_URL, NAVICON_URL } from "../../util/images_and_icons_util";
 
 export default class Navbar extends React.Component {
   componentDidMount() {
