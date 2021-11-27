@@ -15,44 +15,9 @@ export default class Footer extends React.Component {
 
     return this.props.url === UrlPath.SIGNUP_FORM ||
       this.props.url === UrlPath.LOGIN_FORM
-        ? this.formFooter()
-        : this.splashFooter();
-
+      ? this.formFooter()
+      : this.splashFooter();
   }
-
-  // defaultFooter() {
-  //   return (
-  //     <div className="default-footer">
-  //       <div className="list-1">
-  //         <ul>
-  //           <li>
-  //             <img src={LOGO_URL} />
-  //           </li>
-  //           <li>Javascript</li>
-  //           <li>Javascript</li>
-  //           <li>Javascript</li>
-  //           <li>ConnectTheDots 2021</li>
-  //         </ul>
-  //       </div>
-  //       <div className="list-2">
-  //         <ul>
-  //           <li>HIDE ME</li>
-  //           <li>Javascript</li>
-  //           <li>Javascript</li>
-  //           <li>Javascript</li>
-  //         </ul>
-  //       </div>
-  //       <div className="list-3">
-  //         <ul>
-  //           <li>HIDE ME</li>
-  //           <li>Javascript</li>
-  //           <li>Javascript</li>
-  //           <li>Javascript</li>
-  //         </ul>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 
   formFooter() {
     return (
@@ -138,12 +103,12 @@ export default class Footer extends React.Component {
           <div className="statement">
             <p>A FEW THINGS YOU SHOULD KNOW</p>
             <p>
-              ConnectTheDots is a clone of LinkedIn, the professional networking application. ConnectTheDots is not
-              affiliated with LinkedIn in any form, and is also not a real
-              platform for any professional development/networking. If you create a profile
-              with your own personal information, nothing will be done with it,
-              however it will likely be saved with this application for a long,
-              long time.
+              ConnectTheDots is a clone of LinkedIn, the professional networking
+              application. ConnectTheDots is not affiliated with LinkedIn in any
+              form, and is also not a real platform for any professional
+              development/networking. If you create a profile with your own
+              personal information, nothing will be done with it, however it
+              will likely be saved with this application for a long, long time.
             </p>
           </div>
 
@@ -152,4 +117,38 @@ export default class Footer extends React.Component {
       </div>
     );
   }
+
+  // defaultFooter() {
+  //   return (
+  //     <div className="default-footer">
+  //       <div className="list-1">
+  //         <ul>
+  //           <li>
+  //             <img src={LOGO_URL} />
+  //           </li>
+  //           <li>Javascript</li>
+  //           <li>Javascript</li>
+  //           <li>Javascript</li>
+  //           <li>ConnectTheDots 2021</li>
+  //         </ul>
+  //       </div>
+  //       <div className="list-2">
+  //         <ul>
+  //           <li>HIDE ME</li>
+  //           <li>Javascript</li>
+  //           <li>Javascript</li>
+  //           <li>Javascript</li>
+  //         </ul>
+  //       </div>
+  //       <div className="list-3">
+  //         <ul>
+  //           <li>HIDE ME</li>
+  //           <li>Javascript</li>
+  //           <li>Javascript</li>
+  //           <li>Javascript</li>
+  //         </ul>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 };
