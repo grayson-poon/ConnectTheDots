@@ -3,19 +3,21 @@ div.splash-navbar {
   flex-direction: row;
   justify-content: space-between;
   position: relative;
-  padding: 0 15px 15px 15px;
+  padding: 15px 15px 15px 15px;
   margin-right: 150px;
   margin-left: 100px;
 }
 
-div.splash-navbar div {
-  padding: 15px;
+div.splash-navbar-logo img {
+  height: 50px;
+  width: auto;
 }
 
 div.splash-navbar-buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  padding: 15px;
 }
 
 div.splash-navbar-buttons a {
@@ -23,7 +25,7 @@ div.splash-navbar-buttons a {
   text-decoration: none;
 }
 
-div.splash-navbar-buttons a#signup {
+div.splash-navbar-buttons div#signup a {
   padding-right: 10px;
   padding-left: 10px;
   padding-top: 5px;
@@ -32,10 +34,11 @@ div.splash-navbar-buttons a#signup {
   font-weight: 600;
   color: rgba(0, 0, 0, 0.6);
   text-align: center;
+  text-decoration: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-div.splash-navbar-buttons a#signup:hover {
+div.splash-navbar-buttons div#signup a:hover {
   color: rgba(0, 0, 0, 0.8);
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -52,6 +55,7 @@ div.splash-navbar-buttons a#login {
   color: rgb(10, 102, 194);
   border: 1px solid rgb(10, 102, 194);
   border-radius: 24px;
+
 }
 
 div.splash-navbar-buttons a#login:hover {
@@ -61,18 +65,4 @@ div.splash-navbar-buttons a#login:hover {
   padding-bottom: 4px;
   border: 2px solid rgb(10, 102, 205);
   background-color: rgb(214, 224, 235);
-}
-
-div.splash-navbar-logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-div.splash-navbar-logo {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: rgb(10, 102, 194);
-  font-size: 25px;
-  font-weight: 500;
-  text-decoration: none;
 }

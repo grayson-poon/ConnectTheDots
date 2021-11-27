@@ -37,17 +37,19 @@ export default class Navbar extends React.Component {
     return (
       <div className="splash-navbar">
         <div className="splash-navbar-logo">
-          ConnectTheDots
+          <img src={LOGO_URL} />
         </div>
 
         <div className="splash-navbar-buttons">
-          <Link id="signup" to={UrlPath.SIGNUP_FORM}>
-            Join now
-          </Link>
-          <Link id="login" to={UrlPath.LOGIN_FORM}>
-            Sign in
-          </Link>
+          <div id="signup">
+            <Link to={UrlPath.SIGNUP_FORM}>Join now</Link>
+          </div>
+          
+          <div id="login">
+            <Link id="login" to={UrlPath.LOGIN_FORM}>Sign in</Link>
+          </div>
         </div>
+
       </div>
     );
   }
