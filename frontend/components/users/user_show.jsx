@@ -12,7 +12,6 @@ export default class UserShow extends React.Component {
       profileForm: false,
       postForm: false,
     }
-
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
   }

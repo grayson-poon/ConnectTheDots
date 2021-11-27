@@ -6,6 +6,18 @@ export default class EditProfilePictureModal extends React.Component {
     return this.props.show ? this.show() : null;
   }
 
+  handleFile(event) {
+    const fileReader = new FileReader();
+    let user = Object.assign({}, this.props.user);
+    let file = event.currentTarget.files[0];
+
+    fileReader.onloadend = () => {
+      user["profilePicture"] = file ? file : "";
+    }
+
+    if (file) fileReader.readAsDataURL(file);
+  }
+
   show() {
     let { user, hideModal } = this.props;
     debugger
@@ -35,9 +47,17 @@ export default class EditProfilePictureModal extends React.Component {
           <div id="upload-button">
             <label>
               <img src={CAMERA_ICON} />
-              <input type="file" accept="image/*" />
+              <input
+                type="file"
+                onChange={this.handleFile}
+                accept="image/*"
+              />
               Upload photo
             </label>
+          </div>
+
+          <div id="submit-button">
+            <button>Update photo</button>
           </div>
 
           <div id="delete">
