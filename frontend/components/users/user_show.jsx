@@ -14,6 +14,7 @@ export default class UserShow extends React.Component {
     }
 
     this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,10 @@ export default class UserShow extends React.Component {
 
   showModal(field) {
     this.setState({ [field]: true });
+  }
+
+  hideModal(field) {
+    this.setState({ [field]: false});
   }
 
   displayErrors() {
@@ -58,7 +63,11 @@ export default class UserShow extends React.Component {
           <Activity user={user} showModal={this.showModal}/>
         </div>
 
-        <EditProfilePictureModal show={this.state.profilePicture} />
+        <EditProfilePictureModal
+          user={user}
+          show={this.state.profilePicture}
+          hideModal={this.hideModal}
+        />
       </div>
     );
   }

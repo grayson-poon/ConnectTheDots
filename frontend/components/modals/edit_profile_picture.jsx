@@ -7,14 +7,17 @@ export default class EditProfilePictureModal extends React.Component {
   }
 
   show() {
-    let { user } = this.props;
+    let { user, hideModal } = this.props;
+    debugger
 
     return (
       <div className="profile-picture-modal">
         <div className="header">
           <div>Profile Photo</div>
           <div className="close-button">
-            <img src={CLOSE_BUTTON} />
+            <button onClick={() => hideModal("profilePicture")}>
+              <img src={CLOSE_BUTTON} />
+            </button>
           </div>
         </div>
 
