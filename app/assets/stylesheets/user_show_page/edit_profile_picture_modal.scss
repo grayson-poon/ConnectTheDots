@@ -11,6 +11,8 @@ div.profile-picture-modal {
   background: rgb(29, 34, 38);
   border-radius: 12px;
   padding: 24px;
+  // display: flex;
+  // flex-direction: column;
 }
 
 div.profile-picture-modal div.header {
@@ -45,15 +47,22 @@ div.profile-picture-modal div.header button:hover {
 }
 
 div.current-image {
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 div.current-image img {
   max-width: 280px;
-  height: 280px;
-  border-radius: 50%;
+  max-height: 280px;
+  height: auto;
+  width: auto;
 }
 
 div.edit-delete {
