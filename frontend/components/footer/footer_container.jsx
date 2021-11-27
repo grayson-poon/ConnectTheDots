@@ -2,11 +2,8 @@ import { connect } from "react-redux";
 import Footer from "./footer";
 
 const mSTP = (state, ownProps) => ({
-
+  url: ownProps.location.pathname,
 });
 
-const mDTP = (dispatch) => ({
-  
-});
 
-export default connect(mSTP, mDTP)(Footer);
+export default connect(mSTP)(Footer);

@@ -22,7 +22,7 @@ const App = () => (
       <ProtectedRoute path={UrlPath.USER_SHOW} component={UserShowContainer} />
       <AuthRoute exact path={UrlPath.SPLASH} component={SplashContainer} />
     </Switch>
-    <Route exact path={UrlPath.SPLASH} component={FooterContainer} />
+    <Route path={UrlPath.SPLASH} component={FooterContainer} />
   </div>
 );
 

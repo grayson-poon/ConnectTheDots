@@ -3,15 +3,11 @@ import { LOGO_URL } from "../../util/logo_util";
 import * as UrlPath from "../../util/url_paths_util";
 
 export default class Footer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    let url = this.props.location.pathname;
-
-    switch(url) {
+    switch(this.props.url) {
       case UrlPath.SPLASH:
+        return this.splashFooter();
+      case UrlPath.USER_SHOW:
         return this.splashFooter();
       default:
         return this.defaultFooter();
