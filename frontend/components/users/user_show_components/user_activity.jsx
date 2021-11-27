@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { MY_NETWORK } from "../../../util/url_paths_util";
 
 
-const ProfileMiddle2 = () => {
+const Activity = ({ user, showModal }) => {
   return (
     <div className="profile-middle-2">
       <div className="title-and-button">
@@ -24,4 +24,4 @@ const ProfileMiddle2 = () => {
   );
 };
 
-export default ProfileMiddle2;
+export default Activity;

@@ -1,9 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { MY_NETWORK } from "../../util/url_paths_util";
-import EditProfilePicture from "../modals/edit_profile_picture";
+import EditProfilePictureModal from "../modals/edit_profile_picture";
 import ProfileMiddle1 from "./user_show_components/profile_middle_1";
-import ProfileMiddle2 from "./user_show_components/profile_middle_2";
+import Activity from "./user_show_components/user_activity";
 
 export default class UserShow extends React.Component {
   constructor(props) {
@@ -57,10 +55,11 @@ export default class UserShow extends React.Component {
       <div className="profile-page">
         <div className="profile-middle">
           <ProfileMiddle1 user={user} showModal={this.showModal} />
-          <ProfileMiddle2 />
+          <Activity user={user} showModal={this.showModal}/>
         </div>
-        <EditProfilePicture show={this.state.profilePicture} />
-        {this.displayErrors()}
+
+        <EditProfilePictureModal show={this.state.profilePicture} />
+        {/* {this.displayErrors()} */}
       </div>
     );
   }
@@ -72,20 +71,4 @@ export default class UserShow extends React.Component {
       </div>
     )
   }
-
-  // render() {
-  //   return user && this.props.errors ? (
-  //     <div>
-  //       {user ? (
-  //         <>
-            
-  //         </>
-  //       ) : (
-  //         <>{this.displayErrors()}</>
-  //       )}
-  //     </div>
-  //   ) : (
-  //     <div>loading...</div>
-  //   );
-  // }
 };
