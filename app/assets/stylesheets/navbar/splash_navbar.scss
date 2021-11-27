@@ -1,3 +1,7 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 div.splash-navbar {
   display: flex;
   flex-direction: row;
@@ -35,7 +39,6 @@ div.splash-navbar-buttons div#signup a {
   color: rgba(0, 0, 0, 0.6);
   text-align: center;
   text-decoration: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 div.splash-navbar-buttons div#signup a:hover {
@@ -44,8 +47,8 @@ div.splash-navbar-buttons div#signup a:hover {
   border-radius: 5px;
 }
 
-div.splash-navbar-buttons a#login {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+div.splash-navbar-buttons div#login a {
   padding-right: 16px;
   padding-left: 16px;
   padding-top: 5px;
@@ -58,7 +61,7 @@ div.splash-navbar-buttons a#login {
 
 }
 
-div.splash-navbar-buttons a#login:hover {
+div.splash-navbar-buttons div#login a:hover {
   padding-right: 15px;
   padding-left: 15px;
   padding-top: 4px;

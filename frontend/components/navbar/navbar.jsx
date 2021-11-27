@@ -44,9 +44,9 @@ export default class Navbar extends React.Component {
           <div id="signup">
             <Link to={UrlPath.SIGNUP_FORM}>Join now</Link>
           </div>
-          
+
           <div id="login">
-            <Link id="login" to={UrlPath.LOGIN_FORM}>Sign in</Link>
+            <Link to={UrlPath.LOGIN_FORM}>Sign in</Link>
           </div>
         </div>
 
