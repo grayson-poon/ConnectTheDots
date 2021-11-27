@@ -2,9 +2,9 @@ import React from "react";
 import ProfileInfo from "./profile_info";
 import { BackgroundPicture, ProfilePicture } from "./pictures_on_profile";
 
-const ProfileMiddle1 = ({ user, showModal }) => {
+const ProfileMain = ({ user, showModal }) => {
   return (
-    <div className="profile-middle-1">
+    <div className="profile-main">
       <BackgroundPicture user={user} showModal={showModal} />
       <ProfilePicture user={user} showModal={showModal} />
       <ProfileInfo user={user} />
@@ -12,4 +12,4 @@ const ProfileMiddle1 = ({ user, showModal }) => {
   );
 };
 
-export default ProfileMiddle1;
+export default ProfileMain;

@@ -2,7 +2,6 @@ import React from "react";
 
 export default class EditProfilePictureModal extends React.Component {
   render() {
-    debugger
     return this.props.show ? this.show() : null;
   }
 

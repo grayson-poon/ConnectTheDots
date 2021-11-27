@@ -2,7 +2,7 @@
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-div.profile-middle-2 {
+div.profile-activity {
   border: 1px solid lightgray;
   border-radius: 8px;
   overflow: hidden;
@@ -46,7 +46,7 @@ div.title-and-button button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-div.profile-middle-2 a {
+div.profile-activity a {
   text-decoration: none;
   color: rgb(10, 102, 194);
   font-size: 14px;
@@ -55,7 +55,7 @@ div.profile-middle-2 a {
   padding: 0 24px 0 24px;
 }
 
-div.profile-middle-2 a:hover {
+div.profile-activity a:hover {
   text-decoration: underline;
 }
 

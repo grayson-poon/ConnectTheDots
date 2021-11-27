@@ -42,7 +42,6 @@ export default class SignupForm extends React.Component {
 
     Object.entries(this.state.user).forEach(([key, value]) => {
       key = (key === "profilePicture" ? "photo" : key);
-      debugger
       formData.append(`user[${key}]`, value);
     });
 

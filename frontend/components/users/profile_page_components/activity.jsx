@@ -5,7 +5,7 @@ import { MY_NETWORK } from "../../../util/url_paths_util";
 
 const Activity = ({ user, showModal }) => {
   return (
-    <div className="profile-middle-2">
+    <div className="profile-activity">
       <div className="title-and-button">
         <h2>Activity</h2>
         <button>Start a post</button>
