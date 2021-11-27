@@ -3,8 +3,9 @@ import { logout } from "../../actions/session_actions";
 import { fetchUser } from "../../actions/user_actions";
 import Navbar from "./navbar";
 
-const mSTP = (state) => ({
+const mSTP = (state, ownProps) => ({
   currentUserId: state.session.currentUserId,
+  url: ownProps.location.pathname,
 });
 
 const mDTP = (dispatch) => ({

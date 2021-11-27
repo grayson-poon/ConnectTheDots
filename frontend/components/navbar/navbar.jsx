@@ -4,12 +4,8 @@ import * as UrlPath from "../../util/url_paths_util";
 import { LOGO_URL, NAVICON_URL } from "../../util/logo_util";
 
 export default class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    let url = this.props.location.pathname;
+    let url = this.props.url;
 
     url === UrlPath.SPLASH ||
     url === UrlPath.LOGIN_FORM ||
@@ -19,9 +15,7 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    let url = this.props.location.pathname;
-
-    switch (url) {
+    switch (this.props.url) {
       case UrlPath.SPLASH:
         return this.splashNavbar();
       case UrlPath.LOGIN_FORM:
