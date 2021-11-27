@@ -15,13 +15,23 @@
  */
 
 @import 'reset.scss';
-@import 'page_container.scss';
+
+// Navbars
 @import './navbar/splash_navbar.scss';
-@import './splash_page/splash_component_1.scss';
-@import './splash_page/splash_component_2.scss';
-@import 'login_form.scss';
-@import 'user_show_page.scss';
-@import './navbar/session_navbar.scss';
 @import './navbar/login_navbar.scss';
 @import './navbar/signup_navbar.scss';
+@import './navbar/session_navbar.scss';
+
+// Forms
+@import 'login_form.scss';
+
+// Splash Page
+@import './splash_page/splash_component_1.scss';
+@import './splash_page/splash_component_2.scss';
+
+// Profile Page
+@import './user_show_page/profile_page_layout.scss';
+@import './user_show_page/profile_middle_1.scss';
+
+// Footers
 @import './footer/splash_footer.scss';
