@@ -1,0 +1,16 @@
+import React from "react";
+
+export default class EditProfilePicture extends React.Component {
+  render() {
+    debugger
+    return this.props.show ? this.show() : null;
+  }
+
+  show() {
+    return (
+      <div className="profile-picture-modal">
+        <p>profile picture modal</p>
+      </div>
+    )
+  }
+}
