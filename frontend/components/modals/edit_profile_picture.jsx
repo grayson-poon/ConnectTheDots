@@ -72,7 +72,7 @@ export default class EditProfilePictureModal extends React.Component {
           <div id="delete">
             <button>
               <img src={DELETE_BUTTON} />
-              <div>Delete</div>
+              <div>Remove photo</div>
             </button>
           </div>
         </div>

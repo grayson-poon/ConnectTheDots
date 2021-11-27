@@ -60,7 +60,14 @@ div.edit-delete {
   padding-top: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  position: relative;
+}
+
+div.edit-delete > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 div#delete {
@@ -132,7 +139,37 @@ div#upload-button input[type=file] {
   display: none;
 }
 
+
 div#submit-button {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div#submit-button button {
+  text-decoration: none;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px 8px 16px 8px;
+  border-radius: 8px;
+  background-color: rgb(29, 34, 38);
+}
+
+div#submit-button button:hover {
+  background: rgb(71, 70, 70);
+}
+
+div#submit-button img {
+  max-width: 25px;
+  height: auto;
+  filter: invert(1);
+}
+
+div#submit-button button > div {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
 }
