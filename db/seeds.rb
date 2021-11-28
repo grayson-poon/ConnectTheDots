@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Users
+### Users
+# User 1
 User.create({
   email: "first@gmail.com",
   password: "password",
@@ -18,6 +19,7 @@ User.create({
   about: "about",
 })
 
+# User 2
 User.create({
   email: "second@gmail.com",
   password: "password",
@@ -29,6 +31,7 @@ User.create({
   about: "about",
 })
 
+# User 3
 User.create({
   email: "third@gmail.com",
   password: "password",
@@ -39,6 +42,7 @@ User.create({
   about: "about",
 })
 
+# User 4
 User.create({
   email: "fourth@gmail.com",
   password: "password",
@@ -49,6 +53,7 @@ User.create({
   about: "about",
 })
 
+# User 5
 User.create({
   email: "fifth@gmail.com",
   password: "password",
@@ -70,20 +75,23 @@ User.create({
   about: "Demo User for ConnectTheDots",
 })
 
-# Posts
+### Posts
+# User 1
 Post.create({ body: "post1 user1", user_id: 1 })
 Post.create({ body: "post2 user1", user_id: 1 })
 Post.create({ body: "post3 user1", user_id: 1 })
 
+# User 2
 Post.create({ body: "post1 user2", user_id: 2 })
 Post.create({ body: "post2 user2", user_id: 2 })
 Post.create({ body: "post3 user2", user_id: 2 })
 
+# User 3
 Post.create({ body: "post1 user3", user_id: 3 })
 Post.create({ body: "post2 user3", user_id: 3 })
 Post.create({ body: "post3 user3", user_id: 3 })
 
 # Demo User's posts
-Post.create({ body: "post1 demouser", user_id: 6 })
-Post.create({ body: "post2 demouser", user_id: 6 })
-Post.create({ body: "post3 demouser", user_id: 6 })
+Post.create({ body: "post1 demo user", user_id: 6 })
+Post.create({ body: "post2 demo user", user_id: 6 })
+Post.create({ body: "post3 demo user", user_id: 6 })
