@@ -22,6 +22,7 @@ export default class Navbar extends React.Component {
   }
 
   render() {
+    debugger
     if (!this.props.currentUser) this.props.fetchUser(this.props.currentUserId);
 
     switch (this.props.url) {
@@ -33,6 +34,7 @@ export default class Navbar extends React.Component {
         return this.signupNavbar();
       default:
         if (!this.props.currentUser) return null;
+        // this.setState({ currentUser: this.props.currentUser })
         return this.sessionNavbar();
     }
   }

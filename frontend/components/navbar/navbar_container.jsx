@@ -3,11 +3,14 @@ import { logout } from "../../actions/session_actions";
 import { fetchUser } from "../../actions/user_actions";
 import Navbar from "./navbar";
 
-const mSTP = (state, ownProps) => ({
-  currentUserId: state.session.currentUserId,
-  currentUser: state.entities.users[state.session.currentUserId],
-  url: ownProps.location.pathname,
-});
+const mSTP = (state, ownProps) => {
+  debugger  
+  return ({
+    currentUserId: state.session.currentUserId,
+    currentUser: state.entities.users[state.session.currentUserId],
+    url: ownProps.location.pathname,
+  });
+}
 
 const mDTP = (dispatch) => ({
   logout: () => dispatch(logout()),
