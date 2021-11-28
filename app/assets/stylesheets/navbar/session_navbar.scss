@@ -83,39 +83,77 @@ div#my-network:hover div {
 }
 
 
-div#profile {
+div#my-network {
   padding: 0 10px 10px;
-  border-right: 1px solid lightgray;
-  margin-right: 160px;
 }
 
-div#profile a {
+div#my-network a {
   text-decoration: none;
-  color: black;
 }
 
-div#profile img {
+div#my-network a img {
   display: block;
   margin: auto;
   max-height: 35px;
   width: auto;
 }
 
+div#my-network a div {
+  text-align: center;
+  color: black;
+  font-size: 12px;
+}
+
+div#my-network:hover a div {
+  text-decoration: underline;
+}
+
+
+div#profile {
+  padding: 0 10px 10px;
+  border-right: 1px solid lightgray;
+  margin-right: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+div#profile a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div#profile a > img {
+  display: block;
+  max-height: 22px;
+  width: auto;
+  height: auto;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: rgb(29, 34, 38);
+}
+
 div#profile div#dropdown {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  padding-top: 5px;
 }
 
-div#profile div#dropdown div {
+div#profile div#dropdown > div {
   font-size: 12px;
   color: black;
 }
 
-div#profile:hover div#dropdown div {
+div#profile:hover div#dropdown > div {
   text-decoration: underline;
 }
 
-div#profile div#dropdown img {
+div#profile div#dropdown > img {
   width: 12px;
   height: auto;
 }
