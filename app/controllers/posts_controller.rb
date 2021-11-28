@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
-  def index
+  def index # get feed posts
     @posts = Post.select(*).where("user_id = ?", current_user.id)
+  end
+
+  def user_activity
+    # @posts = Post.select(*).where(user has commented on or created)
   end
 
   def create
