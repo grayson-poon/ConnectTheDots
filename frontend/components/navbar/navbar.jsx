@@ -119,16 +119,6 @@ export default class Navbar extends React.Component {
             </Link>
           </div>
 
-          {/* <div id="profile">
-            <Link to={`/users/${currentUserId}`}>
-              <img src={DEFAULT_PROFILE_PICTURE} />
-              <div id="dropdown">
-                <div>Me</div>
-                <img src={DROPDOWN_ICON} />
-              </div>
-            </Link>
-          </div> */}
-
           <div id="profile">
             <button onClick={this.showModal}>
               <img src={DEFAULT_PROFILE_PICTURE} />

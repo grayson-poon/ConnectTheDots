@@ -6,7 +6,6 @@ export default class ProfileDropdownModal extends React.Component {
   }
 
   render() {
-    // debugger
     return this.props.show ? this.show() : null;
   }
 
