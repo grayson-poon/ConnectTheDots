@@ -4,13 +4,24 @@
 
 
 // div.profile-dropdown-modal-background {
+//   background: rgba(0, 0, 0, 0.7);
+//   position: absolute;
+//   top: 0%;
+//   left: 0%;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 9;
+// }
+
+// div.profile-dropdown-modal-background button {
+//   border: none;
 //   background-color: transparent;
 //   position: absolute;
 //   top: 0%;
 //   left: 0%;
 //   width: 100%;
 //   height: 100%;
-//   z-index: 10;
+//   z-index: 9;
 // }
 
 div.profile-dropdown {
@@ -29,6 +40,7 @@ div.profile-dropdown {
   // padding: 8px;
   display: flex;
   flex-direction: column;
+  z-index: 10;
 }
 
 div.profile-dropdown div.information {
@@ -94,7 +106,7 @@ div.profile-dropdown div.view-profile {
   border-bottom: 1px solid lightgray;
 }
 
-div.profile-dropdown div.view-profile button {
+div.profile-dropdown div.view-profile a {
   border: 1px solid rgb(10, 102, 194);
   background-color: transparent;
   color: rgb(10, 102, 194);
@@ -104,9 +116,10 @@ div.profile-dropdown div.view-profile button {
   border-radius: 24px;
   padding: 1px 80px 1px 80px;
   margin: 10px 0 15px 0;
+  text-decoration: none;
 }
 
-div.profile-dropdown div.view-profile button:hover {
+div.profile-dropdown div.view-profile a:hover {
   cursor: pointer;
   border: 2px solid rgb(10, 102, 205);
   background-color: rgb(214, 224, 235);

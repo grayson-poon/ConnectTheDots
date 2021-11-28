@@ -15,25 +15,27 @@ export default class Navbar extends React.Component {
     super(props);
     this.state = {
       profileDropdown: false,
-      keyCounter: 0,
+      currentUser: this.props.currentUser,
     }
     this.showModal = this.showModal.bind(this);
+    // debugger
   }
 
   componentDidMount() {
     let url = this.props.url;
 
-    url === UrlPath.SPLASH ||
-    url === UrlPath.LOGIN_FORM ||
-    url === UrlPath.SIGNUP_FORM
-      ? null
-      : this.props.fetchUser(this.props.currentUserId);
+    // debugger
+
+    return (
+      url === UrlPath.SPLASH ||
+      url === UrlPath.LOGIN_FORM ||
+      url === UrlPath.SIGNUP_FORM
+        ? null
+        : this.props.fetchUser(this.props.currentUserId)
+    )
   }
 
   render() {
-    // debugger
-    if (!this.props.currentUser) return null;
-
     switch (this.props.url) {
       case UrlPath.SPLASH:
         return this.splashNavbar();
@@ -42,6 +44,7 @@ export default class Navbar extends React.Component {
       case UrlPath.SIGNUP_FORM:
         return this.signupNavbar();
       default:
+        if (!this.props.currentUser) return null;
         return this.sessionNavbar();
     }
   }
@@ -122,10 +125,13 @@ export default class Navbar extends React.Component {
           <div id="profile">
             <button onClick={this.showModal}>
               <div id="image-box">
-                <img src={currentUser.profilePicture
-                  ? currentUser.profilePicture
-                  : DEFAULT_PROFILE_PICTURE
-                } />
+                <img
+                  src={
+                    currentUser.profilePicture
+                      ? currentUser.profilePicture
+                      : DEFAULT_PROFILE_PICTURE
+                  }
+                />
               </div>
 
               <div id="dropdown">
@@ -141,7 +147,6 @@ export default class Navbar extends React.Component {
             currentUser={currentUser}
             logout={logout}
           />
-          
         </div>
       </div>
     );

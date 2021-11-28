@@ -12,7 +12,7 @@ class Api::SessionsController < ApplicationController
       # @connected_users
       # @posts
 
-      render "/api/feed/feed"
+      render "/api/users/show"
     else
       render json: ["Invalid email or password. Please try again"], status: 401
     end

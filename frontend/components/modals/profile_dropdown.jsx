@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { USER_SHOW } from "../../util/url_paths_util";
 
 export default class ProfileDropdownModal extends React.Component {
   constructor(props) {
@@ -31,7 +33,7 @@ export default class ProfileDropdownModal extends React.Component {
           </div>
 
           <div className="view-profile">
-            <button>View Profile</button>
+            <Link to={`/users/${currentUser.id}`}>View Profile</Link>
           </div>
 
           <div className="logout-user">
