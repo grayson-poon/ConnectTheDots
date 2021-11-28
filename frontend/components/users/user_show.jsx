@@ -1,7 +1,7 @@
 import React from "react";
-import EditProfilePictureModalContainer from "../modals/edit_profile_picture_container";
 import ProfileMain from "./profile_page_components/profile_main";
 import Activity from "./profile_page_components/activity";
+import EditProfilePictureModal from "../modals/edit_profile_picture";
 
 export default class UserShow extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class UserShow extends React.Component {
       postForm: false,
       keyCounter: 0,
     }
-    
+
     this.showModal = this.showModal.bind(this);
   }
 
@@ -49,7 +49,7 @@ export default class UserShow extends React.Component {
   }
 
   profile() {
-    let { user } = this.props;
+    let { user, updateUser } = this.props;
     ++this.state.keyCounter;
 
     return (
@@ -59,8 +59,9 @@ export default class UserShow extends React.Component {
           <Activity user={user} showModal={this.showModal}/>
         </div>
 
-        <EditProfilePictureModalContainer
+        <EditProfilePictureModal
           user={user}
+          updateUser={updateUser}
           show={this.state.profilePicture}
           showModal={this.showModal}
           key={this.state.keyCounter}

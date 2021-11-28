@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { USER_SHOW } from "../../util/url_paths_util";
+import { DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
 
 export default class ProfileDropdownModal extends React.Component {
   constructor(props) {
@@ -19,7 +19,9 @@ export default class ProfileDropdownModal extends React.Component {
         <div className="profile-dropdown">
           <div className="information">
             <div id="image">
-              <img src={currentUser.profilePicture} />
+              <img src={currentUser.profilePicture
+                ? currentUser.profilePicture
+                : DEFAULT_PROFILE_PICTURE} />
             </div>
 
             <div id="titles">

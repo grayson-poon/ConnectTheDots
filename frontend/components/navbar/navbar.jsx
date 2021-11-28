@@ -18,14 +18,12 @@ export default class Navbar extends React.Component {
       currentUser: this.props.currentUser,
     }
     this.showModal = this.showModal.bind(this);
-    // debugger
   }
 
   componentDidMount() {
+    if (this.props.currentUser) return null;
     let url = this.props.url;
-
-    // debugger
-
+    
     return (
       url === UrlPath.SPLASH ||
       url === UrlPath.LOGIN_FORM ||

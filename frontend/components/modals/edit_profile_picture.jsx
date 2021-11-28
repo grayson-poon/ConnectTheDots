@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import {
   CAMERA_ICON,
   CLOSE_BUTTON, 
@@ -7,14 +9,13 @@ import {
   CHECK_MARK_ICON
 } from "../../util/images_and_icons_util";
 
-export default class EditProfilePictureModal extends React.Component {
+class EditProfilePictureModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       user: this.props.user,
       photoUrl: null,
     }
-
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,26 +40,24 @@ export default class EditProfilePictureModal extends React.Component {
   handleFile(action) {
     let user = Object.assign({}, this.state.user);
 
-    return (event) => {
-      event.preventDefault();
+    switch(action) {
+      case "remove":
+        user["profilePicture"] = null;
+        this.setState({ user, photoUrl: null });
+        break;
+      case "add":
+        const fileReader = new FileReader();
+        let file = event.currentTarget.files[0];
 
-      switch(action) {
-        case "remove":
-          user["profilePicture"] = null;
-          this.setState({ user, photoUrl: null });
-        case "add":
-          const fileReader = new FileReader();
-          let file = event.currentTarget.files[0];
+        fileReader.onloadend = () => {
+          user["profilePicture"] = file;
+          this.setState({ user, photoUrl: fileReader.result });
+        };
 
-          fileReader.onloadend = () => {
-            user["profilePicture"] = file;
-            this.setState({ user, photoUrl: fileReader.result });
-          };
-
-          if (file) fileReader.readAsDataURL(file);
-        default:
-          return;
-      }
+        if (file) fileReader.readAsDataURL(file);
+        break;
+      default:
+        break;
     }
   }
 
@@ -93,7 +92,7 @@ export default class EditProfilePictureModal extends React.Component {
                 <img src={CAMERA_ICON} />
                 <input
                   type="file"
-                  onChange={this.handleFile("add")}
+                  onChange={() => this.handleFile("add")}
                   accept="image/*"
                 />
                 Upload photo
@@ -108,7 +107,7 @@ export default class EditProfilePictureModal extends React.Component {
             </div>
 
             <div id="delete">
-              <button onClick={this.handleFile("remove")}>
+              <button onClick={() => this.handleFile("remove")}>
                 <img src={DELETE_BUTTON} />
                 <div>Remove photo</div>
               </button>
@@ -118,4 +117,6 @@ export default class EditProfilePictureModal extends React.Component {
       </div>
     );
   }
-}
+};
+
+export default withRouter(connect(null)(EditProfilePictureModal)); 
