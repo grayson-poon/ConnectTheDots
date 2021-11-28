@@ -3,7 +3,7 @@ import { DEFAULT_BACKGROUND_PICTURE, DEFAULT_PROFILE_PICTURE, NEW_IMAGE_ICON } f
 
 export const ProfilePicture = ({ user, showModal }) => (
   <div className="profile-picture">
-    <button onClick={() => showModal("profilePicture")}>
+    <button onClick={() => showModal("profilePicture", true)}>
       <img
         className="edit-profile-picture"
         src={
@@ -19,13 +19,13 @@ export const ProfilePicture = ({ user, showModal }) => (
 
 export const BackgroundPicture = ({ user, showModal }) => (
   <div className="background-image">
-    <div className="edit-background-image">
+    {/* <div className="edit-background-image">
       <button>
         <img
           src={NEW_IMAGE_ICON}
         />
       </button>
-    </div>
+    </div> */}
 
     <div className="profile-background-image">
       <img

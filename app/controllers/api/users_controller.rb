@@ -24,6 +24,8 @@ class Api::UsersController < ApplicationController
     @user = User.find_by(id: params[:user][:id])
 
     if current_user.id == @user.id
+      @user.photo.purge if params[:user][:photo].nil?
+
       if @user.update(user_params)
         render 'api/users/show'
       else
