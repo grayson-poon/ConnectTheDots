@@ -13,8 +13,8 @@ export default class UserShow extends React.Component {
       postForm: false,
       keyCounter: 0,
     }
+    
     this.showModal = this.showModal.bind(this);
-    document.getElementById("")
   }
 
   componentDidMount() {

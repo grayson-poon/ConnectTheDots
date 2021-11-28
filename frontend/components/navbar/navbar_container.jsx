@@ -5,6 +5,7 @@ import Navbar from "./navbar";
 
 const mSTP = (state, ownProps) => ({
   currentUserId: state.session.currentUserId,
+  currentUser: state.entities.users[state.session.currentUserId],
   url: ownProps.location.pathname,
 });
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as UrlPath from "../../util/url_paths_util";
+import ProfileDropdownModalContainer from "../modals/profile_dropdown_container";
 import {
   DEFAULT_PROFILE_PICTURE,
   DROPDOWN_ICON, HOME_ICON, 
@@ -10,6 +11,15 @@ import {
 } from "../../util/images_and_icons_util";
 
 export default class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      profileDropdown: false,
+      keyCounter: 0,
+    }
+    this.showModal = this.showModal.bind(this);
+  }
+
   componentDidMount() {
     let url = this.props.url;
 
@@ -21,6 +31,9 @@ export default class Navbar extends React.Component {
   }
 
   render() {
+    // debugger
+    if (!this.props.currentUser) return null;
+
     switch (this.props.url) {
       case UrlPath.SPLASH:
         return this.splashNavbar();
@@ -31,6 +44,12 @@ export default class Navbar extends React.Component {
       default:
         return this.sessionNavbar();
     }
+  }
+
+  showModal() {
+    this.setState({
+      profileDropdown: this.state.profileDropdown ? false : true,
+    });
   }
 
   splashNavbar() {
@@ -75,7 +94,7 @@ export default class Navbar extends React.Component {
   }
 
   sessionNavbar() {
-    let { currentUserId, logout } = this.props;
+    let { currentUser, logout } = this.props;
 
     return (
       <div className="session-navbar">
@@ -100,7 +119,7 @@ export default class Navbar extends React.Component {
             </Link>
           </div>
 
-          <div id="profile">
+          {/* <div id="profile">
             <Link to={`/users/${currentUserId}`}>
               <img src={DEFAULT_PROFILE_PICTURE} />
               <div id="dropdown">
@@ -108,7 +127,25 @@ export default class Navbar extends React.Component {
                 <img src={DROPDOWN_ICON} />
               </div>
             </Link>
+          </div> */}
+
+          <div id="profile">
+            <button onClick={this.showModal}>
+              <img src={DEFAULT_PROFILE_PICTURE} />
+              <div id="dropdown">
+                <div>Me</div>
+                <img src={DROPDOWN_ICON} />
+              </div>
+            </button>
           </div>
+
+          <ProfileDropdownModalContainer
+            show={this.state.profileDropdown}
+            showModal={this.showModal}
+            currentUser={currentUser}
+            logout={logout}
+          />
+
           <button onClick={logout}>Logout</button>
         </div>
       </div>

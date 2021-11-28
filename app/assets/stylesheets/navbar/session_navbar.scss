@@ -116,18 +116,21 @@ div#profile {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding-top: 5px;
 }
 
-div#profile a {
+div#profile button {
   text-decoration: none;
   color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-div#profile a > img {
+div#profile button > img {
   display: block;
   max-height: 22px;
   width: auto;
@@ -141,7 +144,7 @@ div#profile div#dropdown {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 5px;
+  padding-top: 2px;
 }
 
 div#profile div#dropdown > div {
@@ -156,4 +159,5 @@ div#profile:hover div#dropdown > div {
 div#profile div#dropdown > img {
   width: 12px;
   height: auto;
+  padding: 0 3px 0 3px;
 }
