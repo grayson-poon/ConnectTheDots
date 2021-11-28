@@ -13,7 +13,7 @@ export default class ProfileDropdownModal extends React.Component {
     let { currentUser, logout } = this.props;
 
     return (
-      <div>
+      <div className="profile-dropdown-modal-background">
         <div className="profile-dropdown">
           <div className="information">
             <div id="image">

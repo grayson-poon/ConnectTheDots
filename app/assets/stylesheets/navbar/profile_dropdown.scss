@@ -1,0 +1,136 @@
+* {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+
+// div.profile-dropdown-modal-background {
+//   background-color: transparent;
+//   position: absolute;
+//   top: 0%;
+//   left: 0%;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 10;
+// }
+
+div.profile-dropdown {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  // box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 77px;
+  right: 160px;
+  // transform: translateX(-100%);
+  width: 264px;
+  height: auto;
+  // padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+div.profile-dropdown div.information {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 8px 0 8px;
+}
+
+div.information div#image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid black;
+  overflow: hidden;
+  margin: 7px 7px 7px 4px;
+}
+
+div.information div#image img {
+  max-width: 75px;
+  max-height: 75px;
+  width: auto;
+  height: auto;
+}
+
+div.information div#titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  // height: 150px;
+  width: min-content;
+  overflow: auto;
+}
+
+div.information div#titles ul {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+div.information div#titles ul li:first-child {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+div.information div#titles ul li:last-child {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+
+div.profile-dropdown div.view-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+div.profile-dropdown div.view-profile button {
+  border: 1px solid rgb(10, 102, 194);
+  background-color: transparent;
+  color: rgb(10, 102, 194);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  border-radius: 24px;
+  padding: 1px 80px 1px 80px;
+  margin: 10px 0 15px 0;
+}
+
+div.profile-dropdown div.view-profile button:hover {
+  cursor: pointer;
+  border: 2px solid rgb(10, 102, 205);
+  background-color: rgb(214, 224, 235);
+  padding: 0 79px 0 79px;
+}
+
+div.profile-dropdown div.logout-user {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  // padding: 0 12px 0 12px;
+}
+
+div.profile-dropdown div.logout-user button {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 8px 195px 8px 12px;
+  cursor: pointer;
+}
+
+div.profile-dropdown div.logout-user button:hover {
+  text-decoration: underline;
+}

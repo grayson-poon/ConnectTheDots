@@ -127,7 +127,7 @@ export default class Navbar extends React.Component {
                   : DEFAULT_PROFILE_PICTURE
                 } />
               </div>
-              
+
               <div id="dropdown">
                 <div>Me</div>
                 <img src={DROPDOWN_ICON} />
@@ -141,8 +141,7 @@ export default class Navbar extends React.Component {
             currentUser={currentUser}
             logout={logout}
           />
-
-          <button onClick={logout}>Logout</button>
+          
         </div>
       </div>
     );
