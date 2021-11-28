@@ -17,7 +17,6 @@ export default class EditProfilePictureModal extends React.Component {
 
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.removeFile = this.removeFile.bind(this);
   }
 
   render() {
@@ -37,38 +36,40 @@ export default class EditProfilePictureModal extends React.Component {
       .then(() => this.props.showModal("profilePicture", false));
   }
 
-  handleFile(event) {
-    event.preventDefault();
-    let fileReader = new FileReader();
-    let user = Object.assign({}, this.state.user);
-    let file = event.currentTarget.files[0];
-
-    fileReader.onloadend = () => {
-      user["profilePicture"] = file;
-      this.setState({ user, photoUrl: fileReader.result });
-    };
-
-    if (file) fileReader.readAsDataURL(file);
-  }
-
-  removeFile(event) {
-    event.preventDefault();
+  handleFile(action) {
     let user = Object.assign({}, this.state.user);
 
-    user["profilePicture"] = null;
-    this.setState({ user, photoUrl: null });
+    return (event) => {
+      event.preventDefault();
+
+      switch(action) {
+        case "remove":
+          user["profilePicture"] = null;
+          this.setState({ user, photoUrl: null });
+        case "add":
+          const fileReader = new FileReader();
+          let file = event.currentTarget.files[0];
+
+          fileReader.onloadend = () => {
+            user["profilePicture"] = file;
+            this.setState({ user, photoUrl: fileReader.result });
+          };
+
+          if (file) fileReader.readAsDataURL(file);
+        default:
+          return;
+      }
+    }
   }
 
   show() {
-    let { showModal } = this.props;
-
     return (
       <div className="profile-picture-modal-background">
         <div className="profile-picture-modal">
           <div className="header">
             <div>Profile Photo</div>
             <div className="close-button">
-              <button onClick={() => showModal("profilePicture", false)}>
+              <button onClick={() => this.props.showModal("profilePicture", false)}>
                 <img src={CLOSE_BUTTON} />
               </button>
             </div>
@@ -92,7 +93,7 @@ export default class EditProfilePictureModal extends React.Component {
                 <img src={CAMERA_ICON} />
                 <input
                   type="file"
-                  onChange={this.handleFile}
+                  onChange={this.handleFile("add")}
                   accept="image/*"
                 />
                 Upload photo
@@ -107,7 +108,7 @@ export default class EditProfilePictureModal extends React.Component {
             </div>
 
             <div id="delete">
-              <button onClick={this.removeFile}>
+              <button onClick={this.handleFile("remove")}>
                 <img src={DELETE_BUTTON} />
                 <div>Remove photo</div>
               </button>
