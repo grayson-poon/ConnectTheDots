@@ -36,17 +36,17 @@ export default class UserShow extends React.Component {
     this.setState({ [field]: status });
   }
 
-  displayErrors() {
-    return (
-      <div>
-        <ul>
-          {this.props.errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+  // displayErrors() {
+  //   return (
+  //     <div>
+  //       <ul>
+  //         {this.props.errors.map((error, idx) => (
+  //           <li key={idx}>{error}</li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   )
+  // }
 
   profile() {
     let { user, updateUser } = this.props;

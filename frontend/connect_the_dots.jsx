@@ -7,13 +7,13 @@ import { logout } from "./actions/session_actions";
 document.addEventListener("DOMContentLoaded", () => {
   let preloadedState;
   if (window.currentUserId) {
-    // preloadedState = {
-    //   session: {
-    //     currentUserId: window.currentUserId,
-    //   }
-    // }
+    preloadedState = {
+      session: {
+        currentUserId: window.currentUserId,
+      }
+    }
 
-    // delete window.currentUserId;
+    delete window.currentUserId;
   }
 
   const store = configureStore(preloadedState);
