@@ -21,6 +21,12 @@ export default class Navbar extends React.Component {
     debugger
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.url !== prevProps.url) {
+  //     this.setState({ profileDropdown: false });
+  //   }
+  // }
+
   render() {
     debugger
     if (!this.props.currentUser) this.props.fetchUser(this.props.currentUserId);
@@ -34,7 +40,6 @@ export default class Navbar extends React.Component {
         return this.signupNavbar();
       default:
         if (!this.props.currentUser) return null;
-        // this.setState({ currentUser: this.props.currentUser })
         return this.sessionNavbar();
     }
   }
@@ -87,7 +92,9 @@ export default class Navbar extends React.Component {
   }
 
   sessionNavbar() {
-    let { currentUser, logout } = this.props;
+    let { currentUser, logout, url } = this.props;
+    
+
 
     return (
       <div className="session-navbar">
@@ -130,13 +137,17 @@ export default class Navbar extends React.Component {
               </div>
             </button>
           </div>
+          
+          {this.state.profileDropdown
+            ? <ProfileDropdownModal
+                show={this.state.profileDropdown}
+                showModal={this.showModal}
+                currentUser={currentUser}
+                logout={logout}
+              />
+            : null
+          }
 
-          <ProfileDropdownModal
-            show={this.state.profileDropdown}
-            showModal={this.showModal}
-            currentUser={currentUser}
-            logout={logout}
-          />
         </div>
       </div>
     );
