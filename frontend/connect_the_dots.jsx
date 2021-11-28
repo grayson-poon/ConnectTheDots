@@ -21,10 +21,15 @@ import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
   let preloadedState;
-  if (window.currentUserId) {
+  if (window.currentUser) {
     preloadedState = {
+      entities: {
+        users: {
+          [window.currentUserId]: window.currentUser,
+        } 
+      },
       session: {
-        currentUserId: window.currentUserId,
+        currentUserId: window.currentUser.id,
       }
     }
 

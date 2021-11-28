@@ -44,7 +44,7 @@ class EditProfilePictureModal extends React.Component {
       case "remove":
         user["profilePicture"] = null;
         this.setState({ user, photoUrl: null });
-        break;
+        return;
       case "add":
         const fileReader = new FileReader();
         let file = event.currentTarget.files[0];
@@ -55,9 +55,9 @@ class EditProfilePictureModal extends React.Component {
         };
 
         if (file) fileReader.readAsDataURL(file);
-        break;
+        return;
       default:
-        break;
+        return;
     }
   }
 
