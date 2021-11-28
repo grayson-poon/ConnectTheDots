@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   attr_reader :password
-
-  after_initialize :ensure_session_token
-
+  
   validates :email, :session_token, presence: true, uniqueness: true
   validates :password_digest, :first_name, :last_name, :current_location, :headline, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  after_initialize :ensure_session_token
+  
+  has_many :posts, dependent: :destroy
   has_one_attached :photo
 
   def self.find_by_credentials(email, password)
