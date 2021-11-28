@@ -34,11 +34,16 @@ export default class Navbar extends React.Component {
 
     switch (this.props.url) {
       case UrlPath.SPLASH:
-        return this.splashNavbar();
+        return this.sessionNavbar();
+
+        // return this.splashNavbar();
       case UrlPath.LOGIN_FORM:
-        return this.loginNavbar();
+        return this.sessionNavbar();
+
+        // return this.loginNavbar();
       case UrlPath.SIGNUP_FORM:
-        return this.signupNavbar();
+        return this.sessionNavbar();
+        // return this.signupNavbar();
       default:
         if (!this.props.currentUser) return null;
         return this.sessionNavbar();
