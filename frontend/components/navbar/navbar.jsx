@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as UrlPath from "../../util/url_paths_util";
-import ProfileDropdownModalContainer from "../modals/profile_dropdown_container";
+import ProfileDropdownModal from "../modals/profile_dropdown";
 import {
   DEFAULT_PROFILE_PICTURE,
   DROPDOWN_ICON, HOME_ICON, 
@@ -121,7 +121,13 @@ export default class Navbar extends React.Component {
 
           <div id="profile">
             <button onClick={this.showModal}>
-              <img src={DEFAULT_PROFILE_PICTURE} />
+              <div id="image-box">
+                <img src={currentUser.profilePicture
+                  ? currentUser.profilePicture
+                  : DEFAULT_PROFILE_PICTURE
+                } />
+              </div>
+              
               <div id="dropdown">
                 <div>Me</div>
                 <img src={DROPDOWN_ICON} />
@@ -129,7 +135,7 @@ export default class Navbar extends React.Component {
             </button>
           </div>
 
-          <ProfileDropdownModalContainer
+          <ProfileDropdownModal
             show={this.state.profileDropdown}
             showModal={this.showModal}
             currentUser={currentUser}
