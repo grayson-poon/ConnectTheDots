@@ -5,24 +5,24 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
 const receiveUser = ({ user }) => {
-  return ({
+  return {
     type: RECEIVE_USER,
     user,
-  });
+  };
 };
 
 const receiveCurrentUser = ({ user }) => {
-  return ({
+  return {
     type: RECEIVE_CURRENT_USER,
     currentUser: user,
-  });
+  };
 };
 
 const receiveUserErrors = (errors) => {
-  return ({
+  return {
     type: RECEIVE_USER_ERRORS,
     errors,
-  });
+  };
 };
 
 export const createUser = (user) => (dispatch) => {
