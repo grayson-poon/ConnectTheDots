@@ -16,21 +16,23 @@ export default class Navbar extends React.Component {
     this.state = {
       profileDropdown: false,
       currentUser: this.props.currentUser,
-    }
+    };
     this.showModal = this.showModal.bind(this);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.url !== prevProps.url) {
-  //     this.setState({ profileDropdown: false });
-  //   }
-  // }
+  componentDidMount() {
+    this.setState({ profileDropdown: false });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.url !== prevProps.url) {
+      this.setState({ profileDropdown: false });
+    }
+  }
 
   render() {
-    if (
-      !this.props.currentUser &&
-      this.props.currentUserId
-    ) this.props.fetchUser(this.props.currentUserId);
+    if (!this.props.currentUser && this.props.currentUserId)
+      this.props.fetchUser(this.props.currentUserId);
 
     switch (this.props.url) {
       case UrlPath.SPLASH:
@@ -51,6 +53,10 @@ export default class Navbar extends React.Component {
     });
   }
 
+  hideModal() {
+    this.setState({ profileDropdown: false });
+  }
+
   splashNavbar() {
     return (
       <div className="splash-navbar">
@@ -67,7 +73,6 @@ export default class Navbar extends React.Component {
             <Link to={UrlPath.LOGIN_FORM}>Sign in</Link>
           </div>
         </div>
-
       </div>
     );
   }
@@ -85,17 +90,15 @@ export default class Navbar extends React.Component {
   signupNavbar() {
     return (
       <div className="signup-navbar">
-          <Link to={UrlPath.SPLASH}>
-            <img src={LOGO_URL}/>
-          </Link>
+        <Link to={UrlPath.SPLASH}>
+          <img src={LOGO_URL} />
+        </Link>
       </div>
     );
   }
 
   sessionNavbar() {
     let { currentUser, logout, url } = this.props;
-    
-
 
     return (
       <div className="session-navbar">
@@ -121,7 +124,7 @@ export default class Navbar extends React.Component {
           </div>
 
           <div id="profile">
-            <button onClick={this.showModal}>
+            <button onClick={() => this.showModal()}>
               <div id="image-box">
                 <img
                   src={
@@ -138,17 +141,15 @@ export default class Navbar extends React.Component {
               </div>
             </button>
           </div>
-          
-          {this.state.profileDropdown
-            ? <ProfileDropdownModal
-                show={this.state.profileDropdown}
-                showModal={this.showModal}
-                currentUser={currentUser}
-                logout={logout}
-              />
-            : null
-          }
 
+          {this.state.profileDropdown ? (
+            <ProfileDropdownModal
+              show={this.state.profileDropdown}
+              showModal={() => this.showModal()}
+              currentUser={currentUser}
+              logout={logout}
+            />
+          ) : null}
         </div>
       </div>
     );
