@@ -1,13 +1,41 @@
 class PostsController < ApplicationController
-
   def index
-    # @posts = Post.select(*).where({ user_id: { current_user.id }})
+    @posts = Post.select(*).where("user_id = ?", current_user.id)
   end
 
   def create
     @post = Post.new(post_params)
+
+    if @post.save
+      render "api/posts/details"
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
   end
 
+  def update
+    @post = Post.find_by(id: params[:post][:id])
+
+    if current_user.id == @post.id
+      @post.photo.purge if params[:post][:photo].nil?
+
+      if @post.update(post_params)
+        render "api/posts/details"
+      else
+        rendre json: @user.errors.full_messages, status: 302
+      end
+    end
+  end
+
+  def destroy
+    @post = Post.find_by(id: params[:post][:id])
+
+    if current_user.id == @post.user_id
+      @post.destroy
+      # render "api/posts/details"
+      render json: ["Successfully deleted"]
+    end
+  end
 
   private
 

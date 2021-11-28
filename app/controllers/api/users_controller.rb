@@ -27,7 +27,7 @@ class Api::UsersController < ApplicationController
       @user.photo.purge if params[:user][:photo].nil?
 
       if @user.update(user_params)
-        render 'api/users/show'
+        render "api/users/show"
       else
         render json: @user.errors.full_messages, status: 302
       end
