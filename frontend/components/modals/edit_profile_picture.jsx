@@ -17,6 +17,7 @@ class EditProfilePictureModal extends React.Component {
       photoUrl: null,
     }
     this.handleFile = this.handleFile.bind(this);
+    this.removeFile = this.removeFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -37,28 +38,28 @@ class EditProfilePictureModal extends React.Component {
       .then(() => this.props.showModal("profilePicture", false));
   }
 
-  handleFile(action) {
+  handleFile(event) {
+    event.preventDefault();
+    const fileReader = new FileReader();
+    
     let user = Object.assign({}, this.state.user);
+    let file = event.currentTarget.files[0];
 
-    switch(action) {
-      case "remove":
-        user["profilePicture"] = null;
-        this.setState({ user, photoUrl: null });
-        return;
-      case "add":
-        const fileReader = new FileReader();
-        let file = event.currentTarget.files[0];
+    fileReader.onloadend = () => {
+      user["profilePicture"] = file;
+      this.setState({ user, photoUrl: fileReader.result });
+    };
 
-        fileReader.onloadend = () => {
-          user["profilePicture"] = file;
-          this.setState({ user, photoUrl: fileReader.result });
-        };
+    if (file) fileReader.readAsDataURL(file);
+  }
 
-        if (file) fileReader.readAsDataURL(file);
-        return;
-      default:
-        return;
-    }
+  removeFile(event) {
+    event.preventDefault();
+
+    let user = Object.assign({}, this.state.user);
+    user["profilePicture"] = null;
+
+    this.setState({ user, photoUrl: null });
   }
 
   show() {
@@ -92,7 +93,7 @@ class EditProfilePictureModal extends React.Component {
                 <img src={CAMERA_ICON} />
                 <input
                   type="file"
-                  onChange={() => this.handleFile("add")}
+                  onChange={this.handleFile}
                   accept="image/*"
                 />
                 Upload photo
@@ -107,7 +108,7 @@ class EditProfilePictureModal extends React.Component {
             </div>
 
             <div id="delete">
-              <button onClick={() => this.handleFile("remove")}>
+              <button onClick={this.removeFile}>
                 <img src={DELETE_BUTTON} />
                 <div>Remove photo</div>
               </button>
