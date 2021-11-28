@@ -3,8 +3,7 @@ import { logout } from "../../actions/session_actions";
 import { fetchUser } from "../../actions/user_actions";
 import Navbar from "./navbar";
 
-const mSTP = (state, ownProps) => {
-  debugger  
+const mSTP = (state, ownProps) => { 
   return ({
     currentUserId: state.session.currentUserId,
     currentUser: state.entities.users[state.session.currentUserId],

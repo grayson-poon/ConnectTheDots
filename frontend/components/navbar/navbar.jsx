@@ -18,7 +18,6 @@ export default class Navbar extends React.Component {
       currentUser: this.props.currentUser,
     }
     this.showModal = this.showModal.bind(this);
-    debugger
   }
 
   // componentDidUpdate(prevProps) {
@@ -28,8 +27,10 @@ export default class Navbar extends React.Component {
   // }
 
   render() {
-    debugger
-    if (!this.props.currentUser) this.props.fetchUser(this.props.currentUserId);
+    if (
+      !this.props.currentUser &&
+      this.props.currentUserId
+    ) this.props.fetchUser(this.props.currentUserId);
 
     switch (this.props.url) {
       case UrlPath.SPLASH:
