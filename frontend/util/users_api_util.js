@@ -1,18 +1,19 @@
-export const createUser = (user) =>
-  $.ajax({
+export const createUser = (user) => {
+  return $.ajax({
     method: "POST",
     url: "/api/users",
     data: user,
     contentType: false,
     processData: false,
   });
+};
 
-export const fetchUser = (userId) => (
-  $.ajax({
+export const fetchUser = (userId) => {
+  return $.ajax({
     method: "GET",
     url: `/api/users/${userId}`,
-  })
-);
+  });
+};
 
 export const updateUser = (user) => {
   return $.ajax({
@@ -21,5 +22,5 @@ export const updateUser = (user) => {
     data: user,
     contentType: false,
     processData: false,
-  })
+  });
 };

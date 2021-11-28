@@ -69,3 +69,21 @@ User.create({
   headline: "Demo User for ConnectTheDots",
   about: "Demo User for ConnectTheDots",
 })
+
+# Posts
+Post.create({ body: "post1 user1", user_id: 1 })
+Post.create({ body: "post2 user1", user_id: 1 })
+Post.create({ body: "post3 user1", user_id: 1 })
+
+Post.create({ body: "post1 user2", user_id: 2 })
+Post.create({ body: "post2 user2", user_id: 2 })
+Post.create({ body: "post3 user2", user_id: 2 })
+
+Post.create({ body: "post1 user3", user_id: 3 })
+Post.create({ body: "post2 user3", user_id: 3 })
+Post.create({ body: "post3 user3", user_id: 3 })
+
+# Demo User's posts
+Post.create({ body: "post1 demouser", user_id: 6 })
+Post.create({ body: "post2 demouser", user_id: 6 })
+Post.create({ body: "post3 demouser", user_id: 6 })
