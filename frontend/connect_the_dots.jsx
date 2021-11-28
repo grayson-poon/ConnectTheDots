@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    delete window.currentUserId;
+    // delete window.currentUserId;
   }
 
   const store = configureStore(preloadedState);
