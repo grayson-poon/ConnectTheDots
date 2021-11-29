@@ -1,18 +1,19 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import selectAllPosts from "../../reducers/selectors";
-import fetchFeedPosts, { fetchActivityPosts } from "../../actions/post_actions";
+import fetchPosts from "../../actions/post_actions";
 import Post from "./post_index";
 
 const mSTP = (state, ownProps) => {
   // comments: all comments belonging to this post
   return {
     posts: selectAllPosts(state),
+    url: ownProps.location.pathname,
   };
 };
 
 const mDTP = (dispatch) => ({
-  fetchFeedPosts: () => dispatch(fetchFeedPosts()),
-  fetchActivityPosts: () => dispatch(fetchActivityPosts()),
+  fetchPosts: (page, userId) => dispatch(fetchPosts(page, userId)),
 });
 
-export default connect(mSTP, mDTP)(Post);
+export default withRouter(connect(mSTP, mDTP)(Post));

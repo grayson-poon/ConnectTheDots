@@ -1,5 +1,4 @@
 import * as PostsApiUtil from "../util/posts_api_util";
-import { FEED, ACTIVITY } from "../util/fetch_constants";
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
@@ -34,8 +33,8 @@ const receivePostErrors = (errors) => {
   };
 };
 
-export const fetchPosts = (page, userId = null) => (dispatch) => {
-  return PostsApiUtil.fetchPosts(page, userId).then(
+export const fetchPosts = (url, userId = null) => (dispatch) => {
+  return PostsApiUtil.fetchPosts(url, userId).then(
     (posts) => dispatch(receivePosts(posts)),
     (errors) => dispatch(receivePostErrors(errors.responseJSON))
   );
