@@ -5,16 +5,16 @@
 #     {id: 1, body: "body", user_id: 2, picture: "url" },
 #     {id: 1, body: "body", user_id: 2, picture: "url" },
 #   ],
+#   users: [
+#     { id: 1, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
+#     { id: 2, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
+#     { id: 3, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
+#   ],
 #   comments:[
 #     { id: 1, body: "body", user_id: 2, post_id: 3 },
 #     { id: 2, body: "body", user_id: 1, post_id: 2 },
 #     { id: 3, body: "body", user_id: 3, post_id: 1 },
 #   ],
-#   users: [
-#     { id: 1, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
-#     { id: 2, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
-#     { id: 3, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
-#   ]
 # }
 
 json.posts @posts do |post|

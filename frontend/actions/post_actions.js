@@ -38,10 +38,10 @@ const receivePostErrors = (errors) => {
 export const fetchPosts = (url, userId = null) => (dispatch) => {
   debugger
   return PostsApiUtil.fetchPosts(url, userId).then(
-    (res) => console.log(res, "RESPONSE"),
-    // (payload) => dispatch(receiveWholePosts(payload)),
-    (errors) => console.log(errors, "ERRORS")
-    // (errors) => dispatch(receivePostErrors(errors.responseJSON))
+    // (res) => console.log(res, "RESPONSE"),
+    (payload) => dispatch(receiveWholePosts(payload)),
+    // (errors) => console.log(errors, "ERRORS")
+    (errors) => dispatch(receivePostErrors(errors.responseJSON))
   );
 };
 

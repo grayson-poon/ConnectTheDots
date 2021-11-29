@@ -11,7 +11,7 @@ export default class PostIndex extends React.Component {
       case FEED:
         debugger
         this.props.fetchPosts(this.props.url);
-        return
+        break;
       case this.props.includes(ACTIVITY_TAIL):
         return this.props.fetchPosts(ACTIVITY_TAIL, this.props.match.params.userId);
       default:
@@ -21,27 +21,28 @@ export default class PostIndex extends React.Component {
 
   render() {
     let { posts, users, currentUserId } = this.props;
-    if (!posts || !users) return null;
+    
+    if (Object.keys(posts).length === 0 ||
+      Object.keys(users).length === 0
+      ) return null;
 
     return (
       <div className="post-index">
-        <div className="new-post-form">
-
-        </div>
+        <div className="new-post-form"></div>
 
         <div className="posts-list">
           <ul>
-            {posts.map((post) => {
+            {Object.values(posts).map((post) => (
               <PostIndexItem
                 key={post.id}
                 post={post}
                 user={users[post.userId]}
                 currentUserId={currentUserId}
               />
-            })}
+            ))}
           </ul>
         </div>
       </div>
-    )
+    );
   }
 }

@@ -4,7 +4,7 @@ import postsReducer from "./entities_slice/posts_reducer";
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
-  post: postsReducer,
+  posts: postsReducer,
   
   /*
   comments: commentsReducer,
