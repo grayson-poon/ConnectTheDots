@@ -7,7 +7,7 @@ import NavbarContainer from "../components/navbar/navbar_container";
 import SignupFormContainer from "./sessions/signup_form_container";
 import LoginFormContainer from "../components/sessions/login_form_container";
 import FeedContainer from "../components/feed/feed_container";
-import UserShowContainer from "../components/users/user_show_container";
+import UserShowContainer from "./users/profile_page_container";
 import SplashContainer from "../components/splash/splash_container";
 import FooterContainer from "../components/footer/footer_container";
 import PostIndexContainer from "./posts/post_index_container";

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { fetchUser, updateUser } from "../../actions/user_actions";
-import UserShow from "./user_show";
+import UserShow from "./profile_page";
 
 const mSTP = (state, ownProps) => {
   return {
