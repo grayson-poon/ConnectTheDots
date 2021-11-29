@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
   def index # get feed posts
-    @posts = Post.select(*).where("user_id = ?", current_user.id)
+    # @posts = Post.select(*).where("user_id = ?", current_user.id)
     # @comments = query for those posts' comments
 
     render "api/posts/index"
