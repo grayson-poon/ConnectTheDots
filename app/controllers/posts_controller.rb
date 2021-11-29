@@ -38,6 +38,8 @@ class PostsController < ApplicationController
       @post.destroy
       # render "api/posts/details"
       render json: ["Successfully deleted"]
+    else
+      render json: ["Post could not be removed"]
     end
   end
 
