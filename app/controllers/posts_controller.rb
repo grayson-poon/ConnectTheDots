@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         render "api/posts/details"
       else
-        rendre json: @user.errors.full_messages, status: 302
+        render json: @user.errors.full_messages, status: 302
       end
     end
   end
