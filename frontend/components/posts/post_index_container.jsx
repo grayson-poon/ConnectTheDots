@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { fetchPosts } from "../../actions/post_actions";
+import { fetchPosts, createPost } from "../../actions/post_actions";
 import PostIndex from "./post_index";
 
 const mSTP = (state, ownProps) => {
@@ -14,6 +14,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => ({
   fetchPosts: (url, userId) => dispatch(fetchPosts(url, userId)),
+  createPost: (post) => dispatch(createPost(post)),
 });
 
 export default withRouter(connect(mSTP, mDTP)(PostIndex));

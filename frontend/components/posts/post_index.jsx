@@ -3,6 +3,7 @@ import {
   ACTIVITY_TAIL,
   FEED
 } from "../../util/url_paths_util";
+import NewPostForm from "./new_post_form";
 import PostIndexItem from "./post_index_item";
 
 export default class PostIndex extends React.Component {
@@ -20,7 +21,7 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    let { posts, users, currentUserId } = this.props;
+    let { posts, users, currentUserId, createPost } = this.props;
     
     if (Object.keys(posts).length === 0 ||
       Object.keys(users).length === 0
@@ -28,7 +29,7 @@ export default class PostIndex extends React.Component {
 
     return (
       <div className="post-index">
-        <div></div>
+        <NewPostForm createPost={createPost} />
 
         {/* <div className="posts-list">
           <ul>

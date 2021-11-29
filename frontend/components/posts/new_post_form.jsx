@@ -17,7 +17,7 @@ export default class NewPostForm extends React.Component {
   }
 
   render() {
-    let { currentUser } = this.props;
+    let { currentUser, createPost } = this.props;
 
     return (
       <div className="new-post-form">
@@ -30,13 +30,20 @@ export default class NewPostForm extends React.Component {
             } />
           </div>
 
-          <div id="post-form-input">
+          <div id="post-form-button">
             <button onClick={this.showModal("postForm", true)}>Start a post</button>
           </div>
 
-          <NewPostModal />
+          <div id="post-form-picture-input">
+            <img src={POST_PICTURE_ICON} />
+            <input type="text" />
+          </div>
 
-          <div className="post-form-errors"></div>
+          <NewPostModal 
+            currentUser={currentUser}
+            createPost={createPost}
+          />
+
         </div>
       </div>
     )
