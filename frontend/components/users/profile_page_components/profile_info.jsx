@@ -2,6 +2,8 @@ import React from "react";
 
 const ProfileInfo = ({ user }) => (
   <div className="profile-info">
+    <div className="hide-me">HIDE ME - for vertical space</div>
+
     <div className="name-pronouns">
       <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
       <div className="profile-pronouns">{user.pronouns}</div>
