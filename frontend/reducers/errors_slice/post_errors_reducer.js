@@ -1,7 +1,7 @@
 import {
   RECEIVE_POST,
   RECEIVE_POST_ERRORS
-} from "../actions/post_actions";
+} from "../../actions/post_actions";
 
 const postErrorsReducer = (state = [], action) => {
   Object.freeze(state);

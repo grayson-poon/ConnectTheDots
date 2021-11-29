@@ -27,7 +27,7 @@ const receivePost = ({ post }) => {
   };
 };
 
-const deletePost = ({ post }) => {
+const removePost = ({ post }) => {
   return {
     type: REMOVE_POST,
     post
@@ -71,7 +71,7 @@ export const updatePost = (post) => (dispatch) => {
 
 export const deletePost = (postId) => (dispatch) => {
   return PostsApiUtil.deletePost(postId).then(
-    (post) => dispatch(deletePost(post)),
+    (post) => dispatch(removePost(post)),
     (errors) => dispatch(receivePostErrors(errors.responseJSON))
   );
 };

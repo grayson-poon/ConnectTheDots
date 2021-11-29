@@ -3,7 +3,7 @@ import {
   RECEIVE_ACTIVITY_POSTS,
   RECEIVE_POST,
   REMOVE_POST,
-} from "../actions/post_actions";
+} from "../../actions/post_actions";
 
 const postsReducer = (state = {}, action)  => {
   Object.freeze(state);
