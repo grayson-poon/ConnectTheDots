@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileMain from "./profile_page_components/profile_main";
-import Activity from "./profile_page_components/activity";
+import ActivitySection from "./profile_page_components/activity_section";
 import EditProfilePictureModal from "../modals/edit_profile_picture";
 
 export default class UserShow extends React.Component {
@@ -56,7 +56,7 @@ export default class UserShow extends React.Component {
       <div className="profile-page">
         <div className="profile-middle">
           <ProfileMain user={user} showModal={this.showModal} />
-          <Activity user={user} showModal={this.showModal}/>
+          <ActivitySection user={user} showModal={this.showModal}/>
         </div>
 
         <EditProfilePictureModal

@@ -3,7 +3,7 @@ import { DEFAULT_BACKGROUND_PICTURE, DEFAULT_PROFILE_PICTURE } from "../../util/
 import { MY_NETWORK } from "../../util/url_paths_util";
 import { Link } from "react-router-dom";
 
-const LeftProfileBox = ({ currentUser, currentUserId }) => {
+const LeftProfileBox = ({ currentUser }) => {
   return (
     <div className="left-profile-box">
       <div className="left-profile-background">
@@ -21,7 +21,7 @@ const LeftProfileBox = ({ currentUser, currentUserId }) => {
       </div>
 
       <div className="left-profile-info">
-        <Link to={`/users/${currentUserId}`}>
+        <Link to={`/users/${currentUser.id}`}>
           {currentUser.firstName} {currentUser.lastName}
         </Link>
         <li>{currentUser.headline}</li>

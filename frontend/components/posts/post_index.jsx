@@ -28,9 +28,9 @@ export default class PostIndex extends React.Component {
 
     return (
       <div className="post-index">
-        <div className="new-post-form"></div>
+        <div></div>
 
-        <div className="posts-list">
+        {/* <div className="posts-list">
           <ul>
             {Object.values(posts).map((post) => (
               <PostIndexItem
@@ -41,7 +41,7 @@ export default class PostIndex extends React.Component {
               />
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -26,16 +26,17 @@ export default class Feed extends React.Component {
 
 
   postIndex() {
-    let { currentUserId, currentUser } = this.props;
+    let { currentUser } = this.props;
 
     return (
       <div className="whole-feed-page">
         <LeftProfileBox
           currentUser={currentUser}
-          currentUserId={currentUserId}
         />
 
-        <PostIndexContainer currentUserId={currentUserId} />
+        <PostIndexContainer
+          currentUser={currentUser}
+        />
       </div>
     );
   }
