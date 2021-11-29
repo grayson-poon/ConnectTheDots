@@ -1,5 +1,6 @@
 import React from "react";
 import { ACTIVITY_TAIL, FEED } from "../../util/url_paths_util";
+import PostIndexItem from "./post_index_item";
 
 export default class Post extends React.Component {
   componentDidMount() {
@@ -14,12 +15,33 @@ export default class Post extends React.Component {
   }
 
   render() {
+    let { posts } = this.props;
+
     return (
       <div>
-        {/* {this.props.comments.map((comment) => (
-          <Comment comment={comment} />
-          ))} */}
+        <div className="new-post-form">
+
+        </div>
+
+        <div className="posts-list">
+          <ul>
+            {posts.map((post) => {
+              
+              <PostIndexItem key={post.id} post={post} user={} />
+            })}
+          </ul>
+        </div>
       </div>
     )
   }
+
+  // render() {
+  //   return (
+  //     <div>
+  //       {/* {this.props.comments.map((comment) => (
+  //         <Comment comment={comment} />
+  //         ))} */}
+  //     </div>
+  //   )
+  // }
 }

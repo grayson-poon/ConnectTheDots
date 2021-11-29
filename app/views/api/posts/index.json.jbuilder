@@ -1,8 +1,8 @@
 =begin
 { posts: [
-    { id: 1, body: "body", picture: "url" },
-    { id: 2, body: "body", picture: "url" },
-    { id: 3, body: "body", picture: "url" },
+    {id: 1, body: "body", user_id: 2, picture: "url" },
+    {id: 1, body: "body", user_id: 2, picture: "url" },
+    {id: 1, body: "body", user_id: 2, picture: "url" },
   ]
 }
 =end
@@ -10,6 +10,7 @@
 json.posts(@posts) do |post|
   json.id post.id
   json.body post.body
+  json.user_id = post.user_id
   json.picture url_for(@post.photo) if post.photo.attached?
 end
 
