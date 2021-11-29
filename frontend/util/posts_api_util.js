@@ -1,3 +1,22 @@
+import { ACTIVITY, FEED } from "./fetch_constants";
+
+export const fetchPosts = (page, userId) => {
+  switch (page) {
+    case FEED:
+      return $.ajax({
+        method: "GET",
+        url: "/api/posts",
+      });
+    case ACTIVITY:
+      return $.ajax({
+        method: "GET",
+        url: `/api/users/${userId}/activity`,
+      });
+    default:
+      return;
+  }
+};
+
 export const createPost = (post) => {
   return $.ajax({
     method: "POST",
@@ -22,19 +41,5 @@ export const deletePost = (postId) => {
   return $.ajax({
     method: "DELETE",
     url: `/api/posts/${postId}`,
-  });
-};
-
-export const fetchFeedPosts = () => {
-  return $.ajax({
-    method: "GET",
-    url: "/api/posts",
-  });
-};
-
-export const fetchActivityPosts = (userId) => {
-  return $.ajax({
-    method: "GET",
-    url: `/api/users/${userId}/activity`,
   });
 };

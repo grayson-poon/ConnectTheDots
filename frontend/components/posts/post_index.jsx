@@ -2,7 +2,7 @@ import React from "react";
 
 export default class Post extends React.Component {
   componentDidMount() {
-    // fetchComments()
+    this.props.fetchFeedPosts()
   }
 
   render() {
