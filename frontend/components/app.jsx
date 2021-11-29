@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import * as UrlPath from "../util/url_paths_util";
 
 import NavbarContainer from "../components/navbar/navbar_container";
-import SignupFormContainer from "./users/signup_form_container";
+import SignupFormContainer from "./sessions/signup_form_container";
 import LoginFormContainer from "../components/sessions/login_form_container";
 import FeedContainer from "../components/feed/feed_container";
 import UserShowContainer from "../components/users/user_show_container";
