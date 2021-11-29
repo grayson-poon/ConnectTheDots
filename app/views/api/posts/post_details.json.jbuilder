@@ -4,5 +4,5 @@ json.post do
   json.id @post.id
   json.body @post.body
   json.user_id @post.user_id
-  json.picture url_for(@post.photo) if @post.photo.attached?
+  json.post_picture url_for(@post.photo) if @post.photo.attached?
 end

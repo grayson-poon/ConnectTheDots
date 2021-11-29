@@ -6,6 +6,5 @@ json.user do
   json.current_location @user.current_location
   json.headline @user.headline
   json.about @user.about.to_s
-  # json.profile_picture @user.photo.attached? ? url_for(@user.photo) : null
   json.profile_picture url_for(@user.photo) if @user.photo.attached?
 end

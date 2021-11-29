@@ -75,8 +75,10 @@ export default class SessionForm extends React.Component {
         </form>
 
         <div className="login-form-join-now">
-          <div>New to ConnectTheDots?</div>
-          <Link to={SIGNUP_FORM}>Join now</Link>
+          <div id="question">New to ConnectTheDots?</div>
+          <div id="link">
+            <Link to={SIGNUP_FORM}>Join now</Link>
+          </div>
         </div>
       </div>
     );

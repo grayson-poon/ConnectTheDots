@@ -98,7 +98,7 @@ export default class Navbar extends React.Component {
   }
 
   sessionNavbar() {
-    let { currentUser, logout, url } = this.props;
+    let { currentUser, logout } = this.props;
 
     return (
       <div className="session-navbar">

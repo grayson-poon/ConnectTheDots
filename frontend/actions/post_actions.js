@@ -1,14 +1,16 @@
 import * as PostsApiUtil from "../util/posts_api_util";
 
-export const RECEIVE_POSTS = "RECEIVE_POSTS";
+export const RECEIVE_WHOLE_POSTS = "RECEIVE_WHOLE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 
-const receivePosts = ({ posts }) => {
+const receiveWholePosts = ({ posts, comments, users }) => {
   return {
-    type: RECEIVE_POSTS,
-    posts
+    type: RECEIVE_WHOLE_POSTS,
+    posts,
+    comments,
+    users,
   };
 };
 
@@ -34,9 +36,12 @@ const receivePostErrors = (errors) => {
 };
 
 export const fetchPosts = (url, userId = null) => (dispatch) => {
+  debugger
   return PostsApiUtil.fetchPosts(url, userId).then(
-    (posts) => dispatch(receivePosts(posts)),
-    (errors) => dispatch(receivePostErrors(errors.responseJSON))
+    (res) => console.log(res, "RESPONSE"),
+    // (payload) => dispatch(receiveWholePosts(payload)),
+    (errors) => console.log(errors, "ERRORS")
+    // (errors) => dispatch(receivePostErrors(errors.responseJSON))
   );
 };
 

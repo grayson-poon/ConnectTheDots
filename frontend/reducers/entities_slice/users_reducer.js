@@ -1,3 +1,4 @@
+import { RECEIVE_WHOLE_POSTS } from "../../actions/post_actions";
 import {
   LOGOUT_CURRENT_USER,
   RECEIVE_CURRENT_USER
@@ -11,6 +12,11 @@ const usersReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   
   switch(action.type) {
+    case RECEIVE_WHOLE_POSTS:
+      action.users.map((user) => {
+        newState[user.id] = user;
+      });
+      return newState;
     case RECEIVE_USER:
       newState[action.user.id] = action.user;
       return newState;

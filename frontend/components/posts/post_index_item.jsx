@@ -1,25 +1,31 @@
 import React from "react";
 
-export default class PostIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const PostIndexItem = ({ post, user }) => {
 
-  componentDidMount() {
-    
-  }
-}
-
-
-
-const PostIndexItem = ({ post }) => {
   return (
     <li className="post-index-item">
       <div className="post-header">
         <div className="post-header-image">
-          <img src={} />
+          <img src={user.profilePicture} />
         </div>
+
+        <div className="post-header-titles">
+          <li>{user.firstName} {user.lastName}</li>
+          <li>{user.headline}</li>
+        </div>
+
+        <div className="post-body">{post.body}</div>
+        
+        {post.postPicture ? (
+          <div className="post-picture">
+            <img src={post.postPicture} />
+          </div>
+        ) : (
+          null
+        )}
       </div>
+
+      {/* <CommentIndexContainer /> */}
     </li>
   )
 };

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Comment from "./comment";
+import Comment from "./comment_index";
 
 const mSTP = (state, ownProps) => ({});
 

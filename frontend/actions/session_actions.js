@@ -27,9 +27,9 @@ export const login = (user) => (dispatch) => {
   )
 };
 
-export const logout = () => (dispatch) => (
-  SessionsApiUtil.logout().then(
+export const logout = () => (dispatch) => {
+  return SessionsApiUtil.logout().then(
     () => dispatch(logoutCurrentUser()),
     (errors) => dispatch(receiveSessionErrors(errors))
   )
-);
+};
