@@ -1,17 +1,21 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
   def index # get feed posts
     @posts = Post.select(*).where("user_id = ?", current_user.id)
+    # @comments = query for those posts' comments
+
+    render "api/posts/index"
   end
 
   def user_activity
     # @posts = Post.select(*).where(user has commented on or created)
+    render "api/posts/index"
   end
 
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      render "api/posts/details"
+      render "api/posts/post_details"
     else
       render json: @post.errors.full_messages, status: 422
     end
@@ -24,7 +28,7 @@ class PostsController < ApplicationController
       @post.photo.purge if params[:post][:photo].nil?
 
       if @post.update(post_params)
-        render "api/posts/details"
+        render "api/posts/post_details"
       else
         render json: @user.errors.full_messages, status: 302
       end
@@ -36,8 +40,7 @@ class PostsController < ApplicationController
 
     if current_user.id == @post.user_id
       @post.destroy
-      # render "api/posts/details"
-      render json: ["Successfully deleted"]
+      render "api/posts/post_delete"
     else
       render json: ["Post could not be removed"]
     end
