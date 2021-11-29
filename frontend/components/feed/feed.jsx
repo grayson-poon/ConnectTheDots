@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { DEFAULT_BACKGROUND_PICTURE, DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
-import { FEED } from "../../util/url_paths_util";
+import { FEED, MY_NETWORK } from "../../util/url_paths_util";
 import PostIndexContainer from "../posts/post_index_container";
 // import PostIndex from "../";
 
@@ -40,6 +41,21 @@ export default class Feed extends React.Component {
                 : DEFAULT_PROFILE_PICTURE
               }
             />
+          </div>
+
+          <div className="left-profile-info">
+            <li>{currentUser.firstName} {currentUser.lastName}</li>
+            <li>{currentUser.headline}</li>
+          </div>
+
+          <div className="left-profile-connections">
+              <Link to={MY_NETWORK}>
+                <div id="text">
+                  Number of connections
+                </div>
+
+                <div id="number">100</div>
+              </Link>
           </div>
         </div>
 
