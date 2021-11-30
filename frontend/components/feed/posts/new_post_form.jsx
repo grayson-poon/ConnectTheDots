@@ -4,6 +4,7 @@ import {
   DEFAULT_PROFILE_PICTURE, 
   POST_PICTURE_ICON 
 } from "../../../util/images_and_icons_util";
+import { Link } from "react-router-dom";
 
 export default class NewPostForm extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class NewPostForm extends React.Component {
 
     this.showModal = this.showModal.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.removeFile = this.removeFile.bind(this);
     this.updateField = this.updateField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -31,7 +33,7 @@ export default class NewPostForm extends React.Component {
     return (
       <div className="new-post-form">
         <div className="post-form-header">
-          <div id="image">
+          <Link id="image" to={`/users/${currentUser.id}`}>
             <img
               src={
                 currentUser.profilePicture
@@ -39,30 +41,38 @@ export default class NewPostForm extends React.Component {
                   : DEFAULT_PROFILE_PICTURE
               }
             />
-          </div>
+          </Link>
 
           <div id="post-form-button">
             <button onClick={() => this.showModal("postForm", true)}>
               Start a post
             </button>
           </div>
-
-          <div id="post-form-picture-input">
-            <img src={POST_PICTURE_ICON} />
-            <input type="file" onChange={this.handleFile} accept="image/*" />
-          </div>
-
-          <NewPostModal
-            show={this.state.postForm}
-            currentUser={currentUser}
-            handleSubmit={this.handleSubmit}
-            post={this.state.post}
-            photoUrl={this.state.photoUrl}
-            showModal={this.showModal}
-            updateField={this.updateField}
-            handleFile={this.handleFile}
-          />
         </div>
+
+        <div className="post-form-picture-input">
+          <label>
+            <img src={POST_PICTURE_ICON} />
+            <input
+              type="file" 
+              onChange={this.handleFile} 
+              accept="image/*" 
+            />
+            Photo
+          </label>
+        </div>
+
+        <NewPostModal
+          show={this.state.postForm}
+          currentUser={currentUser}
+          handleSubmit={this.handleSubmit}
+          post={this.state.post}
+          photoUrl={this.state.photoUrl}
+          showModal={this.showModal}
+          updateField={this.updateField}
+          handleFile={this.handleFile}
+          removeFile={this.removeFile}
+        />
       </div>
     );
   }
@@ -81,10 +91,10 @@ export default class NewPostForm extends React.Component {
   }
 
   updateField(field) {
-    let user = Object.assign({}, this.state.user);
+    let post = Object.assign({}, this.state.post);
     return (event) => {
-      user[field] = event.target.value;
-      this.setState({ user });
+      post[field] = event.target.value;
+      this.setState({ post });
     };
   }
 
@@ -104,6 +114,15 @@ export default class NewPostForm extends React.Component {
     };
 
     if (file) fileReader.readAsDataURL(file);
+  }
+
+  removeFile(event) {
+    event.preventDefault();
+
+    let post = Object.assign({}, this.state.post);
+    post["postPicture"] = null;
+
+    this.setState({ post, photoUrl: null });
   }
 
   showModal(field, status) {

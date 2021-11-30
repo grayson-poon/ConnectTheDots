@@ -1,0 +1,99 @@
+* {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+div.new-post-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  width: 500px;
+  align-items: center;
+}
+
+div.post-form-header {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 16px 0 16px;
+}
+
+div.post-form-header a#image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgb(29, 34, 38);
+}
+
+div.post-form-header a#image > img {
+  max-width: 45px;
+  max-height: 45px;
+  width: auto;
+  height: auto;
+}
+
+div.post-form-header div#post-form-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 8px;
+}
+
+div.post-form-header div#post-form-button button {
+  border-radius: 35px;
+  text-indent: -70%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  min-height: 48px;
+  width: 405px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 10px 0 10px 0;
+  cursor: pointer;
+}
+
+div.post-form-picture-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 89px;
+  height: 48px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 4px 0 4px 0;
+}
+
+div.post-form-picture-input:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+div.post-form-picture-input label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+div.post-form-picture-input label img {
+  max-width: 25px;
+  margin-right: 10px;
+  // color: lightskyblue;
+}
+
+div.post-form-picture-input input[type=file] {
+  display: none;
+  text-decoration: none;
+}

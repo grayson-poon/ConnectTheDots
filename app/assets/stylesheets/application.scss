@@ -32,16 +32,17 @@
 // Feed page
 @import './feed/whole_feed.scss';
 @import './feed/left_profile_box.scss';
+@import './feed/new_post_form.scss';
 
 // Profile Page
 @import './user_show_page/profile_page_layout.scss';
 @import './user_show_page/profile_main.scss';
 @import './user_show_page/profile_activity.scss';
-@import './user_show_page/edit_profile_picture_modal.scss';
 
 // Footers
 @import './footer/splash_footer.scss';
 
 // Modals
-@import './modal_background.scss';
-@import './navbar/profile_dropdown.scss';
+@import './modals/edit_profile_picture_modal.scss';
+@import './modals/profile_dropdown.scss';
+@import './modals/new_post_modal.scss'

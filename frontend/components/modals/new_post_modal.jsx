@@ -21,15 +21,16 @@ export default class NewPostModal extends React.Component {
       photoUrl,
       showModal,
       updateField,
-      handleFile
+      handleFile,
+      removeFile,
     } = this.props;
 
     return (
       <div className="new-post-modal-background">
         <div className="new-post-modal">
           <div className="new-post-header">
-            <div>Create a post</div>
-            <div className="close-button">
+            <div id="words">Create a post</div>
+            <div id="close-button">
               <button onClick={() => showModal("postForm", false)}>
                 <img src={CLOSE_BUTTON} />
               </button>
@@ -53,10 +54,11 @@ export default class NewPostModal extends React.Component {
           </div>
 
           <div className="new-post-body">
-            <input
-              type="text"
-              onChange={() => updateField("body")}
+            <textarea
+              name="body"
+              onChange={updateField("body")}
               value={post.body}
+              placeholder="What do you want to talk about?"
             />
           </div>
 
@@ -70,6 +72,10 @@ export default class NewPostModal extends React.Component {
             <div id="post-form-picture-input">
               <img src={POST_PICTURE_ICON} />
               <input type="file" onChange={handleFile} accept="image/*" />
+            </div>
+
+            <div id="remove-button">
+              <button onClick={removeFile}>Remove photo</button>
             </div>
 
             <div id="post-button">
