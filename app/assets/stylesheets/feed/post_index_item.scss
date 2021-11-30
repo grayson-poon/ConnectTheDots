@@ -1,3 +1,9 @@
+div.posts-list > ul > li:first-child {
+  margin-top: 16px;
+  
+  border-bottom: 1px solid lightgray;
+}
+
 li.post-index-item {
   width: inherit;
   display: flex;
@@ -5,6 +11,9 @@ li.post-index-item {
   min-height: min-content;
   border: 1px solid lightgray;
   border-radius: 8px;
+  margin: 16px 0 16px 0;
+  background-color: white;
+  position: relative;
 }
 
 div.post-header {
@@ -13,7 +22,7 @@ div.post-header {
   padding: 16px;
 }
 
-div.post-header-image {
+a.post-header-image {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +33,7 @@ div.post-header-image {
   background-color: rgb(29, 34, 38);
 }
 
-div.post-header-image > img {
+a.post-header-image > img {
   max-width: 45px;
   max-height: 45px;
   width: auto;
@@ -34,10 +43,89 @@ div.post-header-image > img {
 div.post-header-titles {
   display: flex;
   flex-direction: column;
+  padding-left: 8px;
 }
 
-div.post-body {
-  // text-align: left;
+div.post-header-titles div#name-pronouns {
+  display: flex;
+  flex-direction: row;
+}
+
+div.post-header-titles div#name-pronouns > a {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-decoration: none;
   color: rgba(0, 0, 0, 0.9);
+}
+
+div.post-header-titles div#name-pronouns > a:hover {
+  text-decoration: underline;
+}
+
+div.post-header-titles div#name-pronouns > div {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-left: 5px;
+}
+
+div.post-header-titles div:nth-child(2) {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+div.post-header-titles div:last-child {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+div.post-header-util {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+div.post-header-util:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+div.post-header-util button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.post-header-util button > img {
+  max-width: 24px;
+  max-height: 24px;
+  width: auto;
+  height: auto;
+}
+
+
+
+div.post-body {
+  padding: 16px;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 }
 

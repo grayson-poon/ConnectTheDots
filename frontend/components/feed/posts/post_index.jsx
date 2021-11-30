@@ -32,6 +32,7 @@ export default class PostIndex extends React.Component {
 
         <div className="posts-list">
           <ul>
+            <li></li>
             {Object.values(posts).map((post) => (
               <PostIndexItem
                 key={post.id}
