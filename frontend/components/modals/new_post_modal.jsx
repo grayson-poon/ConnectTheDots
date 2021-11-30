@@ -56,7 +56,7 @@ export default class NewPostModal extends React.Component {
           <div className="new-post-body">
             <textarea
               name="body"
-              rows="10"
+              rows="9"
               onChange={updateField("body")}
               value={post.body}
               placeholder="What do you want to talk about?"

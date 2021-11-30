@@ -100,17 +100,17 @@ class ProfilePictureModal extends React.Component {
               </label>
             </div>
 
-            <div id="submit-button">
-              <button onClick={this.handleSubmit}>
-                <img src={CHECK_MARK_ICON} />
-                <div>Update photo</div>
-              </button>
-            </div>
-
             <div id="delete">
               <button onClick={this.removeFile}>
                 <img src={DELETE_BUTTON} />
                 <div>Remove photo</div>
+              </button>
+            </div>
+
+            <div id="submit-button">
+              <button onClick={this.handleSubmit}>
+                <img src={CHECK_MARK_ICON} />
+                <div>Update photo</div>
               </button>
             </div>
           </div>

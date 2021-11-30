@@ -39,6 +39,10 @@ export default class UserShow extends React.Component {
   }
 
   showModal(field, status) {
+    status
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "scroll");
+
     this.setState({ [field]: status });
   }
 
