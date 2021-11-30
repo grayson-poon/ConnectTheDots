@@ -16,6 +16,7 @@ const usersReducer = (state = {}, action) => {
       action.users.map((user) => {
         newState[user.id] = user;
       });
+      
       return newState;
     case RECEIVE_USER:
       newState[action.user.id] = action.user;

@@ -21,6 +21,10 @@ export default class Navbar extends React.Component {
   }
 
   componentDidMount() {
+    if (!this.props.currentUser && this.props.currentUserId) {
+      this.props.fetchUser(this.props.currentUserId);
+    }
+
     this.setState({ profileDropdown: false });
   }
 
@@ -31,9 +35,6 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    if (!this.props.currentUser && this.props.currentUserId)
-      this.props.fetchUser(this.props.currentUserId);
-
     switch (this.props.url) {
       case UrlPath.SPLASH:
         return this.splashNavbar();

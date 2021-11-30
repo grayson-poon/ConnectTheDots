@@ -13,7 +13,7 @@ class ProfilePictureModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user,
+      showUser: this.props.showUser,
       photoUrl: null,
     }
     this.handleFile = this.handleFile.bind(this);
@@ -29,7 +29,7 @@ class ProfilePictureModal extends React.Component {
     event.preventDefault();
     const formData = new FormData();
 
-    Object.entries(this.state.user).forEach(([key, value]) => {
+    Object.entries(this.state.showUser).forEach(([key, value]) => {
       key = (key === "profilePicture" && value ? "photo" : key);
       formData.append(`user[${key}]`, value);
     });
@@ -42,12 +42,12 @@ class ProfilePictureModal extends React.Component {
     event.preventDefault();
     const fileReader = new FileReader();
     
-    let user = Object.assign({}, this.state.user);
+    let showUser = Object.assign({}, this.state.showUser);
     let file = event.currentTarget.files[0];
 
     fileReader.onloadend = () => {
-      user["profilePicture"] = file;
-      this.setState({ user, photoUrl: fileReader.result });
+      showUser["profilePicture"] = file;
+      this.setState({ showUser, photoUrl: fileReader.result });
     };
 
     if (file) fileReader.readAsDataURL(file);
@@ -56,10 +56,10 @@ class ProfilePictureModal extends React.Component {
   removeFile(event) {
     event.preventDefault();
 
-    let user = Object.assign({}, this.state.user);
-    user["profilePicture"] = null;
+    let showUser = Object.assign({}, this.state.showUser);
+    showUser["profilePicture"] = null;
 
-    this.setState({ user, photoUrl: null });
+    this.setState({ showUser, photoUrl: null });
   }
 
   show() {
@@ -80,8 +80,8 @@ class ProfilePictureModal extends React.Component {
               src={
                 this.state.photoUrl
                   ? this.state.photoUrl
-                  : this.state.user.profilePicture
-                    ? this.state.user.profilePicture
+                  : this.state.showUser.profilePicture
+                    ? this.state.showUser.profilePicture
                     : DEFAULT_PROFILE_PICTURE
               }
             />

@@ -17,10 +17,11 @@ const App = () => (
   <div className="page-container">
     <Route path={UrlPath.SPLASH} component={NavbarContainer} />
     <Switch>
-      <ProtectedRoute path={UrlPath.ACTIVITY} component={PostIndexContainer} />
+      {/* <ProtectedRoute path={UrlPath.ACTIVITY} component={PostIndexContainer} /> */}
       <AuthRoute exact path={UrlPath.SIGNUP_FORM} component={SignupFormContainer} />
       <AuthRoute exact path={UrlPath.LOGIN_FORM} component={LoginFormContainer} />
       <ProtectedRoute path={UrlPath.FEED} component={FeedContainer} />
+      <ProtectedRoute path={UrlPath.MY_NETWORK} component={FeedContainer} />
       <ProtectedRoute path={UrlPath.USER_SHOW} component={UserShowContainer} />
       <AuthRoute exact path={UrlPath.SPLASH} component={SplashContainer} />
     </Switch>

@@ -1,7 +1,7 @@
 import React from "react";
 import { DEFAULT_BACKGROUND_PICTURE, DEFAULT_PROFILE_PICTURE, NEW_IMAGE_ICON } from "../../../util/images_and_icons_util";
 
-const PicturesOnProfile = ({ user, showModal }) => {
+const PicturesOnProfile = ({ showUser, showModal }) => {
   return (
     <div className="pictures-on-profile">
       <div className="background-image">
@@ -23,7 +23,7 @@ const PicturesOnProfile = ({ user, showModal }) => {
           <img
             className="edit-profile-picture"
             src={
-              user.profilePicture ? user.profilePicture : DEFAULT_PROFILE_PICTURE
+              showUser.profilePicture ? showUser.profilePicture : DEFAULT_PROFILE_PICTURE
             }
             alt="profile picture"
           />

@@ -18,51 +18,57 @@ export default class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userId);
+    let urlId = parseInt(this.props.match.params.userId);
+    let { currentUserId } = this.props;
+    
+    return urlId === currentUserId
+      ? null
+      : this.props.fetchUser(this.props.match.params.userId);
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.match.params.userId !== prevProps.match.params.userId) {
-      this.props.fetchUser(this.props.match.params.userId);
+    let urlId = this.props.match.params.userId;
+
+    if (urlId !== prevProps.match.params.userId) {
+      this.props.fetchUser(urlId);
     }
   }
 
   render() {
-    let { user, errors } = this.props;
-    return user && errors ? this.profile() : this.loading();
+    return this.props.showUser ? this.profile() : null;
   }
 
   showModal(field, status) {
     this.setState({ [field]: status });
   }
 
-  // displayErrors() {
-  //   let { errors } = this.props;
-  //
-  //   return (
-  //     <div>
-  //       <ul>
-  //         {Object.values(errors).map((error, idx) => (
-  //           <li key={idx}>{error}</li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //   )
-  // }
+  displayErrors() {
+    let { errors } = this.props;
+  
+    return (
+      <div>
+        <ul>
+          {Object.values(errors).map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 
   profile() {
-    let { user, updateUser } = this.props;
+    let { showUser, updateUser } = this.props;
     ++this.state.keyCounter;
 
     return (
       <div className="profile-page">
         <div className="profile-middle">
-          <ProfileMain user={user} showModal={this.showModal} />
-          <ActivitySection user={user} showModal={this.showModal}/>
+          <ProfileMain showUser={showUser} showModal={this.showModal} />
+          <ActivitySection showUser={showUser} showModal={this.showModal} />
         </div>
 
         <ProfilePictureModal
-          user={user}
+          showUser={showUser}
           updateUser={updateUser}
           show={this.state.profilePicture}
           showModal={this.showModal}

@@ -11,7 +11,7 @@ export const MY_NETWORK_ICON = "https://github.com/grayson-poon/ConnectTheDots/b
 export const DROPDOWN_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/dropwdown_icon.png?raw=true";
 export const CAMERA_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/camera_icon.png?raw=true";
 export const CHECK_MARK_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/new_check_mark_icon.png?raw=true";
-export const POST_PICTURE_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/frontend-post-components/app/assets/images/post_picture_icon.png?raw=true";
+export const POST_PICTURE_ICON = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAbpJREFUaEPtWdFNxTAMvDcBbPBgAxiBCR5MACswCWwAI8AE720AI8AEsAHopEZqo7RxHDdtJeeramP7zndN03aHjY/dxvHDCSytoCuwVgUuADwBuALA4xbjC8AngEcAPBaNlIUI+APAuSiD/aRfANdSEikCbwAO9riKMr4DuJVEpAj8LNj9gJkWutQS+IsCW61UqropcKpEkm5l5qjqOgGDzocUrkBVJwyUcAVcgYSNHgBwa8Cne26szkLcCB471HyqksjUWBUBbgQJniQ4qMDdlgi8AriPAJPAlJUWUYAe58br1APLcy+JbtNCU1ZqTiB4nC8hNx3gcG7sXWLKSk0JxB4nARLp+37M8jkr5VarwXXtZi72OC30nfB9CkzOSrMTGPN4SWHJqiTKV6pAzuOiot0kEyuVEIh9XwJWYqXZb+LU2l5Lom+l2QnUgs3FO4HQIVUncu0VXFfVLbmJBRiqppgR4IPmrArKMDhuUgy0tNQgX4tPi80J8OMu9zVWKjQnQElJ4rl7IdmXahzNX4RAJWZVuNlNrKpuEOQEDJpYlcIVqGqfQfDmFVD1oNXvIxU4SZATkHRpzjn/0QpoMWWt6TQAAAAASUVORK5CYII=";
 
 // Pictures
 export const DEFAULT_PROFILE_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/default_profile_picture.png?raw=true";

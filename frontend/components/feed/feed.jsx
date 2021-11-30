@@ -11,10 +11,6 @@ export default class Feed extends React.Component {
   }
 
   render() {
-    if (!this.props.currentUser && this.props.currentUserId) {
-      this.props.fetchUser(this.props.currentUserId);
-    }
-    
     switch(this.props.url) {
       case FEED:
         if (!this.props.currentUser) return null;
@@ -23,7 +19,6 @@ export default class Feed extends React.Component {
         return null;
     }
   }
-
 
   postIndex() {
     let { currentUser } = this.props;
