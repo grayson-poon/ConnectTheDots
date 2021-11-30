@@ -26,6 +26,10 @@ div.new-post-modal {
 }
 
 div.new-post-header {
+  position: sticky;
+  top: 0%;
+  left: 0%;
+  background: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
