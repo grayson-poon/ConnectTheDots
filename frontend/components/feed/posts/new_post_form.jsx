@@ -102,7 +102,7 @@ export default class NewPostForm extends React.Component {
     debugger
     event.preventDefault();
     if (!this.state.postForm) {
-      this.setState({ postForm: true });
+      this.showModal("postForm", true);
     };
 
     const fileReader = new FileReader();
