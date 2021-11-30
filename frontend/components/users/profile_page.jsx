@@ -1,7 +1,7 @@
 import React from "react";
 import ProfileMain from "./profile_page_components/profile_main";
 import ActivitySection from "./profile_page_components/activity_section";
-import EditProfilePictureModal from "../modals/edit_profile_picture";
+import ProfilePictureModal from "../modals/profile_picture_modal";
 
 export default class UserShow extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ export default class UserShow extends React.Component {
           <ActivitySection user={user} showModal={this.showModal}/>
         </div>
 
-        <EditProfilePictureModal
+        <ProfilePictureModal
           user={user}
           updateUser={updateUser}
           show={this.state.profilePicture}

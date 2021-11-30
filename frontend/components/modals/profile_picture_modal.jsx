@@ -9,7 +9,7 @@ import {
   CHECK_MARK_ICON
 } from "../../util/images_and_icons_util";
 
-class EditProfilePictureModal extends React.Component {
+class ProfilePictureModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -120,4 +120,4 @@ class EditProfilePictureModal extends React.Component {
   }
 };
 
-export default withRouter(connect(null)(EditProfilePictureModal)); 
+export default withRouter(connect(null)(ProfilePictureModal)); 

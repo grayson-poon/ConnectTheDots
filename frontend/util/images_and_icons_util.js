@@ -11,6 +11,7 @@ export const MY_NETWORK_ICON = "https://github.com/grayson-poon/ConnectTheDots/b
 export const DROPDOWN_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/dropwdown_icon.png?raw=true";
 export const CAMERA_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/camera_icon.png?raw=true";
 export const CHECK_MARK_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/new_check_mark_icon.png?raw=true";
+export const POST_PICTURE_ICON = "https://github.com/grayson-poon/ConnectTheDots/blob/frontend-post-components/app/assets/images/post_picture_icon.png?raw=true";
 
 // Pictures
 export const DEFAULT_PROFILE_PICTURE = "https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/default_profile_picture.png?raw=true";
