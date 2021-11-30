@@ -1,5 +1,5 @@
 import React from "react";
-import { CLOSE_BUTTON, POST_PICTURE_ICON } from "../../util/images_and_icons_util";
+import { CLOSE_BUTTON, POST_PICTURE_ICON, REMOVE_BUTTON } from "../../util/images_and_icons_util";
 
 export default class NewPostModal extends React.Component {
   constructor(props) {
@@ -56,6 +56,7 @@ export default class NewPostModal extends React.Component {
           <div className="new-post-body">
             <textarea
               name="body"
+              rows="10"
               onChange={updateField("body")}
               value={post.body}
               placeholder="What do you want to talk about?"
@@ -69,13 +70,17 @@ export default class NewPostModal extends React.Component {
           ) : null}
 
           <div className="new-post-footer">
-            <div id="post-form-picture-input">
-              <img src={POST_PICTURE_ICON} />
-              <input type="file" onChange={handleFile} accept="image/*" />
+            <div className="post-form-picture-input-2">
+              <label>
+                <img src={POST_PICTURE_ICON} />
+                <input type="file" onChange={handleFile} accept="image/*" />
+              </label>
             </div>
 
             <div id="remove-button">
-              <button onClick={removeFile}>Remove photo</button>
+              <button onClick={removeFile}>
+                <img src={REMOVE_BUTTON} />
+              </button>
             </div>
 
             <div id="post-button">

@@ -82,8 +82,8 @@ export default class NewPostForm extends React.Component {
     const formData = new FormData();
 
     Object.entries(this.state.post).forEach(([key, value]) => {
-      renamedKey = (key === "postPicture" && value ? "photo" : key);
-      formData.append(`post[${renamedKey}]`, value);
+      key = (key === "postPicture" && value ? "photo" : key);
+      formData.append(`post[${key}]`, value);
     });
 
     this.props.createPost(formData)
@@ -99,6 +99,7 @@ export default class NewPostForm extends React.Component {
   }
 
   handleFile(event) {
+    debugger
     event.preventDefault();
     if (!this.state.postForm) {
       this.setState({ postForm: true });
