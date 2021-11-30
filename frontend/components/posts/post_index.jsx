@@ -10,7 +10,6 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     switch(this.props.url) {
       case FEED:
-        debugger
         this.props.fetchPosts(this.props.url);
         break;
       case this.props.includes(ACTIVITY_TAIL):
@@ -21,7 +20,7 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    let { posts, users, currentUserId, createPost } = this.props;
+    let { posts, users, currentUser, createPost } = this.props;
     
     if (Object.keys(posts).length === 0 ||
       Object.keys(users).length === 0
@@ -29,7 +28,10 @@ export default class PostIndex extends React.Component {
 
     return (
       <div className="post-index">
-        <NewPostForm createPost={createPost} />
+        <NewPostForm
+          createPost={createPost}
+          currentUser={currentUser}
+        />
 
         {/* <div className="posts-list">
           <ul>
@@ -38,7 +40,7 @@ export default class PostIndex extends React.Component {
                 key={post.id}
                 post={post}
                 user={users[post.userId]}
-                currentUserId={currentUserId}
+                currentUser={currentUser}
               />
             ))}
           </ul>

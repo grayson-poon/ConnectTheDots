@@ -1,4 +1,5 @@
 import React from "react";
+import { CLOSE_BUTTON, POST_PICTURE_ICON } from "../../util/images_and_icons_util";
 
 export default class NewPostModal extends React.Component {
   constructor(props) {

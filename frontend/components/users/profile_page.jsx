@@ -37,10 +37,12 @@ export default class UserShow extends React.Component {
   }
 
   // displayErrors() {
+  //   let { errors } = this.props;
+  //
   //   return (
   //     <div>
   //       <ul>
-  //         {this.props.errors.map((error, idx) => (
+  //         {Object.values(errors).map((error, idx) => (
   //           <li key={idx}>{error}</li>
   //         ))}
   //       </ul>

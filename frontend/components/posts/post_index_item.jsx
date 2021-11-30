@@ -1,8 +1,6 @@
 import React from "react";
 
 const PostIndexItem = ({ post, user }) => {
-
-  debugger
   return (
     <li className="post-index-item">
       <div className="post-header">

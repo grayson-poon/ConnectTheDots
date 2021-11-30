@@ -1,7 +1,6 @@
 import { ACTIVITY_TAIL, FEED } from "./url_paths_util";
 
 export const fetchPosts = (url, userId) => {
-  debugger
   switch (url) {
     case FEED:
       return $.ajax({

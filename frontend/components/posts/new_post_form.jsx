@@ -11,10 +11,11 @@ export default class NewPostForm extends React.Component {
         postPicture: null,
         userId: this.props.currentUser.id,
       },
+      
       postForm: false,
       photoUrl: null,
     };
-    
+
     this.showModal = this.showModal.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.updateField = this.updateField.bind(this);
