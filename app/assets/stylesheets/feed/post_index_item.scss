@@ -1,17 +1,34 @@
-div.post-index-item {
+li.post-index-item {
   width: inherit;
   display: flex;
   flex-direction: column;
+  min-height: min-content;
+  border: 1px solid lightgray;
+  border-radius: 8px;
 }
 
 div.post-header {
   display: flex;
   flex-direction: row;
+  padding: 16px;
 }
 
 div.post-header-image {
-  display: block;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgb(29, 34, 38);
+}
+
+div.post-header-image > img {
+  max-width: 45px;
+  max-height: 45px;
+  width: auto;
+  height: auto;
 }
 
 div.post-header-titles {
