@@ -1,6 +1,9 @@
 import React from "react";
-import { DEFAULT_PROFILE_PICTURE, POST_PICTURE_ICON } from "../../util/images_and_icons_util";
-import NewPostModal from "../modals/new_post_modal";
+import NewPostModal from "../../modals/new_post_modal";
+import { 
+  DEFAULT_PROFILE_PICTURE, 
+  POST_PICTURE_ICON 
+} from "../../../util/images_and_icons_util";
 
 export default class NewPostForm extends React.Component {
   constructor(props) {

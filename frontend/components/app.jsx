@@ -10,7 +10,7 @@ import FeedContainer from "../components/feed/feed_container";
 import UserShowContainer from "./users/profile_page_container";
 import SplashContainer from "../components/splash/splash_container";
 import FooterContainer from "../components/footer/footer_container";
-import PostIndexContainer from "./posts/post_index_container";
+// import PostIndexContainer from "./posts/post_index_container";
 
 
 const App = () => (

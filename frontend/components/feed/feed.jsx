@@ -1,9 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { DEFAULT_BACKGROUND_PICTURE, DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
-import { FEED, MY_NETWORK } from "../../util/url_paths_util";
-import PostIndexContainer from "../posts/post_index_container";
 import LeftProfileBox from "./left_profile_box";
+import PostIndexContainer from "./posts/post_index_container";
+import { FEED } from "../../util/url_paths_util";
 
 export default class Feed extends React.Component {
   constructor(props) {

@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { fetchPosts, createPost } from "../../actions/post_actions";
 import PostIndex from "./post_index";
+import { 
+  fetchPosts, 
+  createPost 
+} from "../../../actions/post_actions";
 
 const mSTP = (state, ownProps) => {
   // comments: all comments belonging to this post

@@ -1,7 +1,10 @@
 import React from "react";
-import { DEFAULT_BACKGROUND_PICTURE, DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
-import { MY_NETWORK } from "../../util/url_paths_util";
 import { Link } from "react-router-dom";
+import { MY_NETWORK } from "../../util/url_paths_util";
+import { 
+  DEFAULT_BACKGROUND_PICTURE,
+  DEFAULT_PROFILE_PICTURE 
+} from "../../util/images_and_icons_util";
 
 const LeftProfileBox = ({ currentUser }) => {
   return (
