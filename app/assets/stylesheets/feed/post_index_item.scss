@@ -1,0 +1,26 @@
+div.post-index-item {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+div.post-header {
+  display: flex;
+  flex-direction: row;
+}
+
+div.post-header-image {
+  display: block;
+  margin: auto;
+}
+
+div.post-header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+div.post-body {
+  // text-align: left;
+  color: rgba(0, 0, 0, 0.9);
+}
+

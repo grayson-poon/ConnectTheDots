@@ -7,7 +7,11 @@ div.session-navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: relative;
+  position: sticky;
+  top: 0%;
+  left: 0%;
+  background: white;
+  z-index: 5;
 }
 
 div.logo {

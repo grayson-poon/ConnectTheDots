@@ -2,6 +2,7 @@ import React from "react";
 import LeftProfileBox from "./left_profile_box";
 import PostIndexContainer from "./posts/post_index_container";
 import { FEED } from "../../util/url_paths_util";
+import RightProfileBox from "./posts/right_profile_box";
 
 export default class Feed extends React.Component {
   constructor(props) {
@@ -30,6 +31,8 @@ export default class Feed extends React.Component {
         <PostIndexContainer
           currentUser={currentUser}
         />
+
+        <RightProfileBox />
       </div>
     );
   }

@@ -11,6 +11,7 @@ const PostIndexItem = ({ post, user }) => {
         <div className="post-header-titles">
           <li>{user.firstName} {user.lastName}</li>
           <li>{user.headline}</li>
+          <li>Timedate goes here</li>
         </div>
 
         <div className="post-body">{post.body}</div>

@@ -30,7 +30,7 @@ export default class PostIndex extends React.Component {
           currentUser={currentUser}
         />
 
-        {/* <div className="posts-list">
+        <div className="posts-list">
           <ul>
             {Object.values(posts).map((post) => (
               <PostIndexItem
@@ -41,7 +41,7 @@ export default class PostIndex extends React.Component {
               />
             ))}
           </ul>
-        </div> */}
+        </div>
       </div>
     );
   }
