@@ -94,8 +94,9 @@ user4.photo.attach(io: jungkook, filename: 'jungkook.jpg')
 killua = URI.open('https://connect-the-dots-seeds.s3.us-west-1.amazonaws.com/killua.jpg')
 user5.photo.attach(io: killua, filename: 'killua.jpg')
 
+### attach Demo User photo
 tanjiro = URI.open('https://connect-the-dots-seeds.s3.us-west-1.amazonaws.com/tanjiro.jpg')
-user6.photo.attach(io: tanjiro, filename: 'tanjiro.jpg')
+demo_user.photo.attach(io: tanjiro, filename: 'tanjiro.jpg')
 
 ### Posts
 # User 1

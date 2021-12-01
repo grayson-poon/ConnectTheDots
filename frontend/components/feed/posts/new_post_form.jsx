@@ -66,7 +66,7 @@ export default class NewPostForm extends React.Component {
           show={this.state.postForm}
           currentUser={currentUser}
           handleSubmit={this.handleSubmit}
-          post={this.state.post}
+          body={this.state.post.body}
           photoUrl={this.state.photoUrl}
           showModal={this.showModal}
           updateField={this.updateField}
@@ -87,7 +87,7 @@ export default class NewPostForm extends React.Component {
     });
 
     this.props.createPost(formData)
-      .then(() => this.props.showModal("postForm", false));
+      .then(() => this.showModal("postForm", false));
   }
 
   updateField(field) {
@@ -129,6 +129,10 @@ export default class NewPostForm extends React.Component {
     (status)
       ? document.body.style.overflow = "hidden"
       : document.body.style.overflow = "scroll";
+    
+    (!status)
+      ? this.setState({ photoUrl: null })
+      : null;
       
     this.setState({ [field]: status });
   }

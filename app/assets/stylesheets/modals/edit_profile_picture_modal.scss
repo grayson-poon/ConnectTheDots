@@ -57,6 +57,7 @@ div.current-image {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 280px;
   height: 280px;
   overflow: hidden;
@@ -65,10 +66,9 @@ div.current-image {
 }
 
 div.current-image img {
-  max-width: 280px;
-  max-height: 280px;
-  height: auto;
+  height: 280px;
   width: auto;
+  object-fit: cover;
 }
 
 div.edit-delete {

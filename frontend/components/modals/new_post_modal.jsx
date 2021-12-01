@@ -17,7 +17,7 @@ export default class NewPostModal extends React.Component {
     let { 
       currentUser,
       handleSubmit,
-      post,
+      body,
       photoUrl,
       showModal,
       updateField,
@@ -58,7 +58,7 @@ export default class NewPostModal extends React.Component {
               name="body"
               rows="9"
               onChange={updateField("body")}
-              value={post.body}
+              value={body}
               placeholder="What do you want to talk about?"
             />
           </div>

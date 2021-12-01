@@ -29,10 +29,9 @@ div.post-form-header a#image {
 }
 
 div.post-form-header a#image > img {
-  max-width: 50px;
-  max-height: 50px;
   width: auto;
-  height: auto;
+  height: 48px;
+  object-fit: cover;
 }
 
 div.post-form-header div#post-form-button {
