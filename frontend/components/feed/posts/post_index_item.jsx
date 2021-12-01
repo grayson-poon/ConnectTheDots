@@ -9,8 +9,14 @@ export default class PostIndexItem extends React.Component {
     this.state = {
       post: this.props.post,
       editPostForm: false,
-      photoUrl: null,
+      photoUrl: this.props.post.postPicture,
     }
+
+    this.showModal = this.showModal.bind(this);
+    this.handleFile = this.handleFile.bind(this);
+    this.removeFile = this.removeFile.bind(this);
+    this.updateField = this.updateField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
