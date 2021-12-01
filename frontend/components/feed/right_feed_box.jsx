@@ -30,16 +30,14 @@ const RightFeedBox = () => {
         </a>
       </div>
 
-      <div className="technologies-container">
+      <div className="technologies-logo-container">
         <ul>
-          <li>Technologies</li>
           <li>Javascript</li>
           <li>React</li>
           <li>Redux</li>
           <li>AWS</li>
           <li>jQuery</li>
           <li>Ruby on Rails</li>
-          <li>HIDE ME</li>
           <li>PostgreSQL</li>
           <li>Node.js</li>
           <li>Git</li>

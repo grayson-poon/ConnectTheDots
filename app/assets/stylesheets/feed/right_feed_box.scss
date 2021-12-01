@@ -5,12 +5,14 @@
 div.right-feed-box {
   display: flex;
   flex-direction: column;
+  width: 300px;
+  margin: 0 12px 0 12px;
 }
 
 div.right-box-main {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: inherit;
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 8px;
@@ -102,4 +104,46 @@ div.right-box-main a#linked-in div > img {
   max-height: 25px;
   width: auto;
   height: auto;
+}
+
+div.technologies-logo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.technologies-logo-container ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 40px 12px 40px;
+}
+
+div.technologies-logo-container ul > li {
+  padding: 5px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+div.technologies-logo-container div.logo-year {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0px 24px 0px 24px;
+}
+
+div.technologies-logo-container div.logo-year img {
+  max-height: 30px;
+  width: auto;
+}
+
+div.technologies-logo-container div.logo-year > div {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 2px;
 }
