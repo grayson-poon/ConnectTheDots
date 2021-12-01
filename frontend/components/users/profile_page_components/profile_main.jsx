@@ -2,7 +2,6 @@ import React from "react";
 import PicturesOnProfile from "./pictures_on_profile";
 
 const ProfileMain = ({ user, showModal }) => {
-  debugger
   return (
     <div className="profile-main">
       <PicturesOnProfile user={user} showModal={showModal} />

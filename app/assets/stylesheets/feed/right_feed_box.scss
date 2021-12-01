@@ -34,12 +34,12 @@ div.right-box-main a#github {
   text-decoration: none;
   padding: 8px 16px 8px 16px;
   list-style-position: outside;
-
 }
 
 div.right-box-main a#github:hover {
   background-color: rgba(0, 0, 0, 0.1);
   text-decoration: underline;
+  cursor: pointer;
 }
 
 div.right-box-main a#github ul {
@@ -75,6 +75,7 @@ div.right-box-main a#linked-in {
 div.right-box-main a#linked-in:hover {
   background-color: rgba(0, 0, 0, 0.1);
   text-decoration: underline;
+  cursor: pointer;
 }
 
 div.right-box-main a#linked-in ul {

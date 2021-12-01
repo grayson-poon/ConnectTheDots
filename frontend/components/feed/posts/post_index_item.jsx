@@ -6,7 +6,6 @@ const PostIndexItem = ({ post, user }) => {
   return (
     <li className="post-index-item">
       <div className="post-header">
-        {/* <div className="post-header-image"> */}
         <Link to={`/users/${user.id}`} className="post-header-image">
           <img
             src={
@@ -16,7 +15,7 @@ const PostIndexItem = ({ post, user }) => {
             }
           />
         </Link>
-        {/* </div> */}
+
 
         <div className="post-header-titles">
           <div id="name-pronouns">
@@ -26,7 +25,7 @@ const PostIndexItem = ({ post, user }) => {
             {user.pronouns ? <div id="pronouns">({user.pronouns})</div> : null}
           </div>
           <div>{user.headline}</div>
-          <div>Timedate goes here</div>
+          <div>{post.createdAt}</div>
         </div>
 
         <div className="post-header-util">
