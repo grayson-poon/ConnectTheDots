@@ -70,17 +70,19 @@ export default class NewPostModal extends React.Component {
           ) : null}
 
           <div className="new-post-footer">
-            <div className="post-form-picture-input-2">
-              <label>
-                <img src={POST_PICTURE_ICON} />
-                <input type="file" onChange={handleFile} accept="image/*" />
-              </label>
-            </div>
+            <div className="group">
+              <div className="post-form-picture-input-2">
+                <label>
+                  <img src={POST_PICTURE_ICON} />
+                  <input type="file" onChange={handleFile} accept="image/*" />
+                </label>
+              </div>
 
-            <div id="remove-button">
-              <button onClick={removeFile}>
-                <img src={REMOVE_BUTTON} />
-              </button>
+              <div id="remove-button">
+                <button onClick={removeFile}>
+                  <img src={REMOVE_BUTTON} />
+                </button>
+              </div>
             </div>
 
             <div id="post-button">
