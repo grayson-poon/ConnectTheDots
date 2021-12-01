@@ -99,7 +99,6 @@ export default class NewPostForm extends React.Component {
   }
 
   handleFile(event) {
-    debugger
     event.preventDefault();
     if (!this.state.postForm) {
       this.showModal("postForm", true);

@@ -1,0 +1,105 @@
+* {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+div.right-feed-box {
+  display: flex;
+  flex-direction: column;
+}
+
+div.right-box-main {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+div.right-box-main div#news {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 16px;
+}
+
+div.right-box-main a#github {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: 8px 16px 8px 16px;
+  list-style-position: outside;
+
+}
+
+div.right-box-main a#github:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: underline;
+}
+
+div.right-box-main a#github ul {
+  list-style-position: outside;
+  list-style-type: disc;
+  padding: 0 16px 0 16px;
+}
+
+div.right-box-main a#github ul > li {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  display: list-item;
+}
+
+div.right-box-main a#github > img {
+  max-width: 25px;
+  max-height: 25px;
+  width: auto;
+  height: auto;
+}
+
+div.right-box-main a#linked-in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: 8px 16px 8px 16px;
+}
+
+div.right-box-main a#linked-in:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: underline;
+}
+
+div.right-box-main a#linked-in ul {
+  list-style-position: outside;
+  list-style-type: disc;
+  padding: 0 16px 0 16px;
+}
+
+div.right-box-main a#linked-in ul > li {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  display: list-item;
+}
+
+div.right-box-main a#linked-in div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(10, 102, 194);
+}
+
+div.right-box-main a#linked-in div > img {
+  filter: invert(1);
+  max-width: 25px;
+  max-height: 25px;
+  width: auto;
+  height: auto;
+}

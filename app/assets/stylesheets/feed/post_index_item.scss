@@ -1,3 +1,7 @@
+* {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 div.posts-list > ul > li:first-child {
   margin-top: 16px;
   
@@ -11,6 +15,7 @@ li.post-index-item {
   min-height: min-content;
   border: 1px solid lightgray;
   border-radius: 8px;
+  overflow: hidden;
   margin: 16px 0 16px 0;
   background-color: white;
   position: relative;
@@ -63,7 +68,7 @@ div.post-header-titles div#name-pronouns > a:hover {
   text-decoration: underline;
 }
 
-div.post-header-titles div#name-pronouns > div {
+div.post-header-titles div#name-pronouns > div#pronouns{
   color: rgba(0, 0, 0, 0.6);
   font-size: 14px;
   font-weight: 400;
@@ -119,8 +124,6 @@ div.post-header-util button > img {
   height: auto;
 }
 
-
-
 div.post-body {
   padding: 16px;
   color: rgba(0, 0, 0, 0.9);
@@ -129,3 +132,16 @@ div.post-body {
   font-weight: 400;
 }
 
+div.post-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-bottom: 25px;
+}
+
+div.post-picture > img {
+  max-height: 350px;
+  max-width: inherit;
+  height: auto;
+  width: auto;
+}

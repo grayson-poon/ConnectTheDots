@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HORIZONTAL_DOTS } from "../../../util/images_and_icons_util";
+import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../../util/images_and_icons_util";
 
 const PostIndexItem = ({ post, user }) => {
   return (
@@ -8,7 +8,13 @@ const PostIndexItem = ({ post, user }) => {
       <div className="post-header">
         {/* <div className="post-header-image"> */}
         <Link to={`/users/${user.id}`} className="post-header-image">
-          <img src={user.profilePicture} />
+          <img
+            src={
+              user.profilePicture
+                ? user.profilePicture
+                : DEFAULT_PROFILE_PICTURE
+            }
+          />
         </Link>
         {/* </div> */}
 
@@ -17,7 +23,7 @@ const PostIndexItem = ({ post, user }) => {
             <Link to={`/users/${user.id}`}>
               {user.firstName} {user.lastName}
             </Link>
-            <div>({user.pronouns})</div>
+            {user.pronouns ? <div id="pronouns">({user.pronouns})</div> : null}
           </div>
           <div>{user.headline}</div>
           <div>Timedate goes here</div>

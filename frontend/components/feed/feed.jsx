@@ -1,8 +1,8 @@
 import React from "react";
-import LeftProfileBox from "./left_profile_box";
+import LeftFeedBox from "./left_feed_box";
 import PostIndexContainer from "./posts/post_index_container";
 import { FEED } from "../../util/url_paths_util";
-import RightProfileBox from "./posts/right_profile_box";
+import RightFeedBox from "./right_feed_box";
 
 export default class Feed extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ export default class Feed extends React.Component {
 
     return (
       <div className="whole-feed-page">
-        <LeftProfileBox
+        <LeftFeedBox
           currentUser={currentUser}
         />
 
@@ -32,7 +32,7 @@ export default class Feed extends React.Component {
           currentUser={currentUser}
         />
 
-        <RightProfileBox />
+        <RightFeedBox />
       </div>
     );
   }

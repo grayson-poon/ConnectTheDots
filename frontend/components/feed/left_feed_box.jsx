@@ -6,7 +6,7 @@ import {
   DEFAULT_PROFILE_PICTURE 
 } from "../../util/images_and_icons_util";
 
-const LeftProfileBox = ({ currentUser }) => {
+const LeftFeedBox = ({ currentUser }) => {
   return (
     <div className="left-profile-box">
       <div className="left-profile-background">
@@ -40,4 +40,4 @@ const LeftProfileBox = ({ currentUser }) => {
   );
 };
 
-export default LeftProfileBox;
+export default LeftFeedBox;
