@@ -29,8 +29,8 @@ div.post-form-header a#image {
 }
 
 div.post-form-header a#image > img {
-  max-width: 45px;
-  max-height: 45px;
+  max-width: 50px;
+  max-height: 50px;
   width: auto;
   height: auto;
 }
@@ -56,6 +56,10 @@ div.post-form-header div#post-form-button button {
   color: rgba(0, 0, 0, 0.6);
   padding: 10px 0 10px 0;
   cursor: pointer;
+}
+
+div.post-form-header div#post-form-button button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 div.post-form-picture-input {

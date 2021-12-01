@@ -29,7 +29,9 @@ json.users @posts do |post|
   json.first_name post.user.first_name 
   json.last_name post.user.last_name 
   json.pronouns post.user.pronouns
-  json.headline post.user.headline 
+  json.headline post.user.headline
+  json.current_location post.user.current_location
+  json.about post.user.about
   json.profile_picture url_for(post.user.photo) if post.user.photo.attached? 
 end
 

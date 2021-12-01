@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { MY_NETWORK } from "../../../util/url_paths_util";
 
 
-const ActivitySection = ({ showUser, showModal }) => {
+const ActivitySection = ({ user, showModal }) => {
   return (
     <div className="profile-activity">
       <div className="title-and-button">

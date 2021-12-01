@@ -35,7 +35,7 @@ export default class UserShow extends React.Component {
   }
 
   render() {
-    return this.props.showUser ? this.profile() : null;
+    return this.props.user ? this.profile() : null;
   }
 
   showModal(field, status) {
@@ -61,18 +61,18 @@ export default class UserShow extends React.Component {
   }
 
   profile() {
-    let { showUser, updateUser } = this.props;
+    let { user, updateUser } = this.props;
     ++this.state.keyCounter;
 
     return (
       <div className="profile-page">
         <div className="profile-middle">
-          <ProfileMain showUser={showUser} showModal={this.showModal} />
-          <ActivitySection showUser={showUser} showModal={this.showModal} />
+          <ProfileMain user={user} showModal={this.showModal} />
+          <ActivitySection user={user} showModal={this.showModal} />
         </div>
 
         <ProfilePictureModal
-          showUser={showUser}
+          user={user}
           updateUser={updateUser}
           show={this.state.profilePicture}
           showModal={this.showModal}

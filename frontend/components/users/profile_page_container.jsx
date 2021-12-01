@@ -4,7 +4,7 @@ import UserShow from "./profile_page";
 
 const mSTP = (state, ownProps) => {
   return {
-    showUser: state.entities.users[ownProps.match.params.userId],
+    user: state.entities.users[ownProps.match.params.userId],
     currentUserId: state.session.currentUserId,
     currentUser: state.entities.users[state.session.currentUserId],
     errors: state.errors.userErrors,

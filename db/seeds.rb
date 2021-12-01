@@ -74,7 +74,8 @@ demo_user = User.create({
   last_name: "User",
   current_location: "San Francisco, California",
   headline: "Demo User for ConnectTheDots",
-  about: "Demo User for ConnectTheDots",
+  about: "I love being the demo user for ConnectTheDots, a professional networking application!",
+  pronouns: "she/her"
 })
 
 ### attach User photos
