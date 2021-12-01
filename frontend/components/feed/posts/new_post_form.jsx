@@ -16,7 +16,7 @@ export default class NewPostForm extends React.Component {
         userId: this.props.currentUser.id,
       },
       
-      postForm: false,
+      createPostForm: false,
       photoUrl: null,
     };
 
@@ -44,7 +44,7 @@ export default class NewPostForm extends React.Component {
           </Link>
 
           <div id="post-form-button">
-            <button onClick={() => this.showModal("postForm", true)}>
+            <button onClick={() => this.showModal("createPostForm", true)}>
               Start a post
             </button>
           </div>
@@ -63,7 +63,7 @@ export default class NewPostForm extends React.Component {
         </div>
 
         <NewPostModal
-          show={this.state.postForm}
+          show={this.state.createPostForm}
           currentUser={currentUser}
           handleSubmit={this.handleSubmit}
           body={this.state.post.body}
@@ -87,7 +87,7 @@ export default class NewPostForm extends React.Component {
     });
 
     this.props.createPost(formData)
-      .then(() => this.showModal("postForm", false));
+      .then(() => this.showModal("createPostForm", false));
   }
 
   updateField(field) {
@@ -100,8 +100,8 @@ export default class NewPostForm extends React.Component {
 
   handleFile(event) {
     event.preventDefault();
-    if (!this.state.postForm) {
-      this.showModal("postForm", true);
+    if (!this.state.createPostForm) {
+      this.showModal("createPostForm", true);
     };
 
     const fileReader = new FileReader();
@@ -126,12 +126,18 @@ export default class NewPostForm extends React.Component {
   }
 
   showModal(field, status) {
+    let blankPost = {
+      body: "",
+      postPicture: null,
+      userId: this.props.currentUser.id,
+    };
+
     (status)
       ? document.body.style.overflow = "hidden"
       : document.body.style.overflow = "scroll";
     
     (!status)
-      ? this.setState({ photoUrl: null })
+      ? this.setState({ post: blankPost, photoUrl: null })
       : null;
       
     this.setState({ [field]: status });

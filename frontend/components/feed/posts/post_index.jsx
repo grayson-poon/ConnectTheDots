@@ -19,7 +19,7 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    let { posts, users, currentUser, createPost } = this.props;
+    let { posts, users, currentUser, createPost, updatePost } = this.props;
     
     if (Object.keys(posts).length === 0) return null;
 
@@ -40,6 +40,7 @@ export default class PostIndex extends React.Component {
                 post={post}
                 user={users[post.userId]}
                 currentUser={currentUser}
+                updatePost={updatePost}
               />
             ))}
           </ul>

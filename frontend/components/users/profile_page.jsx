@@ -10,7 +10,6 @@ export default class UserShow extends React.Component {
       profilePicture: false,
       backgroundPicture: false,
       profileForm: false,
-      postForm: false,
       keyCounter: 0,
     }
 

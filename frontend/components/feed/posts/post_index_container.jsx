@@ -3,7 +3,8 @@ import { withRouter } from "react-router";
 import PostIndex from "./post_index";
 import { 
   fetchPosts, 
-  createPost 
+  createPost, 
+  updatePost
 } from "../../../actions/post_actions";
 
 const mSTP = (state, ownProps) => {
@@ -18,6 +19,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => ({
   fetchPosts: (url, userId) => dispatch(fetchPosts(url, userId)),
   createPost: (post) => dispatch(createPost(post)),
+  updatePost: (post) => dispatch(updatePost(post)),
 });
 
 export default withRouter(connect(mSTP, mDTP)(PostIndex));

@@ -1,12 +1,17 @@
 import React from "react";
-import { CLOSE_BUTTON, POST_PICTURE_ICON, REMOVE_BUTTON, DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
+import {
+  CLOSE_BUTTON,
+  POST_PICTURE_ICON,
+  REMOVE_BUTTON,
+  DEFAULT_PROFILE_PICTURE,
+} from "../../util/images_and_icons_util";
 
-export default class NewPostModal extends React.Component {
+export default class EditPostModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       post: this.props.post,
-    }
+    };
   }
 
   render() {
@@ -14,7 +19,7 @@ export default class NewPostModal extends React.Component {
   }
 
   show() {
-    let { 
+    let {
       currentUser,
       handleSubmit,
       body,
@@ -29,9 +34,9 @@ export default class NewPostModal extends React.Component {
       <div className="new-post-modal-background">
         <div className="new-post-modal">
           <div className="new-post-header">
-            <div id="words">Create a post</div>
+            <div id="words">Edit post</div>
             <div id="close-button">
-              <button onClick={() => showModal("createPostForm", false)}>
+              <button onClick={() => showModal("editPostForm", false)}>
                 <img src={CLOSE_BUTTON} />
               </button>
             </div>
