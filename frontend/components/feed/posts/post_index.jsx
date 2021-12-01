@@ -33,8 +33,9 @@ export default class PostIndex extends React.Component {
         <div className="posts-list">
           <ul>
             <li></li>
-            {Object.values(posts).reverse().map((post) => (
+            {Object.values(posts).reverse().map((post, idx) => (
               <PostIndexItem
+                idx={idx}
                 key={post.id}
                 post={post}
                 user={users[post.userId]}
