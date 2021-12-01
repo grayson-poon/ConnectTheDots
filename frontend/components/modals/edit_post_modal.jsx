@@ -89,7 +89,7 @@ export default class EditPostModal extends React.Component {
             </div>
 
             <div id="post-button">
-              <button onClick={handleSubmit}>Post</button>
+              <button onClick={handleSubmit}>Update post</button>
             </div>
           </div>
 
