@@ -15,7 +15,12 @@ class Api::PostsController < ApplicationController
   end
 
   def user_activity
-    # @posts = Post.select(*).where(user has commented on or created)
+    @posts = Post.where("user_id = ?", current_user.id)
+
+    # post_commented_on = Post
+    #   .joins(:comments)
+    #   .where("user_id = ?", current_user.id)
+
     render "api/posts/index"
   end
 
