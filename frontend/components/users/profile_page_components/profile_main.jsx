@@ -1,7 +1,7 @@
 import React from "react";
 import PicturesOnProfile from "./pictures_on_profile";
 
-const ProfileMain = ({ user, showModal }) => {
+const ProfileMain = ({ user, showModal, currentUser }) => {
   return (
     <div className="profile-main">
       <PicturesOnProfile user={user} showModal={showModal} />
@@ -16,8 +16,11 @@ const ProfileMain = ({ user, showModal }) => {
 
         <div className="profile-headline">{`${user.headline}`}</div>
         <div className="profile-current-location">{`${user.currentLocation}`}</div>
-        <div className="edit-profile">
-          <button>Edit profile info</button>
+        <div className="blue-profile-button">
+          {currentUser.id === user.id
+            ? <button>Edit profile info</button>
+            : <button>Connect</button>
+          }
         </div>
       </div>
     </div>
