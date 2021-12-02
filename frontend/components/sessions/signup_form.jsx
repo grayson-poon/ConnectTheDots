@@ -327,12 +327,7 @@ export default class SignupForm extends React.Component {
               Previous
             </button>
           </div>
-
-          {this.state.showErrors
-            ? <div className="form-errors">{this.displayErrors()}</div>
-            : null
-          }
-          
+          <div className="form-errors">{this.displayErrors()}</div>
         </form>
       </div>
     );
