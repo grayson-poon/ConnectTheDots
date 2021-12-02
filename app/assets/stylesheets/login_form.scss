@@ -2,67 +2,140 @@
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-div.login-form {
+div.login-form-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form.login-form{
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 352px;
-}
-
-div.login-form-join-now {
-  margin: 32px 0 0 0;
-}
-
-div.login-form-join-now div {
-  float: left;
-  margin-right: 8px;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-div.login-form-join-now a {
-  text-decoration: none;
-  color: rgb(10, 102, 194);
-  font-size: 16px;
-  font-weight: 600;
-}
-
-div.login-form div.email input {
   width: 304px;
-  height: 25px;
-  padding: 12px;
-}
-
-div.login-form div.password input {
-  width: 304px;
-  height: 25px;
-  padding: 12px;
-}
-
-div.login-form-buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-div.login-form-buttons button {
-  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 24px 24px 0 24px;
 }
 
 div.login-form-header {
   display: flex;
   flex-direction: column;
+  color: rgba(0, 0, 0, 0.9);
+  width: 300px;
 }
 
-div.login-form-header div:first-child {
+div.login-form-header > div:first-child {
   font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  padding-bottom: 4px;
 }
 
-div.login-form-header div:last-child {
-  font-size: 14px; 
+div.login-form-header > div:last-child {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+div.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.login-input-container {
+  height: 52px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 300px;
+  margin: 24px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.login-input-container input {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: black;
+  border: none;
+  outline: none;
+  height: 42px;
+  width: 280px;
+}
+
+div.login-form-buttons {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.login-form-buttons > button {
+  cursor: pointer;
+  border-radius: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 52px;
+}
+
+div.login-form-buttons > button:first-child {
+  border: 1px solid rgb(10, 102, 194);
+  padding: 1px 124px 1px 124px;
+  color: white;
+  border: none;
+  background-color: rgb(10, 102, 194);
+}
+
+div.login-form-buttons > button:first-child:hover {
+  background-color: rgb(6, 80, 155);
+}
+
+div.login-form-buttons > button:last-child {
+  padding: 1px 106px 1px 106px;
+  border: 1px solid black;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+div.login-form-buttons > button:last-child:hover {
+  padding: 0 106px 0 106px;
+  border: 2px solid black;
+  background-color: transparent;
+  background-color: rgba(151, 151, 151, 0.1);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+div.login-form-buttons div#separator {
+  margin: 16px 0 16px 0;
+  padding: 0 10px 0 10px;
+}
+
+div.login-form-alternate {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+div.login-form-alternate > div:last-child a {
+  text-decoration: none;
+  color: rgb(10, 102, 194);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  padding: 6px 8px 6px 8px;
+  border-radius: 28px;
+}
+
+div.login-form-alternate > div:last-child a:hover {
+  background-color: rgb(177, 215, 252);
+  text-decoration: underline;
 }

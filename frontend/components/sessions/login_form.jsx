@@ -36,13 +36,12 @@ export default class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-page">
-
-        <div className="login-form-header">
-          <div>Sign in</div>
-          <div>Stay updated on your professional world</div>
-        </div>
-
         <form className="login-form" onSubmit={this.handleSubmit}>
+          <div className="login-form-header">
+            <div>Sign in</div>
+            <div>Stay updated on your professional world</div>
+          </div>
+
           <div className="login-input-container">
             <input
               type="text"
@@ -62,20 +61,21 @@ export default class SessionForm extends React.Component {
           </div>
 
           <div className="login-form-buttons">
-            <button id="login" onClick={this.handleSubmit} value="Login">
-              Login
+            <button onClick={this.handleSubmit} value="Sign in">
+              Sign in
             </button>
-            <button id="demo-user" onClick={this.handleSubmit} value="Demo User">
+            <div id="separator">or</div>
+            <button onClick={this.handleSubmit} value="Demo User">
               Demo User
             </button>
           </div>
-
+        
           <div className="form-errors">{this.displayErrors()}</div>
         </form>
 
-        <div className="login-form-join-now">
-          <div id="question">New to ConnectTheDots?</div>
-          <div id="link">
+        <div className="login-form-alternate">
+          <div>New to ConnectTheDots?</div>
+          <div>
             <Link to={SIGNUP_FORM}>Join now</Link>
           </div>
         </div>
