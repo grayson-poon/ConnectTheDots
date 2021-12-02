@@ -67,6 +67,7 @@ export default class PostIndexItem extends React.Component {
           ) : null}
         </li>
         <EditPostModal
+          type="edit"
           show={this.state.editPostForm}
           currentUser={currentUser}
           handleSubmit={this.handleSubmit}

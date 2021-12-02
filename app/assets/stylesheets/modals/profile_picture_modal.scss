@@ -10,7 +10,8 @@ div.profile-picture-modal-background {
 
 div.profile-picture-modal {
   width: 750px;
-  height: 475px;
+  // height: 475px;
+  height: max-content;
   position: absolute;
   top: 50px;
   left: 50%;

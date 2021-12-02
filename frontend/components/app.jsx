@@ -10,6 +10,7 @@ import FeedContainer from "../components/feed/feed_container";
 import UserShowContainer from "./users/profile_page_container";
 import SplashContainer from "../components/splash/splash_container";
 import FooterContainer from "../components/footer/footer_container";
+import ScrollToTop from "../util/scroll_to_top";
 // import PostIndexContainer from "./posts/post_index_container";
 
 
@@ -18,8 +19,16 @@ const App = () => (
     <Route path={UrlPath.SPLASH} component={NavbarContainer} />
     <Switch>
       {/* <ProtectedRoute path={UrlPath.ACTIVITY} component={PostIndexContainer} /> */}
-      <AuthRoute exact path={UrlPath.SIGNUP_FORM} component={SignupFormContainer} />
-      <AuthRoute exact path={UrlPath.LOGIN_FORM} component={LoginFormContainer} />
+      <AuthRoute
+        exact
+        path={UrlPath.SIGNUP_FORM}
+        component={SignupFormContainer}
+      />
+      <AuthRoute
+        exact
+        path={UrlPath.LOGIN_FORM}
+        component={LoginFormContainer}
+      />
       <ProtectedRoute path={UrlPath.FEED} component={FeedContainer} />
       <ProtectedRoute path={UrlPath.MY_NETWORK} component={FeedContainer} />
       <ProtectedRoute path={UrlPath.USER_SHOW} component={UserShowContainer} />
@@ -28,5 +37,7 @@ const App = () => (
     <Route path={UrlPath.SPLASH} component={FooterContainer} />
   </div>
 );
+
+
 
 export default App;

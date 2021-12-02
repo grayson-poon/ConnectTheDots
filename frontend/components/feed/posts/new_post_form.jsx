@@ -63,6 +63,7 @@ export default class NewPostForm extends React.Component {
         </div>
 
         <NewPostModal
+          type="edit"
           show={this.state.createPostForm}
           currentUser={currentUser}
           handleSubmit={this.handleSubmit}
