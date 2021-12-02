@@ -226,6 +226,12 @@ div.signup-form-page label.image-input input {
   display: none;
 }
 
+div.signup-form-page form {
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 16px;
+}
+
 div.signup-form-page textarea {
   color: black;
   font-size: 16px;
@@ -236,4 +242,19 @@ div.signup-form-page textarea {
   align-self: center;
   resize: none;
   background-color: inherit;
+}
+
+div.form-errors {
+  padding: 16px;
+}
+
+div.form-errors ul {
+  color: red;
+  display: flex;
+  flex-direction: column;
+}
+
+div.form-errors ul li {
+  list-style-type: disc;
+  padding: 3px;
 }

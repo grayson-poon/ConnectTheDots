@@ -45,7 +45,7 @@ export default class SignupForm extends React.Component {
     const formData = new FormData();
 
     Object.entries(this.state.user).forEach(([key, value]) => {
-      key = (key === "profilePicture" ? "photo" : key);
+      key = (key === "profilePicture" && value ? "photo" : key);
       formData.append(`user[${key}]`, value);
     });
 
@@ -308,12 +308,11 @@ export default class SignupForm extends React.Component {
   aboutForm() {
     return (
       <div className="signup-form-page">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form-header">
-            <h1>Tell us a little bit about yourself</h1>
-          </div>
+        <div className="signup-form-header">
+          <h1>Tell us a little bit about yourself</h1>
+        </div>
 
-          
+        <form onSubmit={this.handleSubmit}>
           <textarea
             type="text"
             onChange={this.updateField("about")}
@@ -328,7 +327,12 @@ export default class SignupForm extends React.Component {
               Previous
             </button>
           </div>
-          <div className="form-errors">{this.displayErrors()}</div>
+
+          {this.state.showErrors
+            ? <div className="form-errors">{this.displayErrors()}</div>
+            : null
+          }
+          
         </form>
       </div>
     );

@@ -13,7 +13,7 @@ const mSTP = (state) => ({
     currentLocation: "",
     headline: "",
     about: "",
-    profilePicture: "",
+    profilePicture: null,
   },
   formType: "Create User",
   errors: state.errors.userErrors,

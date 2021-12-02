@@ -23,10 +23,10 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:post][:id])
-    # debugger
+    
     if current_user.id == @post.user_id
       @post.photo.purge if params[:post][:photo].nil?
-      # debugger
+
       if @post.update(post_params)
         render "api/posts/post_details"
       else
