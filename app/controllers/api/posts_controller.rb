@@ -4,10 +4,14 @@ class Api::PostsController < ApplicationController
       .select(:connection_id)
       .where("user_id = ? AND request_accepted = true", current_user.id)
 
-    @posts = Post.where("user_id = ?", current_user.id)
+    @posts = []
 
     connections.each do |connection|
-      @posts += Post.where("user_id = ?", connection.connection_id)
+      @posts += Post.where(
+        "user_id = ? OR user_id = ?", 
+        connection.connection_id, 
+        current_user.id
+      )
     end
 
     render "api/posts/index"
