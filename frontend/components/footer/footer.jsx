@@ -21,7 +21,7 @@ export default class Footer extends React.Component {
 
   formFooter() {
     return (
-      <div className="formFooter">
+      <div className="form-footer">
         <div className="bottom-level">
           <div className="statement">
             <p>A FEW THINGS YOU SHOULD KNOW</p>
