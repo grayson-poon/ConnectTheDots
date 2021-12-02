@@ -14,7 +14,7 @@ user1 = User.create({
   email: "first@gmail.com",
   password: "password",
   first_name: "First",
-  last_name: "First",
+  last_name: "User",
   pronouns: "he/his",
   current_location: "San Francisco, California",
   headline: "Chef",
@@ -26,7 +26,7 @@ user2 = User.create({
   email: "second@gmail.com",
   password: "password",
   first_name: "Second",
-  last_name: "Second",
+  last_name: "User",
   pronouns: "she/her",
   current_location: "San Francisco, California",
   headline: "Chef",
@@ -38,7 +38,7 @@ user3 = User.create({
   email: "third@gmail.com",
   password: "password",
   first_name: "Third",
-  last_name: "Third",
+  last_name: "User",
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
@@ -49,7 +49,7 @@ user4 = User.create({
   email: "fourth@gmail.com",
   password: "password",
   first_name: "Fourth",
-  last_name: "Fourth",
+  last_name: "User",
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
@@ -60,7 +60,7 @@ user5 = User.create({
   email: "fifth@gmail.com",
   password: "password",
   first_name: "Fifth",
-  last_name: "Fifth",
+  last_name: "User",
   current_location: "San Francisco, California",
   headline: "Chef",
   about: "about",
@@ -100,24 +100,24 @@ demo_user.photo.attach(io: tanjiro, filename: 'tanjiro.jpg')
 
 ### Posts
 # User 1
-post1 = Post.create({ body: "post1 user1", user_id: 1 })
-post2 = Post.create({ body: "post2 user1", user_id: 1 })
-post3 = Post.create({ body: "post3 user1", user_id: 1 })
+post1 = Post.create({ body: "post1 by user1", user_id: 1 })
+post2 = Post.create({ body: "post2 by user1", user_id: 1 })
+post3 = Post.create({ body: "post3 by user1", user_id: 1 })
 
 # User 2
-post4 = Post.create({ body: "post1 user2", user_id: 2 })
-post5 = Post.create({ body: "post2 user2", user_id: 2 })
-post6 = Post.create({ body: "post3 user2", user_id: 2 })
+post4 = Post.create({ body: "post1 by user2", user_id: 2 })
+post5 = Post.create({ body: "post2 by user2", user_id: 2 })
+post6 = Post.create({ body: "post3 by user2", user_id: 2 })
 
 # User 3
-post7 = Post.create({ body: "post1 user3", user_id: 3 })
-post8 = Post.create({ body: "post2 user3", user_id: 3 })
-post9 = Post.create({ body: "post3 user3", user_id: 3 })
+post7 = Post.create({ body: "post1 by user3", user_id: 3 })
+post8 = Post.create({ body: "post2 by user3", user_id: 3 })
+post9 = Post.create({ body: "post3 by user3", user_id: 3 })
 
 # Demo User's posts
-post10 = Post.create({ body: "post1 demo user", user_id: 6 })
-post11 = Post.create({ body: "post2 demo user", user_id: 6 })
-post12 = Post.create({ body: "post3 demo user", user_id: 6 })
+post10 = Post.create({ body: "post1 by the demo user", user_id: 6 })
+post11 = Post.create({ body: "post2 by the demo user", user_id: 6 })
+post12 = Post.create({ body: "post3 by the demo user", user_id: 6 })
 
 ### attach Post photos
 ny1 = URI.open('https://connect-the-dots-seeds.s3.us-west-1.amazonaws.com/ny1.jpg')
