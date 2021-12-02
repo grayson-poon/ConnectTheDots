@@ -107,63 +107,67 @@ export default class SignupForm extends React.Component {
 
   emailPasswordForm() {
     return (
-      <div className="signup-form-page">
-        <div className="signup-form-header">
-          Make the most out of your professional life
-        </div>
-        <div className="signup-form">
-          <div className="signup-input-container">
-            <div>Email*</div>
-            <div className="signup-input">
-              <input
-                type="text"
-                onChange={this.updateField("email")}
-                value={this.state.user.email}
-                required
-              />
+        <div className="signup-form-page">
+          <div className="gray-background"></div>
+          <div className="signup-form-header">
+            Make the most out of your professional life
+          </div>
+          <div className="signup-form">
+            <div className="signup-input-container">
+              <div>Email*</div>
+              <div className="signup-input">
+                <input
+                  type="text"
+                  onChange={this.updateField("email")}
+                  value={this.state.user.email}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="signup-input-container">
+              <div>Password* (6 or more characters)</div>
+              <div className="signup-input">
+                <input
+                  type="password"
+                  onChange={this.updateField("password")}
+                  value={this.state.user.password}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="signup-buttons">
+              <button onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            </div>
+
+            <div id="signup-message">
+              <div>Already on ConnectTheDots?</div>
+              <Link to={LOGIN_FORM}>Sign in</Link>
+            </div>
+
+            <div className="demo-user-alternate">
+              <div>Don't want to be bothered with a long signup process?</div>
+              <button
+                id="demo-user"
+                onClick={this.handleSubmit}
+                value="Demo User"
+              >
+                Demo User
+              </button>
             </div>
           </div>
-
-          <div className="signup-input-container">
-            <div>Password* (6 or more characters)</div>
-            <div className="signup-input">
-              <input
-                type="password"
-                onChange={this.updateField("password")}
-                value={this.state.user.password}
-                required
-              />
-            </div>
-          </div>
-
-          <div className="signup-buttons">
-            <button onClick={this.updateFormNum} value={NEXT}>
-              Next
-            </button>
-          </div>
-
-          <div id="signup-message">
-            <div>Already on ConnectTheDots?</div>
-            <Link to={LOGIN_FORM}>Sign in</Link>
-          </div>
-
-          <div className="demo-user-alternate">
-            <div>Don't want to be bothered with a long signup process?</div>
-            <button id="demo-user" onClick={this.handleSubmit} value="Demo User">
-              Demo User
-            </button>
-          </div>
         </div>
-      </div>
     );
   }
 
   namePronounsForm() {
     return (
       <div className="signup-form-page">
-        <div className="signup-form-header">
-          Who are you?
-        </div>
+        <div className="gray-background"></div>
+        <div className="signup-form-header">Who are you?</div>
         <div className="signup-form">
           <div className="signup-input-container">
             <div>First Name*</div>
@@ -216,6 +220,7 @@ export default class SignupForm extends React.Component {
   currentLocationForm() {
     return (
       <div className="signup-form-page">
+        <div className="gray-background"></div>
         <div className="signup-form-header">
           <h1>Where are you currently located?</h1>
         </div>
@@ -248,6 +253,8 @@ export default class SignupForm extends React.Component {
   headlineForm() {
     return (
       <div className="signup-form-page">
+        <div className="gray-background"></div>
+
         <div className="signup-form-header">
           <h1>Your profile helps you discover new people and opportunities</h1>
         </div>
@@ -280,38 +287,41 @@ export default class SignupForm extends React.Component {
   profilePictureForm() {
     return (
       <div className="signup-form-page">
+        <div className="gray-background"></div>
         <div className="signup-form-header">Add a picture of yourself</div>
 
-        <div className="image-preview">
-          {this.state.photoUrl ? (
-            <img src={this.state.photoUrl} />
-          ) : (
-            <img src={DEFAULT_PROFILE_PICTURE} />
-          )}
-        </div>
+        <div className="signup-form">
+          <div className="image-preview">
+            {this.state.photoUrl ? (
+              <img src={this.state.photoUrl} />
+            ) : (
+              <img src={DEFAULT_PROFILE_PICTURE} />
+            )}
+          </div>
 
-        <div className="image-buttons">
-          <label className="image-input">
-            <img src={POST_PICTURE_ICON} />
-            Upload
-            <input type="file" onChange={this.handleFile} accept="image/*" />
-          </label>
+          <div className="image-buttons">
+            <label className="image-input">
+              <img src={POST_PICTURE_ICON} />
+              Upload
+              <input type="file" onChange={this.handleFile} accept="image/*" />
+            </label>
 
-          <div className="remove-button">
-            <button onClick={this.removeFile}>
-              <img src={REMOVE_BUTTON} />
-              Remove
+            <div className="remove-button">
+              <button onClick={this.removeFile}>
+                <img src={REMOVE_BUTTON} />
+                Remove
+              </button>
+            </div>
+          </div>
+
+          <div className="signup-buttons">
+            <button onClick={this.updateFormNum} value={NEXT}>
+              Next
+            </button>
+            <button onClick={this.updateFormNum} value={PREVIOUS}>
+              Previous
             </button>
           </div>
-        </div>
-
-        <div className="signup-buttons">
-          <button onClick={this.updateFormNum} value={NEXT}>
-            Next
-          </button>
-          <button onClick={this.updateFormNum} value={PREVIOUS}>
-            Previous
-          </button>
         </div>
       </div>
     );
@@ -320,6 +330,7 @@ export default class SignupForm extends React.Component {
   aboutForm() {
     return (
       <div className="signup-form-page">
+        <div className="gray-background"></div>
         <div className="signup-form-header">
           <h1>Tell us a little bit about yourself</h1>
         </div>

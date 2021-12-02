@@ -16,6 +16,9 @@
 
 @import 'reset.scss';
 
+// Backgrounds
+@import './color_backgrounds.scss';
+
 // Navbars
 @import './navbar/splash_navbar.scss';
 @import './navbar/login_navbar.scss';

@@ -14,7 +14,8 @@ export default class Footer extends React.Component {
     // }
 
     return this.props.url === UrlPath.SIGNUP_FORM ||
-      this.props.url === UrlPath.LOGIN_FORM
+      this.props.url === UrlPath.LOGIN_FORM ||
+      this.props.url === UrlPath.FEED
       ? null
       : this.splashFooter();
   }
