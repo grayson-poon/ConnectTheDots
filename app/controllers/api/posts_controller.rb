@@ -11,14 +11,6 @@ class Api::PostsController < ApplicationController
     end
 
     render "api/posts/index"
-    
-    # @posts = Post
-    #   .where(
-    #     "user_id = ?", current_user.id
-    #   ).or(Post
-    #   .where(
-
-    #   ))
     # @comments = query for those posts' comments
   end
 
