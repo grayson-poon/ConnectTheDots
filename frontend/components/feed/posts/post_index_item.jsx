@@ -49,11 +49,13 @@ export default class PostIndexItem extends React.Component {
               <div>{post.createdAt}</div>
             </div>
 
-            <div className="post-header-util">
-              <button onClick={() => this.showModal("editPostForm", true)}>
-                <img src={HORIZONTAL_DOTS} />
-              </button>
-            </div>
+            {currentUser.id === post.userId ? (
+              <div className="post-header-util">
+                <button onClick={() => this.showModal("editPostForm", true)}>
+                  <img src={HORIZONTAL_DOTS} />
+                </button>
+              </div>
+            ) : null}
           </div>
 
           <div className="post-body">{post.body}</div>

@@ -12,6 +12,7 @@ div.session-navbar {
   left: 0%;
   background: white;
   z-index: 5;
+  padding-right: 300px;
 }
 
 div.logo {
@@ -105,11 +106,10 @@ div#my-network:hover a div {
   text-decoration: underline;
 }
 
-
 div#profile {
-  padding: 6px 10px 10px 10px;
+  padding: 9px 10px 10px 10px;
   border-right: 1px solid lightgray;
-  margin-right: 160px;
+  // margin-right: 160px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

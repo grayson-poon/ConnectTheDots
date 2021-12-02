@@ -2,17 +2,6 @@
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-// div#profile-dropdown-modal-background {
-//   position: absolute;
-//   top: 0%;
-//   left: 0%;
-//   width: 100vw;
-//   height: 100vh;
-//   background-size: cover;
-//   background: rgba(0,0,0,0.7);
-//   z-index: 9;
-// }
-
 div.profile-dropdown {
   background-color: white;
   border: 1px solid lightgray;
@@ -21,13 +10,13 @@ div.profile-dropdown {
   border-top-left-radius: 8px;
   position: absolute;
   top: 77px;
-  right: 160px;
+  transform: translateX(-100%);
   width: 264px;
   height: auto;
   display: flex;
   flex-direction: column;
   z-index: 10;
-  box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 div.profile-dropdown div.information {
@@ -44,24 +33,21 @@ div.information div#image {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: 1px solid black;
   overflow: hidden;
   margin: 7px 7px 7px 4px;
   background-color: rgb(29, 34, 38);
 }
 
 div.information div#image img {
-  max-width: 75px;
-  max-height: 75px;
-  width: auto;
-  height: auto;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
 }
 
 div.information div#titles {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  // height: 150px;
   width: min-content;
   overflow: auto;
 }
