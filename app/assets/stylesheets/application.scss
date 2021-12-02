@@ -23,7 +23,8 @@
 @import './navbar/session_navbar.scss';
 
 // Forms
-@import 'login_form.scss';
+@import './login_form.scss';
+@import './signup_form.scss';
 
 // Splash Page
 @import './splash_page/splash_component_1.scss';
@@ -34,6 +35,8 @@
 @import './feed/left_feed_box.scss';
 @import './feed/right_feed_box.scss';
 @import './feed/new_post_form.scss';
+@import './feed/post_index.scss';
+@import './feed/post_index_item.scss';
 
 // Profile Page
 @import './user_show_page/profile_page_layout.scss';

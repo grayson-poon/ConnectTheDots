@@ -322,7 +322,6 @@ export default class SignupForm extends React.Component {
             rows="9"
           />
 
-
           <div className="signup-buttons">
             <input type="submit" value={this.props.formType} />
             <button onClick={this.updateFormNum} value={PREVIOUS}>

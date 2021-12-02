@@ -6,7 +6,6 @@ div.signup-form-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(240, 240, 240);
   padding-bottom: 36px;
 }
 
@@ -179,6 +178,7 @@ div.image-buttons div.remove-button button {
   margin-bottom: 24px;
   cursor: pointer;
   padding: 5px 8px 5px 8px;
+  background-color: transparent;
 }
 
 div.image-buttons div.remove-button button:hover {
