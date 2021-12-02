@@ -1,9 +1,25 @@
 class Api::PostsController < ApplicationController
   def index # get feed posts
+    connections = Connection
+      .select(:connection_id)
+      .where("user_id = ? AND request_accepted = true", current_user.id)
+
     @posts = Post.where("user_id = ?", current_user.id)
-    # @comments = query for those posts' comments
+
+    connections.each do |connection|
+      @posts += Post.where("user_id = ?", connection.connection_id)
+    end
 
     render "api/posts/index"
+    
+    # @posts = Post
+    #   .where(
+    #     "user_id = ?", current_user.id
+    #   ).or(Post
+    #   .where(
+
+    #   ))
+    # @comments = query for those posts' comments
   end
 
   def user_activity
