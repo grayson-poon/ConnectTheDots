@@ -35,15 +35,15 @@ export default class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form">
+      <div className="login-form-page">
 
         <div className="login-form-header">
           <div>Sign in</div>
           <div>Stay updated on your professional world</div>
         </div>
 
-        <form onSubmit={this.handleSubmit}>
-          <div className="email">
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          <div className="login-input-container">
             <input
               type="text"
               onChange={this.update("email")}
@@ -52,7 +52,7 @@ export default class SessionForm extends React.Component {
             />
           </div>
 
-          <div className="password">
+          <div className="login-input-container">
             <input
               type="password"
               onChange={this.update("password")}
@@ -65,7 +65,6 @@ export default class SessionForm extends React.Component {
             <button id="login" onClick={this.handleSubmit} value="Login">
               Login
             </button>
-
             <button id="demo-user" onClick={this.handleSubmit} value="Demo User">
               Demo User
             </button>

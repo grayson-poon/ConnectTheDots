@@ -259,3 +259,31 @@ div.form-errors ul li {
   list-style-type: disc;
   padding: 3px;
 }
+
+div.demo-user-alternate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+div.demo-user-alternate div {
+  width: 215px;
+}
+
+div.demo-user-alternate button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: rgb(10, 102, 194);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  padding-left: 8px;
+  width: 100px;
+}
+
+div.demo-user-alternate button:hover {
+  text-decoration: underline;
+}

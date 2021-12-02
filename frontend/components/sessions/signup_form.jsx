@@ -42,6 +42,11 @@ export default class SignupForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+    event.target.value === "Demo User"
+      ? this.props.login(this.props.demoUser)
+      : null;
+
     const formData = new FormData();
 
     Object.entries(this.state.user).forEach(([key, value]) => {
@@ -140,6 +145,13 @@ export default class SignupForm extends React.Component {
           <div id="signup-message">
             <div>Already on ConnectTheDots?</div>
             <Link to={LOGIN_FORM}>Sign in</Link>
+          </div>
+
+          <div className="demo-user-alternate">
+            <div>Don't want to be bothered with a long signup process?</div>
+            <button id="demo-user" onClick={this.handleSubmit} value="Demo User">
+              Demo User
+            </button>
           </div>
         </div>
       </div>
