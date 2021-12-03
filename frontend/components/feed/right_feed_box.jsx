@@ -35,11 +35,10 @@ const RightFeedBox = () => {
           <li>Javascript</li>
           <li>React</li>
           <li>Redux</li>
-          <li>AWS</li>
+          <li>AWS S3</li>
           <li>jQuery</li>
           <li>Ruby on Rails</li>
           <li>PostgreSQL</li>
-          <li>Node.js</li>
           <li>Git</li>
           <li>JBuilder</li>
           <li>HTML</li>
