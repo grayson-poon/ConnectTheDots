@@ -5,11 +5,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:index, :create, :show, :update] do
       get '/activity', to: 'posts#user_activity'
-      
-      resources :connections, only: [:destroy, :index]
-      post '/connections/:id', to: 'connections#create'
     end
     resources :posts, only: [:index, :create, :update, :destroy]
+    resources :connections, only: [:create, :destroy, :index]
+
     # get '/users/:user_id/activity', to: 'posts#user_activity'
     # get '/users/:user_id/connections/:id', to: 'connections#create'
   end

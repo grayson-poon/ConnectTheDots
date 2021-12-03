@@ -3,6 +3,7 @@ class Api::PostsController < ApplicationController
     connections = Connection
       .select(:connection_id)
       .where("user_id = ? AND request_accepted = true", current_user.id)
+      # create a search_id variable then do params[:user_id] ||= current_user.id for the search id  
 
     @posts = []
 
