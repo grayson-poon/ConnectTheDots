@@ -134,3 +134,34 @@ post10.photo.attach(io: ny4, filename: 'ny4.jpg')
 
 ny5 = URI.open('https://connect-the-dots-seeds.s3.us-west-1.amazonaws.com/ny5.jpg')
 post12.photo.attach(io: ny5, filename: 'ny5.jpg')
+
+### Connections
+# mutuals
+c1_2 = Connection.create({ user_id: 1, connection_id: 2, request_accepted: true })
+c2_1 = Connection.create({ user_id: 1, connection_id: 6, request_accepted: true })
+
+c1_3 = Connection.create({ user_id: 1, connection_id: 3, request_accepted: true })
+c3_1 = Connection.create({ user_id: 3, connection_id: 1, request_accepted: true })
+
+c1_4 = Connection.create({ user_id: 1, connection_id: 4, request_accepted: true })
+c4_1 = Connection.create({ user_id: 4, connection_id: 1, request_accepted: true })
+
+c1_5 = Connection.create({ user_id: 1, connection_id: 5, request_accepted: true })
+c5_1 = Connection.create({ user_id: 5, connection_id: 1, request_accepted: true })
+
+c1_6 = Connection.create({ user_id: 1, connection_id: 6, request_accepted: true })
+c6_1 = Connection.create({ user_id: 6, connection_id: 1, request_accepted: true })
+
+c2_6 = Connection.create({ user_id: 2, connection_id: 6, request_accepted: true })
+c6_2 = Connection.create({ user_id: 6, connection_id: 2, request_accepted: true })
+
+c3_6 = Connection.create({ user_id: 3, connection_id: 6, request_accepted: true })
+c6_3 = Connection.create({ user_id: 6, connection_id: 3, request_accepted: true })
+
+# requests
+c3_2 = Connection.create({ user_id: 3, connection_id: 2 })
+c4_2 = Connection.create({ user_id: 4, connection_id: 2 })
+c5_2 = Connection.create({ user_id: 5, connection_id: 2 })
+
+c4_6 = Connection.create({ user_id: 4, connection_id: 6 })
+c5_6 = Connection.create({ user_id: 5, connection_id: 6 })
