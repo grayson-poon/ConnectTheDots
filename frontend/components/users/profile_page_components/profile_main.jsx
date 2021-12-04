@@ -52,7 +52,7 @@ const ProfileMain = ({ user, openModal, currentUserId }) => {
         <div className="profile-current-location">{`${user.currentLocation}`}</div>
         <div className="blue-profile-button">
           {currentUserId === user.id ? (
-            <button>Edit profile info</button>
+            <button onClick={() => openModal("editUser", user)}>Edit intro</button>
           ) : (
             <button>Connect</button>
           )}

@@ -109,13 +109,13 @@ class PostModal extends React.Component {
 
             <div id="post-button">
               <button onClick={() => this.handleDelete(this.state.post.id)}>
-                Delete Post
+                Delete post
               </button>
 
               {type === "create" ? (
                 <button onClick={this.handleSubmit}>Post</button>
               ) : (
-                <button onClick={this.handleSubmit}>Update Post</button>
+                <button onClick={this.handleSubmit}>Update post</button>
               )}
             </div>
           </div>

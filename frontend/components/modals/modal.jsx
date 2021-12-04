@@ -4,6 +4,7 @@ import { closeModal } from "../../actions/modal_actions";
 import ProfileDropdown from "./profile_dropdown";
 import ProfilePictureModal from "./profile_picture_modal";
 import PostModal from "./post_modal";
+import EditUser from "./edit_user";
 
 const Modal = ({ modal }) => {
   if (!modal) {
@@ -24,6 +25,9 @@ const Modal = ({ modal }) => {
         photoUrl={modal.entity.photoUrl}
         type={modal.entity.type}
       />;
+    case "editUser":
+      document.body.style.overflow = "hidden";
+      return <EditUser user={modal.entity} />;
     default:
       document.body.style.overflow = "scroll";
       return null;
