@@ -55,7 +55,7 @@ export default class NewPostForm extends React.Component {
 
     fileReader.onloadend = () => {
       photoUrl = fileReader.result;
-      this.props.openModal("postModal", { post, photoUrl });
+      this.props.openModal("postModal", { post, photoUrl, type: "create" });
     };
 
     if (file) fileReader.readAsDataURL(file);

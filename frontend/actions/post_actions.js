@@ -4,6 +4,7 @@ export const RECEIVE_WHOLE_POSTS = "RECEIVE_WHOLE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
+export const REMOVE_POST_ERRORS = "REMOVE_POST_ERRORS";
 
 const receiveWholePosts = ({ posts, comments, users }) => {
   return {
@@ -32,6 +33,12 @@ const receivePostErrors = (errors) => {
   return {
     type: RECEIVE_POST_ERRORS,
     errors,
+  };
+};
+
+export const removePostErrors = () => {
+  return {
+    type: REMOVE_POST_ERRORS,
   };
 };
 

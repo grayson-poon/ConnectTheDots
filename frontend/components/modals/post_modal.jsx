@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
-import { createPost, deletePost, updatePost } from "../../actions/post_actions";
+import { createPost, deletePost, removePostErrors, updatePost } from "../../actions/post_actions";
 import { 
   CLOSE_BUTTON, 
   POST_PICTURE_ICON, 
@@ -27,6 +27,7 @@ class PostModal extends React.Component {
     };
 
     this.handleFile = this.handleFile.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.removeFile = this.removeFile.bind(this);
     this.updateField = this.updateField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +35,7 @@ class PostModal extends React.Component {
   }
 
   render() {
-    let { currentUser, closeModal, type } = this.props;
+    let { currentUser, type } = this.props;
 
     return (
       <div className="new-post-modal-background">
@@ -47,7 +48,7 @@ class PostModal extends React.Component {
             )}
 
             <div id="close-button">
-              <button onClick={closeModal}>
+              <button onClick={this.handleClose}>
                 <img src={CLOSE_BUTTON} />
               </button>
             </div>
@@ -70,6 +71,7 @@ class PostModal extends React.Component {
           </div>
 
           <div className="new-post-body">
+            <div className="post-errors">{this.displayErrors()}</div>
             <textarea
               name="body"
               rows="9"
@@ -124,9 +126,23 @@ class PostModal extends React.Component {
     );
   }
 
+  displayErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  handleClose() {
+    this.props.removePostErrors();
+    this.props.closeModal();
+  }
+
   handleDelete(postId) {
-    this.props.deletePost(postId)
-      .then(() => this.props.closeModal());
+    this.props.deletePost(postId).then(() => this.props.closeModal());
   }
 
   handleSubmit(event) {
@@ -134,12 +150,11 @@ class PostModal extends React.Component {
     const formData = new FormData();
 
     Object.entries(this.state.post).forEach(([key, value]) => {
-      key = (key === "postPicture" && value) ? "photo" : key;
+      key = key === "postPicture" && value ? "photo" : key;
       formData.append(`post[${key}]`, value);
     });
 
     let { type, createPost, updatePost, closeModal } = this.props;
-
 
     type === "create"
       ? createPost(formData).then(() => closeModal())
@@ -183,6 +198,7 @@ class PostModal extends React.Component {
 const mSTP = (state) => {
   return {
     currentUser: state.entities.users[state.session.currentUserId],
+    errors: state.errors.postErrors,
   };
 };
 
@@ -192,6 +208,7 @@ const mDTP = (dispatch) => {
     createPost: (post) => dispatch(createPost(post)),
     updatePost: (post) => dispatch(updatePost(post)),
     deletePost: (postId) => dispatch(deletePost(postId)),
+    removePostErrors: () => dispatch(removePostErrors()),
   };
 };
 

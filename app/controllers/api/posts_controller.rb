@@ -49,7 +49,7 @@ class Api::PostsController < ApplicationController
       if @post.update(post_params)
         render "api/posts/post_details"
       else
-        render json: @user.errors.full_messages, status: 302
+        render json: @post.errors.full_messages, status: 404
       end
     end
   end

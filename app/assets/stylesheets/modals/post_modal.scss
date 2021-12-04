@@ -106,7 +106,15 @@ div.author-info #name {
 div.new-post-body {
   padding: 15px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.new-post-body > div.post-errors {
+  align-self: flex-start;
+  margin-left: 20px;
+  margin-bottom: 6px;
+  color: red;
 }
 
 div.new-post-body textarea {
