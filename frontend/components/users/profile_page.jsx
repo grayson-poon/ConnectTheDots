@@ -4,15 +4,6 @@ import ActivitySection from "./profile_page_components/activity_section";
 import ProfilePictureModal from "../modals/profile_picture_modal";
 
 export default class UserShow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // profilePicture: false,
-      // backgroundPicture: false,
-      // profileForm: false,
-    }
-  }
-
   componentDidMount() {
     let urlId = parseInt(this.props.match.params.userId);
     let { currentUserId } = this.props;
