@@ -8,7 +8,7 @@ const ActivitySection = ({ user, openModal }) => {
     <div className="profile-activity">
       <div className="title-and-button">
         <h2>Activity</h2>
-        <button>Start a post</button>
+        <button onClick={() => openModal("postModal", { post: null, photoUrl: null, type: "create" })}>Start a post</button>
       </div>
 
       <Link to={MY_NETWORK}>Number of followers</Link>
