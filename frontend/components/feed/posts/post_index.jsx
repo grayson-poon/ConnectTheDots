@@ -1,6 +1,6 @@
 import React from "react";
 import PostIndexItem from "./post_index_item";
-import NewPostForm from "./new_post_form";
+import NewPostForm from "./post_modal";
 import {
   ACTIVITY_TAIL,
   FEED
@@ -19,11 +19,11 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    let { posts, users, currentUser, createPost, updatePost, openModal } = this.props;
+    let { posts, users, currentUser, updatePost, openModal } = this.props;
     
     return (
       <div className="post-index">
-        <NewPostForm createPost={createPost} currentUser={currentUser} openModal={openModal} />
+        <NewPostForm currentUser={currentUser} openModal={openModal} />
 
         {Object.values(posts).length === 0 ? null : (
           <div className="posts-list">

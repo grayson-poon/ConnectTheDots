@@ -1,9 +1,5 @@
 import React from "react";
-import NewPostModal from "../../modals/new_post_modal";
-import { 
-  DEFAULT_PROFILE_PICTURE, 
-  POST_PICTURE_ICON 
-} from "../../../util/images_and_icons_util";
+import { DEFAULT_PROFILE_PICTURE, POST_PICTURE_ICON } from "../../../util/images_and_icons_util";
 import { Link } from "react-router-dom";
 
 export default class NewPostForm extends React.Component {
@@ -61,7 +57,7 @@ export default class NewPostForm extends React.Component {
       photoUrl = fileReader.result;
       this.props.openModal("postModal", { post, photoUrl });
     };
-    
+
     if (file) fileReader.readAsDataURL(file);
   };
 }
