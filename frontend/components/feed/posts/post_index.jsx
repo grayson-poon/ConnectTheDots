@@ -19,11 +19,11 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    let { posts, users, currentUser, createPost, updatePost } = this.props;
+    let { posts, users, currentUser, createPost, updatePost, openModal } = this.props;
     
     return (
       <div className="post-index">
-        <NewPostForm createPost={createPost} currentUser={currentUser} />
+        <NewPostForm createPost={createPost} currentUser={currentUser} openModal={openModal} />
 
         {Object.values(posts).length === 0 ? null : (
           <div className="posts-list">
@@ -31,14 +31,14 @@ export default class PostIndex extends React.Component {
               <li></li>
               {Object.values(posts)
                 .reverse()
-                .map((post, idx) => (
+                .map((post) => (
                   <PostIndexItem
-                    idx={idx}
                     key={post.id}
                     post={post}
                     user={users[post.userId]}
                     currentUser={currentUser}
                     updatePost={updatePost}
+                    openModal={openModal}
                   />
                 ))}
             </ul>

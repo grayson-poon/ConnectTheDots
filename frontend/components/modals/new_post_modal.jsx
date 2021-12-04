@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+import { closeModal } from "../../actions/modal_actions";
+import { createPost } from "../../actions/post_actions";
 import { 
   CLOSE_BUTTON, 
   POST_PICTURE_ICON, 
@@ -6,29 +9,34 @@ import {
   DEFAULT_PROFILE_PICTURE 
 } from "../../util/images_and_icons_util";
 
-export default class NewPostModal extends React.Component {
+class PostModal extends React.Component {
   constructor(props) {
     super(props);
+
+    debugger
+
+    let propsPost = props.post
+      ? props.post
+      : {
+          body: "",
+          postPicture: props.photoUrl,
+          userId: this.props.currentUser.id,
+        };
+  
+
     this.state = {
-      post: this.props.post,
-    }
+      post: propsPost,
+      photoUrl: props.photoUrl,
+    };
+
+    this.handleFile = this.handleFile.bind(this);
+    this.removeFile = this.removeFile.bind(this);
+    this.updateField = this.updateField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
-    return this.props.show ? this.show() : null;
-  }
-
-  show() {
-    let { 
-      currentUser,
-      handleSubmit,
-      body,
-      photoUrl,
-      showModal,
-      updateField,
-      handleFile,
-      removeFile,
-    } = this.props;
+    let { currentUser, closeModal } = this.props;
 
     return (
       <div className="new-post-modal-background">
@@ -36,7 +44,7 @@ export default class NewPostModal extends React.Component {
           <div className="new-post-header">
             <div id="words">Create a post</div>
             <div id="close-button">
-              <button onClick={() => showModal("createPostForm", false)}>
+              <button onClick={closeModal}>
                 <img src={CLOSE_BUTTON} />
               </button>
             </div>
@@ -62,15 +70,15 @@ export default class NewPostModal extends React.Component {
             <textarea
               name="body"
               rows="9"
-              onChange={updateField("body")}
-              value={body}
+              onChange={this.updateField("body")}
+              value={this.state.post.body}
               placeholder="What do you want to talk about?"
             />
           </div>
 
-          {photoUrl ? (
+          {this.state.photoUrl ? (
             <div className="post-picture">
-              <img src={photoUrl} />
+              <img src={this.state.photoUrl} />
             </div>
           ) : null}
 
@@ -79,19 +87,19 @@ export default class NewPostModal extends React.Component {
               <div className="post-form-picture-input-2">
                 <label>
                   <img src={POST_PICTURE_ICON} />
-                  <input type="file" onChange={handleFile} accept="image/*" />
+                  <input type="file" onChange={this.handleFile} accept="image/*" />
                 </label>
               </div>
 
               <div id="remove-button">
-                <button onClick={removeFile}>
+                <button onClick={this.removeFile}>
                   <img src={REMOVE_BUTTON} />
                 </button>
               </div>
             </div>
 
             <div id="post-button">
-              <button onClick={handleSubmit}>Post</button>
+              <button onClick={this.handleSubmit}>Post</button>
             </div>
           </div>
 
@@ -100,4 +108,66 @@ export default class NewPostModal extends React.Component {
       </div>
     );
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData();
+
+    Object.entries(this.state.post).forEach(([key, value]) => {
+      key = key === "postPicture" && value ? "photo" : key;
+      formData.append(`post[${key}]`, value);
+    });
+
+    this.props
+      .createPost(formData)
+      .then(() => this.props.closeModal());
+  }
+
+  updateField(field) {
+    let post = Object.assign({}, this.state.post);
+
+    return (event) => {
+      post[field] = event.target.value;
+      this.setState({ post });
+    };
+  }
+
+  handleFile(event) {
+    event.preventDefault();
+    
+    const fileReader = new FileReader();
+    let post = Object.assign({}, this.state.post);
+    let file = event.currentTarget.files[0];
+
+    fileReader.onloadend = () => {
+      post["postPicture"] = file;
+      this.setState({ post, photoUrl: fileReader.result });
+    };
+
+    if (file) fileReader.readAsDataURL(file);
+  }
+
+  removeFile(event) {
+    event.preventDefault();
+
+    let post = Object.assign({}, this.state.post);
+    post["postPicture"] = null;
+
+    this.setState({ post, photoUrl: null });
+  }
 }
+
+const mSTP = (state) => {
+  return {
+    currentUser: state.entities.users[state.session.currentUserId],
+  };
+};
+
+const mDTP = (dispatch) => {
+  return {
+    closeModal: () => dispatch(closeModal()),
+    createPost: (post) => dispatch(createPost(post)),
+  };
+};
+
+export default connect(mSTP, mDTP)(PostModal);

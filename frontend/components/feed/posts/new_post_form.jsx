@@ -7,28 +7,8 @@ import {
 import { Link } from "react-router-dom";
 
 export default class NewPostForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      post: {
-        body: "",
-        postPicture: null,
-        userId: this.props.currentUser.id,
-      },
-      
-      createPostForm: false,
-      photoUrl: null,
-    };
-
-    this.showModal = this.showModal.bind(this);
-    this.handleFile = this.handleFile.bind(this);
-    this.removeFile = this.removeFile.bind(this);
-    this.updateField = this.updateField.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
   render() {
-    let { currentUser } = this.props;
+    let { currentUser, openModal } = this.props;
 
     return (
       <div className="new-post-form">
@@ -44,7 +24,7 @@ export default class NewPostForm extends React.Component {
           </Link>
 
           <div id="post-form-button">
-            <button onClick={() => this.showModal("createPostForm", true)}>
+            <button onClick={() => openModal("postModal", { post: null, photoUrl: null })}>
               Start a post
             </button>
           </div>
@@ -55,92 +35,33 @@ export default class NewPostForm extends React.Component {
             <img src={POST_PICTURE_ICON} />
             <input
               type="file" 
-              onChange={this.handleFile} 
+              onChange={this.handleFile.bind(this)} 
               accept="image/*" 
             />
             Photo
           </label>
         </div>
-
-        <NewPostModal
-          type="edit"
-          show={this.state.createPostForm}
-          currentUser={currentUser}
-          handleSubmit={this.handleSubmit}
-          body={this.state.post.body}
-          photoUrl={this.state.photoUrl}
-          showModal={this.showModal}
-          updateField={this.updateField}
-          handleFile={this.handleFile}
-          removeFile={this.removeFile}
-        />
       </div>
     );
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData();
-
-    Object.entries(this.state.post).forEach(([key, value]) => {
-      key = (key === "postPicture" && value ? "photo" : key);
-      formData.append(`post[${key}]`, value);
-    });
-
-    this.props.createPost(formData)
-      .then(() => this.showModal("createPostForm", false));
-  }
-
-  updateField(field) {
-    let post = Object.assign({}, this.state.post);
-    return (event) => {
-      post[field] = event.target.value;
-      this.setState({ post });
-    };
-  }
-
   handleFile(event) {
     event.preventDefault();
-    if (!this.state.createPostForm) {
-      this.showModal("createPostForm", true);
-    };
-
     const fileReader = new FileReader();
-    let post = Object.assign({}, this.state.post);
     let file = event.currentTarget.files[0];
+    let photoUrl;
 
-    fileReader.onloadend = () => {
-      post["postPicture"] = file;
-      this.setState({ post, photoUrl: fileReader.result });
-    };
-
-    if (file) fileReader.readAsDataURL(file);
-  }
-
-  removeFile(event) {
-    event.preventDefault();
-
-    let post = Object.assign({}, this.state.post);
-    post["postPicture"] = null;
-
-    this.setState({ post, photoUrl: null });
-  }
-
-  showModal(field, status) {
-    let blankPost = {
+    let post = {
       body: "",
-      postPicture: null,
+      postPicture: file,
       userId: this.props.currentUser.id,
     };
 
-    (status)
-      ? document.body.style.overflow = "hidden"
-      : document.body.style.overflow = "scroll";
+    fileReader.onloadend = () => {
+      photoUrl = fileReader.result;
+      this.props.openModal("postModal", { post, photoUrl });
+    };
     
-    (!status)
-      ? this.setState({ post: blankPost, photoUrl: null })
-      : null;
-      
-    this.setState({ [field]: status });
-  }
+    if (file) fileReader.readAsDataURL(file);
+  };
 }

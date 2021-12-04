@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
 
 const ProfileDropdown = ({ currentUser, logout }) => {
-  debugger
   return (
     <div id="profile-dropdown-modal-background">
       <div className="profile-dropdown">

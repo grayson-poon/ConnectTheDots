@@ -20,7 +20,7 @@ export default class PostIndexItem extends React.Component {
   }
 
   render() {
-    let { user, post, currentUser } = this.props;
+    let { user, post, currentUser, openModal } = this.props;
 
     return (
       <>
@@ -51,7 +51,7 @@ export default class PostIndexItem extends React.Component {
 
             {currentUser.id === post.userId ? (
               <div className="post-header-util">
-                <button onClick={() => this.showModal("editPostForm", true)}>
+                <button onClick={() => openModal("editPostForm", post)}>
                   <img src={HORIZONTAL_DOTS} />
                 </button>
               </div>
@@ -66,7 +66,7 @@ export default class PostIndexItem extends React.Component {
             </div>
           ) : null}
         </li>
-        <EditPostModal
+        {/* <EditPostModal
           type="edit"
           show={this.state.editPostForm}
           currentUser={currentUser}
@@ -77,7 +77,7 @@ export default class PostIndexItem extends React.Component {
           updateField={this.updateField}
           handleFile={this.handleFile}
           removeFile={this.removeFile}
-        />
+        /> */}
       </>
     );
   }
