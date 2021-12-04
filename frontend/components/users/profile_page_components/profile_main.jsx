@@ -7,8 +7,7 @@ import {
 } from "../../../util/images_and_icons_util";
 
 
-const ProfileMain = ({ user, showModal, currentUserId }) => {
-  // debugger
+const ProfileMain = ({ user, openModal, currentUserId }) => {
   return (
     <div className="profile-main">
       <div className="pictures-on-profile">
@@ -27,7 +26,7 @@ const ProfileMain = ({ user, showModal, currentUserId }) => {
         </div>
 
         <div className="profile-picture">
-          <button onClick={() => showModal("profilePicture", true)}>
+          <button onClick={() => openModal("profilePicture", user)}>
             <img
               className="edit-profile-picture"
               src={

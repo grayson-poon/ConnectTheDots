@@ -7,13 +7,10 @@ export default class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profilePicture: false,
-      backgroundPicture: false,
-      profileForm: false,
-      keyCounter: 0,
+      // profilePicture: false,
+      // backgroundPicture: false,
+      // profileForm: false,
     }
-
-    this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
@@ -37,31 +34,8 @@ export default class UserShow extends React.Component {
     return this.props.user ? this.profile() : null;
   }
 
-  showModal(field, status) {
-    status
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "scroll");
-
-    this.setState({ [field]: status });
-  }
-
-  displayErrors() {
-    let { errors } = this.props;
-  
-    return (
-      <div>
-        <ul>
-          {Object.values(errors).map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
   profile() {
-    let { user, updateUser, currentUser, currentUserId } = this.props;
-    ++this.state.keyCounter;
+    let { user, currentUser, currentUserId, openModal } = this.props;
 
     return (
       <div className="profile-page">
@@ -70,32 +44,16 @@ export default class UserShow extends React.Component {
             currentUser={currentUser}
             currentUserId={currentUserId}
             user={user}
-            showModal={this.showModal}
+            openModal={openModal}
           />
+
           <ActivitySection
             currentUser={currentUser}
             user={user}
-            showModal={this.showModal}
+            openModal={openModal}
           />
         </div>
-        
-        <ProfilePictureModal
-          user={user}
-          currentUser={currentUser}
-          updateUser={updateUser}
-          show={this.state.profilePicture}
-          showModal={this.showModal}
-          key={this.state.keyCounter}
-        />
       </div>
     );
-  }
-
-  loading() {
-    return (
-      <div className="loading-profile">
-        loading profile
-      </div>
-    )
   }
 };

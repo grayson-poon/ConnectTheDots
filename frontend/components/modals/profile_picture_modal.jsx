@@ -1,13 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import {
-  CAMERA_ICON,
-  CLOSE_BUTTON, 
-  DEFAULT_PROFILE_PICTURE,
-  DELETE_BUTTON,
-  CHECK_MARK_ICON
-} from "../../util/images_and_icons_util";
+import { CLOSE_BUTTON, DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
+import { fetchUser, updateUser } from "../../actions/user_actions";
+import { closeModal } from "../../actions/modal_actions";
 import EditButtons from "./profile_picture_buttons";
 
 class ProfilePictureModal extends React.Component {
@@ -22,8 +18,10 @@ class ProfilePictureModal extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  render() {
-    return this.props.show ? this.show() : null;
+  componentDidMount() {
+    if (!this.props.user) {
+
+    }
   }
 
   handleSubmit(event) {
@@ -36,7 +34,7 @@ class ProfilePictureModal extends React.Component {
     });
 
     this.props.updateUser(formData)
-      .then(() => this.props.showModal("profilePicture", false));
+      .then(() => this.props.closeModal());
   }
 
   handleFile(event) {
@@ -63,8 +61,20 @@ class ProfilePictureModal extends React.Component {
     this.setState({ user, photoUrl: null });
   }
 
-  show() {
-    let {user, currentUser } = this.props;
+  precloseModal(event) {
+    event.preventDefault();
+
+    // reset state if needed
+  }
+
+  render() {
+    debugger
+
+    if (!this.props.user) return null;
+
+
+    document.body.style.overflow = "hidden";
+    let {user, currentUser, closeModal } = this.props;
 
     return (
       <div className="profile-picture-modal-background">
@@ -73,7 +83,7 @@ class ProfilePictureModal extends React.Component {
             <div>Profile Photo</div>
             <div className="close-button">
               <button
-                onClick={() => this.props.showModal("profilePicture", false)}
+                onClick={closeModal}
               >
                 <img src={CLOSE_BUTTON} />
               </button>
@@ -105,4 +115,19 @@ class ProfilePictureModal extends React.Component {
   }
 };
 
-export default withRouter(connect(null)(ProfilePictureModal)); 
+const mSTP = (state) => {
+  return {
+    currentUserId: state.session.currentUserId,
+    currentUser: state.entities.users[state.session.currentUserId],
+  };
+};
+
+const mDTP = (dispatch) => {
+  return {
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    updateUser: (user) => dispatch(updateUser(user)),
+    closeModal: () => dispatch(closeModal()),
+  };
+};
+
+export default connect(mSTP, mDTP)(ProfilePictureModal);
