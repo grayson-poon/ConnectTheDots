@@ -67,7 +67,7 @@ class EditUser extends React.Component {
           </div>
 
           <div className="edit-user-input-container">
-            <div>City, State* (San Francisco, California)</div>
+            <div>City, State* (Ex: San Francisco, California)</div>
             <div className="edit-user-input">
               <input
                 type="text"
