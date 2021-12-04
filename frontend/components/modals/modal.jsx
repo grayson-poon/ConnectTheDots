@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
+import ProfileDropdown from "./profile_dropdown";
 import ProfilePictureModal from "./profile_picture_modal";
 
 const Modal = ({ modal }) => {
@@ -11,11 +12,12 @@ const Modal = ({ modal }) => {
     return null;
   }
 
-  document.body.style.overflow = "hidden";
-
   switch(modal.modalType) {
     case "profilePicture":
+      document.body.style.overflow = "hidden";
       return <ProfilePictureModal user={modal.entity} />;
+    case "profileDropdown":
+      return <ProfileDropdown currentUser={modal.entity} />;
     default:
       document.body.style.overflow = "scroll";
       return null;

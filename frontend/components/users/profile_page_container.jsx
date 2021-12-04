@@ -16,7 +16,7 @@ const mDTP = (dispatch) => {
   return {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user) => dispatch(updateUser(user)),
-    openModal: (modal, id) => dispatch(openModal(modal, id)),
+    openModal: (modalType, entity) => dispatch(openModal(modalType, entity)),
   };
 };
 

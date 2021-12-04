@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as UrlPath from "../../util/url_paths_util";
-import ProfileDropdownModal from "../modals/profile_dropdown";
+import ProfileDropdown from "../modals/profile_dropdown";
 import {
   DEFAULT_PROFILE_PICTURE,
   DROPDOWN_ICON, HOME_ICON, 
@@ -14,8 +14,8 @@ export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileDropdown: false,
       currentUser: this.props.currentUser,
+      profileDropdown: false,
     };
     this.showModal = this.showModal.bind(this);
   }
@@ -48,14 +48,12 @@ export default class Navbar extends React.Component {
     }
   }
 
-  showModal() {
+  showModal(event) {
+    event.preventDefault();
+
     this.setState({
       profileDropdown: this.state.profileDropdown ? false : true,
     });
-  }
-
-  hideModal() {
-    this.setState({ profileDropdown: false });
   }
 
   splashNavbar() {
@@ -125,7 +123,7 @@ export default class Navbar extends React.Component {
           </div>
 
           <div id="profile">
-            <button onClick={() => this.showModal()}>
+            <button onClick={this.showModal}>
               <div id="image-box">
                 <img
                   src={
@@ -144,9 +142,7 @@ export default class Navbar extends React.Component {
           </div>
 
           {this.state.profileDropdown ? (
-            <ProfileDropdownModal
-              show={this.state.profileDropdown}
-              showModal={() => this.showModal()}
+            <ProfileDropdown
               currentUser={currentUser}
               logout={logout}
             />

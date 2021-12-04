@@ -107,7 +107,6 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user) => dispatch(updateUser(user)),
     closeModal: () => dispatch(closeModal()),
   };
