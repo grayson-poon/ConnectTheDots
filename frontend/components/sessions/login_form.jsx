@@ -7,6 +7,7 @@ export default class SessionForm extends React.Component {
     super(props);
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    props.clearSessionErrors();
   }
 
   update(field) {
