@@ -3,7 +3,7 @@ import { CAMERA_ICON, DELETE_BUTTON, CHECK_MARK_ICON } from "../../util/images_a
 
 const EditButtons = ({ handleFile, removeFile, handleSubmit }) => {
   return (
-    <div className="edit-delete">
+    <div className="edit-buttons">
       <div id="upload-button">
         <label>
           <img src={CAMERA_ICON} />
@@ -19,7 +19,7 @@ const EditButtons = ({ handleFile, removeFile, handleSubmit }) => {
         </button>
       </div>
 
-      <div id="submit-button">
+      <div id="submit-button-check">
         <button onClick={handleSubmit}>
           <img src={CHECK_MARK_ICON} />
           <div>Update photo</div>

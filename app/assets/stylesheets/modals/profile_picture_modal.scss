@@ -72,7 +72,7 @@ div.current-image img {
   object-fit: cover;
 }
 
-div.edit-delete {
+div.edit-buttons {
   padding-top: 50px;
   display: flex;
   flex-direction: row;
@@ -80,7 +80,7 @@ div.edit-delete {
   position: relative;
 }
 
-div.edit-delete > div:nth-child(2) {
+div.edit-buttons > div:nth-child(2) {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -155,15 +155,14 @@ div#upload-button input[type=file] {
   display: none;
 }
 
-
-div#submit-button {
+div.edit-buttons div#submit-button-check {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-div#submit-button button {
+div.edit-buttons div#submit-button-check button {
   text-decoration: none;
   border: none;
   align-items: center;
@@ -173,17 +172,17 @@ div#submit-button button {
   background-color: rgb(29, 34, 38);
 }
 
-div#submit-button button:hover {
+div.edit-buttons div#submit-button-check button:hover {
   background: rgb(71, 70, 70);
 }
 
-div#submit-button img {
+div.edit-buttons div#submit-button-check img {
   max-width: 25px;
   height: auto;
   filter: invert(1);
 }
 
-div#submit-button button > div {
+div.edit-buttons div#submit-button-check button > div {
   color: rgba(255, 255, 255, 0.9);
   font-size: 16px;
   font-weight: 400;
