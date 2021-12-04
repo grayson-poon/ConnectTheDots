@@ -89,6 +89,7 @@ export default class SignupForm extends React.Component {
 
   updateFormNum(event) {
     event.preventDefault();
+    this.props.clearUserErrors();
 
     event.target.value === NEXT
       ? this.setState({ formNum: this.state.formNum + 1 })

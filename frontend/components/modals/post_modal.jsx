@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
-import { createPost, deletePost, removePostErrors, updatePost } from "../../actions/post_actions";
+import { createPost, deletePost, clearPostErrors, updatePost } from "../../actions/post_actions";
 import { 
   CLOSE_BUTTON, 
   POST_PICTURE_ICON, 
@@ -137,7 +137,7 @@ class PostModal extends React.Component {
   }
 
   handleClose() {
-    this.props.removePostErrors();
+    this.props.clearPostErrors();
     this.props.closeModal();
   }
 
@@ -208,7 +208,7 @@ const mDTP = (dispatch) => {
     createPost: (post) => dispatch(createPost(post)),
     updatePost: (post) => dispatch(updatePost(post)),
     deletePost: (postId) => dispatch(deletePost(postId)),
-    removePostErrors: () => dispatch(removePostErrors()),
+    clearPostErrors: () => dispatch(clearPostErrors()),
   };
 };
 
