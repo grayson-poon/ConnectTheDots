@@ -18,12 +18,6 @@ class ProfilePictureModal extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    if (!this.props.user) {
-
-    }
-  }
-
   handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
@@ -61,19 +55,8 @@ class ProfilePictureModal extends React.Component {
     this.setState({ user, photoUrl: null });
   }
 
-  precloseModal(event) {
-    event.preventDefault();
-
-    // reset state if needed
-  }
-
   render() {
-    debugger
-
     if (!this.props.user) return null;
-
-
-    document.body.style.overflow = "hidden";
     let {user, currentUser, closeModal } = this.props;
 
     return (

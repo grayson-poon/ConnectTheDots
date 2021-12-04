@@ -11,11 +11,13 @@ const Modal = ({ modal }) => {
     return null;
   }
 
+  document.body.style.overflow = "hidden";
+
   switch(modal.modalType) {
     case "profilePicture":
-      debugger
       return <ProfilePictureModal user={modal.entity} />;
     default:
+      document.body.style.overflow = "scroll";
       return null;
   }
 };
