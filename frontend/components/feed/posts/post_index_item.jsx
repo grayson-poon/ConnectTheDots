@@ -4,20 +4,20 @@ import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../../util/images_a
 import EditPostModal from "../../modals/edit_post_modal";
 
 export default class PostIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      post: this.props.post,
-      editPostForm: false,
-      photoUrl: this.props.post.postPicture,
-    }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = {
+  //   //   post: this.props.post,
+  //   //   editPostForm: false,
+  //   //   photoUrl: this.props.post.postPicture,
+  //   // }
 
-    this.showModal = this.showModal.bind(this);
-    this.handleFile = this.handleFile.bind(this);
-    this.removeFile = this.removeFile.bind(this);
-    this.updateField = this.updateField.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  //   // this.showModal = this.showModal.bind(this);
+  //   // this.handleFile = this.handleFile.bind(this);
+  //   // this.removeFile = this.removeFile.bind(this);
+  //   // this.updateField = this.updateField.bind(this);
+  //   // this.handleSubmit = this.handleSubmit.bind(this);
+  // }
 
   render() {
     let { user, post, currentUser, openModal } = this.props;
@@ -51,7 +51,7 @@ export default class PostIndexItem extends React.Component {
 
             {currentUser.id === post.userId ? (
               <div className="post-header-util">
-                <button onClick={() => openModal("editPostForm", post)}>
+                <button onClick={() => openModal("postModal", { post, photoUrl: post.postPicture })}>
                   <img src={HORIZONTAL_DOTS} />
                 </button>
               </div>
@@ -82,63 +82,63 @@ export default class PostIndexItem extends React.Component {
     );
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData();
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   const formData = new FormData();
 
-    Object.entries(this.state.post).forEach(([key, value]) => {
-      key = (key === "postPicture" && value ? "photo" : key);
-      formData.append(`post[${key}]`, value);
-    });
+  //   Object.entries(this.state.post).forEach(([key, value]) => {
+  //     key = (key === "postPicture" && value ? "photo" : key);
+  //     formData.append(`post[${key}]`, value);
+  //   });
 
-    this.props.updatePost(formData)
-      .then(() => this.showModal("editPostForm", false));
-  }
+  //   this.props.updatePost(formData)
+  //     .then(() => this.showModal("editPostForm", false));
+  // }
 
-  updateField(field) {
-    let post = Object.assign({}, this.state.post);
-    return (event) => {
-      post[field] = event.target.value;
-      this.setState({ post });
-    };
-  }
+  // updateField(field) {
+  //   let post = Object.assign({}, this.state.post);
+  //   return (event) => {
+  //     post[field] = event.target.value;
+  //     this.setState({ post });
+  //   };
+  // }
 
-  handleFile(event) {
-    event.preventDefault();
-    if (!this.state.editPostForm) {
-      this.showModal("editPostForm", true);
-    };
+  // handleFile(event) {
+  //   event.preventDefault();
+  //   if (!this.state.editPostForm) {
+  //     this.showModal("editPostForm", true);
+  //   };
 
-    const fileReader = new FileReader();
-    let post = Object.assign({}, this.state.post);
-    let file = event.currentTarget.files[0];
+  //   const fileReader = new FileReader();
+  //   let post = Object.assign({}, this.state.post);
+  //   let file = event.currentTarget.files[0];
 
-    fileReader.onloadend = () => {
-      post["postPicture"] = file;
-      this.setState({ post, photoUrl: fileReader.result });
-    };
+  //   fileReader.onloadend = () => {
+  //     post["postPicture"] = file;
+  //     this.setState({ post, photoUrl: fileReader.result });
+  //   };
 
-    if (file) fileReader.readAsDataURL(file);
-  }
+  //   if (file) fileReader.readAsDataURL(file);
+  // }
 
-  removeFile(event) {
-    event.preventDefault();
+  // removeFile(event) {
+  //   event.preventDefault();
 
-    let post = Object.assign({}, this.state.post);
-    post["postPicture"] = null;
+  //   let post = Object.assign({}, this.state.post);
+  //   post["postPicture"] = null;
 
-    this.setState({ post, photoUrl: null });
-  }
+  //   this.setState({ post, photoUrl: null });
+  // }
 
-  showModal(field, status) {
-    (status)
-      ? document.body.style.overflow = "hidden"
-      : document.body.style.overflow = "scroll";
+  // showModal(field, status) {
+  //   (status)
+  //     ? document.body.style.overflow = "hidden"
+  //     : document.body.style.overflow = "scroll";
     
-    (!status)
-      ? this.setState({ photoUrl: null })
-      : null;
+  //   (!status)
+  //     ? this.setState({ photoUrl: null })
+  //     : null;
       
-    this.setState({ [field]: status });
-  }
+  //   this.setState({ [field]: status });
+  // }
 }

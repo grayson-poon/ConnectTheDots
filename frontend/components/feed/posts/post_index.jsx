@@ -1,6 +1,6 @@
 import React from "react";
 import PostIndexItem from "./post_index_item";
-import NewPostForm from "./post_modal";
+import NewPostForm from "./new_post_form";
 import {
   ACTIVITY_TAIL,
   FEED

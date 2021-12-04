@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import ProfileDropdown from "./profile_dropdown";
 import ProfilePictureModal from "./profile_picture_modal";
-import PostModal from "./new_post_modal";
+import PostModal from "./post_modal";
 
 const Modal = ({ modal }) => {
   debugger

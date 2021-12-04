@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
-import { createPost } from "../../actions/post_actions";
+import { createPost, updatePost } from "../../actions/post_actions";
 import { 
   CLOSE_BUTTON, 
   POST_PICTURE_ICON, 
@@ -167,6 +167,7 @@ const mDTP = (dispatch) => {
   return {
     closeModal: () => dispatch(closeModal()),
     createPost: (post) => dispatch(createPost(post)),
+    updatePost: (post) => dispatch(updatePost(post)),
   };
 };
 
