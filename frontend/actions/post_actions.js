@@ -51,7 +51,9 @@ export const createPost = (post) => (dispatch) => {
 
 export const updatePost = (post) => (dispatch) => {
   return PostsApiUtil.updatePost(post).then(
+    // (post) => console.log(post),
     (post) => dispatch(receivePost(post)),
+    // (errors) => console.log(errors.responseJSON)
     (errors) => dispatch(receivePostErrors(errors.responseJSON))
   );
 };

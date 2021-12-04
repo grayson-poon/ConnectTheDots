@@ -6,8 +6,6 @@ import ProfilePictureModal from "./profile_picture_modal";
 import PostModal from "./post_modal";
 
 const Modal = ({ modal }) => {
-  debugger
-
   if (!modal) {
     document.body.style.overflow = "scroll";
     return null;
@@ -23,7 +21,8 @@ const Modal = ({ modal }) => {
       document.body.style.overflow = "hidden";
       return <PostModal 
         post={modal.entity.post} 
-        photoUrl={modal.entity.photoUrl} 
+        photoUrl={modal.entity.photoUrl}
+        type={modal.entity.type}
       />;
     default:
       document.body.style.overflow = "scroll";

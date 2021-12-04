@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
-import { createPost, updatePost } from "../../actions/post_actions";
+import { createPost, deletePost, updatePost } from "../../actions/post_actions";
 import { 
   CLOSE_BUTTON, 
   POST_PICTURE_ICON, 
@@ -13,8 +13,6 @@ class PostModal extends React.Component {
   constructor(props) {
     super(props);
 
-    debugger
-
     let propsPost = props.post
       ? props.post
       : {
@@ -22,7 +20,6 @@ class PostModal extends React.Component {
           postPicture: props.photoUrl,
           userId: this.props.currentUser.id,
         };
-  
 
     this.state = {
       post: propsPost,
@@ -33,16 +30,22 @@ class PostModal extends React.Component {
     this.removeFile = this.removeFile.bind(this);
     this.updateField = this.updateField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   render() {
-    let { currentUser, closeModal } = this.props;
+    let { currentUser, closeModal, type } = this.props;
 
     return (
       <div className="new-post-modal-background">
         <div className="new-post-modal">
           <div className="new-post-header">
-            <div id="words">Create a post</div>
+            {type === "create" ? (
+              <div id="words">Create a post</div>
+            ) : (
+              <div id="words">Edit post</div>
+            )}
+
             <div id="close-button">
               <button onClick={closeModal}>
                 <img src={CLOSE_BUTTON} />
@@ -87,7 +90,11 @@ class PostModal extends React.Component {
               <div className="post-form-picture-input-2">
                 <label>
                   <img src={POST_PICTURE_ICON} />
-                  <input type="file" onChange={this.handleFile} accept="image/*" />
+                  <input
+                    type="file"
+                    onChange={this.handleFile}
+                    accept="image/*"
+                  />
                 </label>
               </div>
 
@@ -99,7 +106,15 @@ class PostModal extends React.Component {
             </div>
 
             <div id="post-button">
-              <button onClick={this.handleSubmit}>Post</button>
+              <button onClick={() => this.handleDelete(this.state.post.id)}>
+                Delete Post
+              </button>
+
+              {type === "create" ? (
+                <button onClick={this.handleSubmit}>Post</button>
+              ) : (
+                <button onClick={this.handleSubmit}>Update Post</button>
+              )}
             </div>
           </div>
 
@@ -109,32 +124,31 @@ class PostModal extends React.Component {
     );
   }
 
+  handleDelete(postId) {
+    this.props.deletePost(postId)
+      .then(() => this.props.closeModal());
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
 
     Object.entries(this.state.post).forEach(([key, value]) => {
-      key = key === "postPicture" && value ? "photo" : key;
+      key = (key === "postPicture" && value) ? "photo" : key;
       formData.append(`post[${key}]`, value);
     });
 
-    this.props
-      .createPost(formData)
-      .then(() => this.props.closeModal());
-  }
+    let { type, createPost, updatePost, closeModal } = this.props;
 
-  updateField(field) {
-    let post = Object.assign({}, this.state.post);
 
-    return (event) => {
-      post[field] = event.target.value;
-      this.setState({ post });
-    };
+    type === "create"
+      ? createPost(formData).then(() => closeModal())
+      : updatePost(formData).then(() => closeModal());
   }
 
   handleFile(event) {
     event.preventDefault();
-    
+
     const fileReader = new FileReader();
     let post = Object.assign({}, this.state.post);
     let file = event.currentTarget.files[0];
@@ -155,6 +169,15 @@ class PostModal extends React.Component {
 
     this.setState({ post, photoUrl: null });
   }
+
+  updateField(field) {
+    let post = Object.assign({}, this.state.post);
+
+    return (event) => {
+      post[field] = event.target.value;
+      this.setState({ post });
+    };
+  }
 }
 
 const mSTP = (state) => {
@@ -168,6 +191,7 @@ const mDTP = (dispatch) => {
     closeModal: () => dispatch(closeModal()),
     createPost: (post) => dispatch(createPost(post)),
     updatePost: (post) => dispatch(updatePost(post)),
+    deletePost: (postId) => dispatch(deletePost(postId)),
   };
 };
 

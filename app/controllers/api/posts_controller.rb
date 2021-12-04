@@ -44,6 +44,7 @@ class Api::PostsController < ApplicationController
     
     if current_user.id == @post.user_id
       @post.photo.purge if params[:post][:photo].nil?
+      params[:post][:photo] = @post.photo if params[:post][:photo].is_a?(String)
 
       if @post.update(post_params)
         render "api/posts/post_details"
@@ -54,7 +55,7 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:post][:id])
+    @post = Post.find_by(id: params[:id])
 
     if current_user.id == @post.user_id
       @post.destroy

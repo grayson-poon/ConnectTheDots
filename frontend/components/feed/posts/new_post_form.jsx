@@ -20,7 +20,7 @@ export default class NewPostForm extends React.Component {
           </Link>
 
           <div id="post-form-button">
-            <button onClick={() => openModal("postModal", { post: null, photoUrl: null })}>
+            <button onClick={() => openModal("postModal", { post: null, photoUrl: null, type: "create" })}>
               Start a post
             </button>
           </div>
