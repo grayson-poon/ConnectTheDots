@@ -8,7 +8,7 @@ import EditUser from "./edit_user";
 
 const Modal = ({ modal }) => {
   if (!modal) {
-    document.body.style.overflow = "scroll";
+    document.body.style.overflow = "scroll-y";
     return null;
   }
 

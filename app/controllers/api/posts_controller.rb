@@ -1,18 +1,20 @@
 class Api::PostsController < ApplicationController
   def index # get feed posts
-    connections = Connection
-      .select(:connection_id)
-      .where("user_id = ? AND request_accepted = true", current_user.id)
-      # create a search_id variable then do params[:user_id] ||= current_user.id for the search id  
-
+    @current_user = current_user
     @posts = []
+    # create a search_id variable then do params[:user_id] ||= current_user.id for the search id  
 
-    connections.each do |connection|
-      @posts += Post.where(
-        "user_id = ? OR user_id = ?", 
-        connection.connection_id, 
-        current_user.id
-      )
+    @connections = @current_user.connections
+
+
+    @connections.each do |connection|
+      if connection.request_accepted
+        @posts += Post.where(
+          "user_id = ? OR user_id = ?", 
+          connection.connection_id, 
+          @current_user.id
+        )
+      end
     end
 
     render "api/posts/index"
