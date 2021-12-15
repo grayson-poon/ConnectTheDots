@@ -15,7 +15,7 @@ const RightFeedBox = () => {
 
         <a id="github" href={GITHUB}>
           <ul>
-            <li>See ConnectTheDots on Github</li>
+            <li>See ConnectTheDots on GitHub</li>
           </ul>
           <img src={GITHUB_ICON} />
         </a>
