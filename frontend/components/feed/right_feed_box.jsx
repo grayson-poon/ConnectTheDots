@@ -13,14 +13,14 @@ const RightFeedBox = () => {
       <div className="right-box-main">
         <div id="news">ConnectTheDots News</div>
 
-        <a id="github" href={GITHUB}>
+        <a id="github" href={GITHUB} target="_blank">
           <ul>
             <li>See ConnectTheDots on GitHub</li>
           </ul>
           <img src={GITHUB_ICON} />
         </a>
 
-        <a id="linked-in" href={LINKED_IN}>
+        <a id="linked-in" href={LINKED_IN} target="_blank">
           <ul>
             <li>View the creator's *real* LinkedIn</li>
           </ul>
