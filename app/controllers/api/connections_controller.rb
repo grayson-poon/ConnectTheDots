@@ -1,6 +1,10 @@
 class Api::ConnectionsController < ApplicationController
   def index
-    @connections = Connection.where("user_id = ?", current_user.id)
+    @connections = Connection.where(
+      "user_id = ? OR connection_id = ? AND request_accepted = false", 
+      params[:id],
+      params[:id]
+    )
     
     render 'api/connections/index'
   end

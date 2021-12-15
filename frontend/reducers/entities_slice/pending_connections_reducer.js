@@ -6,7 +6,6 @@ const pendingConnectionsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_WHOLE_CONNECTIONS:
-      newState = {};
       newState[action.pendingConnections[0].connectionId] = [];
 
       action.pendingConnections.map((pending) => {

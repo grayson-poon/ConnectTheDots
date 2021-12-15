@@ -6,7 +6,6 @@ class Api::PostsController < ApplicationController
 
     @connections = @current_user.connections
 
-
     @connections.each do |connection|
       if connection.request_accepted
         @posts += Post.where(

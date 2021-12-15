@@ -6,11 +6,11 @@ export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 export const CLEAR_POST_ERRORS = "CLEAR_POST_ERRORS";
 
-const receiveWholePosts = ({ posts, comments, users }) => {
+const receiveWholePosts = ({ posts, connections, users }) => {
   return {
     type: RECEIVE_WHOLE_POSTS,
+    connections,
     posts,
-    comments,
     users,
   };
 };

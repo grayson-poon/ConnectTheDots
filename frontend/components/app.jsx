@@ -11,6 +11,7 @@ import ProfilePageContainer from "./users/profile_page_container";
 import SplashContainer from "../components/splash/splash_container";
 import FooterContainer from "../components/footer/footer_container";
 import Modal from "./modals/modal";
+import NetworkContainer from "./network/network_container";
 // import PostIndexContainer from "./posts/post_index_container";
 
 
@@ -23,7 +24,7 @@ const App = () => (
       <AuthRoute exact path={UrlPath.SIGNUP_FORM} component={SignupFormContainer} />
       <AuthRoute exact path={UrlPath.LOGIN_FORM} component={LoginFormContainer} />
       <ProtectedRoute path={UrlPath.FEED} component={FeedContainer} />
-      <ProtectedRoute path={UrlPath.MY_NETWORK} component={FeedContainer} />
+      <ProtectedRoute path={UrlPath.MY_NETWORK} component={NetworkContainer} />
       <ProtectedRoute path={UrlPath.USER_SHOW} component={ProfilePageContainer} />
       <AuthRoute exact path={UrlPath.SPLASH} component={SplashContainer} />
     </Switch>
