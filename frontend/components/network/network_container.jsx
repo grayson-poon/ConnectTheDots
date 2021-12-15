@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { fetchConnections } from "../../actions/connection_actions";
+import { fetchUser } from "../../actions/user_actions";
 import Network from "./network";
 
 const mSTP = (state, ownProps) => {
@@ -16,6 +17,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
   return {
     fetchConnections: (userId) => dispatch(fetchConnections(userId)),
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
   };
 };
 

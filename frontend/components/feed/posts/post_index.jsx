@@ -28,7 +28,6 @@ export default class PostIndex extends React.Component {
         {Object.values(posts).length === 0 ? null : (
           <div className="posts-list">
             <ul>
-              <li></li>
               {Object.values(posts)
                 .reverse()
                 .map((post) => (
