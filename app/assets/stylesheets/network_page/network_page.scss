@@ -20,3 +20,63 @@
   line-height: 24px;
   border-bottom: 1px solid lightgray;
 }
+
+.connections-index {
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+}
+
+.connections-index > div:first-child {
+  padding: 16px 16px 16px 16px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.connections-filter {
+  border-bottom: 1px solid lightgray;
+  padding-left: 32px;
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.connections-filter > div:first-child {
+  font-weight: 400;
+}
+
+.connections-filter > button {
+  font-weight: 600;
+  margin-left: 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.connections-filter > button:hover {
+  text-decoration: underline;
+}
+
+.connections-filter > div:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
+.connections-filter > div:nth-child(3) > img {
+  width: 12px;
+  height: 12px;
+  object-fit: cover;
+  filter: opacity(0.6);
+}
