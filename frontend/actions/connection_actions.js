@@ -20,10 +20,11 @@ const receiveConnections = ({ connections }) => {
   };
 };
 
-const removeConnections = ({ connections }) => {
+const removeConnections = ({ connections, notCurrentUserId }) => {
   return {
     type: REMOVE_CONNECTIONS,
     connections,
+    notCurrentUserId,
   };
 };
 
@@ -50,7 +51,10 @@ export const createConnections = (connection) => (dispatch) => {
 
 export const deleteConnections = (connectionId) => (dispatch) => {
   return ConnectionsApiUtil.deleteConnections(connectionId).then(
-    (connections) => dispatch(removeConnections(connections)),
+    (connections) => {
+      console.log(connections, "CONNECTIONS");
+      return dispatch(removeConnections(connections));
+    },
     (errors) => dispatch(receiveConnectionErrors(errors.responseJSON))
   );
 };

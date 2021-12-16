@@ -16,9 +16,18 @@ export default class Network extends React.Component {
     }
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (
+  //     this.props.connections !== prevProps.connections ||
+  //     this.props.pendingConnections !== prevProps.pendingConnections
+  //   ) {
+  //     debugger
+  //     this.props.fetchConnections(this.props.currentUserId);
+  //   }
+  // }
+
   render() {
     let { connections, pendingConnections } = this.props;
-    // debugger
 
     return !connections || !pendingConnections
       ? <div>Nothing to show yet</div>
@@ -35,11 +44,14 @@ export default class Network extends React.Component {
           <div>Invitations</div>
           <div className="pending-list">
             <ul>
-              {pendingConnections.map((pendingId) => {
-                return <PendingIndexItem 
-                  pendingId={pendingId} 
-                  fetchUser={fetchUser} 
-                />
+              {pendingConnections.map((pendingId, idx) => {
+                return (
+                  <PendingIndexItem
+                    key={idx}
+                    pendingId={pendingId}
+                    fetchUser={fetchUser}
+                  />
+                );
               })}
             </ul>
           </div>
@@ -56,11 +68,14 @@ export default class Network extends React.Component {
           </div>
           <div className="connections-list">
             <ul>
-              {connections.map((connectionId) => {
-                return <ConnectionIndexItem 
-                  fetchUser={fetchUser}
-                  connectionId={connectionId}
-                />
+              {connections.map((connectionId, idx) => {
+                return (
+                  <ConnectionIndexItem
+                    key={idx}
+                    fetchUser={fetchUser}
+                    connectionId={connectionId}
+                  />
+                );
               })}
             </ul>
           </div>

@@ -12,7 +12,7 @@ const connectionsReducer = (state = {}, action) => {
       action.connections.map((connection) => {
         newState[connection.userId].push(connection.connectionId);
       });
-
+      
       return newState;
     case RECEIVE_WHOLE_POSTS:
       newState[action.connections[0].userId] = [];
@@ -25,7 +25,14 @@ const connectionsReducer = (state = {}, action) => {
     case RECEIVE_CONNECTIONS:
       return;
     case REMOVE_CONNECTIONS:
-      return;
+      action.connections.map((connection) => {
+        if (newState[connection.userId]) {
+          let idx = newState[connection.userId].indexOf(connection.connectionId);
+          if (idx > -1) newState[connection.userId].splice(idx, 1);
+        }
+      });
+      
+      return newState;
     default:
       return state;
   }

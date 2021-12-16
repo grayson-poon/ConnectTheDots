@@ -1,3 +1,4 @@
+import { REMOVE_CONNECTIONS } from "../../actions/connection_actions";
 import { RECEIVE_WHOLE_POSTS } from "../../actions/post_actions";
 import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER } from "../../actions/session_actions";
 import { RECEIVE_USER } from "../../actions/user_actions";
@@ -20,6 +21,9 @@ const usersReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_CURRENT_USER:
       newState[action.currentUser.id] = action.currentUser;
+      return newState;
+    case REMOVE_CONNECTIONS:
+      delete newState[action.notCurrentUserId];
       return newState;
     case LOGOUT_CURRENT_USER:
       return _nullUsers;

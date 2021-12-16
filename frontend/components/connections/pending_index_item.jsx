@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { deleteConnections } from "../../actions/connection_actions";
 
 class PendingIndexItem extends React.Component {
   componentDidMount() {
@@ -28,11 +29,19 @@ class PendingIndexItem extends React.Component {
         </div>
 
         <div className="pending-buttons">
-          <button>Ignore</button>
+          <button onClick={() => this.handleClick("ignore", pending.id)}>Ignore</button>
           <button>Accept</button>
         </div>
       </div>
     );
+  }
+
+  handleClick(type, connectionId) {
+    switch(type) {
+      case "ignore":
+        return this.props.deleteConnections(connectionId);
+      case "accept":
+    }
   }
 };
 
@@ -42,4 +51,10 @@ const mSTP = (state) => {
   }
 };
 
-export default connect(mSTP)(PendingIndexItem);
+const mDTP = (dispatch) => {
+  return {
+    deleteConnections: (connectionId) => dispatch(deleteConnections(connectionId)),
+  }
+}
+
+export default connect(mSTP, mDTP)(PendingIndexItem);
