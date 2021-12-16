@@ -16,71 +16,88 @@ export default class Network extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (
-  //     this.props.connections !== prevProps.connections ||
-  //     this.props.pendingConnections !== prevProps.pendingConnections
-  //   ) {
-  //     debugger
-  //     this.props.fetchConnections(this.props.currentUserId);
-  //   }
-  // }
-
   render() {
-    let { connections, pendingConnections } = this.props;
-
-    return !connections || !pendingConnections
-      ? <div>Nothing to show yet</div>
-      : this.moreThanZero();
-  }
-
-  moreThanZero() {
-    let { connections, pendingConnections, fetchUser } = this.props;
+    let { pendingConnections, connections } = this.props;
 
     return (
       <div className="network-page">
         <div className="gray-background"></div>
-        <div className="pending-connections-index">
-          <div>Invitations</div>
-          <div className="pending-list">
-            <ul>
-              {pendingConnections.map((pendingId, idx) => {
-                return (
-                  <PendingIndexItem
-                    key={idx}
-                    pendingId={pendingId}
-                    fetchUser={fetchUser}
-                  />
-                );
-              })}
-            </ul>
-          </div>
-        </div>
+        {!pendingConnections
+          ? this.zeroPending()
+          : this.moreThanZeroPending()
+        }
 
-        <div className="connections-index">
-          <div>{`${connections.length} Connections`}</div>
-          <div className="connections-filter">
-            <div>Sort by:</div>
-            <button>Dropdown</button>
-            <div>
-              <img src={DROPDOWN_ICON} />
-            </div>
-          </div>
-          <div className="connections-list">
-            <ul>
-              {connections.map((connectionId, idx) => {
-                return (
-                  <ConnectionIndexItem
-                    key={idx}
-                    fetchUser={fetchUser}
-                    connectionId={connectionId}
-                  />
-                );
-              })}
-            </ul>
-          </div>
+        {!connections
+          ? this.zeroConnections()
+          : this.moreThanZeroConnections()
+        }
+      </div>
+    );
+  }
+
+  zeroPending() {
+    return (
+      <div className="pending-connections-index">
+        <div>Invitations</div>
+        <div className="zero-pending">No pending invitations!</div>
+      </div>
+    );
+  }
+
+  moreThanZeroPending() {
+    let { pendingConnections, connections, fetchUser } = this.props;
+
+    return (
+      <div className="pending-connections-index">
+        <div>Invitations</div>
+        <div className="pending-list">
+          <ul>
+            {pendingConnections.map((pendingId, idx) =>
+              <PendingIndexItem
+                key={idx}
+                pendingId={pendingId}
+                fetchUser={fetchUser}
+              />
+            )}
+          </ul>
         </div>
       </div>
+    );
+  }
+
+  zeroConnections() {
+    return (
+      <div className="connections-index">
+        Nothing yet
+      </div>
     )
+  }
+
+  moreThanZeroConnections() {
+    let { pendingConnections, connections, fetchUser } = this.props;
+
+    return (
+      <div className="connections-index">
+        <div>{connections.length}{" "}Connections</div>
+        <div className="connections-filter">
+          <div>Sort by:</div>
+          <button>Dropdown</button>
+          <div>
+            <img src={DROPDOWN_ICON} />
+          </div>
+        </div>
+        <div className="connections-list">
+          <ul>
+            {connections.map((connectionId, idx) =>
+              <ConnectionIndexItem
+                key={idx}
+                fetchUser={fetchUser}
+                connectionId={connectionId}
+              />
+            )}
+          </ul>
+        </div>
+      </div>
+    );
   }
 };

@@ -25,13 +25,13 @@ const connectionsReducer = (state = {}, action) => {
     case RECEIVE_CONNECTIONS:
       return;
     case REMOVE_CONNECTIONS:
-      action.connections.map((connection) => {
-        if (newState[connection.userId]) {
-          let idx = newState[connection.userId].indexOf(connection.connectionId);
-          if (idx > -1) newState[connection.userId].splice(idx, 1);
-        }
-      });
-      
+      if (newState[action.currentUserId]) {
+        let idx = newState[action.currentUserId].indexOf(
+          action.notCurrentUserId
+        );
+        if (idx > -1) newState[action.currentUserId].splice(idx, 1);
+      }
+
       return newState;
     default:
       return state;

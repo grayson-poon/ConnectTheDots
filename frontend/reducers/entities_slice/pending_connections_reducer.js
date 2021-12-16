@@ -17,12 +17,12 @@ const pendingConnectionsReducer = (state = {}, action) => {
     case RECEIVE_CONNECTIONS:
       return;
     case REMOVE_CONNECTIONS:
-      action.connections.map((connection) => {
-        if (newState[connection.connectionId]) {
-          let idx = newState[connection.connectionId].indexOf(connection.userId);
-          if (idx > -1) newState[connection.connectionId].splice(idx, 1);
-        }
-      });
+      if (newState[action.currentUserId]) {
+        let idx = newState[action.currentUserId].indexOf(
+          action.notCurrentUserId
+        );
+        if (idx > -1) newState[action.currentUserId].splice(idx, 1);
+      }
 
       return newState;
     default:

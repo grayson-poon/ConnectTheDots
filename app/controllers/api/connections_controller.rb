@@ -11,6 +11,7 @@ class Api::ConnectionsController < ApplicationController
 
   def destroy
     @not_current_user_id = params[:id]
+    @current_user = current_user
     @connections = Connection
       .where(
         "user_id = ? AND connection_id = ?",

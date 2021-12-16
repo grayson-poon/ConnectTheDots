@@ -11,6 +11,8 @@
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid lightgray;
+  width: 707px;
+  max-width: 707px;
 }
 
 .pending-connections-index > div:first-child {
@@ -21,12 +23,19 @@
   border-bottom: 1px solid lightgray;
 }
 
+.zero-pending {
+  text-align: center;
+  padding: 16px;
+}
+
 .connections-index {
   margin-top: 16px;
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid lightgray;
+  width: 707px;
+  max-width: 707px;
 }
 
 .connections-index > div:first-child {
