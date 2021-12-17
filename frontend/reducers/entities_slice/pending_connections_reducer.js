@@ -19,11 +19,15 @@ const pendingConnectionsReducer = (state = {}, action) => {
     case REMOVE_CONNECTIONS:
       if (newState[action.currentUserId]) {
         let idx = newState[action.currentUserId].indexOf(
-          action.notCurrentUserId
+          parseInt(action.notCurrentUserId)
         );
         if (idx > -1) newState[action.currentUserId].splice(idx, 1);
-      }
+      };
 
+      newState[action.currentUserId].length === 0
+        ? delete newState[action.currentUserId]
+        : null;
+      
       return newState;
     default:
       return state;

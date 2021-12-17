@@ -18,7 +18,8 @@ export default class Network extends React.Component {
 
   render() {
     let { pendingConnections, connections } = this.props;
-
+    debugger
+    
     return (
       <div className="network-page">
         <div className="gray-background"></div>
