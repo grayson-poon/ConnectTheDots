@@ -1,7 +1,7 @@
 import * as ConnectionsApiUtil from "../util/connections_api_util";
 
 export const RECEIVE_WHOLE_CONNECTIONS = "RECEIVE_WHOLE_CONNECTIONS";
-export const RECEIVE_CONNECTIONS = "RECEIVE_CONNECTIONS";
+export const RECEIVE_CONNECTION = "RECEIVE_CONNECTION";
 export const REMOVE_CONNECTIONS = "REMOVE_CONNECTIONS";
 export const RECEIVE_CONNECTION_ERRORS = "RECEIVE_CONNECTION_ERRORS";
 
@@ -13,18 +13,20 @@ const receiveWholeConnections = ({ connections, pendingConnections }) => {
   };
 };
 
-const receiveConnections = ({ connections }) => {
+const receiveConnection = ({ currentUserId, notCurrentUserId, requestAccepted }) => {
   return {
-    type: RECEIVE_CONNECTIONS,
-    connections,
+    type: RECEIVE_CONNECTION,
+    currentUserId,
+    notCurrentUserId,
+    requestAccepted,
   };
 };
 
-const removeConnections = ({ notCurrentUserId, currentUserId }) => {
+const removeConnections = ({ currentUserId, notCurrentUserId }) => {
   return {
     type: REMOVE_CONNECTIONS,
-    notCurrentUserId,
     currentUserId,
+    notCurrentUserId,
   };
 };
 
@@ -42,16 +44,16 @@ export const fetchConnections = (userId = null) => (dispatch) => {
   );
 };
 
-export const createConnections = (connection) => (dispatch) => {
-  return ConnectionsApiUtil.createConnection(connection).then(
-    (connections) => dispatch(receiveConnections(connections)),
+export const createConnection = (connectionId) => (dispatch) => {
+  return ConnectionsApiUtil.createConnection(connectionId).then(
+    (payload) => dispatch(receiveConnection(payload)),
     (errors) => dispatch(receiveConnectionErrors(errors.responseJSON))
   );
 };
 
 export const deleteConnections = (connectionId) => (dispatch) => {
   return ConnectionsApiUtil.deleteConnections(connectionId).then(
-    (connections) => dispatch(removeConnections(connections)),
+    (idPairs) => dispatch(removeConnections(idPairs)),
     (errors) => dispatch(receiveConnectionErrors(errors.responseJSON))
   );
 };

@@ -5,11 +5,10 @@ export const fetchConnections = (userId) => {
   });
 };
 
-export const createConnection = (connection) => {
+export const createConnection = (connectionId) => {
   return $.ajax({
     method: "POST",
-    url: `/api/connections`,
-    data: connection,
+    url: `/api/connections/${connectionId}`,
   });
 };
 

@@ -37,11 +37,15 @@ class Api::ConnectionsController < ApplicationController
   end
 
   def create
-    @connection = Connection.new(connection_params)
-    @connection.user_id = current_user.id
+    @connection = Connection.new({ user_id: current_user.id, connection_id: params[:id] })
 
     if @connection.user_id != @connection.connection_id && @connection.save
-      corresponding_connection = Connection.find_by(user_id: @connection.connection_id)
+      corresponding_connection = Connection
+        .find_by(
+          user_id: params[:id],
+          connection_id: current_user.id,
+        );
+
       if corresponding_connection
         corresponding_connection.request_accepted = true
         @connection.request_accepted = true

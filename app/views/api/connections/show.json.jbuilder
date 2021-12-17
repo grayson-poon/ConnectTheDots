@@ -6,9 +6,6 @@
 #   }
 # }
 
-json.connection do
-  json.id @connection.id
-  json.user_id @connection.user_id
-  json.connection_id @connection.connection_id
-  json.request_accepted @connection.request_accepted
-end
+json.current_user_id @connection.user_id
+json.not_current_user_id @connection.connection_id
+json.request_accepted @connection.request_accepted

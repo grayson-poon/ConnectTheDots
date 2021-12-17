@@ -6,9 +6,12 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :show, :update] do
       get '/activity', to: 'posts#user_activity'
     end
+    
     resources :posts, only: [:index, :create, :update, :destroy]
-    resources :connections, only: [:create, :destroy]
+
+    resources :connections, only: [:destroy]
     get '/connections/:id', to: 'connections#index'
+    post '/connections/:id', to: 'connections#create'
 
     # get '/users/:user_id/activity', to: 'posts#user_activity'
     # get '/users/:user_id/connections/:id', to: 'connections#create'

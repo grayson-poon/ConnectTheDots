@@ -1,4 +1,4 @@
-import { RECEIVE_CONNECTIONS, RECEIVE_WHOLE_CONNECTIONS, REMOVE_CONNECTIONS } from "../../actions/connection_actions";
+import { RECEIVE_CONNECTION, RECEIVE_WHOLE_CONNECTIONS, REMOVE_CONNECTIONS } from "../../actions/connection_actions";
 import { RECEIVE_WHOLE_POSTS } from "../../actions/post_actions";
 
 const connectionsReducer = (state = {}, action) => {
@@ -22,8 +22,16 @@ const connectionsReducer = (state = {}, action) => {
       });
       
       return newState;
-    case RECEIVE_CONNECTIONS:
-      return;
+    case RECEIVE_CONNECTION:
+      if (action.requestAccepted) {
+        !newState[action.currentUserId]
+          ? newState[action.currentUserId] = []
+          : null;
+
+        newState[action.currentUserId].push(action.notCurrentUserId);
+      }
+
+      return newState;
     case REMOVE_CONNECTIONS:
       if (newState[action.currentUserId]) {
         let idx = newState[action.currentUserId].indexOf(
