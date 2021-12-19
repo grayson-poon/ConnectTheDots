@@ -26,14 +26,13 @@ export default class UserShow extends React.Component {
   }
 
   profile() {
-    let { user, currentUser, currentUserId, openModal } = this.props;
+    let { user, currentUser, openModal } = this.props;
 
     return (
       <div className="profile-page">
         <div className="profile-middle">
           <ProfileMain
             currentUser={currentUser}
-            currentUserId={currentUserId}
             user={user}
             openModal={openModal}
           />

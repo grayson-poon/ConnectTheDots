@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import { MY_NETWORK } from "../../../util/url_paths_util";
 
 
-const ActivitySection = ({ user, openModal }) => {
+const ActivitySection = ({ user, openModal, currentUser }) => {
   return (
     <div className="profile-activity">
       <div className="title-and-button">
         <h2>Activity</h2>
-        <button onClick={() => openModal("postModal", { post: null, photoUrl: null, type: "create" })}>Start a post</button>
+        {
+          currentUser.id === user.id
+            ? <button onClick={() => openModal("postModal", { post: null, photoUrl: null, type: "create" })}>Start a post</button>
+            : null
+        }
       </div>
 
       <Link to={MY_NETWORK}>Number of followers</Link>

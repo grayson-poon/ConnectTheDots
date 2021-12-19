@@ -24,13 +24,9 @@ export default class Feed extends React.Component {
 
     return (
       <div className="whole-feed-page">
-        <LeftFeedBox
-          currentUser={currentUser}
-        />
+        <LeftFeedBox currentUser={currentUser} />
 
-        <PostIndexContainer
-          currentUser={currentUser}
-        />
+        <PostIndexContainer currentUser={currentUser} />
 
         <RightFeedBox />
       </div>

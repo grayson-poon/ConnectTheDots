@@ -33,7 +33,7 @@ const LeftFeedBox = ({ currentUser }) => {
       <div className="left-profile-connections">
         <Link to={MY_NETWORK}>
           <div id="text">Number of connections</div>
-          <div id="number">100</div>
+          <div id="number">STILL NOT WOKRING</div>
         </Link>
       </div>
     </div>

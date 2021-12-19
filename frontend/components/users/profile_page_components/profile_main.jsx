@@ -7,7 +7,7 @@ import {
 } from "../../../util/images_and_icons_util";
 
 
-const ProfileMain = ({ user, openModal, currentUserId }) => {
+const ProfileMain = ({ user, openModal, currentUser }) => {
   return (
     <div className="profile-main">
       <div className="pictures-on-profile">
@@ -51,7 +51,7 @@ const ProfileMain = ({ user, openModal, currentUserId }) => {
         <div className="profile-headline">{`${user.headline}`}</div>
         <div className="profile-current-location">{`${user.currentLocation}`}</div>
         <div className="blue-profile-button">
-          {currentUserId === user.id ? (
+          {currentUser.id === user.id ? (
             <button onClick={() => openModal("editUser", user)}>Edit intro</button>
           ) : (
             <button>Connect</button>
