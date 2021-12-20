@@ -7,4 +7,5 @@ json.user do
   json.headline @user.headline
   json.about @user.about
   json.profile_picture url_for(@user.photo) if @user.photo.attached?
+  json.num_connections @user.connections.length
 end

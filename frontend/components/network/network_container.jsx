@@ -9,6 +9,7 @@ const mSTP = (state, ownProps) => {
       state.entities.connections[state.session.currentUserId],
     pendingConnections:
       state.entities.pendingConnections[state.session.currentUserId],
+    users: state.entities.users,
     url: ownProps.location.pathname,
     currentUserId: state.session.currentUserId,
   };

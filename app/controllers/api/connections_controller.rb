@@ -5,6 +5,10 @@ class Api::ConnectionsController < ApplicationController
       params[:id],
       params[:id]
     )
+
+    
+
+    
     
     render 'api/connections/index'
   end

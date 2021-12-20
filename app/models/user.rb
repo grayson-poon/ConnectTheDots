@@ -8,7 +8,16 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   
   has_many :posts, dependent: :destroy
-  has_many :connections
+  
+  has_many :connections,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Connection
+
+  has_many :users,
+    through: :connections,
+    source: :connection
+
   has_one_attached :photo
 
   def self.find_by_credentials(email, password)

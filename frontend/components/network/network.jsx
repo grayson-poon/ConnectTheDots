@@ -7,6 +7,7 @@ import PendingIndexItem from "../connections/pending_index_item";
 export default class Network extends React.Component {
   componentDidMount() {
     let { url, fetchConnections, currentUserId } = this.props;
+    debugger
     
     switch(url) {
       case MY_NETWORK:
@@ -45,7 +46,7 @@ export default class Network extends React.Component {
   }
 
   moreThanZeroPending() {
-    let { pendingConnections, connections, fetchUser } = this.props;
+    let { pendingConnections, fetchUser } = this.props;
 
     return (
       <div className="pending-connections-index">
@@ -74,8 +75,8 @@ export default class Network extends React.Component {
   }
 
   moreThanZeroConnections() {
-    let { pendingConnections, connections, fetchUser } = this.props;
-
+    let { connections, fetchUser } = this.props;
+    debugger
     return (
       <div className="connections-index">
         <div>{connections.length}{" "}Connections</div>

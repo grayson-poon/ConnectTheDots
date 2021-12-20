@@ -38,7 +38,8 @@ json.users @posts do |post|
   json.headline post.user.headline
   json.current_location post.user.current_location
   json.about post.user.about
-  json.profile_picture url_for(post.user.photo) if post.user.photo.attached? 
+  json.profile_picture url_for(post.user.photo) if post.user.photo.attached?
+  json.num_connections post.user.connections.length
 end
 
 json.connections (@connections) do |connection|
@@ -47,22 +48,3 @@ json.connections (@connections) do |connection|
   json.connection_id connection.connection_id
   json.request_accepted connection.request_accepted
 end
-
-# json.comments @posts do |post|
-#   json.array!(post.comments) do |comment|
-#     json.id comment.id
-#     json.body comment.body
-#     json.user_id comment.user_id
-#     json.post_id comment.post_id
-#   end
-# end
-
-
-# json.comments(@posts) do |post|
-#   post.comments do |comment|
-#     json.id
-#     json.body
-#     json.user_id
-#     json.post_id
-#   end
-# end
