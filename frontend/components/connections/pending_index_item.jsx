@@ -35,14 +35,11 @@ class PendingIndexItem extends React.Component {
   }
 
   handleClick(type, connectionId) {
-    let { currentUser } = this.props;
-
     switch(type) {
       case "ignore":
         return this.props.deleteConnections(connectionId);
       case "accept":
-        return this.props.createConnection(connectionId)
-          .then(() => this.props.fetchConnections(currentUser.id));
+        return this.props.createConnection(connectionId);
       default:
         return;
     }

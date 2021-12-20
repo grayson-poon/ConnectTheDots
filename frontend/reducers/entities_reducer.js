@@ -7,8 +7,8 @@ import pendingConnectionsReducer from "./entities_slice/pending_connections_redu
 const entitiesReducer = combineReducers({
   users: usersReducer,
   posts: postsReducer,
-  connectionIds: connectionsReducer,
-  pendingIds: pendingConnectionsReducer,
+  // connectionIds: connectionsReducer,
+  // pendingIds: pendingConnectionsReducer,
   /*
   comments: commentsReducer,
   */
