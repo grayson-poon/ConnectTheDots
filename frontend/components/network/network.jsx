@@ -18,7 +18,7 @@ export default class Network extends React.Component {
   }
 
   render() {
-    let { pendingConnections, connections } = this.props;
+    let { pendingConnections, connections, users } = this.props;
     
     return (
       <div className="network-page">
@@ -75,7 +75,7 @@ export default class Network extends React.Component {
   }
 
   moreThanZeroConnections() {
-    let { connections, fetchUser } = this.props;
+    let { connections, fetchUser, users } = this.props;
     debugger
     return (
       <div className="connections-index">

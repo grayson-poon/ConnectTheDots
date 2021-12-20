@@ -6,9 +6,10 @@ class Api::ConnectionsController < ApplicationController
       params[:id]
     )
 
-    
+    user = User.find_by(id: params[:id])
 
-    
+    @connected_users = user.users
+    @pending_users = 
     
     render 'api/connections/index'
   end
@@ -16,18 +17,16 @@ class Api::ConnectionsController < ApplicationController
   def destroy
     @not_current_user_id = params[:id]
     @current_user = current_user
-    @connections = Connection
-      .where(
-        "user_id = ? AND connection_id = ?",
-        params[:id],
-        current_user.id
-      ).or(Connection
-      .where(
-        "user_id = ? AND connection_id = ?",
-        current_user.id,
-        params[:id]
-      ))
-    
+    @connections = Connection.where(
+      "user_id = ? AND connection_id = ?",
+      params[:id],
+      current_user.id
+    ).or(Connection.where(
+      "user_id = ? AND connection_id = ?",
+      current_user.id,
+      params[:id]
+    ))
+  
     if @connections 
       @connections.each do |connection|
         if current_user.id == connection.connection_id || current_user.id == connection.user_id

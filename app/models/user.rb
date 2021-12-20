@@ -8,17 +8,25 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   
   has_many :posts, dependent: :destroy
+  has_one_attached :photo
   
   has_many :connections,
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Connection
 
-  has_many :users,
+  has_many :pending, -> { where request_accepted: false },
+    primary_key: :id,
+    foreign_key: :connection_id,
+    class_name: :Connection
+
+  has_many :connected_users,
     through: :connections,
     source: :connection
 
-  has_one_attached :photo
+  has_many :pending_users,
+    through: :pending,
+    source: :user
 
   def self.find_by_credentials(email, password)
     @user = User.find_by(email: email)

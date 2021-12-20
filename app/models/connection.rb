@@ -12,4 +12,9 @@ class Connection < ApplicationRecord
     primary_key: :id,
     foreign_key: :connection_id,
     class_name: :User
+
+  belongs_to :pending, -> { where request_accepted: false },
+    primary_key: :id,
+    foreign_key: :connection_id,
+    class_name: :User
 end

@@ -30,19 +30,19 @@ json.posts @posts do |post|
   json.post_picture url_for(post.photo) if post.photo.attached?
 end
 
-json.users @posts do |post|
-  json.id post.user.id
-  json.first_name post.user.first_name 
-  json.last_name post.user.last_name 
-  json.pronouns post.user.pronouns
-  json.headline post.user.headline
-  json.current_location post.user.current_location
-  json.about post.user.about
-  json.profile_picture url_for(post.user.photo) if post.user.photo.attached?
-  json.num_connections post.user.connections.length
+json.users @current_user.users do |user|
+  json.id user.id
+  json.first_name user.first_name 
+  json.last_name user.last_name 
+  json.pronouns user.pronouns
+  json.headline user.headline
+  json.current_location user.current_location
+  json.about user.about
+  json.profile_picture url_for(user.photo) if user.photo.attached?
+  json.num_connections user.connections.length
 end
 
-json.connections (@connections) do |connection|
+json.connections (@current_user.connections) do |connection|
   json.id connection.id
   json.user_id connection.user_id
   json.connection_id connection.connection_id

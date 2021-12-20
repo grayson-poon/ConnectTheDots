@@ -1,20 +1,13 @@
 class Api::PostsController < ApplicationController
   def index # get feed posts
     @current_user = current_user
-    @posts = []
-    # create a search_id variable then do params[:user_id] ||= current_user.id for the search id  
+    posts = @current_user.posts
 
-    @connections = @current_user.connections
-
-    @connections.each do |connection|
-      if connection.request_accepted
-        @posts += Post.where(
-          "user_id = ? OR user_id = ?", 
-          connection.connection_id, 
-          @current_user.id
-        )
-      end
+    @current_user.users.each do |user|
+      posts += user.posts
     end
+
+    @posts = posts.sort_by(&:created_at)
 
     render "api/posts/index"
     # @comments = query for those posts' comments
