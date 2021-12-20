@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { createConnection, deleteConnections, fetchConnections } from "../../actions/connection_actions";
+import { createConnection, deleteConnections } from "../../actions/connection_actions";
 import { DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
 
 class PendingIndexItem extends React.Component {
@@ -56,7 +56,6 @@ const mDTP = (dispatch) => {
   return {
     deleteConnections: (connectionId) => dispatch(deleteConnections(connectionId)),
     createConnection: (connectionId) => dispatch(createConnection(connectionId)),
-    fetchConnections: (userId) => dispatch(fetchConnections(userId)),
   }
 }
 

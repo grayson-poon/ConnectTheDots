@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
+import { deleteConnections } from "../../actions/connection_actions";
 
 class ConnectionIndexItem extends React.Component {
   render() {
     let { user } = this.props;
 
+    debugger
     return (
       <div className="connection-index-item">
         <div className="pending-header">
@@ -26,7 +28,7 @@ class ConnectionIndexItem extends React.Component {
         </div>
 
         <div className="connection-buttons">
-          <button>Remove</button>
+          <button onClick={() => this.props.deleteConnections(user.id)}>Remove</button>
         </div>
       </div>
     );
@@ -39,4 +41,10 @@ const mSTP = (state) => {
   };
 };
 
-export default connect(mSTP)(ConnectionIndexItem);
+const mDTP = (dispatch) => {
+  return {
+    deleteConnections: (connectionId) => dispatch(deleteConnections(connectionId)),
+  };
+}
+
+export default connect(mSTP, mDTP)(ConnectionIndexItem);
