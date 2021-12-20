@@ -8,7 +8,6 @@ class ConnectionIndexItem extends React.Component {
   render() {
     let { user } = this.props;
 
-    debugger
     return (
       <div className="connection-index-item">
         <div className="pending-header">

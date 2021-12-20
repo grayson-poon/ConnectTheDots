@@ -74,7 +74,7 @@ export default class Network extends React.Component {
 
   moreThanZeroConnections() {
     let { currentUser, users } = this.props;
-    debugger
+
     return (
       <div className="connections-index">
         <div>{currentUser.connectionIds.length} Connections</div>
