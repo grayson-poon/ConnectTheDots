@@ -6,17 +6,17 @@ const pendingConnectionsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_WHOLE_CONNECTIONS:
-      if (action.pendingConnections.length === 0) return [];
-      newState[action.pendingConnections[0].connectionId] = [];
+      if (action.pendingUsers.length === 0) return [];
+      newState[action.userId] = [];
 
-      action.pendingConnections.map((pending) => {
-        newState[pending.connectionId].push(pending.userId);
+      Object.values(action.pendingUsers).map((user) => {
+        newState[action.userId].push(user.id);
       });
-      
+
       return newState;
     case RECEIVE_CONNECTION:
       if (!newState[action.currentUserId]) return newState;
-      
+
       if (action.requestAccepted) {
         let idx = newState[action.currentUserId].indexOf(
           parseInt(action.notCurrentUserId)
@@ -27,7 +27,7 @@ const pendingConnectionsReducer = (state = {}, action) => {
       newState[action.currentUserId].length === 0
         ? delete newState[action.currentUserId]
         : null;
-      
+
       return newState;
     case REMOVE_CONNECTIONS:
       if (newState[action.currentUserId]) {
@@ -35,12 +35,12 @@ const pendingConnectionsReducer = (state = {}, action) => {
           parseInt(action.notCurrentUserId)
         );
         if (idx > -1) newState[action.currentUserId].splice(idx, 1);
-      };
+      }
 
       newState[action.currentUserId].length === 0
         ? delete newState[action.currentUserId]
         : null;
-      
+
       return newState;
     default:
       return state;

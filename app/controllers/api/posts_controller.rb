@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     @current_user = current_user
     posts = @current_user.posts
 
-    @current_user.users.each do |user|
+    @current_user.connected_users.each do |user|
       posts += user.posts
     end
 

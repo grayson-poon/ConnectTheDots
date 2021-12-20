@@ -5,11 +5,14 @@ export const RECEIVE_CONNECTION = "RECEIVE_CONNECTION";
 export const REMOVE_CONNECTIONS = "REMOVE_CONNECTIONS";
 export const RECEIVE_CONNECTION_ERRORS = "RECEIVE_CONNECTION_ERRORS";
 
-const receiveWholeConnections = ({ connections, pendingConnections }) => {
+const receiveWholeConnections = ({ connections, pendingConnections, connectedUsers, pendingUsers, userId }) => {
   return {
     type: RECEIVE_WHOLE_CONNECTIONS,
     connections,
     pendingConnections,
+    connectedUsers,
+    pendingUsers,
+    userId,
   };
 };
 

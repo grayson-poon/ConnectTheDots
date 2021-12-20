@@ -30,7 +30,7 @@ json.posts @posts do |post|
   json.post_picture url_for(post.photo) if post.photo.attached?
 end
 
-json.users @current_user.users do |user|
+json.users @current_user.connected_users do |user|
   json.id user.id
   json.first_name user.first_name 
   json.last_name user.last_name 

@@ -7,10 +7,11 @@ const connectionsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_WHOLE_CONNECTIONS:
-      newState[action.connections[0].userId] = [];
+      if (action.connectedUsers.length === 0) return [];
+      newState[action.userId] = [];
 
-      action.connections.map((connection) => {
-        newState[connection.userId].push(connection.connectionId);
+      Object.values(action.connectedUsers).map((user) => {
+        newState[action.userId].push(user.id);
       });
       
       return newState;
