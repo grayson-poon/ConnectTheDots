@@ -7,7 +7,6 @@ import PendingIndexItem from "../connections/pending_index_item";
 export default class Network extends React.Component {
   componentDidMount() {
     let { url, fetchConnections, currentUserId } = this.props;
-    debugger
     
     switch(url) {
       case MY_NETWORK:
@@ -18,17 +17,20 @@ export default class Network extends React.Component {
   }
 
   render() {
-    let { pendingIds, connectionIds } = this.props;
-    
+    let { currentUser, users } = this.props;
+    if (!currentUser || Object.keys(users).length <
+      currentUser.pendingIds.length + currentUser.connectionIds.length
+    ) return null;
+
     return (
       <div className="network-page">
         <div className="gray-background"></div>
-        {!pendingIds
+        {!currentUser.pendingIds
           ? this.zeroPending()
           : this.moreThanZeroPending()
         }
 
-        {!connectionIds
+        {!currentUser.connectionIds
           ? this.zeroConnections()
           : this.moreThanZeroConnections()
         }
@@ -46,19 +48,16 @@ export default class Network extends React.Component {
   }
 
   moreThanZeroPending() {
-    let { pendingIds, users } = this.props;
+    let { currentUser, users } = this.props;
 
     return (
       <div className="pending-connections-index">
         <div>Invitations</div>
         <div className="pending-list">
           <ul>
-            {pendingIds.map((pendingId, idx) =>
-              <PendingIndexItem
-                key={idx}
-                user={users[pendingId]}
-              />
-            )}
+            {currentUser.pendingIds.map((pendingId, idx) => (
+              <PendingIndexItem key={idx} user={users[pendingId]} />
+            ))}
           </ul>
         </div>
       </div>
@@ -74,11 +73,11 @@ export default class Network extends React.Component {
   }
 
   moreThanZeroConnections() {
-    let { connectionIds, users } = this.props;
+    let { currentUser, users } = this.props;
     
     return (
       <div className="connections-index">
-        <div>{connectionIds.length}{" "}Connections</div>
+        <div>{currentUser.connectionIds.length} Connections</div>
         <div className="connections-filter">
           <div>Sort by:</div>
           <button>Dropdown</button>
@@ -88,12 +87,9 @@ export default class Network extends React.Component {
         </div>
         <div className="connections-list">
           <ul>
-            {connectionIds.map((connectionId, idx) =>
-              <ConnectionIndexItem
-                key={idx}
-                user={users[connectionId]}
-              />
-            )}
+            {currentUser.connectionIds.map((connectionId, idx) => (
+              <ConnectionIndexItem key={idx} user={users[connectionId]} />
+            ))}
           </ul>
         </div>
       </div>

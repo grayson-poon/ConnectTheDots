@@ -6,24 +6,6 @@ const connectionsReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
 
   switch(action.type) {
-    case RECEIVE_WHOLE_CONNECTIONS:
-      if (action.connectedUsers.length === 0) return [];
-      newState[action.userId] = [];
-
-      Object.values(action.connectedUsers).map((user) => {
-        newState[action.userId].push(user.id);
-      });
-      
-      return newState;
-    case RECEIVE_WHOLE_POSTS:
-      if (action.connectedUsers.length === 0) return [];
-      newState[action.currentUserId] = [];
-
-      Object.values(action.connectedUsers).map((user) => {
-        newState[action.currentUserId].push(user.id);
-      });
-
-      return newState;
     case RECEIVE_CONNECTION:
       if (action.requestAccepted) {
         !newState[action.currentUserId]

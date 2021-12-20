@@ -15,7 +15,7 @@ const ActivitySection = ({ user, openModal, currentUser }) => {
         }
       </div>
 
-      <Link to={MY_NETWORK}>{`${user.numConnections} followers`}</Link>
+      <Link to={MY_NETWORK}>{`${user.connectionIds.length} followers`}</Link>
 
       <div className="activity-about">
         <p>Posts you created or commented on are displayed here</p>

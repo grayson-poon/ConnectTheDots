@@ -8,7 +8,6 @@ import {
 
 
 const ProfileMain = ({ user, openModal, currentUser }) => {
-  debugger
   return (
     <div className="profile-main">
       <div className="pictures-on-profile">

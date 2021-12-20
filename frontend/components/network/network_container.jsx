@@ -5,13 +5,10 @@ import Network from "./network";
 
 const mSTP = (state, ownProps) => {
   return {
-    connectionIds: 
-      state.entities.connectionIds[state.session.currentUserId],
-    pendingIds:
-      state.entities.pendingIds[state.session.currentUserId],
     users: state.entities.users,
     url: ownProps.location.pathname,
     currentUserId: state.session.currentUserId,
+    currentUser: state.entities.users[state.session.currentUserId]
   };
 };
 
