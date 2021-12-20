@@ -1,29 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
 
 class ConnectionIndexItem extends React.Component {
-  componentDidMount() {
-    this.props.fetchUser(this.props.connectionId);
-  }
-
   render() {
-    let { users, connectionId } = this.props;
-    if (!users[connectionId]) return null;
-    let connection = users[connectionId];
+    let { user } = this.props;
 
     return (
       <div className="connection-index-item">
         <div className="pending-header">
-          <Link className="pending-image" to={`/users/${connectionId}`}>
-            <img src={connection.profilePicture} />
+          <Link className="pending-image" to={`/users/${user.id}`}>
+            <img src={user.profilePicture
+              ? user.profilePicture
+              : DEFAULT_PROFILE_PICTURE
+            } />
           </Link>
 
           <div className="pending-titles">
             <Link
-              to={`/users/${connectionId}`}
-            >{`${connection.firstName} ${connection.lastName}`}</Link>
-            <div>{connection.headline}</div>
+              to={`/users/${user.id}`}
+            >{`${user.firstName} ${user.lastName}`}</Link>
+            <div>{user.headline}</div>
           </div>
         </div>
 

@@ -16,12 +16,13 @@ const connectionsReducer = (state = {}, action) => {
       
       return newState;
     case RECEIVE_WHOLE_POSTS:
-      newState[action.connections[0].userId] = [];
+      if (action.connectedUsers.length === 0) return [];
+      newState[action.currentUserId] = [];
 
-      action.connections.map((connection) => {
-        newState[connection.userId].push(connection.connectionId);
+      Object.values(action.connectedUsers).map((user) => {
+        newState[action.currentUserId].push(user.id);
       });
-      
+
       return newState;
     case RECEIVE_CONNECTION:
       if (action.requestAccepted) {

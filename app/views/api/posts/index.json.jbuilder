@@ -10,11 +10,7 @@
 #     { id: 2, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
 #     { id: 3, first_name: "Demo", last_name: "User", pronouns: "he/his", headline: "Chef", post_picture: "url" },
 #   ],
-#   connections: [
-#     { id: 1, user_id: 1, connection_id: 12 },
-#     { id: 2, user_id: 1, connection_id: 8 },
-#     { id: 3, user_id: 1, connection_id: 2 },
-#   ],
+#   current_user_id: 1,
 #   comments:[
 #     { id: 1, body: "body", user_id: 2, post_id: 3 },
 #     { id: 2, body: "body", user_id: 1, post_id: 2 },
@@ -30,7 +26,7 @@ json.posts @posts do |post|
   json.post_picture url_for(post.photo) if post.photo.attached?
 end
 
-json.users @current_user.connected_users do |user|
+json.connected_users @current_user.connected_users do |user|
   json.id user.id
   json.first_name user.first_name 
   json.last_name user.last_name 
@@ -42,9 +38,4 @@ json.users @current_user.connected_users do |user|
   json.num_connections user.connections.length
 end
 
-json.connections (@current_user.connections) do |connection|
-  json.id connection.id
-  json.user_id connection.user_id
-  json.connection_id connection.connection_id
-  json.request_accepted connection.request_accepted
-end
+json.current_user_id @current_user.id

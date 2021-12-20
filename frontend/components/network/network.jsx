@@ -18,17 +18,17 @@ export default class Network extends React.Component {
   }
 
   render() {
-    let { pendingConnections, connections, users } = this.props;
+    let { pendingIds, connectionIds } = this.props;
     
     return (
       <div className="network-page">
         <div className="gray-background"></div>
-        {!pendingConnections
+        {!pendingIds
           ? this.zeroPending()
           : this.moreThanZeroPending()
         }
 
-        {!connections
+        {!connectionIds
           ? this.zeroConnections()
           : this.moreThanZeroConnections()
         }
@@ -46,18 +46,17 @@ export default class Network extends React.Component {
   }
 
   moreThanZeroPending() {
-    let { pendingConnections, fetchUser } = this.props;
+    let { pendingIds, users } = this.props;
 
     return (
       <div className="pending-connections-index">
         <div>Invitations</div>
         <div className="pending-list">
           <ul>
-            {pendingConnections.map((pendingId, idx) =>
+            {pendingIds.map((pendingId, idx) =>
               <PendingIndexItem
                 key={idx}
-                pendingId={pendingId}
-                fetchUser={fetchUser}
+                user={users[pendingId]}
               />
             )}
           </ul>
@@ -75,11 +74,11 @@ export default class Network extends React.Component {
   }
 
   moreThanZeroConnections() {
-    let { connections, fetchUser, users } = this.props;
-    debugger
+    let { connectionIds, users } = this.props;
+    
     return (
       <div className="connections-index">
-        <div>{connections.length}{" "}Connections</div>
+        <div>{connectionIds.length}{" "}Connections</div>
         <div className="connections-filter">
           <div>Sort by:</div>
           <button>Dropdown</button>
@@ -89,11 +88,10 @@ export default class Network extends React.Component {
         </div>
         <div className="connections-list">
           <ul>
-            {connections.map((connectionId, idx) =>
+            {connectionIds.map((connectionId, idx) =>
               <ConnectionIndexItem
                 key={idx}
-                fetchUser={fetchUser}
-                connectionId={connectionId}
+                user={users[connectionId]}
               />
             )}
           </ul>

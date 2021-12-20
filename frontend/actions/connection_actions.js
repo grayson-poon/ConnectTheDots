@@ -5,11 +5,9 @@ export const RECEIVE_CONNECTION = "RECEIVE_CONNECTION";
 export const REMOVE_CONNECTIONS = "REMOVE_CONNECTIONS";
 export const RECEIVE_CONNECTION_ERRORS = "RECEIVE_CONNECTION_ERRORS";
 
-const receiveWholeConnections = ({ connections, pendingConnections, connectedUsers, pendingUsers, userId }) => {
+const receiveWholeConnections = ({ connectedUsers, pendingUsers, userId }) => {
   return {
     type: RECEIVE_WHOLE_CONNECTIONS,
-    connections,
-    pendingConnections,
     connectedUsers,
     pendingUsers,
     userId,
