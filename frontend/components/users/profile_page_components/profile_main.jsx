@@ -8,6 +8,7 @@ import {
 
 
 const ProfileMain = ({ user, openModal, currentUser }) => {
+  debugger
   return (
     <div className="profile-main">
       <div className="pictures-on-profile">
@@ -52,7 +53,13 @@ const ProfileMain = ({ user, openModal, currentUser }) => {
         <div className="profile-current-location">{`${user.currentLocation}`}</div>
         <div className="blue-profile-button">
           {currentUser.id === user.id ? (
-            <button onClick={() => openModal("editUser", user)}>Edit intro</button>
+            <button onClick={() => openModal("editUser", user)}>
+              Edit intro
+            </button>
+          ) : currentUser.connectionIds.includes(user.id) ? (
+            <button>Remove connection</button>
+          ) : currentUser.pendingIds.includes(user.id) ? (
+            <button>Accept invite</button>
           ) : (
             <button>Connect</button>
           )}

@@ -35,7 +35,7 @@ json.connected_users @current_user.connected_users do |user|
   json.current_location user.current_location
   json.about user.about
   json.profile_picture url_for(user.photo) if user.photo.attached?
-  json.num_connections user.connections.length
+  json.connection_ids user.connections.pluck(:connection_id)
 end
 
 json.current_user_id @current_user.id
