@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { createConnection, deleteConnections } from "../../actions/connection_actions";
+import { createConnection, deleteConnections, fetchConnections } from "../../actions/connection_actions";
 import { DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
 
 class PendingIndexItem extends React.Component {
@@ -35,11 +35,14 @@ class PendingIndexItem extends React.Component {
   }
 
   handleClick(type, connectionId) {
+    let { currentUser } = this.props;
+
     switch(type) {
       case "ignore":
         return this.props.deleteConnections(connectionId);
       case "accept":
-        return this.props.createConnection(connectionId);
+        return this.props.createConnection(connectionId)
+          .then(() => this.props.fetchConnections(currentUser.id));
       default:
         return;
     }
@@ -56,6 +59,7 @@ const mDTP = (dispatch) => {
   return {
     deleteConnections: (connectionId) => dispatch(deleteConnections(connectionId)),
     createConnection: (connectionId) => dispatch(createConnection(connectionId)),
+    fetchConnections: (userId) => dispatch(fetchConnections(userId)),
   }
 }
 

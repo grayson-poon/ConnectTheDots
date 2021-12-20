@@ -25,12 +25,12 @@ export default class Network extends React.Component {
     return (
       <div className="network-page">
         <div className="gray-background"></div>
-        {!currentUser.pendingIds
+        {currentUser.pendingIds.length === 0
           ? this.zeroPending()
           : this.moreThanZeroPending()
         }
 
-        {!currentUser.connectionIds
+        {currentUser.connectionIds.length === 0
           ? this.zeroConnections()
           : this.moreThanZeroConnections()
         }
@@ -56,7 +56,7 @@ export default class Network extends React.Component {
         <div className="pending-list">
           <ul>
             {currentUser.pendingIds.map((pendingId, idx) => (
-              <PendingIndexItem key={idx} user={users[pendingId]} />
+              <PendingIndexItem key={idx} user={users[pendingId]} currentUser={currentUser} />
             ))}
           </ul>
         </div>
