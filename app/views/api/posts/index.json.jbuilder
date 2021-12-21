@@ -1,5 +1,3 @@
-# Response:
-
 # { posts: [
 #     {id: 1, body: "body", user_id: 2, picture: "url" },
 #     {id: 1, body: "body", user_id: 2, picture: "url" },

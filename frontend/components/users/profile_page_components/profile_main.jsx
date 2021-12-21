@@ -1,11 +1,5 @@
 import React from "react";
-import PicturesOnProfile from "./pictures_on_profile";
-import {
-  DEFAULT_BACKGROUND_PICTURE,
-  DEFAULT_PROFILE_PICTURE,
-  NEW_IMAGE_ICON,
-} from "../../../util/images_and_icons_util";
-
+import { DEFAULT_BACKGROUND_PICTURE, DEFAULT_PROFILE_PICTURE } from "../../../util/images_and_icons_util";
 
 const ProfileMain = ({ 
   user, 
@@ -19,14 +13,6 @@ const ProfileMain = ({
     <div className="profile-main">
       <div className="pictures-on-profile">
         <div className="background-image">
-          {/* <div className="edit-background-image">
-                <button>
-                  <img
-                    src={NEW_IMAGE_ICON}
-                  />
-                </button>
-              </div> */}
-
           <div className="profile-background-image">
             <img src={DEFAULT_BACKGROUND_PICTURE} />
           </div>
@@ -49,7 +35,6 @@ const ProfileMain = ({
 
       <div className="profile-info">
         <div className="hide-me">HIDE ME - for vertical space</div>
-
         <div className="name-pronouns">
           <div className="profile-name">{`${user.firstName} ${user.lastName}`}</div>
           <div className="profile-pronouns">{user.pronouns}</div>
