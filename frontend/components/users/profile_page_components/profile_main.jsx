@@ -59,25 +59,16 @@ const ProfileMain = ({
         <div className="profile-headline">{`${user.headline}`}</div>
         <div className="profile-current-location">{`${user.currentLocation}`}</div>
         <div className="blue-profile-button">
-          {currentUser.id === user.id ? (
-            <button onClick={() => openModal("editUser", user)}>
-              Edit intro
-            </button>
-          ) : currentUser.connectionIds.includes(user.id) ? (
-            <button onClick={
-              () => deleteConnections(user.id).then(
-                () => fetchUser(user.id)
-              )
-            }>Remove connection</button>
-          ) : currentUser.pendingIds.includes(user.id) ? (
-            <button>Accept invite</button>
-          ) : (
-            <button onClick={
-              () => createConnection(user.id).then(
-                () => fetchUser(user.id)
-              )
-            }>Connect</button>
-          )}
+          {currentUser.id === user.id
+            ? <button onClick={() => openModal("editUser", user)}>Edit intro</button>
+            : currentUser.connectionIds.includes(user.id) 
+              ? <button onClick={() => deleteConnections(user.id).then(() => fetchUser(user.id))}>Remove connection</button>
+              : currentUser.pendingIds.includes(user.id) 
+                ? <button onClick={() => createConnection(user.id).then(() => fetchUser(user.id))}>Accept invite</button>
+                : user.pendingIds.includes(currentUser.id)
+                  ? <button onClick={() => deleteConnections(user.id).then(() => fetchUser(user.id))}>Request pending</button>
+                  : <button onClick={() => createConnection(user.id).then(() => fetchUser(user.id))}>Connect</button>
+          }
         </div>
       </div>
     </div>

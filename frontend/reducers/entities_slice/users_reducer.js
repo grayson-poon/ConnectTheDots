@@ -10,6 +10,8 @@ const usersReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   let idx;
   let currentUser;
+  let otherIdx;
+  let notCurrentUser;
 
   switch (action.type) {
     case RECEIVE_WHOLE_CONNECTIONS:
@@ -36,6 +38,7 @@ const usersReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_CONNECTION:
       currentUser = newState[action.currentUserId];
+      notCurrentUser = newState[action.notCurrentUserId];
 
       if (action.requestAccepted) {
         idx = currentUser.pendingIds.indexOf(parseInt(action.notCurrentUserId));
@@ -43,21 +46,28 @@ const usersReducer = (state = {}, action) => {
         if (idx > -1) {
           currentUser.pendingIds.splice(idx, 1);
           currentUser.connectionIds.push(action.notCurrentUserId);
+          notCurrentUser.connectionIds.push(action.currentUserId);
         }
+      } else {
+        notCurrentUser.pendingIds.push(parseInt(action.currentUserId));
       }
       
       return newState;
     case REMOVE_CONNECTIONS:
       currentUser = newState[action.currentUserId];
+      notCurrentUser = newState[action.notCurrentUserId];
 
-      if (
-        currentUser.connectionIds.includes(parseInt(action.notCurrentUserId))
-      ) {
+      if (currentUser.connectionIds.includes(parseInt(action.notCurrentUserId))) {
         idx = currentUser.connectionIds.indexOf(parseInt(action.notCurrentUserId));
+        otherIdx = notCurrentUser.connectionIds.indexOf(parseInt(action.currentUserId));
         currentUser.connectionIds.splice(idx, 1);
-      } else {
+        notCurrentUser.connectionIds.splice(otherIdx, 1);
+      } else if (currentUser.pendingIds.includes(parseInt(action.notCurrentUserId))) {
         idx = currentUser.pendingIds.indexOf(parseInt(action.notCurrentUserId));
         currentUser.pendingIds.splice(idx, 1);
+      } else if (notCurrentUser.pendingIds.includes(parseInt(action.currentUserId))) {
+        otherIdx = notCurrentUser.pendingIds.indexOf(parseInt(action.currentUserId));
+        notCurrentUser.pendingIds.splice(otherIdx, 1);
       }
 
       return newState;
