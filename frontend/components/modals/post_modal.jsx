@@ -108,9 +108,11 @@ class PostModal extends React.Component {
             </div>
 
             <div id="post-button">
-              <button onClick={() => this.handleDelete(this.state.post.id)}>
-                Delete post
-              </button>
+              {type === "create" ? null : (
+                <button onClick={() => this.handleDelete(this.state.post.id)}>
+                  Delete post
+                </button>
+              )}
 
               {type === "create" ? (
                 <button onClick={this.handleSubmit}>Post</button>
