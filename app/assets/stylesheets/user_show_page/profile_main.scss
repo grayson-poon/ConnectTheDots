@@ -156,20 +156,59 @@ div.blue-profile-button {
   margin-bottom: 15px;
 }
 
-div.blue-profile-button button {
-  background-color: rgb(10, 102, 194);
-  color: rgb(255, 255, 255);
+div.blue-profile-button button.standard-button {
+  color: white;
   font-size: 16px;
   font-weight: 600;
-  font-stretch: 100%;
   line-height: 20px;
-  min-height: 32px;
-  padding: 6px 16px 6px 16px;
   border-radius: 16px;
+  min-height: 32px;
+  border: 1px solid rgb(10, 102, 194);
+  background-color: rgb(10, 102, 194);
+  padding: 6px 16px 6px 16px;
   cursor: pointer;
-  border: none;
+  text-align: center;
 }
 
-div.blue-profile-button button:hover {
+div.blue-profile-button button.standard-button:hover {
   background-color: rgb(7, 72, 138);
+}
+
+div.blue-profile-button button.red-button {
+  color: rgb(194, 10, 10);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 16px;
+  min-height: 32px;
+  border: 1px solid rgb(194, 10, 10);
+  background-color: transparent;
+  padding: 6px 16px 6px 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+div.blue-profile-button button.red-button:hover {
+  padding: 5px 15px 5px 15px;
+  border: 2px solid rgb(194, 10, 10);;
+  background-color: rgb(235, 214, 214);
+}
+
+div.blue-profile-button button.white-button {
+  color: rgb(10, 102, 194);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 18px;
+  border: 1px solid rgb(10, 102, 194);
+  background-color: transparent;
+  padding: 6px 16px 6px 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+div.blue-profile-button button.white-button:hover {
+  padding: 5px 15px 5px 15px;
+  border: 2px solid rgb(10, 102, 205);
+  background-color: rgb(214, 224, 235);
 }
