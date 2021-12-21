@@ -67,9 +67,10 @@ export default class Network extends React.Component {
   zeroConnections() {
     return (
       <div className="connections-index">
-        Nothing yet
+        <div>Connections</div>
+        <div className="zero">No connections yet!</div>
       </div>
-    )
+    );
   }
 
   moreThanZeroConnections() {
