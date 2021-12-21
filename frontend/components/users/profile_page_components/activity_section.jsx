@@ -4,14 +4,13 @@ import { MY_NETWORK } from "../../../util/url_paths_util";
 
 
 const ActivitySection = ({ user, openModal, currentUser }) => {
-  return (
+  return !user || !currentUser ? null : (
     <div className="profile-activity">
       <div className="title-and-button">
         <h2>Activity</h2>
-        {
-          currentUser.id === user.id
-            ? <button onClick={() => openModal("postModal", { post: null, photoUrl: null, type: "create" })}>Start a post</button>
-            : null
+        {currentUser.id === user.id
+          ? <button onClick={() => openModal("postModal", { post: null, photoUrl: null, type: "create" })}>Start a post</button>
+          : null
         }
       </div>
 

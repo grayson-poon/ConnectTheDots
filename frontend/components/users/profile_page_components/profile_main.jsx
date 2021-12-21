@@ -15,8 +15,7 @@ const ProfileMain = ({
   deleteConnections, 
   fetchUser,
 }) => {
-  debugger
-  return (
+  return !user || !currentUser ? null : (
     <div className="profile-main">
       <div className="pictures-on-profile">
         <div className="background-image">
