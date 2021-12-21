@@ -36,15 +36,14 @@ const usersReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_CONNECTION:
       currentUser = newState[action.currentUserId];
-      idx = currentUser.pendingIds.indexOf(
-        parseInt(action.notCurrentUserId)
-      );
 
-      if (idx > -1) {
-        currentUser.pendingIds.splice(idx, 1);
-        currentUser.connectionIds.push(
-          action.notCurrentUserId
-        );
+      if (action.requestAccepted) {
+        idx = currentUser.pendingIds.indexOf(parseInt(action.notCurrentUserId));
+
+        if (idx > -1) {
+          currentUser.pendingIds.splice(idx, 1);
+          currentUser.connectionIds.push(action.notCurrentUserId);
+        }
       }
       
       return newState;
@@ -54,9 +53,7 @@ const usersReducer = (state = {}, action) => {
       if (
         currentUser.connectionIds.includes(parseInt(action.notCurrentUserId))
       ) {
-        idx = currentUser.connectionIds.indexOf(
-          parseInt(action.notCurrentUserId)
-        );
+        idx = currentUser.connectionIds.indexOf(parseInt(action.notCurrentUserId));
         currentUser.connectionIds.splice(idx, 1);
       } else {
         idx = currentUser.pendingIds.indexOf(parseInt(action.notCurrentUserId));

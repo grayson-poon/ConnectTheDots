@@ -22,6 +22,7 @@ export default class Network extends React.Component {
       currentUser.pendingIds.length + currentUser.connectionIds.length + 1
     ) return null;
 
+    
     return (
       <div className="network-page">
         <div className="gray-background"></div>

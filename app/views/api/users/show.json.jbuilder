@@ -8,5 +8,9 @@ json.user do
   json.about @user.about
   json.profile_picture url_for(@user.photo) if @user.photo.attached?
   json.connection_ids @user.connections.pluck(:connection_id)
-  json.pending_ids @user.pending.pluck(:user_id)
+  json.pending_ids @current_user == @user ? (
+    @user.pending.pluck(:user_id)
+  ) : (
+    @user.pending.pluck(:user_id).include?(@current_user.id) ? [@current_user.id] : []
+  )
 end

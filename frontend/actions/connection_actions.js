@@ -15,6 +15,7 @@ const receiveWholeConnections = ({ connectedUsers, pendingUsers, userId }) => {
 };
 
 const receiveConnection = ({ currentUserId, notCurrentUserId, requestAccepted }) => {
+  debugger
   return {
     type: RECEIVE_CONNECTION,
     currentUserId,

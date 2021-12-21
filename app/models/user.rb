@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one_attached :photo
   
-  has_many :connections,
+  has_many :connections, -> { where request_accepted: true },
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Connection

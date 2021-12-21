@@ -7,7 +7,14 @@ import {
 } from "../../../util/images_and_icons_util";
 
 
-const ProfileMain = ({ user, openModal, currentUser, deleteConnections }) => {
+const ProfileMain = ({ 
+  user, 
+  openModal, 
+  currentUser, 
+  createConnection,
+  deleteConnections, 
+  fetchUser,
+}) => {
   debugger
   return (
     <div className="profile-main">
@@ -57,11 +64,19 @@ const ProfileMain = ({ user, openModal, currentUser, deleteConnections }) => {
               Edit intro
             </button>
           ) : currentUser.connectionIds.includes(user.id) ? (
-            <button onClick={() => deleteConnections(user.id)}>Remove connection</button>
+            <button onClick={
+              () => deleteConnections(user.id).then(
+                () => fetchUser(user.id)
+              )
+            }>Remove connection</button>
           ) : currentUser.pendingIds.includes(user.id) ? (
             <button>Accept invite</button>
           ) : (
-            <button>Connect</button>
+            <button onClick={
+              () => createConnection(user.id).then(
+                () => fetchUser(user.id)
+              )
+            }>Connect</button>
           )}
         </div>
       </div>

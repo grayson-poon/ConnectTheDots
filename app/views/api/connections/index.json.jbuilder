@@ -22,6 +22,7 @@ json.connected_users @connected_users do |user|
   json.about user.about
   json.profile_picture url_for(user.photo) if user.photo.attached?
   json.connection_ids user.connections.pluck(:connection_id)
+  json.pending_ids user.pending.pluck(:user_id).include?(@current_user.id) ? [@current_user.id] : []
 end
 
 json.pending_users @pending_users do |pending|
@@ -34,6 +35,7 @@ json.pending_users @pending_users do |pending|
   json.about pending.about
   json.profile_picture url_for(pending.photo) if pending.photo.attached?
   json.connection_ids pending.connections.pluck(:connection_id)
+  json.pending_ids pending.pending.pluck(:user_id).include?(@current_user.id) ? [@current_user.id] : []
 end
 
 json.user_id @user.id
