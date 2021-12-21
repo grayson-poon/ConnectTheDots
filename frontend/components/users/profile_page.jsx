@@ -27,7 +27,7 @@ export default class UserShow extends React.Component {
 
   profile() {
     let { user, currentUser, openModal, deleteConnections, fetchUser, createConnection } = this.props;
-    debugger
+
     return (
       <div className="profile-page">
         <div className="profile-middle">
