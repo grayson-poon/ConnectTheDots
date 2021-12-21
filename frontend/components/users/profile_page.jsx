@@ -26,8 +26,8 @@ export default class UserShow extends React.Component {
   }
 
   profile() {
-    let { user, currentUser, openModal } = this.props;
-
+    let { user, currentUser, openModal, deleteConnections } = this.props;
+    debugger
     return (
       <div className="profile-page">
         <div className="profile-middle">
@@ -35,6 +35,7 @@ export default class UserShow extends React.Component {
             currentUser={currentUser}
             user={user}
             openModal={openModal}
+            deleteConnections={deleteConnections}
           />
 
           <ActivitySection

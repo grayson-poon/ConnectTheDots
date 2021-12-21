@@ -7,7 +7,8 @@ import {
 } from "../../../util/images_and_icons_util";
 
 
-const ProfileMain = ({ user, openModal, currentUser }) => {
+const ProfileMain = ({ user, openModal, currentUser, deleteConnections }) => {
+  debugger
   return (
     <div className="profile-main">
       <div className="pictures-on-profile">
@@ -56,7 +57,7 @@ const ProfileMain = ({ user, openModal, currentUser }) => {
               Edit intro
             </button>
           ) : currentUser.connectionIds.includes(user.id) ? (
-            <button>Remove connection</button>
+            <button onClick={() => deleteConnections(user.id)}>Remove connection</button>
           ) : currentUser.pendingIds.includes(user.id) ? (
             <button>Accept invite</button>
           ) : (

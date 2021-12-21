@@ -145,6 +145,7 @@ export default class Navbar extends React.Component {
             <ProfileDropdown
               currentUser={currentUser}
               logout={logout}
+              showModal={this.showModal}
             />
           ) : null}
         </div>

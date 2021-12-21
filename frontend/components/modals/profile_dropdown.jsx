@@ -2,15 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { DEFAULT_PROFILE_PICTURE } from "../../util/images_and_icons_util";
 
-const ProfileDropdown = ({ currentUser, logout }) => {
+const ProfileDropdown = ({ currentUser, logout, showModal }) => {
   return (
-    <div id="profile-dropdown-modal-background">
+    <div>
+      <div
+        className="profile-dropdown-modal-background"
+        onClick={showModal}
+      ></div>
       <div className="profile-dropdown">
         <div className="information">
           <div id="image">
-            <img src={currentUser.profilePicture
-              ? currentUser.profilePicture
-              : DEFAULT_PROFILE_PICTURE} />
+            <img
+              src={
+                currentUser.profilePicture
+                  ? currentUser.profilePicture
+                  : DEFAULT_PROFILE_PICTURE
+              }
+            />
           </div>
 
           <div id="titles">

@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { openModal } from "../../actions/modal_actions";
 import { fetchUser, updateUser } from "../../actions/user_actions";
 import UserShow from "./profile_page";
+import { deleteConnections } from "../../actions/connection_actions";
 
 const mSTP = (state, ownProps) => {
   return {
@@ -17,6 +18,7 @@ const mDTP = (dispatch) => {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user) => dispatch(updateUser(user)),
     openModal: (modalType, entity) => dispatch(openModal(modalType, entity)),
+    deleteConnections: (connectionId) => dispatch(deleteConnections(connectionId)),
   };
 };
 

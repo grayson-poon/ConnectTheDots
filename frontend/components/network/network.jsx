@@ -19,7 +19,7 @@ export default class Network extends React.Component {
   render() {
     let { currentUser, users } = this.props;
     if (!currentUser || Object.keys(users).length <
-      currentUser.pendingIds.length + currentUser.connectionIds.length
+      currentUser.pendingIds.length + currentUser.connectionIds.length + 1
     ) return null;
 
     return (
