@@ -50,7 +50,7 @@ const usersReducer = (state = {}, action) => {
       return newState;
     case REMOVE_CONNECTIONS:
       currentUser = newState[action.currentUserId];
-      
+
       if (
         currentUser.connectionIds.includes(parseInt(action.notCurrentUserId))
       ) {
@@ -63,7 +63,6 @@ const usersReducer = (state = {}, action) => {
         currentUser.pendingIds.splice(idx, 1);
       }
 
-      delete newState[action.notCurrentUserId];
       return newState;
     case LOGOUT_CURRENT_USER:
       return _nullUsers;
