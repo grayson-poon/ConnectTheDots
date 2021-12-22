@@ -7,9 +7,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
   
+  has_one_attached :photo
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_one_attached :photo
   
   has_many :connections, -> { where request_accepted: true },
     primary_key: :id,
@@ -70,5 +70,4 @@ class User < ApplicationRecord
       self.photo.attach(io: File.open('/'))
     end
   end
-
 end
