@@ -1,8 +1,14 @@
 import { connect } from "react-redux";
-import Comment from "./comment_index";
+import { fetchComments } from "../../actions/comment_actions";
+import CommentIndex from "./comment_index";
 
-const mSTP = (state, ownProps) => ({});
+const mSTP = (state, ownProps) => ({
+  currentUser: state.entities.users[state.session.currentUserId],
+  comments: state.entities.comments,
+});
 
-const mDTP = (dispatch) => ({});
+const mDTP = (dispatch) => ({
+  fetchComments: (postId) => dispatch(fetchComments(postId)),
+});
 
-export default connect(mSTP, mDTP)(Comment);
+export default connect(mSTP, mDTP)(CommentIndex);

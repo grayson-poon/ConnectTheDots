@@ -16,7 +16,7 @@ const receiveWholeComments = ({ comments, commentedUsers }) => {
 
 const receiveComment = ({ comment }) => {
   return {
-    type: RECEIVE_WHOLE_COMMENTS,
+    type: RECEIVE_COMMENT,
     comment,
   };
 };
@@ -41,7 +41,7 @@ export const clearCommentErrors = () => {
   };
 };
 
-export const fetchWholeComments = (postId) => (dispatch) => {
+export const fetchComments = (postId) => (dispatch) => {
   return CommentApiUtil.fetchComments(postId).then(
     (payload) => dispatch(receiveWholeComments(payload)),
     (errors) => dispatch(receiveCommentErrors(errors.responseJSON))

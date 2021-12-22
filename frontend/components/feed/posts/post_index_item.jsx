@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../../util/images_and_icons_util";
+import CommentIndexContainer from "../../comments/comment_index_container";
 
 const PostIndexItem = ({ user, post, currentUser, openModal }) => {
   return (
@@ -45,6 +46,13 @@ const PostIndexItem = ({ user, post, currentUser, openModal }) => {
           <img src={post.postPicture} />
         </div>
       ) : null}
+
+      {/* add conditional render to fetch comments if clicked */}
+      <CommentIndexContainer
+        post={post}
+        user={user}
+        currentUser={currentUser}
+      />
     </li>
   );
 }
