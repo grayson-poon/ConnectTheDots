@@ -1,3 +1,4 @@
+import { RECEIVE_WHOLE_COMMENTS } from "../../actions/comment_actions";
 import { RECEIVE_CONNECTION, RECEIVE_WHOLE_CONNECTIONS, REMOVE_CONNECTIONS } from "../../actions/connection_actions";
 import { RECEIVE_WHOLE_POSTS } from "../../actions/post_actions";
 import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER } from "../../actions/session_actions";
@@ -26,6 +27,12 @@ const usersReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_WHOLE_POSTS:
       action.connectedUsers.map((user) => {
+        newState[user.id] = user;
+      });
+
+      return newState;
+    case RECEIVE_WHOLE_COMMENTS:
+      action.commentedUsers.map((user) => {
         newState[user.id] = user;
       });
 
