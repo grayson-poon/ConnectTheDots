@@ -29,7 +29,7 @@ class User < ApplicationRecord
     through: :pending,
     source: :user
 
-  has_many :posts_commented_on,
+  has_many :posts_commented_on, -> { distinct },
     through: :comments,
     source: :post
 
