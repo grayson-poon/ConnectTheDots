@@ -55,7 +55,7 @@ class Api::PostsController < ApplicationController
       @post.destroy
       render "api/posts/post_delete"
     else
-      render json: ["Post could not be removed"]
+      render json: ["Post could not be removed"], status: 422
     end
   end
 

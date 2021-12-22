@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resource :session, only: [:create, :destroy]
+
     resources :users, only: [:index, :create, :show, :update] do
       get '/activity', to: 'posts#user_activity'
     end
@@ -12,6 +13,9 @@ Rails.application.routes.draw do
     resources :connections, only: [:destroy]
     get '/connections/:id', to: 'connections#index'
     post '/connections/:id', to: 'connections#create'
+
+    resources :comments, only: [:create, :update, :destroy]
+    get '/comments/:id', to: 'comments#index'
 
     # get '/users/:user_id/activity', to: 'posts#user_activity'
     # get '/users/:user_id/connections/:id', to: 'connections#create'

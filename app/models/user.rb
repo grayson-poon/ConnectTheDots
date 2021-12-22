@@ -8,6 +8,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :photo
   
   has_many :connections, -> { where request_accepted: true },
@@ -27,6 +28,10 @@ class User < ApplicationRecord
   has_many :pending_users,
     through: :pending,
     source: :user
+
+  has_many :posts_commented_on,
+    through: :comments,
+    source: :post
 
   def self.find_by_credentials(email, password)
     @user = User.find_by(email: email)
