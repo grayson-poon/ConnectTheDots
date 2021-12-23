@@ -11,6 +11,7 @@ json.comments @post.comments do |comment|
   json.body comment.body
   json.user_id comment.user_id
   json.post_id comment.post_id
+  json.created_at distance_of_time_in_words(comment.created_at, Time.now)
 end
 
 json.commented_users @post.commented_users do |user|

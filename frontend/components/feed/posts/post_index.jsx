@@ -19,7 +19,7 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    let { posts, users, currentUser, updatePost, openModal } = this.props;
+    let { posts, users, currentUser, openModal } = this.props;
     
     return (
       <div className="post-index">
@@ -36,7 +36,6 @@ export default class PostIndex extends React.Component {
                     post={post}
                     user={users[post.userId]}
                     currentUser={currentUser}
-                    updatePost={updatePost}
                     openModal={openModal}
                   />
                 ))}

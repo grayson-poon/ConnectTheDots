@@ -1,22 +1,26 @@
 import React from "react";
+import CommentIndexItem from "./comment_index_item";
 
 export default class CommentIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchComments(this.props.post.id);
+    let { post, comments, fetchComments } = this.props;
+    post.commentIds.every((id) => comments[id]) ? null : fetchComments(post.id);
   }
 
   render() {
-    let state = true;
-    let { comments, post } = this.props;
-    
-    // post.commentIds.map((commentId) => {
-    //   if (!comments[commentId]) state = false;
-    // });
-    // if (!state) return null;
+    let { comments, post, user, currentUser, openModal } = this.props;
 
     return (
-      <div>
-        {/* {this.props.body} */}
+      <div className="comment-index">
+        {Object.values(comments).map((comment) => {
+          return <CommentIndexItem
+            comment={comment}
+            user={user}
+            currentUser={currentUser}
+            post={post}
+            openModal={openModal}
+          />
+        })}
       </div>
     );
   }

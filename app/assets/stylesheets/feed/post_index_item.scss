@@ -135,7 +135,6 @@ div.post-picture {
   display: flex;
   justify-content: center;
   align-items: center;
-  // margin-bottom: 25px;
 }
 
 div.post-picture > img {
@@ -143,4 +142,74 @@ div.post-picture > img {
   max-width: inherit;
   height: auto;
   width: auto;
+}
+
+.comments-header {
+  box-sizing: border-box;
+  padding: 8px 0 8px 0;
+  margin: 0 16px 0 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: right;
+}
+
+.comments-count {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.comments-count:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.comments-index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-comment-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.comment-form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.comment-form-header img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.new-comment-form input {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  outline: none;
+  color: black;
+  border-radius: 35px;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  padding: 10px;
+  width: 398px;
+}
+
+.new-comment-form input:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.3);
 }

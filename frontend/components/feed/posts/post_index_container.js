@@ -20,7 +20,6 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => ({
   fetchPosts: (url, userId) => dispatch(fetchPosts(url, userId)),
   createPost: (post) => dispatch(createPost(post)),
-  updatePost: (post) => dispatch(updatePost(post)),
   openModal: (modalType, entity) => dispatch(openModal(modalType, entity)),
 });
 
