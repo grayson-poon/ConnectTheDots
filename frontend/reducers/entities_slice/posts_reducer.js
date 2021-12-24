@@ -1,3 +1,4 @@
+import { REMOVE_COMMENT } from "../../actions/comment_actions";
 import { 
   RECEIVE_WHOLE_POSTS,
   RECEIVE_POST,
@@ -10,6 +11,8 @@ const _nullPosts = Object.freeze({});
 const postsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
+  let post;
+  let idx;
 
   switch(action.type) {
     case RECEIVE_WHOLE_POSTS:
@@ -26,6 +29,15 @@ const postsReducer = (state = {}, action) => {
       return newState;
     case LOGOUT_CURRENT_USER:
       return _nullPosts;
+    case REMOVE_COMMENT:
+      post = newState[action.comment.postId];
+      idx = post.commentIds.indexOf(parseInt(action.comment.id));
+
+      if (idx > -1) {
+        post.commentIds.splice(idx, 1);
+      }
+
+      return newState;
     default:
       return state;
   };

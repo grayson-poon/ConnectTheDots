@@ -51,7 +51,7 @@ export default class CommentIndexItem extends React.Component {
         </div>
 
         {this.state.commentModal ? (
-          <CommentModal showModal={this.showModal} />
+          <CommentModal showModal={this.showModal} comment={comment} />
         ) : null}
       </div>
     );
