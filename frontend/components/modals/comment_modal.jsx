@@ -3,12 +3,15 @@ import { connect } from "react-redux";
 import { deleteComment, updateComment } from "../../actions/comment_actions";
 import { EDIT_ICON, REMOVE_BUTTON } from "../../util/images_and_icons_util";
 
-const CommentModal = ({ comment, showModal, deleteComment, updateComment }) => {
+const CommentModal = ({ comment, showModal, deleteComment, updateComment, editCommentForm }) => {
   return (
     <>
       <div onClick={showModal} className="comment-modal-background"></div>
       <div className="comment-modal">
-        <button>
+        <button onClick={(event) => {
+          showModal(event);
+          editCommentForm(event);
+        }}>
           <img src={EDIT_ICON} />
           <div>Edit</div>
         </button>

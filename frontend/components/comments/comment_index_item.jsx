@@ -9,8 +9,11 @@ export default class CommentIndexItem extends React.Component {
     super(props);
     this.state = {
       commentModal: false,
-    }
+      comment: props.comment,
+      editComment: false,
+    };
     this.showModal = this.showModal.bind(this);
+    this.editCommentForm = this.editCommentForm.bind(this);
   }
 
   render() {
@@ -21,7 +24,9 @@ export default class CommentIndexItem extends React.Component {
         <Link className="comment-header-image" to={`/users/${user.id}`}>
           <img
             src={
-              user.profilePicture ? user.profilePicture : DEFAULT_PROFILE_PICTURE
+              user.profilePicture
+                ? user.profilePicture
+                : DEFAULT_PROFILE_PICTURE
             }
           />
         </Link>
@@ -47,11 +52,25 @@ export default class CommentIndexItem extends React.Component {
 
           <div className="comment-headline">{user.headline}</div>
 
-          <div className="comment-body">{comment.body}</div>
+          <div className="comment-body">
+            {this.state.editComment ? (
+              <textarea
+                type="text"
+                value={this.state.comment.body}
+                onChange={this.updateField("body")}
+              />
+            ) : (
+              <div>{comment.body}</div>
+            )}
+          </div>
         </div>
 
         {this.state.commentModal ? (
-          <CommentModal showModal={this.showModal} comment={comment} />
+          <CommentModal
+            showModal={this.showModal}
+            comment={comment}
+            editCommentForm={this.editCommentForm}
+          />
         ) : null}
       </div>
     );
@@ -62,5 +81,21 @@ export default class CommentIndexItem extends React.Component {
     this.state.commentModal
       ? this.setState({ commentModal: false })
       : this.setState({ commentModal: true });
+  }
+
+  editCommentForm(event) {
+    event.preventDefault();
+    this.state.editComment
+      ? this.setState({ editComment: false })
+      : this.setState({ editComment: true });
+  }
+
+  updateField(field) {
+    let comment = Object.assign({}, this.state.comment);
+
+    return (event) => {
+      comment[field] = event.target.value;
+      this.setState({ comment });
+    };
   }
 };
