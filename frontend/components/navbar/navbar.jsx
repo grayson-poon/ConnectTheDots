@@ -50,7 +50,6 @@ export default class Navbar extends React.Component {
 
   showModal(event) {
     event.preventDefault();
-
     this.setState({
       profileDropdown: this.state.profileDropdown ? false : true,
     });

@@ -28,6 +28,8 @@ const Modal = ({ modal }) => {
     case "editUser":
       document.body.style.overflow = "hidden";
       return <EditUser user={modal.entity} />;
+    case "commentModal":
+      return;
     default:
       document.body.style.overflow = "scroll";
       return null;

@@ -74,13 +74,13 @@ export default class PostIndexItem extends React.Component {
           </ul>
 
           <div className="new-comment-form">
-            <div className="comment-form-header">
+            <Link className="comment-form-header" to={`/users/${currentUser.id}`}>
               <img src={
                 currentUser.profilePicture
                   ? currentUser.profilePicture
                   : DEFAULT_PROFILE_PICTURE
               } />
-            </div>
+            </Link>
             <input type="text" placeholder="Tell them what you loved..."/>
           </div>
 
