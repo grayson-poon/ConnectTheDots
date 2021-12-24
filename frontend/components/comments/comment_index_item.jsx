@@ -40,7 +40,7 @@ export default class CommentIndexItem extends React.Component {
 
             <div>
               <div>{comment.createdAt}</div>
-              {currentUser.id === user.id ? (
+              {currentUser.id === user.id && !this.state.editComment ? (
                 <div className="comment-header-util">
                   <button onClick={this.showModal}>
                     <img src={HORIZONTAL_DOTS} />
@@ -54,13 +54,21 @@ export default class CommentIndexItem extends React.Component {
 
           <div className="comment-body">
             {this.state.editComment ? (
-              <textarea
-                type="text"
-                value={this.state.comment.body}
-                onChange={this.updateField("body")}
-              />
+              <div className="edit-comment-form">
+                <textarea
+                  type="text"
+                  value={this.state.comment.body}
+                  onChange={this.updateField("body")}
+                />
+                <div className="comment-buttons">
+                  <button>Save Changes</button>
+                  <button onClick={(event) => {
+                    this.editCommentForm(event);
+                  }}>Cancel</button>
+                </div>
+              </div>
             ) : (
-              <div>{comment.body}</div>
+              <div className="plain-comment-body">{comment.body}</div>
             )}
           </div>
         </div>
@@ -86,7 +94,7 @@ export default class CommentIndexItem extends React.Component {
   editCommentForm(event) {
     event.preventDefault();
     this.state.editComment
-      ? this.setState({ editComment: false })
+      ? this.setState({ editComment: false, comment: this.props.comment })
       : this.setState({ editComment: true });
   }
 
