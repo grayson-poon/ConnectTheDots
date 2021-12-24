@@ -87,7 +87,6 @@ export default class PostIndexItem extends React.Component {
           {this.state.showComments ? (
             <CommentIndexContainer
               post={post}
-              user={user}
               currentUser={currentUser}
             />
           ) : null}

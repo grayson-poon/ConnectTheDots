@@ -5,6 +5,7 @@ import CommentIndex from "./comment_index";
 
 const mSTP = (state, ownProps) => ({
   comments: state.entities.comments,
+  users: state.entities.users,
 });
 
 const mDTP = (dispatch) => ({

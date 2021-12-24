@@ -8,16 +8,17 @@ export default class CommentIndex extends React.Component {
   }
 
   render() {
-    let { comments, post, user, currentUser, openModal } = this.props;
+    let { post, comments, users, currentUser, openModal } = this.props;
+    if (post.commentIds.some((id) => !comments[id])) return null;
 
     return (
       <div className="comment-index">
-        {Object.values(comments).map((comment) => {
+        {post.commentIds.map((id, idx) => {
           return <CommentIndexItem
-            comment={comment}
-            user={user}
+            key={idx}
+            comment={comments[id]}
+            user={users[comments[id].userId]}
             currentUser={currentUser}
-            post={post}
             openModal={openModal}
           />
         })}

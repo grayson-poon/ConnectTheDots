@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../util/images_and_icons_util";
 
-const CommentIndexItem = ({ comment, user, currentUser, post, openModal }) => {
+const CommentIndexItem = ({ comment, user, currentUser, openModal }) => {
   return (
     <div className="comment-index-item">
       <Link className="comment-header-image">
@@ -15,10 +15,14 @@ const CommentIndexItem = ({ comment, user, currentUser, post, openModal }) => {
 
       <div className="comment">
         <div className="comment-header-titles">
-          <div>{`${user.firstName} ${user.lastName}`}</div>
+          <div>
+            <div>{`${user.firstName} ${user.lastName}`}</div>
+            <div>{`(${user.pronouns})`}</div>
+          </div>
+          
           <div>
             <div>{comment.createdAt}</div>
-            {currentUser.id === post.userId ? (
+            {currentUser.id === user.id ? (
               <div className="comment-header-util">
                 <button>
                   <img src={HORIZONTAL_DOTS} />

@@ -1,0 +1,116 @@
+.comment-index-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 16px 0px 16px;
+}
+
+.comment-header-image {
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+}
+
+.comment-header-image img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.comment {
+  width: 394px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(242, 242, 242);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  padding: 8px 12px 8px 12px;
+  margin: 0px 0px 16px 8px;
+}
+
+// .my-comment {
+//   width: 394px;
+//   display: flex;
+//   flex-direction: column;
+//   background-color: rgb(242, 242, 242);
+//   border-bottom-left-radius: 8px;
+//   border-bottom-right-radius: 8px;
+//   border-top-right-radius: 8px;
+//   overflow: hidden;
+//   padding: 8px 12px 8px 12px;
+//   margin: 0px 8px 16px 0px;
+// }
+
+.comment-header-titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-header-titles > div:first-child {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  line-height: 21px;
+  height: min-content;
+}
+
+.comment-header-titles > div:first-child > div:first-child {
+  color: black;
+  font-weight: 600;
+}
+
+.comment-header-titles > div:first-child > div:last-child {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.comment-header-titles > div:last-child {
+  display: flex;
+  flex-direction: row;
+  height: min-content;
+}
+
+.comment-header-titles > div:last-child > div:first-child {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  height: min-content;
+  margin-right: 5px;
+}
+
+.comment-header-util {
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-header-util > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.comment-header-util > button:hover {
+  background-color: lightgray;
+}
+
+.comment-header-util > button > img {
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+}
