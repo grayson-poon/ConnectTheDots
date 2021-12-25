@@ -1,10 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { updateComment } from "../../actions/comment_actions";
 import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../util/images_and_icons_util";
 import CommentModal from "../modals/comment_modal";
 
-export default class CommentIndexItem extends React.Component {
+class CommentIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +66,7 @@ export default class CommentIndexItem extends React.Component {
                 <div className="comment-buttons">
                   <button onClick={(event) => {
                     this.editCommentForm(event);
-                    // this.props.updateComment(this.state.comment);
+                    this.props.updateComment({ comment: this.state.comment });
                   }}>Save Changes</button>
                   <button onClick={(event) => {
                     this.editCommentForm(event);
@@ -111,3 +113,11 @@ export default class CommentIndexItem extends React.Component {
     };
   }
 };
+
+const mDTP = (dispatch) => {
+  return {
+    updateComment: (comment) => dispatch(updateComment(comment)),
+  }
+};
+
+export default connect(null, mDTP)(CommentIndexItem);
