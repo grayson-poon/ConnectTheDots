@@ -56,12 +56,16 @@ export default class CommentIndexItem extends React.Component {
             {this.state.editComment ? (
               <div className="edit-comment-form">
                 <textarea
+                  id="textarea"
                   type="text"
                   value={this.state.comment.body}
                   onChange={this.updateField("body")}
                 />
                 <div className="comment-buttons">
-                  <button>Save Changes</button>
+                  <button onClick={(event) => {
+                    this.editCommentForm(event);
+                    // this.props.updateComment(this.state.comment);
+                  }}>Save Changes</button>
                   <button onClick={(event) => {
                     this.editCommentForm(event);
                   }}>Cancel</button>
