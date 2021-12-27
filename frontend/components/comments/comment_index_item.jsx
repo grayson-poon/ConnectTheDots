@@ -67,13 +67,13 @@ class CommentIndexItem extends React.Component {
                 <div className="comment-buttons">
                   {this.state.comment.body.length > 0 ? (
                     <button onClick={(event) => {
-                      this.editComment(event);
-                      this.props.updateComment({ comment: this.state.comment });
+                      this.props.updateComment({ comment: this.state.comment })
+                        .then(() => this.editComment(event));
                     }}>Save Changes</button>
                   ) : null}
                   <button onClick={(event) => {
-                    this.editComment(event);
                     this.setState({ comment });
+                    this.editComment(event);
                   }}>Cancel</button>
                 </div>
               </div>
