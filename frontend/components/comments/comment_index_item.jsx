@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateComment } from "../../actions/comment_actions";
+import { fetchComments } from "../../util/comments_api_util";
 import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../util/images_and_icons_util";
 import CommentModal from "../modals/comment_modal";
 
@@ -15,7 +16,7 @@ class CommentIndexItem extends React.Component {
       editComment: false,
     };
     this.showModal = this.showModal.bind(this);
-    this.editCommentForm = this.editCommentForm.bind(this);
+    this.editComment = this.editComment.bind(this);
   }
 
   render() {
@@ -64,12 +65,15 @@ class CommentIndexItem extends React.Component {
                   onChange={this.updateField("body")}
                 />
                 <div className="comment-buttons">
+                  {this.state.comment.body.length > 0 ? (
+                    <button onClick={(event) => {
+                      this.editComment(event);
+                      this.props.updateComment({ comment: this.state.comment });
+                      this.setState({ comment: this.state.comment });
+                    }}>Save Changes</button>
+                  ) : null}
                   <button onClick={(event) => {
-                    this.editCommentForm(event);
-                    this.props.updateComment({ comment: this.state.comment });
-                  }}>Save Changes</button>
-                  <button onClick={(event) => {
-                    this.editCommentForm(event);
+                    this.editComment(event);
                   }}>Cancel</button>
                 </div>
               </div>
@@ -83,7 +87,7 @@ class CommentIndexItem extends React.Component {
           <CommentModal
             showModal={this.showModal}
             comment={comment}
-            editCommentForm={this.editCommentForm}
+            editComment={this.editComment}
           />
         ) : null}
       </div>
@@ -97,7 +101,7 @@ class CommentIndexItem extends React.Component {
       : this.setState({ commentModal: true });
   }
 
-  editCommentForm(event) {
+  editComment(event) {
     event.preventDefault();
     this.state.editComment
       ? this.setState({ editComment: false, comment: this.props.comment })
