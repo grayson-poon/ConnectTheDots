@@ -105,7 +105,9 @@ class PostIndexItem extends React.Component {
 
             {this.state.comment.body.length > 0 ? (
               <div className="comment-submit">
-                <button>Post</button>
+                <button onClick={(event) => {
+                  this.handleSubmit(event);
+                }}>Post</button>
               </div>
             ) : null}
           </div>
@@ -117,6 +119,17 @@ class PostIndexItem extends React.Component {
       </li>
     );
   };
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let comment = Object.assign(this.state.comment);
+    
+    this.props.createComment({ comment })
+      .then(() => {
+        comment.body = "";
+        this.setState({ comment });
+      });
+  }
 
   handleClick(event) {
     event.preventDefault();
