@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:create, :update, :destroy]
     get '/comments/:id', to: 'comments#index'
+    get '/single_comment/:id', to: 'comments#show'
 
     # get '/users/:user_id/activity', to: 'posts#user_activity'
     # get '/users/:user_id/connections/:id', to: 'connections#create'

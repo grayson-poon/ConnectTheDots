@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { updateComment } from "../../actions/comment_actions";
+import { fetchComment, updateComment } from "../../actions/comment_actions";
 import { fetchComments } from "../../util/comments_api_util";
 import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../util/images_and_icons_util";
 import CommentModal from "../modals/comment_modal";
@@ -20,7 +20,7 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
-    let { comment, user, currentUser, openModal } = this.props;
+    let { comment, user, currentUser, fetchComment } = this.props;
 
     return (
       <div className="comment-index-item">
@@ -69,11 +69,11 @@ class CommentIndexItem extends React.Component {
                     <button onClick={(event) => {
                       this.editComment(event);
                       this.props.updateComment({ comment: this.state.comment });
-                      this.setState({ comment: this.state.comment });
                     }}>Save Changes</button>
                   ) : null}
                   <button onClick={(event) => {
                     this.editComment(event);
+                    this.setState({ comment });
                   }}>Cancel</button>
                 </div>
               </div>
@@ -104,7 +104,7 @@ class CommentIndexItem extends React.Component {
   editComment(event) {
     event.preventDefault();
     this.state.editComment
-      ? this.setState({ editComment: false, comment: this.props.comment })
+      ? this.setState({ editComment: false })
       : this.setState({ editComment: true });
   }
 
@@ -112,6 +112,7 @@ class CommentIndexItem extends React.Component {
     let comment = Object.assign({}, this.state.comment);
 
     return (event) => {
+      event.preventDefault();
       comment[field] = event.target.value;
       this.setState({ comment });
     };
@@ -121,6 +122,7 @@ class CommentIndexItem extends React.Component {
 const mDTP = (dispatch) => {
   return {
     updateComment: (comment) => dispatch(updateComment(comment)),
+    fetchComment: (commentId) => dispatch(fetchComment(commentId)),
   }
 };
 

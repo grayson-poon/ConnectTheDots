@@ -1,9 +1,16 @@
 export const fetchComments = (postId) => {
   return $.ajax({
     method: "GET",
-    url: `/api/comments/${postId}`
+    url: `/api/comments/${postId}`,
   });
 };
+
+export const fetchComment = (commentId) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/single_comment/${commentId}`,
+  })
+}
 
 export const createComment = (comment) => {
   return $.ajax({

@@ -2,8 +2,18 @@ class Api::CommentsController < ApplicationController
   def index
     @post = Post.find_by(id: params[:id])
     @current_user = current_user
-
+    
     render "api/comments/all_comments"
+  end
+
+  def show
+    @comment = Comment.find_by(id: params[:id])
+
+    if @comment
+      render "api/comments/comment"
+    else
+      render json: @comment.errors.full_messages, status: 404
+    end
   end
 
   def create

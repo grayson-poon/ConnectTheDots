@@ -176,6 +176,11 @@ div.post-picture > img {
 
 .new-comment-form {
   display: flex;
+  flex-direction: column;
+}
+
+.comment-form-input {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -196,7 +201,7 @@ div.post-picture > img {
   object-fit: cover;
 }
 
-.new-comment-form input {
+.comment-form-input input {
   border: 1px solid rgba(0, 0, 0, 0.3);
   outline: none;
   color: black;
@@ -208,6 +213,30 @@ div.post-picture > img {
   width: 398px;
 }
 
-.new-comment-form input:focus {
+.comment-form-input input:focus {
   outline: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.comment-submit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px 0px 8px 62px;
+}
+
+.comment-submit button {
+  background-color: rgb(10, 102, 194);
+  padding: 2px 12px;
+  color: white;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.comment-submit button:hover {
+  background-color: rgb(7, 72, 138);
 }

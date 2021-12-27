@@ -8,6 +8,11 @@ export default class PostIndexItem extends React.Component {
     super(props);
     this.state = {
       showComments: false,
+      comment: {
+        body: "",
+        userId: props.currentUser.id,
+        postId: props.post.id,
+      }
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -74,21 +79,36 @@ export default class PostIndexItem extends React.Component {
           </ul>
 
           <div className="new-comment-form">
-            <Link className="comment-form-header" to={`/users/${currentUser.id}`}>
-              <img src={
-                currentUser.profilePicture
-                  ? currentUser.profilePicture
-                  : DEFAULT_PROFILE_PICTURE
-              } />
-            </Link>
-            <input type="text" placeholder="Tell them what you loved..."/>
+            <div className="comment-form-input">
+              <Link
+                className="comment-form-header"
+                to={`/users/${currentUser.id}`}
+              >
+                <img
+                  src={
+                    currentUser.profilePicture
+                      ? currentUser.profilePicture
+                      : DEFAULT_PROFILE_PICTURE
+                  }
+                />
+              </Link>
+              <input
+                type="text"
+                placeholder="Tell them what you loved..."
+                value={this.state.comment.body}
+                onChange={this.updateField("body")}
+              />
+            </div>
+
+            {this.state.comment.body.length > 0 ? (
+              <div className="comment-submit">
+                <button>Post</button>
+              </div>
+            ) : null}
           </div>
 
           {this.state.showComments ? (
-            <CommentIndexContainer
-              post={post}
-              currentUser={currentUser}
-            />
+            <CommentIndexContainer post={post} currentUser={currentUser} />
           ) : null}
         </div>
       </li>
@@ -100,5 +120,15 @@ export default class PostIndexItem extends React.Component {
     this.state.showComments
       ? this.setState({ showComments: false })
       : this.setState({ showComments: true });
+  }
+
+  updateField(field) {
+    let comment = Object.assign({}, this.state.comment);
+
+    return (event) => {
+      event.preventDefault();
+      comment[field] = event.target.value;
+      this.setState({ comment });
+    }
   }
 }
