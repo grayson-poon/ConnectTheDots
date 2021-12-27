@@ -1,8 +1,10 @@
 import React from "react";
+import { openModal } from "../../../actions/modal_actions";
 import { DEFAULT_PROFILE_PICTURE, POST_PICTURE_ICON } from "../../../util/images_and_icons_util";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class NewPostForm extends React.Component {
+class NewPostForm extends React.Component {
   render() {
     let { currentUser, openModal } = this.props;
 
@@ -61,3 +63,11 @@ export default class NewPostForm extends React.Component {
     if (file) fileReader.readAsDataURL(file);
   };
 }
+
+const mDTP = (dispatch) => {
+  return {
+    openModal: (modalType, entity) => dispatch(openModal(modalType, entity)),
+  };
+}
+
+export default connect(null, mDTP)(NewPostForm);

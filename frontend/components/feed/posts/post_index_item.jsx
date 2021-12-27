@@ -1,9 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { createComment } from "../../../actions/comment_actions";
+import { openModal } from "../../../actions/modal_actions";
 import { DEFAULT_PROFILE_PICTURE, HORIZONTAL_DOTS } from "../../../util/images_and_icons_util";
 import CommentIndexContainer from "../../comments/comment_index_container";
 
-export default class PostIndexItem extends React.Component {
+class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -131,4 +134,13 @@ export default class PostIndexItem extends React.Component {
       this.setState({ comment });
     }
   }
-}
+};
+
+const mDTP = (dispatch) => {
+  return {
+    createComment: (comment) => dispatch(createComment(comment)),
+    openModal: (modalType, entity) => dispatch(openModal(modalType, entity)),
+  };
+};
+
+export default connect(null, mDTP)(PostIndexItem);

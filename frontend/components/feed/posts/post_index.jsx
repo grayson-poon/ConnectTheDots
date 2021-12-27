@@ -19,11 +19,11 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    let { posts, users, currentUser, openModal } = this.props;
+    let { posts, users, currentUser } = this.props;
     
     return (
       <div className="post-index">
-        <NewPostForm currentUser={currentUser} openModal={openModal} />
+        <NewPostForm currentUser={currentUser} />
 
         {Object.values(posts).length === 0 ? null : (
           <div className="posts-list">
@@ -36,7 +36,6 @@ export default class PostIndex extends React.Component {
                     post={post}
                     user={users[post.userId]}
                     currentUser={currentUser}
-                    openModal={openModal}
                   />
                 ))}
             </ul>
