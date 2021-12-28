@@ -72,7 +72,8 @@ export default class PostIndex extends React.Component {
 
   zeroActivity() {
     return (
-      <div className="activty-header">
+      <div className="activity-header">
+        <div>Activity</div>
         <div>No activity yet!</div>
       </div>
     )
