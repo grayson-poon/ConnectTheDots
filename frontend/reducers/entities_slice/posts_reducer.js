@@ -33,9 +33,12 @@ const postsReducer = (state = {}, action) => {
       return _nullPosts;
     case RECEIVE_COMMENT:
       post = newState[action.comment.postId];
-      post.commentIds.push(action.comment.id);
-      post.commentIds.sort((first, second) => second - first);
 
+      if (!post.commentIds.includes(action.comment.id)) {
+        post.commentIds.push(action.comment.id);
+      }
+
+      post.commentIds.sort((first, second) => second - first);
       return newState;
     case REMOVE_COMMENT:
       post = newState[action.comment.postId];
