@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MY_NETWORK } from "../../../util/url_paths_util";
 
-
 const ActivitySection = ({ user, openModal, currentUser }) => {
   return !user || !currentUser ? null : (
     <div className="profile-activity">

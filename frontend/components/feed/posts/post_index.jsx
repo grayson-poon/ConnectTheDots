@@ -1,10 +1,7 @@
 import React from "react";
 import PostIndexItem from "./post_index_item";
 import NewPostForm from "./new_post_form";
-import {
-  ACTIVITY_TAIL,
-  FEED
-} from "../../../util/url_paths_util";
+import { FEED } from "../../../util/url_paths_util";
 
 export default class PostIndex extends React.Component {
   componentDidMount() {

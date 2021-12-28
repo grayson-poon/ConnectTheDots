@@ -1,10 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import PostIndex from "./post_index";
-import { 
-  fetchPosts, 
-  createPost, 
-} from "../../../actions/post_actions";
+import { fetchPosts, createPost } from "../../../actions/post_actions";
 import { fetchUser } from "../../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {

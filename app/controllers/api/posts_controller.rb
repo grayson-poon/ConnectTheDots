@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  def index # get feed posts
+  def index
     @user = current_user
     posts = @current_user.posts
 
@@ -8,9 +8,7 @@ class Api::PostsController < ApplicationController
     end
 
     @posts = posts.sort_by(&:created_at)
-
     render "api/posts/index"
-    # @comments = query for those posts' comments
   end
 
   def activity
