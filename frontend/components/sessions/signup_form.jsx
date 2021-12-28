@@ -108,59 +108,62 @@ export default class SignupForm extends React.Component {
 
   emailPasswordForm() {
     return (
-        <div className="signup-form-page">
-          <div className="gray-background"></div>
-          <div className="signup-form-header">
-            Make the most out of your professional life
+      <div className="signup-form-page">
+        <div className="gray-background"></div>
+        <div className="signup-form-header">
+          Make the most out of your professional life
+        </div>
+        <div className="signup-form">
+          <div className="signup-input-container">
+            <div>Email*</div>
+            <div className="signup-input">
+              <input
+                type="text"
+                onChange={this.updateField("email")}
+                value={this.state.user.email}
+                required
+              />
+            </div>
           </div>
-          <div className="signup-form">
-            <div className="signup-input-container">
-              <div>Email*</div>
-              <div className="signup-input">
-                <input
-                  type="text"
-                  onChange={this.updateField("email")}
-                  value={this.state.user.email}
-                  required
-                />
-              </div>
-            </div>
 
-            <div className="signup-input-container">
-              <div>Password* (6 or more characters)</div>
-              <div className="signup-input">
-                <input
-                  type="password"
-                  onChange={this.updateField("password")}
-                  value={this.state.user.password}
-                  required
-                />
-              </div>
+          <div className="signup-input-container">
+            <div>Password* (6 or more characters)</div>
+            <div className="signup-input">
+              <input
+                type="password"
+                onChange={this.updateField("password")}
+                value={this.state.user.password}
+                required
+              />
             </div>
+          </div>
 
-            <div className="signup-buttons">
+          <div className="signup-buttons">
+            {this.state.user.password.length >= 6 &&
+            this.state.user.email.length > 0 ? (
               <button onClick={this.updateFormNum} value={NEXT}>
                 Next
               </button>
-            </div>
+            ) : null}
+          </div>
 
-            <div id="signup-message">
-              <div>Already on ConnectTheDots?</div>
-              <Link to={LOGIN_FORM}>Sign in</Link>
-            </div>
+          <div id="signup-message">
+            <div>Already on ConnectTheDots?</div>
+            <Link to={LOGIN_FORM}>Sign in</Link>
+          </div>
 
-            <div className="demo-user-alternate">
-              <div>Don't want to be bothered with a long signup process?</div>
-              <button
-                id="demo-user"
-                onClick={this.handleSubmit}
-                value="Demo User"
-              >
-                Demo User
-              </button>
-            </div>
+          <div className="demo-user-alternate">
+            <div>Don't want to be bothered with a long signup process?</div>
+            <button
+              id="demo-user"
+              onClick={this.handleSubmit}
+              value="Demo User"
+            >
+              Demo User
+            </button>
           </div>
         </div>
+      </div>
     );
   }
 
@@ -206,9 +209,12 @@ export default class SignupForm extends React.Component {
           </div>
 
           <div className="signup-buttons">
-            <button onClick={this.updateFormNum} value={NEXT}>
-              Next
-            </button>
+            {this.state.user.firstName.length > 0 &&
+            this.state.user.lastName.length > 0 ? (
+              <button onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            ) : null}
             <button onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
@@ -239,9 +245,11 @@ export default class SignupForm extends React.Component {
           </div>
 
           <div className="signup-buttons">
-            <button onClick={this.updateFormNum} value={NEXT}>
-              Next
-            </button>
+            {this.state.user.currentLocation.length > 0 ? (
+              <button onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            ) : null}
             <button onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
@@ -273,9 +281,11 @@ export default class SignupForm extends React.Component {
           </div>
 
           <div className="signup-buttons">
-            <button onClick={this.updateFormNum} value={NEXT}>
-              Next
-            </button>
+            {this.state.user.headline.length > 0 ? (
+              <button onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            ) : null}
             <button onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
