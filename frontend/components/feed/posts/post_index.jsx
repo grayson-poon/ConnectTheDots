@@ -5,10 +5,11 @@ import { FEED } from "../../../util/url_paths_util";
 
 export default class PostIndex extends React.Component {
   componentDidMount() {
-    let { url, fetchPosts, fetchUser } = this.props;
+    let { url, fetchPosts, fetchUser, currentUser } = this.props;
 
     switch(url) {
       case FEED:
+        fetchUser(currentUser.id);
         return fetchPosts();
       default:
         fetchUser(this.props.match.params.userId);
