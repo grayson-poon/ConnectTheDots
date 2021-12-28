@@ -20,27 +20,27 @@ export default class PostIndex extends React.Component {
     let { url, posts, users, currentUser } = this.props;
     
     return (
-      <div className="post-index">
-        {url === FEED
-          ? <NewPostForm currentUser={currentUser} />
-          : null}
-        
-        {Object.values(posts).length === 0 ? null : (
-          <div className="posts-list">
-            <ul>
-              {Object.values(posts)
-                .reverse()
-                .map((post) => (
-                  <PostIndexItem
-                    key={post.id}
-                    post={post}
-                    user={users[post.userId]}
-                    currentUser={currentUser}
-                  />
-                ))}
-            </ul>
-          </div>
-        )}
+      <div className="post-index-background">
+        <div className="post-index">
+          {url === FEED ? <NewPostForm currentUser={currentUser} /> : null}
+
+          {Object.values(posts).length === 0 ? null : (
+            <div className="posts-list">
+              <ul>
+                {Object.values(posts)
+                  .reverse()
+                  .map((post) => (
+                    <PostIndexItem
+                      key={post.id}
+                      post={post}
+                      user={users[post.userId]}
+                      currentUser={currentUser}
+                    />
+                  ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
