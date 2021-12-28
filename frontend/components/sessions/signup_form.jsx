@@ -198,7 +198,7 @@ export default class SignupForm extends React.Component {
           </div>
 
           <div className="signup-input-container">
-            <div>Preferred Pronouns</div>
+            <div>Preferred Pronouns (Ex: he/him, she/her, they/them)</div>
             <div className="signup-input">
               <input
                 type="text"
