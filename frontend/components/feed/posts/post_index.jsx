@@ -8,23 +8,26 @@ import {
 
 export default class PostIndex extends React.Component {
   componentDidMount() {
-    switch(this.props.url) {
+    let { url, fetchPosts, fetchUser } = this.props;
+
+    switch(url) {
       case FEED:
-        return this.props.fetchPosts(this.props.url);
-      case this.props.includes(ACTIVITY_TAIL):
-        return this.props.fetchPosts(ACTIVITY_TAIL, this.props.match.params.userId);
+        return fetchPosts();
       default:
-        return null;
+        fetchUser(this.props.match.params.userId);
+        return fetchPosts(this.props.match.params.userId);
     }
   }
 
   render() {
-    let { posts, users, currentUser } = this.props;
+    let { url, posts, users, currentUser } = this.props;
     
     return (
       <div className="post-index">
-        <NewPostForm currentUser={currentUser} />
-
+        {url === FEED
+          ? <NewPostForm currentUser={currentUser} />
+          : null}
+        
         {Object.values(posts).length === 0 ? null : (
           <div className="posts-list">
             <ul>

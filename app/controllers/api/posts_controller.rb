@@ -1,9 +1,9 @@
 class Api::PostsController < ApplicationController
   def index # get feed posts
-    @current_user = current_user
+    @user = current_user
     posts = @current_user.posts
 
-    @current_user.connected_users.each do |user|
+    @user.connected_users.each do |user|
       posts += user.posts
     end
 
@@ -13,12 +13,9 @@ class Api::PostsController < ApplicationController
     # @comments = query for those posts' comments
   end
 
-  def user_activity
-    @posts = Post.where("user_id = ?", current_user.id)
-
-    # post_commented_on = Post
-    #   .joins(:comments)
-    #   .where("user_id = ?", current_user.id)
+  def activity
+    @user = User.find_by(id: params[:user_id])
+    @posts = (@user.posts + @user.posts_commented_on).sort_by(&:created_at)
 
     render "api/posts/index"
   end

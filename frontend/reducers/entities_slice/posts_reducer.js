@@ -16,6 +16,8 @@ const postsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_WHOLE_POSTS:
+      newState = {};
+      
       action.posts.map((post) => {
         newState[post.id] = post;
       });

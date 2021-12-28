@@ -25,7 +25,7 @@ const ActivitySection = ({ user, openModal, currentUser }) => {
       </div>
 
       <div className="activity-button">
-        <button>See all activity</button>
+        <Link to={`/users/${user.id}/activity`}>See all activity</Link>
       </div>
     </div>
   );

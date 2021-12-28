@@ -25,7 +25,7 @@ json.posts @posts do |post|
   json.comment_ids post.comments.sort_by(&:created_at).pluck(:id).reverse
 end
 
-json.connected_users @current_user.connected_users do |user|
+json.connected_users @user.connected_users do |user|
   json.id user.id
   json.first_name user.first_name 
   json.last_name user.last_name 
@@ -35,7 +35,5 @@ json.connected_users @current_user.connected_users do |user|
   json.about user.about
   json.profile_picture url_for(user.photo) if user.photo.attached?
   json.connection_ids user.connections.pluck(:connection_id)
-  json.pending_ids user.pending.pluck(:user_id).include?(@current_user.id) ? [@current_user.id] : []
+  json.pending_ids user.pending.pluck(:user_id).include?(@user.id) ? [@user.id] : []
 end
-
-json.current_user_id @current_user.id

@@ -80,7 +80,7 @@ div.activity-button {
   max-height: 40px;
 }
 
-div.activity-button button {
+div.activity-button a {
   border: none;
   font-size: 16px;
   line-height: 20px;
@@ -89,9 +89,11 @@ div.activity-button button {
   color: rgba(0, 0, 0, 0.6);
   background-color: transparent;
   padding: 16px 20px 16px 20px;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 div.activity-button:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: underline;
+  cursor: pointer;
 }

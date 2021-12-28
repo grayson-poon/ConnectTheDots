@@ -1,19 +1,15 @@
-import { ACTIVITY_TAIL, FEED } from "./url_paths_util";
-
-export const fetchPosts = (url, userId) => {
-  switch (url) {
-    case FEED:
+export const fetchPosts = (userId) => {
+  switch(userId) {
+    case null:
       return $.ajax({
         method: "GET",
         url: "/api/posts",
       });
-    case ACTIVITY_TAIL:
+    default:
       return $.ajax({
         method: "GET",
         url: `/api/users/${userId}/activity`,
       });
-    default:
-      return;
   }
 };
 

@@ -6,3 +6,4 @@ export const USER_SHOW = "/users/:userId";
 export const MY_NETWORK = "/my_network";
 export const ACTIVITY = "/users/:userId/activity";
 export const ACTIVITY_TAIL = "/activity";
+export const OTHER_NETWORK = "/users/:id/connections";

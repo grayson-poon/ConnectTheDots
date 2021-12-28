@@ -6,12 +6,11 @@ export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 export const CLEAR_POST_ERRORS = "CLEAR_POST_ERRORS";
 
-const receiveWholePosts = ({ posts, connectedUsers, currentUserId }) => {
+const receiveWholePosts = ({ posts, connectedUsers }) => {
   return {
     type: RECEIVE_WHOLE_POSTS,
     posts,
     connectedUsers,
-    currentUserId,
   };
 };
 
@@ -42,8 +41,8 @@ export const clearPostErrors = () => {
   };
 };
 
-export const fetchPosts = (url, userId = null) => (dispatch) => {
-  return PostsApiUtil.fetchPosts(url, userId).then(
+export const fetchPosts = (userId = null) => (dispatch) => {
+  return PostsApiUtil.fetchPosts(userId).then(
     (payload) => dispatch(receiveWholePosts(payload)),
     (errors) => dispatch(receivePostErrors(errors.responseJSON))
   );

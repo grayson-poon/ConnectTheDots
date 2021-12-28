@@ -4,21 +4,22 @@ import PostIndex from "./post_index";
 import { 
   fetchPosts, 
   createPost, 
-  updatePost
 } from "../../../actions/post_actions";
-import { openModal } from "../../../actions/modal_actions";
+import { fetchUser } from "../../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
   return {
     users: state.entities.users,
     posts: state.entities.posts,
     url: ownProps.location.pathname,
+    currentUser: state.entities.users[state.session.currentUserId],
   };
 };
 
 const mDTP = (dispatch) => ({
-  fetchPosts: (url, userId) => dispatch(fetchPosts(url, userId)),
+  fetchPosts: (userId) => dispatch(fetchPosts(userId)),
   createPost: (post) => dispatch(createPost(post)),
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
 });
 
 export default withRouter(connect(mSTP, mDTP)(PostIndex));
