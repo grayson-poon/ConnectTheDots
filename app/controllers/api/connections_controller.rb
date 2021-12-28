@@ -1,7 +1,7 @@
 class Api::ConnectionsController < ApplicationController
   def index
     @current_user = current_user
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:user_id])
     @connected_users = @user.connected_users
     @pending_users = @user.pending_users
 

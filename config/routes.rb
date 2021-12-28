@@ -10,11 +10,10 @@ Rails.application.routes.draw do
     get '/users/:user_id/activity', to: 'posts#activity'
 
     resources :connections, only: [:destroy]
-    get '/connections/:id', to: 'connections#index'
+    get '/users/:user_id/connections', to: 'connections#index'
     post '/connections/:id', to: 'connections#create'
 
-    resources :comments, only: [:create, :update, :destroy]
-    get '/comments/:id', to: 'comments#index'
-    get '/single_comment/:id', to: 'comments#show'
+    resources :comments, only: [:create, :show, :update, :destroy]
+    get '/posts/:post_id/comments', to: 'comments#index'
   end
 end

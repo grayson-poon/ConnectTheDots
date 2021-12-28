@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
   def index
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:post_id])
     @current_user = current_user
     
     render "api/comments/all_comments"
