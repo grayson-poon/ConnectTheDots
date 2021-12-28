@@ -6,7 +6,7 @@
 #   ]
 # }
 
-json.comments @post.comments.sort_by(&:created_at) do |comment|
+json.comments @comments do |comment|
   json.id comment.id
   json.body comment.body
   json.user_id comment.user_id
