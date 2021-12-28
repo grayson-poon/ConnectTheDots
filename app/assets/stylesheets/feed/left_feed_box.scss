@@ -17,15 +17,14 @@ div.left-profile-box {
 }
 
 div.left-profile-background {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  overflow: hidden;
+  width: 200px;
+  height: auto;
 }
 
 div.left-profile-background > img {
   width: 205px;
   height: auto;
+  object-fit: cover;
 }
 
 div.left-profile-image {
@@ -40,20 +39,23 @@ div.left-profile-image {
   align-items: center;
   background-color: rgb(29, 34, 38);
   margin-top: 16px;
+  position: absolute;
 }
 
 div.left-profile-image > img {
-  width: auto;
+  width: 75px;
   height: 75px;
   object-fit: cover;
 }
 
 div.left-profile-info {
+  width: 100%;
   display: flex;
   flex-direction: column;
   list-style: none;
   align-items: center;
   padding-top: 15px;
+  margin-top: 32px;
 }
 
 div.left-profile-info > a {

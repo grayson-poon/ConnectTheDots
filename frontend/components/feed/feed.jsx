@@ -21,7 +21,7 @@ export default class Feed extends React.Component {
 
   postIndex() {
     let { currentUser } = this.props;
-
+    
     return (
       <div className="whole-feed-page">
         <LeftFeedBox currentUser={currentUser} />

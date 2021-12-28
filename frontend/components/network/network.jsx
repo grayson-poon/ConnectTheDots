@@ -6,35 +6,103 @@ import PendingIndexItem from "../connections/pending_index_item";
 
 export default class Network extends React.Component {
   componentDidMount() {
-    let { url, fetchConnections, currentUserId } = this.props;
-    
-    switch(url) {
+    let { url, fetchUser, fetchConnections, currentUserId } = this.props;
+
+    switch (url) {
       case MY_NETWORK:
         return fetchConnections(currentUserId);
       default:
-        return;
+        fetchUser(this.props.match.params.id);
+        return fetchConnections(this.props.match.params.id);
     }
   }
 
   render() {
-    let { currentUser, users } = this.props;
-    if (!currentUser || Object.keys(users).length <
-      currentUser.pendingIds.length + currentUser.connectionIds.length + 1
-    ) return null;
+    let { url } = this.props;
 
-    
+    switch (url) {
+      case MY_NETWORK:
+        return this.currentUser();
+      default:
+        return this.user();
+    }
+  }
+
+  user() {
+    let { user, users } = this.props;
+    if (!user || !user.connectionIds.every((id) => users[id])) {
+      return null;
+    }
+
+    return (
+      <div className="network-page">
+        <div className="gray-background"></div>
+        {user.connectionIds.length === 0
+          ? this.zeroConnections()
+          : this.moreThanZeroConnections(user)}
+      </div>
+    );
+  }
+
+  currentUser() {
+    let { currentUser, users } = this.props;
+
+    if (
+      !currentUser ||
+      !currentUser.connectionIds.every((id) => users[id]) ||
+      !currentUser.pendingIds.every((id) => users[id])
+    ) {
+      return null;
+    }
+
     return (
       <div className="network-page">
         <div className="gray-background"></div>
         {currentUser.pendingIds.length === 0
           ? this.zeroPending()
-          : this.moreThanZeroPending()
-        }
+          : this.moreThanZeroPending()}
 
         {currentUser.connectionIds.length === 0
           ? this.zeroConnections()
-          : this.moreThanZeroConnections()
-        }
+          : this.moreThanZeroConnections(currentUser)}
+      </div>
+    );
+  }
+
+  zeroConnections() {
+    return (
+      <div className="connections-index">
+        <div>Connections</div>
+        <div className="zero">No connections yet!</div>
+      </div>
+    );
+  }
+
+  moreThanZeroConnections(user) {
+    let { currentUser, users } = this.props;
+
+    return (
+      <div className="connections-index">
+        <div>{user.connectionIds.length} Connections</div>
+        <div className="connections-filter">
+          <div>Sort by:</div>
+          <button>Dropdown</button>
+          <div>
+            <img src={DROPDOWN_ICON} />
+          </div>
+        </div>
+        <div className="connections-list">
+          <ul>
+            {user.connectionIds.map((connectionId, idx) => (
+              <ConnectionIndexItem
+                key={idx}
+                connectedUser={users[connectionId]}
+                user={user}
+                currentUser={currentUser}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
@@ -57,40 +125,11 @@ export default class Network extends React.Component {
         <div className="pending-list">
           <ul>
             {currentUser.pendingIds.map((pendingId, idx) => (
-              <PendingIndexItem key={idx} user={users[pendingId]} currentUser={currentUser} />
-            ))}
-          </ul>
-        </div>
-      </div>
-    );
-  }
-
-  zeroConnections() {
-    return (
-      <div className="connections-index">
-        <div>Connections</div>
-        <div className="zero">No connections yet!</div>
-      </div>
-    );
-  }
-
-  moreThanZeroConnections() {
-    let { currentUser, users } = this.props;
-
-    return (
-      <div className="connections-index">
-        <div>{currentUser.connectionIds.length} Connections</div>
-        <div className="connections-filter">
-          <div>Sort by:</div>
-          <button>Dropdown</button>
-          <div>
-            <img src={DROPDOWN_ICON} />
-          </div>
-        </div>
-        <div className="connections-list">
-          <ul>
-            {currentUser.connectionIds.map((connectionId, idx) => (
-              <ConnectionIndexItem key={idx} user={users[connectionId]} />
+              <PendingIndexItem
+                key={idx}
+                user={users[pendingId]}
+                currentUser={currentUser}
+              />
             ))}
           </ul>
         </div>

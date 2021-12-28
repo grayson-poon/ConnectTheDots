@@ -6,6 +6,7 @@ import Network from "./network";
 const mSTP = (state, ownProps) => {
   return {
     users: state.entities.users,
+    user: state.entities.users[ownProps.match.params.id],
     url: ownProps.location.pathname,
     currentUserId: state.session.currentUserId,
     currentUser: state.entities.users[state.session.currentUserId]

@@ -140,10 +140,10 @@ div.post-picture {
 }
 
 div.post-picture img {
-  max-width: inherit;
-  max-height: 350px;
+  max-width: 498px;
+  height: 350px;
   width: auto;
-  height: auto;
+  object-fit: cover;
 }
 
 div.new-post-footer {

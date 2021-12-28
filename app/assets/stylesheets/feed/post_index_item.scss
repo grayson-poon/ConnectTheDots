@@ -136,10 +136,10 @@ div.post-picture {
 }
 
 div.post-picture > img {
-  max-height: 350px;
-  max-width: inherit;
-  height: auto;
+  height: 350px;
+  max-width: 498px;
   width: auto;
+  object-fit: cover;
 }
 
 .comments-header {

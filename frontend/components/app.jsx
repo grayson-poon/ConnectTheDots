@@ -25,6 +25,7 @@ const App = () => (
       <AuthRoute exact path={UrlPath.LOGIN_FORM} component={LoginFormContainer} />
       <ProtectedRoute path={UrlPath.FEED} component={FeedContainer} />
       <ProtectedRoute path={UrlPath.MY_NETWORK} component={NetworkContainer} />
+      <ProtectedRoute path={`/users/:id/connections`} component={NetworkContainer} />
       <ProtectedRoute path={UrlPath.USER_SHOW} component={ProfilePageContainer} />
       <AuthRoute exact path={UrlPath.SPLASH} component={SplashContainer} />
     </Switch>

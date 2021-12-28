@@ -128,6 +128,7 @@ class PostIndexItem extends React.Component {
       .then(() => {
         comment.body = "";
         this.setState({ comment });
+        this.setState({ showComments: true });
       });
   }
 

@@ -13,8 +13,12 @@ const ActivitySection = ({ user, openModal, currentUser }) => {
           : null
         }
       </div>
-
-      <Link to={MY_NETWORK}>{`${user.connectionIds.length} followers`}</Link>
+      
+      {currentUser.id === user.id
+        ? <Link to={MY_NETWORK}>{`${currentUser.connectionIds.length} followers`}</Link>
+        : <Link to={`/users/${user.id}/connections`}>{`${user.connectionIds.length} followers`}</Link>
+      }
+      
 
       <div className="activity-about">
         <p>Posts you created or commented on are displayed here</p>

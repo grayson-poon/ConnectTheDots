@@ -6,28 +6,31 @@ import { deleteConnections } from "../../actions/connection_actions";
 
 class ConnectionIndexItem extends React.Component {
   render() {
-    let { user } = this.props;
+    let { currentUser, user, connectedUser } = this.props;
 
+    debugger
     return (
       <div className="connection-index-item">
         <div className="pending-header">
-          <Link className="pending-image" to={`/users/${user.id}`}>
-            <img src={user.profilePicture
-              ? user.profilePicture
+          <Link className="pending-image" to={`/users/${connectedUser.id}`}>
+            <img src={connectedUser.profilePicture
+              ? connectedUser.profilePicture
               : DEFAULT_PROFILE_PICTURE
             } />
           </Link>
 
           <div className="pending-titles">
             <Link
-              to={`/users/${user.id}`}
-            >{`${user.firstName} ${user.lastName}`}</Link>
-            <div>{user.headline}</div>
+              to={`/users/${connectedUser.id}`}
+            >{`${connectedUser.firstName} ${connectedUser.lastName}`}</Link>
+            <div>{connectedUser.headline}</div>
           </div>
         </div>
 
         <div className="connection-buttons">
-          <button onClick={() => this.props.deleteConnections(user.id)}>Remove</button>
+          {currentUser.id === user.id
+            ? <button onClick={() => this.props.deleteConnections(connectedUser.id)}>Remove</button>
+            : null}
         </div>
       </div>
     );
