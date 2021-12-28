@@ -71,7 +71,7 @@ div.signup-buttons {
   padding-bottom: 16px;
 }
 
-div.signup-buttons > button {
+div.signup-buttons > button.active-signup-buttons {
   margin-top: 24px;
   background-color: rgb(10, 102, 194);
   border: none;
@@ -107,6 +107,20 @@ div.signup-buttons > button:hover {
 
 div.signup-buttons > input:hover {
   background-color: rgb(14, 89, 163);
+}
+
+div.signup-buttons > button.disabled-signup-button {
+  margin-top: 24px;
+  background-color: rgb(130, 133, 136);
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  width: 350px;
+  height: 50px;
+  border-radius: 24px;
 }
 
 div#signup-message {

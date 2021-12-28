@@ -141,10 +141,14 @@ export default class SignupForm extends React.Component {
           <div className="signup-buttons">
             {this.state.user.password.length >= 6 &&
             this.state.user.email.length > 0 ? (
-              <button onClick={this.updateFormNum} value={NEXT}>
+              <button className="active-signup-buttons" onClick={this.updateFormNum} value={NEXT}>
                 Next
               </button>
-            ) : null}
+            ) : (
+              <button className="disabled-signup-button" disabled onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            )}
           </div>
 
           <div id="signup-message">
@@ -211,11 +215,15 @@ export default class SignupForm extends React.Component {
           <div className="signup-buttons">
             {this.state.user.firstName.length > 0 &&
             this.state.user.lastName.length > 0 ? (
-              <button onClick={this.updateFormNum} value={NEXT}>
+              <button className="active-signup-buttons" onClick={this.updateFormNum} value={NEXT}>
                 Next
               </button>
-            ) : null}
-            <button onClick={this.updateFormNum} value={PREVIOUS}>
+            ) : (
+              <button className="disabled-signup-button" disabled onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            )}
+            <button className="active-signup-buttons" onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
           </div>
@@ -246,11 +254,15 @@ export default class SignupForm extends React.Component {
 
           <div className="signup-buttons">
             {this.state.user.currentLocation.length > 0 ? (
-              <button onClick={this.updateFormNum} value={NEXT}>
+              <button className="active-signup-buttons" onClick={this.updateFormNum} value={NEXT}>
                 Next
               </button>
-            ) : null}
-            <button onClick={this.updateFormNum} value={PREVIOUS}>
+            ) : (
+              <button className="disabled-signup-button" disabled onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            )}
+            <button className="active-signup-buttons" onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
           </div>
@@ -282,11 +294,15 @@ export default class SignupForm extends React.Component {
 
           <div className="signup-buttons">
             {this.state.user.headline.length > 0 ? (
-              <button onClick={this.updateFormNum} value={NEXT}>
+              <button className="active-signup-buttons" onClick={this.updateFormNum} value={NEXT}>
                 Next
               </button>
-            ) : null}
-            <button onClick={this.updateFormNum} value={PREVIOUS}>
+            ) : (
+              <button className="disabled-signup-button" disabled onClick={this.updateFormNum} value={NEXT}>
+                Next
+              </button>
+            )}
+            <button className="active-signup-buttons" onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
           </div>
@@ -326,10 +342,10 @@ export default class SignupForm extends React.Component {
           </div>
 
           <div className="signup-buttons">
-            <button onClick={this.updateFormNum} value={NEXT}>
+            <button className="active-signup-buttons" onClick={this.updateFormNum} value={NEXT}>
               Next
             </button>
-            <button onClick={this.updateFormNum} value={PREVIOUS}>
+            <button className="active-signup-buttons" onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
           </div>
@@ -357,7 +373,7 @@ export default class SignupForm extends React.Component {
 
           <div className="signup-buttons">
             <input type="submit" value={this.props.formType} />
-            <button onClick={this.updateFormNum} value={PREVIOUS}>
+            <button className="active-signup-buttons" onClick={this.updateFormNum} value={PREVIOUS}>
               Previous
             </button>
           </div>
