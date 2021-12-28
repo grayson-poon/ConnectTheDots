@@ -13,7 +13,7 @@ const LeftFeedBox = ({ currentUser }) => {
         <img src={DEFAULT_BACKGROUND_PICTURE} />
       </div>
 
-      <div className="left-profile-image">
+      <Link className="left-profile-image" to={`/users/${currentUser.id}`}>
         <img
           src={
             currentUser.profilePicture
@@ -21,7 +21,7 @@ const LeftFeedBox = ({ currentUser }) => {
               : DEFAULT_PROFILE_PICTURE
           }
         />
-      </div>
+      </Link>
 
       <div className="left-profile-info">
         <Link to={`/users/${currentUser.id}`}>
