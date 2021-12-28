@@ -17,18 +17,32 @@ export default class Network extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    let { fetchConnections, fetchUser, currentUserId } = this.props;
+
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      switch(this.props.location.pathname) {
+        case MY_NETWORK:
+          return fetchConnections(currentUserId);
+        default:
+          fetchUser(this.props.match.params.id);
+          return fetchConnections(this.props.match.params.id);
+      }
+    }
+  }
+
   render() {
     let { url } = this.props;
 
     switch (url) {
       case MY_NETWORK:
-        return this.currentUser();
+        return this.myNetwork();
       default:
-        return this.user();
+        return this.otherNetwork();
     }
   }
 
-  user() {
+  otherNetwork() {
     let { user, users } = this.props;
     if (!user || !user.connectionIds.every((id) => users[id])) {
       return null;
@@ -44,7 +58,7 @@ export default class Network extends React.Component {
     );
   }
 
-  currentUser() {
+  myNetwork() {
     let { currentUser, users } = this.props;
 
     if (
@@ -84,13 +98,13 @@ export default class Network extends React.Component {
     return (
       <div className="connections-index">
         <div>{user.connectionIds.length} Connections</div>
-        <div className="connections-filter">
+        {/* <div className="connections-filter">
           <div>Sort by:</div>
           <button>Dropdown</button>
           <div>
             <img src={DROPDOWN_ICON} />
           </div>
-        </div>
+        </div> */}
         <div className="connections-list">
           <ul>
             {user.connectionIds.map((connectionId, idx) => (
