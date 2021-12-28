@@ -22,7 +22,7 @@ json.posts @posts do |post|
   json.user_id post.user_id
   json.created_at distance_of_time_in_words(post.created_at, Time.now)
   json.post_picture url_for(post.photo) if post.photo.attached?
-  json.comment_ids post.comments.pluck(:id).reverse
+  json.comment_ids post.comments.sort_by(&:created_at).pluck(:id).reverse
 end
 
 json.connected_users @user.connected_users do |user|
