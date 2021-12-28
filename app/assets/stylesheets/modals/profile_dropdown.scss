@@ -35,6 +35,11 @@ div.profile-dropdown div.information {
   padding: 8px 8px 0 8px;
 }
 
+div.information {
+  display: flex;
+  flex-direction: row;
+}
+
 div.information div#image {
   display: flex;
   flex-direction: row;
@@ -42,6 +47,8 @@ div.information div#image {
   align-items: center;
   width: 70px;
   height: 70px;
+  min-width: 70px;
+  min-height: 70px;
   border-radius: 50%;
   overflow: hidden;
   margin: 7px 7px 7px 4px;
@@ -49,8 +56,8 @@ div.information div#image {
 }
 
 div.information div#image img {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
 }
 
@@ -58,7 +65,6 @@ div.information div#titles {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: min-content;
   overflow: auto;
 }
 
@@ -66,6 +72,7 @@ div.information div#titles ul {
   display: flex;
   flex-direction: column;
   padding-top: 8px;
+  vertical-align: top;
 }
 
 div.information div#titles ul li:first-child {
