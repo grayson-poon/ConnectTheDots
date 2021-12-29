@@ -32,11 +32,14 @@ const ProfileDropdown = ({ currentUser, logout, showModal }) => {
         </div>
 
         <div className="view-profile">
-          <Link to={`/users/${currentUser.id}`}>View Profile</Link>
+          <Link to={`/users/${currentUser.id}`} onClick={showModal}>View Profile</Link>
         </div>
 
         <div className="logout-user">
-          <button onClick={logout}>Sign Out</button>
+          <button onClick={() => {
+            showModal();
+            logout();
+          }}>Sign Out</button>
         </div>
       </div>
     </div>

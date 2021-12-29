@@ -29,12 +29,6 @@ export default class Navbar extends React.Component {
     this.setState({ profileDropdown: false });
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.url !== prevProps.url) {
-      this.setState({ profileDropdown: false });
-    }
-  }
-
   render() {
     switch (this.props.url) {
       case UrlPath.SPLASH:
@@ -50,7 +44,7 @@ export default class Navbar extends React.Component {
   }
 
   showModal(event) {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({
       profileDropdown: this.state.profileDropdown ? false : true,
     });
