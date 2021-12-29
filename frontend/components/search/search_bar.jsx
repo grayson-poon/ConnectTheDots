@@ -7,6 +7,7 @@ export default class SearchBar extends React.Component {
     this.state = {
       searchValue: "",
     }
+    this.closeSearch = this.closeSearch.bind(this);
   }
 
   updateSearch() {
@@ -21,21 +22,40 @@ export default class SearchBar extends React.Component {
 
     return (
       <div className="search-bar">
-        <input type="text" onChange={this.updateSearch()} placeholder="Search..." />
-        <div className="results-index">
-          <ul>
-            {searchResults.length === 0 ? null : (
-              searchResults.map((user, idx) => {
-                return <ResultsIndexItem 
-                  key={idx} 
-                  user={user}
-                  currentUser={currentUser}
-                />
-              })
-            )}
-          </ul>
-        </div>
+        <input
+          type="text"
+          onChange={this.updateSearch()}
+          placeholder="Search..."
+          value={this.state.searchValue}
+        />
+
+        {this.state.searchValue.length > 0 ? (
+          <div className="results-background" onClick={this.closeSearch}></div>
+        ) : null}
+
+        {searchResults.length === 0 ? null : (
+          <div className="results-index">
+            <ul>
+              {searchResults.map((user, idx) => {
+                return (
+                  <ResultsIndexItem
+                    key={idx}
+                    user={user}
+                    currentUser={currentUser}
+                    closeSearch={this.closeSearch}
+                  />
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </div>
     );
+  }
+
+  closeSearch(event) {
+    event.preventDefault();
+    this.setState({ searchValue: "" });
+    this.props.clearSearch();
   }
 }
