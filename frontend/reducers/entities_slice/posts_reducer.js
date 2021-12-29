@@ -14,10 +14,10 @@ const postsReducer = (state = {}, action) => {
   let post;
   let idx;
 
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_WHOLE_POSTS:
       newState = {};
-      
+
       action.posts.map((post) => {
         newState[post.id] = post;
       });
@@ -29,8 +29,6 @@ const postsReducer = (state = {}, action) => {
     case REMOVE_POST:
       delete newState[action.post.id];
       return newState;
-    case LOGOUT_CURRENT_USER:
-      return _nullPosts;
     case RECEIVE_COMMENT:
       post = newState[action.comment.postId];
 
@@ -49,6 +47,8 @@ const postsReducer = (state = {}, action) => {
       }
 
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return _nullPosts;
     default:
       return state;
   };
