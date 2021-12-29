@@ -7,6 +7,8 @@ export default class SearchBar extends React.Component {
     this.state = {
       searchValue: "",
     }
+    
+    this.updateSearch = this.updateSearch.bind(this);
     this.closeSearch = this.closeSearch.bind(this);
   }
 
