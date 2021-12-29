@@ -15,7 +15,7 @@ class Api::PostsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     @posts = (@user.posts + @user.posts_commented_on).sort_by(&:created_at)
 
-    render "api/posts/index"
+    render "api/posts/activity"
   end
 
   def create

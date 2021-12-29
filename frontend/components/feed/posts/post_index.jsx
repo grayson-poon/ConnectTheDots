@@ -43,10 +43,17 @@ export default class PostIndex extends React.Component {
     return (
       <div className="post-index-background">
         <div className="post-index">
-          {this.postsList() || this.zeroActivity()}
+          {this.postsList() ? (
+            <>
+              <div className="activity-header-2">Activity</div>
+              {this.postsList()}
+            </>
+          ) : (
+            this.zeroActivity()
+          )}
         </div>
       </div>
-    )
+    );
   }
 
   postsList() {
