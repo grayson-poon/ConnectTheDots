@@ -1,3 +1,13 @@
+.clear-results-background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 70px;
+  width: 100vw;
+  z-index: 3;
+  background-color: transparent;
+}
+
 .results-background {
   position: fixed;
   top: 70px;

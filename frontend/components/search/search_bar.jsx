@@ -32,7 +32,10 @@ export default class SearchBar extends React.Component {
         />
 
         {this.state.searchValue.length > 0 ? (
-          <div className="results-background" onClick={this.closeSearch}></div>
+          <>
+            <div className="clear-results-background" onClick={this.closeSearch}></div>
+            <div className="results-background" onClick={this.closeSearch}></div>
+          </>
         ) : null}
 
         {searchResults.length === 0 ? null : (
