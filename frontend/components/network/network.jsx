@@ -97,14 +97,14 @@ export default class Network extends React.Component {
 
     return (
       <div className="connections-index">
-        <div>{user.connectionIds.length} Connections</div>
-        {/* <div className="connections-filter">
-          <div>Sort by:</div>
-          <button>Dropdown</button>
-          <div>
-            <img src={DROPDOWN_ICON} />
-          </div>
-        </div> */}
+        {currentUser.id === user.id ? (
+          user.connectionIds.length === 1
+            ? <div>{user.connectionIds.length} Connection</div>
+            : <div>{user.connectionIds.length} Connections</div>
+        ) : (
+          <div>Connections for {user.firstName} {user.lastName}</div>
+        )}
+        
         <div className="connections-list">
           <ul>
             {user.connectionIds.map((connectionId, idx) => (
