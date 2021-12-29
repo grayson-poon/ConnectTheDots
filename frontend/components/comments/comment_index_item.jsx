@@ -38,11 +38,13 @@ class CommentIndexItem extends React.Component {
           <div className="comment-header-titles">
             <div>
               {user.firstName.length + user.lastName.length > 36 ? (
-                <Link>
+                <Link to={`/users/${user.id}`}>
                   {`${(user.firstName + " " + user.lastName).slice(0, 37)}...`}
                 </Link>
               ) : (
-                <Link>{`${user.firstName} ${user.lastName}`}</Link>
+                <Link to={`/users/${user.id}`}>
+                  {`${user.firstName} ${user.lastName}`}
+                </Link>
               )}
 
               {user.pronouns ? (
