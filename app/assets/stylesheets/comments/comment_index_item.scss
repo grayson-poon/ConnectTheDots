@@ -61,9 +61,16 @@
   height: min-content;
 }
 
-.comment-header-titles > div:first-child > div:first-child {
+.comment-header-titles > div:first-child > a {
   color: black;
   font-weight: 600;
+  text-decoration: none;
+}
+
+.comment-header-titles > div:first-child > a:hover {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
 }
 
 .comment-header-titles > div:first-child > div:last-child {
@@ -90,6 +97,8 @@
 .comment-header-util {
   width: 16px;
   height: 16px;
+  min-height: 16px;
+  min-width: 16px;
   overflow: hidden;
   border-radius: 50%;
   display: flex;
@@ -104,6 +113,9 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+  width: 16px;
+  height: 16px;
+  
 }
 
 .comment-header-util > button:hover {

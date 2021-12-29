@@ -31,13 +31,15 @@ a.post-header-image {
   align-items: center;
   width: 48px;
   height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   border-radius: 50%;
   overflow: hidden;
   background-color: rgb(29, 34, 38);
 }
 
 a.post-header-image > img {
-  width: auto;
+  width: 48px;
   height: 48px;
   object-fit: cover;
 }

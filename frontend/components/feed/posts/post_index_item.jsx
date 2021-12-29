@@ -39,8 +39,8 @@ class PostIndexItem extends React.Component {
           <div className="post-header-titles">
             <div id="name-pronouns">
               <Link to={`/users/${user.id}`}>
-                {user.firstName.length + user.lastName.length > 16 ? (
-                  <>{`${(user.firstName + " " + user.lastName).slice(0, 17)}...`}</>
+                {user.firstName.length + user.lastName.length > 36 ? (
+                  <>{`${(user.firstName + " " + user.lastName).slice(0, 37)}...`}</>
                 ) : (
                   <>{`${user.firstName} ${user.lastName}`}</>
                 )}

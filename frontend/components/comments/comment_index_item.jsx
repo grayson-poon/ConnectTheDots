@@ -37,8 +37,19 @@ class CommentIndexItem extends React.Component {
         <div className="comment">
           <div className="comment-header-titles">
             <div>
-              <div>{`${user.firstName} ${user.lastName}`}</div>
-              <div>{`(${user.pronouns})`}</div>
+              {/* <Link>{`${user.firstName} ${user.lastName}`}</Link> */}
+              {user.firstName.length + user.lastName.length > 36 ? (
+                <Link>{`${(user.firstName + " " + user.lastName).slice(0, 37)}...`}</Link>
+              ) : (
+                <Link>{`${user.firstName} ${user.lastName}`}</Link>
+              )}
+
+
+              {user.pronouns ? (
+                <div>{`(${user.pronouns})`}</div>
+              ) : (
+                <div>{null}</div>
+              )}
             </div>
 
             <div>
@@ -61,20 +72,30 @@ class CommentIndexItem extends React.Component {
                 <textarea
                   id="textarea"
                   type="text"
+                  rows="5"
                   value={this.state.comment.body}
                   onChange={this.updateField("body")}
                 />
                 <div className="comment-buttons">
                   {this.state.comment.body.length > 0 ? (
-                    <button onClick={(event) => {
-                      this.props.updateComment({ comment: this.state.comment })
-                        .then(() => this.editComment(event));
-                    }}>Save Changes</button>
+                    <button
+                      onClick={(event) => {
+                        this.props
+                          .updateComment({ comment: this.state.comment })
+                          .then(() => this.editComment(event));
+                      }}
+                    >
+                      Save Changes
+                    </button>
                   ) : null}
-                  <button onClick={(event) => {
-                    this.setState({ comment });
-                    this.editComment(event);
-                  }}>Cancel</button>
+                  <button
+                    onClick={(event) => {
+                      this.setState({ comment });
+                      this.editComment(event);
+                    }}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             ) : (
