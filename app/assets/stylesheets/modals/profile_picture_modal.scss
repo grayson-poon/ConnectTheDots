@@ -59,7 +59,9 @@ div.current-image {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  min-width: 280px;
   width: 280px;
+  min-height: 280px;
   height: 280px;
   overflow: hidden;
   border-radius: 50%;
@@ -68,7 +70,7 @@ div.current-image {
 
 div.current-image img {
   height: 280px;
-  width: auto;
+  width: 280px;
   object-fit: cover;
 }
 
