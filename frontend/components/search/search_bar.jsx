@@ -21,7 +21,7 @@ export default class SearchBar extends React.Component {
 
     return (
       <div className="search-bar">
-        <input type="text" onChange={this.updateSearch()} />
+        <input type="text" onChange={this.updateSearch()} placeholder="Search..." />
         <div className="results-index">
           <ul>
             {searchResults.length === 0 ? null : (

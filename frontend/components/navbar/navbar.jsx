@@ -101,13 +101,14 @@ export default class Navbar extends React.Component {
 
     return (
       <div className="session-navbar">
-        <div className="logo">
-          <Link to={UrlPath.FEED}>
-            <img src={NAVICON_URL} />
-          </Link>
+        <div className="search-container">
+          <div className="logo">
+            <Link to={UrlPath.FEED}>
+              <img src={NAVICON_URL} />
+            </Link>
+          </div>
+          <SearchBarContainer currentUser={currentUser} />
         </div>
-
-        <SearchBarContainer currentUser={currentUser} />
 
         <div className="icons">
           <div id="feed">
