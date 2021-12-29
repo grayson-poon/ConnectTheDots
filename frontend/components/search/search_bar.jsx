@@ -1,4 +1,5 @@
 import React from "react";
+import ResultsIndexItem from "./results_index_item";
 
 export default class SearchBar extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    let { searchResults } = this.props;
+    let { searchResults, currentUser } = this.props;
 
     return (
       <div className="search-bar">
@@ -25,7 +26,11 @@ export default class SearchBar extends React.Component {
           <ul>
             {searchResults.length === 0 ? null : (
               searchResults.map((user, idx) => {
-                return <li key={idx}>{user.firstName} {user.lastName}</li>
+                return <ResultsIndexItem 
+                  key={idx} 
+                  user={user}
+                  currentUser={currentUser}
+                />
               })
             )}
           </ul>

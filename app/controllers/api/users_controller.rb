@@ -46,7 +46,8 @@ class Api::UsersController < ApplicationController
         "lower(first_name) LIKE ? OR lower(last_name) LIKE ?", 
         "%#{params[:search_value].downcase}%",
         "%#{params[:search_value].downcase}%"
-      )
+      ).limit(8)
+      
       render "api/users/search_results"
     end
   end

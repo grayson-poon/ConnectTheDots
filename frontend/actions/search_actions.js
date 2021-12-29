@@ -4,7 +4,6 @@ export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 export const RECEIVE_SEARCH_ERRORS = "RECEIVE_SEARCH_ERRORS";
 
 const receiveSearchResults = ({ users }) => {
-  console.log(users);
   return {
     type: RECEIVE_SEARCH_RESULTS,
     users,

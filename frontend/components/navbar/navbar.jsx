@@ -9,7 +9,7 @@ import {
   MY_NETWORK_ICON, 
   NAVICON_URL 
 } from "../../util/images_and_icons_util";
-import SearchBarContainer from "../search_bar/search_bar_container";
+import SearchBarContainer from "../search/search_bar_container";
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -107,7 +107,7 @@ export default class Navbar extends React.Component {
           </Link>
         </div>
 
-        <SearchBarContainer />
+        <SearchBarContainer currentUser={currentUser} />
 
         <div className="icons">
           <div id="feed">
