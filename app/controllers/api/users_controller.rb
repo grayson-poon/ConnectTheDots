@@ -36,6 +36,21 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    @current_user = current_user
+    
+    if params[:search_value].length == 0
+      render json: { users: [] }
+    else
+      @users = User.where(
+        "lower(first_name) LIKE ? OR lower(last_name) LIKE ?", 
+        "%#{params[:search_value].downcase}%",
+        "%#{params[:search_value].downcase}%"
+      )
+      render "api/users/search_results"
+    end
+  end
+
   private
 
   def user_params
