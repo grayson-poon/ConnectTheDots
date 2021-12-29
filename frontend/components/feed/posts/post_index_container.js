@@ -9,6 +9,7 @@ const mSTP = (state, ownProps) => {
     users: state.entities.users,
     posts: state.entities.posts,
     url: ownProps.location.pathname,
+    user: state.entities.users[ownProps.match.params.userId],
     currentUser: state.entities.users[state.session.currentUserId],
   };
 };

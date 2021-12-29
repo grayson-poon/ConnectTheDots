@@ -7,14 +7,18 @@ const ResultsIndexItem = ({ user, currentUser, closeSearch }) => {
     <li className="results-index-item" onClick={closeSearch}>
       <Link to={`/users/${user.id}`}>
         <div className="search-titles">
-          <div>{user.firstName} {user.lastName}</div>
+          {user.firstName.length + user.lastName.length > 16 ? (
+            <div>{`${(user.firstName + " " + user.lastName).slice(0, 17)}...`}</div>
+          ) : (
+            <div>{user.firstName} {user.lastName}</div>
+          )}
 
           {user.id === currentUser.id ? (
             <div className="self-identifier">(You)</div>
           ) : null}
 
-          {user.headline.length > 36 ? (
-            <div>{`${user.headline.slice(0, 37)}...`}</div>
+          {user.headline.length > 30 ? (
+            <div>{`${user.headline.slice(0, 31)}...`}</div>
           ) : (
             <div>{user.headline}</div>
           )}

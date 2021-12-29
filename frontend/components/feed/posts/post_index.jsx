@@ -40,12 +40,16 @@ export default class PostIndex extends React.Component {
   }
 
   showActivity() {
+    let { user } = this.props;
+
     return (
       <div className="post-index-background">
         <div className="post-index">
           {this.postsList() ? (
             <>
-              <div className="activity-header-2">Activity</div>
+              <div className="activity-header-2">
+                {`${user.firstName} ${user.lastName}'s`} Activity
+              </div>
               {this.postsList()}
             </>
           ) : (
