@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>ConnectTheDots</title>
-    <meta name="description" content="ConnectTheDots App" />
+    <meta property="og:title" content="ConnectTheDots" />
+    <meta property="og:description" content="ConnectTheDots App" />
     <meta property="og:type" content="Website" />
-    <meta name="image" property="og:image" content="https://github.com/grayson-poon/ConnectTheDots/blob/main/app/assets/images/thumbnail.jpg?raw=true" />
-    <meta name="description" property="og:description" content="ConnectTheDots App" />
+    <meta property="og:image" content=" <%= image_url('thumbnail.jpg')%> " />
+    <meta property="og:url" content="https://connect-the-dots-grayson-poon.herokuapp.com/#/" />
     <meta name="author" content="Grayson Poon" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
