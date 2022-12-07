@@ -4,6 +4,18 @@ ConnectTheDots is a functional LinkedIn clone that allows a user to build a prof
 
 Live Link: [ConnectTheDots](https://connect-the-dots-grayson-poon.herokuapp.com/)
 
+## Local Setup
+
+Node.js version 10.13.0 and npm version 6.4.1 are required to run this project locally.
+
+1. Navigate to the [repository on GitHub](https://github.com/grayson-poon/ConnectTheDots)
+2. Clone the repository or download as .zip
+3. Open the project and install your dependencies using `npm install`
+4. Start your rails server with `rails s`
+5. Bundle frontend assets using Webpack with `npm start` (see scripts in package.json)
+6. Open a new browser window and navigate to http://localhost:3000/#/
+
+
 ## Technologies Used
 
 * React
@@ -117,5 +129,4 @@ updateFormNum(event) {
 
 ## Future Directions
 
-* User Search Functionality
 * Uploading previous work history and education
