@@ -41,7 +41,7 @@ Node.js version 10.13.0 and npm version 6.4.1 are required to run this project l
 
 * Users can add/edit/delete their profile picture and attached photos to their posts.
 * Before uploading a photo, the user will see a preview of what the photo will look like on the application.
-* Users can remove their profile picutre and any photo attached to their posts.
+* Users can remove their profile picture and any photo attached to their posts.
 
 ## Code Snippets
 
